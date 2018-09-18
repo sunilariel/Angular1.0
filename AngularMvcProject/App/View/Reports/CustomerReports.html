@@ -1,0 +1,401 @@
+﻿<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+
+
+<style>
+    .dx-list:not(.dx-list-select-decorator-enabled) .dx-list-item.dx-state-focused {
+        background-color: #00bbc5 !important;
+        color: #fff !important;
+    }
+
+    .dx-list:not(.dx-list-select-decorator-enabled) .dx-list-item.dx-list-item-selected {
+        background-color: #00bbc5 !important;
+        color: #fff !important;
+    }
+
+    .dx-list:not(.dx-list-select-decorator-enabled) .dx-list-item.dx-state-hover {
+        background-color: #00bbc5 !important;
+        color: #fff !important;
+    }
+
+    .gre_bg.buttons_sec.text-right.margin_top20 a {
+        margin-top: 20px;
+    }
+</style>
+
+<div ng-app="bookingApp">
+
+
+    <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px;" ng-if="IsVisible"><span class="noDisplay" style="background:yellow; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+
+    <header class="top">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid" style="padding: 0;">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" ng-click="" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        <a class="logo-sec" href="https://ibb.co/dg9iJd"><img src="https://thumb.ibb.co/dg9iJd/booking_com.png" alt="booking_com" border="0"></a>
+                        <p><a ng-click="leftSideClick()"><img src="https://thumb.ibb.co/kbHWOd/icon.png" alt="icon" border="0"></a></p>
+                    </div>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="Mgt-upgrade_btn"><a href="#" title="">Upgrade</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fas fa-bell"></i> <span class="caret"></span> </a>
+
+                            <!-- /.dropdown-user -->
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li id="my_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-user bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">test@gmail.com</h3>
+                                            <p class="nav-dropdown-desc-text">Username/password</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="account_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-account-plan bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Account Plan</h3>
+                                            <p class="nav-dropdown-desc-text">Update account</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-cog bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Refresh</h3>
+                                            <p class="nav-dropdown-desc-text">Updates the Page</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="sign_out" class="nav-dropdown-li-last">
+                                    <a ng-click="Logout()" class="cursorhand">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-log-out bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Sign Out</h3>
+                                            <p class="nav-dropdown-desc-text">See you soon!</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="bookingMgt-icon-user nav_user_icon"></i> <span class="caret"></span> </a>
+
+                            <!-- /.dropdown-user -->
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li id="my_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-user bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">{{companyEmail}}</h3>
+                                            <p class="nav-dropdown-desc-text">Username/password</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="account_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-account-plan bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Account Plan</h3>
+                                            <p class="nav-dropdown-desc-text">Update account</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-cog bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Refresh</h3>
+                                            <p class="nav-dropdown-desc-text">Updates the Page</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="sign_out" class="nav-dropdown-li-last">
+                                    <a ng-click="Logout()" class="cursorhand">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-log-out bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Sign Out</h3>
+                                            <p class="nav-dropdown-desc-text">See you soon!</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="clearfix"> </div>
+        <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px;" ng-if="IsVisible"><span class="noDisplay" style="background:yellow; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+
+    </header>
+
+
+
+    <div class="left_sidebar sidebtipt show-leftbar">
+        <ul class="nav">
+            <li class="" id="bookingMgt-dashboard">
+                <a ng-click="redirecttodashboard()" style="cursor:pointer;" data-toggle="tab" class="" id="startDashboard"><i class="fas fa-home"></i><small>Dashboard</small></a>
+            </li>
+            <li class="" id="bookingMgt-calendar">
+                <a ng-click="redirectToCalendar()" data-toggle="tab" class="" id="startCalendar"><i class="fas fa-calendar-alt"></i><small>Calendar</small></a>
+            </li>
+            <li class="" id="bookingMgt-customers" title="">
+                <a ng-click="redirecttoCustomer()" style="cursor:pointer;" data-toggle="tab" class="" id="side-nav-customers"><i class="fas fa-user-friends"></i><small>Customers</small></a>
+            </li>
+
+
+            <li class="dropdown" id="bookingMgt-settings_new">
+                <a ng-click="" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><small>Settings</small></a>
+                <ul class="dropdown-menu">
+                    <li ng-click="RedirecttoStaff()" id="redirecttostaffactive" class=""><a class="staffCss">Staff</a></li>
+                    <li ng-click="redirecttoServices()" id="redirecttoservicesactive"><a class="staffCss">Service</a></li>
+                </ul>
+            </li>
+            <li class="reports dropdown active" id="bookingMgt-settings_new">
+                <a ng-click="" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-chart-line"></i><small>Reports</small></a>
+                <ul class="dropdown-menu">
+                    <li ng-click="RedirecttoReport()"><a class="staffCss">Business</a></li>
+                    <li ng-click="RedirecttoResourceReport()"><a class="staffCss">Resource</a></li>
+                    <li ng-click="RedirecttoServiceReport()"><a class="staffCss">Service</a></li>
+                    <li ng-click="RedirecttoCustomerReport()"><a class="staffCss">Customer</a></li>
+                </ul>
+            </li>
+
+
+
+        </ul>
+    </div>
+
+    <div class="right_section" id="settings" ng-class="{'rightFullWidth': isActive}">
+        <!--<div class="tabs_section" style="width: 100px;">
+            <ul class="nav nav-tab nav-stacked">
+                <li>
+                    <a ng-click="RedirecttoBuisnessReport()" title="Business" data-toggle="tab" class="cursorhand">
+                        <i class="bookingMgt-icon-equalizer nav-icon-fsize"></i><br>
+                        BUISNESS
+                    </a>
+                </li>
+                <li >
+                    <a ng-click="RedirecttoResourceReport()" title="Resource" class="cursorhand"  data-toggle="tab">
+                        <i class="bookingMgt-icon-users2 nav-icon-fsize"></i><br>
+                        RESOURCE
+                    </a>
+                </li>
+                <li>
+                    <a ng-click="RedirecttoServiceReport()" title="Service" class="cursorhand" data-toggle="tab">
+                        <i class="bookingMgt-icon-truck nav-icon-fsize"></i><br>
+                        SERVICE
+                    </a>
+                </li>
+                <li class="active" id="bookinhMgt-paymentMainTab" style="">
+                    <a ng-click="RedirecttoCustomerReport()" title="Customer" data-toggle="tab" class="cursorhand">
+                        <i class="bookingMgt-icon-cashier nav-icon-fsize"></i><br>
+                        CUSTOMER
+                    </a>
+                </li>
+
+            </ul>
+        </div>-->
+
+        <div class="tabs-_section" style="width: 100px;">
+            <div class="section_tab" ng-init="init()">
+                <ul class="nav nav-tab nav-stacked">
+                    <!--<li id="active-business" ng-click="RedirecttoBuisnessReport()">
+                        <a title="Business" data-toggle="tab" class="cursorhand servics">
+
+                            BUISNESS
+                        </a>
+                    </li>
+                    <li id="active-resource" ng-click="RedirecttoResourceReport()">
+                        <a title="Resource" class="cursorhand servics" data-toggle="tab">
+
+                            RESOURCE
+                        </a>
+                    </li>
+                    <li id="active-service" ng-click="RedirecttoServiceReport()">
+                        <a title="Service" class="cursorhand servics" data-toggle="tab">
+
+                            SERVICE
+                        </a>
+                    </li>-->
+                    <li ng-click="RedirecttoCustomerReport()" class="staff_sec" id="bookinhMgt-paymentMainTab" style="">
+                        <a title="Customer" data-toggle="tab" class="cursorhand servics">
+
+                            CUSTOMER
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="right_tabcontent">
+                    <div class="business_content">
+                        <h3> Top 25 Customers Report </h3>
+                        <div class="gre_bg time_frame">
+                            <div class="row">
+                                <div class="col-sm-3 text-left">
+                                    <h4 class="resource_hd">Customer</h4>
+                                </div>
+                                <div class="col-sm-9 text-right resources_div">
+                                    <label class="all resources" for="timeframe_today">
+                                        All Customer
+                                        <input type="checkbox" name="timeframe" value="AllCustomer" id="" ng-model="checked" ng-click="GetAllCustomerReport(checked)">
+                                    </label>
+                                    <select ng-disabled="allcustomerchecked" ng-model="SelectedCustomer" ng-change="CustomerChange(SelectedCustomer)">
+                                        <option ng-repeat="item in ListofCustomers" value="{{item.Id}}">{{item.FirstName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gre_bg time_frame margin_top20">
+                            <div class="row">
+                                <div class="col-sm-4 text-left">
+                                    <h4> Time Frame </h4>
+                                </div>
+                                <div class="col-sm-8 text-right">
+                                    <label class="all" for="timeframe_today">
+                                        Today
+                                        <input type="radio" name="timeframe" value="today" ng-model="time" ng-click="GetTimeFrame(time)" id="timeframe_today">
+                                    </label>
+                                    <label class="all" for="timeframe_thisweek">
+                                        This Week
+                                        <input type="radio" name="timeframe" value="thisweek" ng-model="time" ng-click="GetTimeFrame(time)" id="timeframe_thisweek">
+                                    </label>
+
+                                    <label class="all" for="timeframe_thismonth">
+                                        This Month
+                                        <input type="radio" name="timeframe" value="thismonth" ng-model="time" ng-click="GetTimeFrame(time)" id="timeframe_thismonth" checked="checked">
+                                    </label>
+                                    <label class="all" for="timeframe_thisyear">
+                                        This Year
+                                        <input type="radio" name="timeframe" value="thisyear" ng-model="time" ng-click="GetTimeFrame(time)" id="timeframe_thisyear">
+                                    </label>
+                                    <label class="all" for="timeframe_custom">
+                                        Custom
+                                        <input type="radio" name="timeframe" value="custom" ng-model="time" ng-click="GetTimeFrame(time)" id="timeframe_custom">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="gre_bg buttons_sec text-right margin_top20">
+                            <div class="row" ng-show="CustomerReportTimeFrame">
+                                <div class="col-md-6">
+                                    <div class="betweenDateDiv">
+                                        <label class="beetweenlabel">Between:</label>
+                                        <div class="dateBtnDiv">
+                                            <select class="form-control dateselect" ng-model="SelectedStartDate" ng-change="GetTimeFrameReports()">
+                                                <option ng-repeat="item in Date" value="{{item}}">{{item}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="dateBtnDiv">
+                                            <select class="form-control dateselect" ng-model="SelectedStartMonth" ng-change="GetTimeFrameReports()">
+                                                <option ng-repeat="item in Months">{{item}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="dateBtnDiv">
+                                            <select class="form-control dateselect" ng-model="SelectedStartYear" ng-change="GetTimeFrameReports()">
+                                                <option ng-repeat="item in Years">{{item}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="betweenDateDiv">
+                                        <label class="beetweenlabel">and</label>
+                                        <div class="dateBtnDiv">
+                                            <select class="form-control dateselect" ng-model="SelectedEndDate" ng-change="GetTimeFrameReports()">
+                                                <option ng-repeat="date in Date">{{date}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="dateBtnDiv">
+                                            <select class="form-control dateselect" ng-model="SelectedEndMonth" ng-change="GetTimeFrameReports()">
+                                                <option ng-repeat="month in Months">{{month}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="dateBtnDiv">
+                                            <select class="form-control dateselect" ng-model="SelectedEndYear" ng-change="GetTimeFrameReports()">
+                                                <option ng-repeat="year in Years">{{year}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="cursorhand" ng-csv="CustomerReportDetail" filename="CustomerReports.csv" csv-header="['Customer','Bookings','Revenue']"> <i class="fas fa-download"></i> Download as CSV </a>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="inner_busscontent">
+                            <h3 ng-if="time!='today'">
+                                Showing data for {{StartDate | date :"dd MMM yyyy"}} to {{EndDate | date :"dd MMM yyyy"}}
+                            </h3>
+                            <h3 ng-if="time=='today'">
+                                Showing data for {{StartDate | date :"dd MMM yyyy"}}
+                            </h3>
+                            <div class="customer_table">
+                                <div class="table-responsive table_1">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th ng-click="GetCustomerReportbyOrder('CustomerFirstName')">Customer<i class="table-sort fa fa-sort" aria-hidden="true"></i> </th>
+                                                <th ng-click="GetCustomerReportbyOrder('TotalBookings')">Bookings<i class="table-sort fa fa-sort" aria-hidden="true"></i></th>
+                                                <th ng-click="GetCustomerReportbyOrder('TotalConfirmedRevenue')">Revenue<i class="table-sort fa fa-sort" aria-hidden="true"></i></th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in CustomerReportDetail">
+                                                <!--<td><a target="_blank" href="#">{{item.Customer}}</a></td>-->
+                                                <td>{{item.Customer}}</td>
+                                                <td>{{item.Bookings}}</td>
+                                                <td>{{item.Revenue}}</td>
+                                            </tr>
+                                            <tr ng-if="CustomerReportLoader">
+                                                <td></td>
+                                                <td><img src="/Content/Assets/images/ImpoliteLivelyGenet13.gif" /></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+

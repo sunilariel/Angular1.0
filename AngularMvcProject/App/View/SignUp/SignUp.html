@@ -1,0 +1,59 @@
+﻿<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+
+
+
+<style>
+    @import url('../../../Content/LoginCss/util.css');
+    @import url('../../../Content/LoginCss/main.css');
+</style>
+
+<div ng-controller="SignUp" class="limiter">
+    <div class="container-login100" style="">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+            <form name="myForm" ng-submit="submitTheForm(myForm)" novalidate class="login100-form validate-form">
+                <div class="login100-form-title p-b-49">
+                    <h2><span>Create an Account for</span> Free!</h2>
+                    <p> Get a free account in 30 seconds. No credit card required.</p>
+                </div>
+                <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                    <span class="label-input100">Username</span>
+                    <input type="text" class="input100 usernameField" placeholder="Type your username" name="username" ng-model="username" required>
+                    <i class="
+                       "></i>
+                </div>
+                <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                    <span class="label-input100">Email</span>
+                    <input type="email" class="input100 usernameField" placeholder="Type youre mail" name="email" ng-model="Email" required>
+                    <i class="far fa-envelope"></i>
+                </div>
+                <div class="wrap-input100 validate-input m-b-23" data-validate="Password is required">
+                    <span class="label-input100">Password</span>
+                    <input type="password" class="input100 usernameField" placeholder="Type your password" name="password" ng-model="Password" required>
+                    <i class="fas fa-unlock-alt"></i>
+                </div>
+                <div class="text-right p-t-8 p-b-31">
+                    <a href="#">
+                    </a>
+                </div>
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button type="submit" class="login100-form-btn">Create My Account!</button>
+                    </div>
+                </div>
+                <div class="text-right p-t-8 p-b-31">
+                    <a href="#">
+                    </a>
+                </div>
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" ng-click="signin()">Sign In</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div style="width: 45%; text-align: center;position: absolute;z-index: 999999; top:80px;" ng-if="IsVisible"><span class="" style="background:#2089da; padding:5px 15px; color:#fff; border-radius:3px; font-size:14px;" ng-bind="MessageText"></span></div>
+    </div>
+</div>

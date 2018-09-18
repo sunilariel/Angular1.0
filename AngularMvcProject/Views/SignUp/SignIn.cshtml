@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="~/Content/Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Assets/fonts/Font_stylesheet.css" rel="stylesheet">
+    <link href="~/Content/Assets/css/icon.css" rel="stylesheet">
+    <link href="~/Content/Assets/css/custom.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="~/App/controller/SignIn.js"></script>
+    <script src="~/App/controller/app.module.js"></script>
+    <script src="~/App/service/service.js"></script>
+</head>
+
+<body ng-app="MyApp" ng-controller="SignIn">
+
+    <div class="sign_up">
+        <div class="sign_inner">
+            <div class="sign_inner2">
+                <div class="sign_box">
+                    <div class="popup_headaer text-center">
+                        <h1><span style="font-weight: normal;">Sign in</span></h1>
+                    </div>
+                    <div class="sign_form">
+                        <form name="myForm" ng-submit="submitTheForm(myForm)" novalidate class="css-form">
+                            <div class="form-group">
+                                <input type="email" class="form-control usernameField" placeholder="Email" name="email" ng-model="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control usernameField" placeholder="Password" name="password" ng-model="Password" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-default submit_btn">Sign in</button>
+                        </form>
+                    </div>
+                    <img src="~/Content/Assets/images/cloud.png" alt="Cloud" class="left_img">
+                </div>
+                
+                <div style=" width:100px; text-align:center; top:0; position:absolute;left:45%; right:50%; z-index:999999;" ng-if="IsVisible"><span class="noDisplay" style="background:yellow;" ng-bind="MessageText"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <!--<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+    });
+    </script>-->
+</body>
+</html>
+
+

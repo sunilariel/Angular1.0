@@ -1,0 +1,173 @@
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\ApplicationInsights.config
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\csc.exe
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\System.Collections.Immutable.dll
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\System.Reflection.Metadata.dll
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\vbc.exe
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\VBCSCompiler.exe
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\roslyn\VBCSCompiler.exe.config
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\AngularMvcProject.dll.config
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\AngularMvcProject.dll
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\AngularMvcProject.pdb
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.AI.DependencyCollector.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.AI.Web.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.AI.WindowsServer.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.ApplicationInsights.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\System.Web.Helpers.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\System.Web.Mvc.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\System.Web.Optimization.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\System.Web.Razor.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\System.Web.WebPages.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\System.Web.WebPages.Deployment.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\System.Web.WebPages.Razor.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Antlr3.Runtime.pdb
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Newtonsoft.Json.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\EntityFramework.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\EntityFramework.SqlServer.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.AspNet.Identity.Core.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.Owin.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.Owin.Security.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.Owin.Security.Facebook.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.Owin.Security.Cookies.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.Owin.Security.OAuth.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.Owin.Security.Google.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.Owin.Security.Twitter.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\obj\Debug\AngularMvcProject.csprojResolveAssemblyReference.cache
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\obj\Debug\AngularMvcProject.dll
+D:\angular_mayank\AngularMvcProject\AngularMvcProject\obj\Debug\AngularMvcProject.pdb
+D:\Officials\AngularGitHub\AngularMvcProject\bin\ApplicationInsights.config
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\csc.exe
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\System.Collections.Immutable.dll
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\System.Reflection.Metadata.dll
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\vbc.exe
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\VBCSCompiler.exe
+D:\Officials\AngularGitHub\AngularMvcProject\bin\roslyn\VBCSCompiler.exe.config
+D:\Officials\AngularGitHub\AngularMvcProject\bin\AngularMvcProject.dll.config
+D:\Officials\AngularGitHub\AngularMvcProject\bin\AngularMvcProject.dll
+D:\Officials\AngularGitHub\AngularMvcProject\bin\AngularMvcProject.pdb
+D:\Officials\AngularGitHub\AngularMvcProject\obj\Debug\AngularMvcProject.dll
+D:\Officials\AngularGitHub\AngularMvcProject\obj\Debug\AngularMvcProject.pdb
+D:\Officials\AngularGitHub\AngularMvcProject\obj\Debug\AngularMvcProject.csprojResolveAssemblyReference.cache
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\ApplicationInsights.config
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\csc.exe
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\System.Collections.Immutable.dll
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\System.Reflection.Metadata.dll
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\vbc.exe
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\VBCSCompiler.exe
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\roslyn\VBCSCompiler.exe.config
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\AngularMvcProject.dll.config
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\AngularMvcProject.dll
+D:\Official\David\Angular Clone Project\AngularMvcProject\bin\AngularMvcProject.pdb
+D:\Official\David\Angular Clone Project\AngularMvcProject\obj\Debug\AngularMvcProject.dll
+D:\Official\David\Angular Clone Project\AngularMvcProject\obj\Debug\AngularMvcProject.pdb
+D:\Official\David\Angular Clone Project\AngularMvcProject\obj\Debug\AngularMvcProject.csprojResolveAssemblyReference.cache
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\ApplicationInsights.config
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\csc.exe
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\vbc.exe
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\VBCSCompiler.exe
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\AngularMvcProject.dll.config
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\AngularMvcProject.dll
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\bin\AngularMvcProject.pdb
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\obj\Debug\AngularMvcProject.dll
+C:\Users\Qasim\Documents\GitHub\AngularMVC\AngularMvcProject\obj\Debug\AngularMvcProject.pdb
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\ApplicationInsights.config
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\AngularMvcProject.dll.config
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\AngularMvcProject.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\AngularMvcProject.pdb
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Antlr3.Runtime.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\EntityFramework.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\EntityFramework.SqlServer.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.DependencyCollector.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.Web.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.WindowsServer.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.ApplicationInsights.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.Google.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Web.Infrastructure.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Newtonsoft.Json.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Owin.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.Helpers.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.Mvc.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.Optimization.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.Razor.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.WebPages.Deployment.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.WebPages.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.WebPages.Razor.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\WebGrease.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.DependencyCollector.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.Web.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AI.WindowsServer.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.ApplicationInsights.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.Helpers.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.Mvc.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.Optimization.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.Razor.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.WebPages.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.WebPages.Deployment.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\System.Web.WebPages.Razor.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Antlr3.Runtime.pdb
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Newtonsoft.Json.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\EntityFramework.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\EntityFramework.SqlServer.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.Google.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\obj\Debug\AngularMvcProject.csprojResolveAssemblyReference.cache
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\obj\Debug\AngularMvcProject.csproj.CoreCompileInputs.cache
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\obj\Debug\AngularMvcProject.dll
+D:\Officials\AngularBookingManager Latest Clone\AngularMvcProject\obj\Debug\AngularMvcProject.pdb

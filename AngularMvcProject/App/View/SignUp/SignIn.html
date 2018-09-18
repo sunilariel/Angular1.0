@@ -1,0 +1,91 @@
+﻿<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+
+
+
+<style>
+    @import url('../../../Content/LoginCss/util.css');
+    @import url('../../../Content/LoginCss/main.css');
+</style>
+
+
+<div ng-controller="SignIn">    
+    <div class="limiter" ng-hide="ShowForgotScreen" ng-show="ShowSignInScreen">
+        <div class="container-login100" style="">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                <form name="myForm" ng-submit="submitTheForm(myForm)" novalidate class="login100-form validate-form">
+                    <span class="login100-form-title p-b-49">
+                        Sign in                        
+                    </span>
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                        <span class="label-input100">Email</span>
+                        <input type="email" class="usernameField input100" placeholder="Type youre mail" name="email" ng-model="Email" required>
+                        <i class="far fa-user"></i>
+                    </div>
+                    <div class="wrap-input100 validate-input  m-b-23" data-validate="Password is required">
+                        <span class="label-input100">Password</span>
+                        <input type="password" class="usernameField input100" placeholder="Type your password" name="password" ng-model="Password" required>
+                        <i class="fas fa-unlock-alt"></i>
+                        <div class="text-right p-t-8 p-b-31" style="padding-top: 12px; padding-bottom:0;">
+                            <a ng-click="RedirecttoForgotPassword()" style="font-weight: 600;">
+                                Forgot password?
+                            </a>
+                        </div>
+                    </div>                                       
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="submit" class="login100-form-btn">Sign in</button>
+                        </div>
+                    </div>
+
+                    <div style="text-align:center;padding-top: 3px;">
+                        <a ng-click="signupPage()" style="text-decoration:underline; font-size:16px;font-weight:600;">
+                            Create an account for free!
+                        </a>
+                    </div>                    
+                </form>
+            </div>
+            <div style="width: 45%;text-align: center;position: absolute;z-index: 999999; top:150px;" ng-if="IsVisible"><span class="" style="background:#2089da; color:#fff; font-size:14px; padding:5px 15px; border-radius:3px;" ng-bind="MessageText"></span></div>
+        </div>
+    </div>
+
+    <div class="limiter" ng-show="ShowForgotScreen" ng-hide="ShowSignInScreen">
+        <div class="container-login100" style="">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                <form name="resetpswdForm" ng-submit="resetpassword(resetpswdForm)" novalidate class="login100-form validate-form">
+                   
+                    <div class="login100-form-title p-b-49">
+                        <h2><span>Forgot your Password?</span></h2>
+                        <p> Enter your email address to reset your password.</p>
+                    </div>
+
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                        <span class="label-input100">Email</span>
+                        <input type="email" class="usernameField input100" placeholder="Type youre mail" name="email" required>
+                        <i class="far fa-user"></i>
+                    </div>
+                    <div class="text-right p-t-8 p-b-31">
+                        <a href="#">
+                        </a>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="submit" class="login100-form-btn">Reset Password</button>
+                        </div>
+                    </div>
+                    <div style="text-align:center; padding-top:3px;">
+                        <a ng-click="BacktoSignInScreen()" style="text-decoration:underline; font-size:16px;font-weight:600;">
+                            Back to SignIn
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

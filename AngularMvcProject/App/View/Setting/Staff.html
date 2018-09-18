@@ -1,0 +1,1147 @@
+﻿<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+<div ng-controller="staffController" ng-init="init()">
+    <header class="top">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid" style="padding: 0;">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" ng-click="" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        <a class="logo-sec" href="https://ibb.co/dg9iJd"><img src="https://thumb.ibb.co/dg9iJd/booking_com.png" alt="booking_com" border="0"></a>
+                        <p><a ng-click="leftSideClick()"><img src="https://thumb.ibb.co/kbHWOd/icon.png" alt="icon" border="0"></a></p>
+                    </div>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="Mgt-upgrade_btn"><a href="#" title="">Upgrade</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fas fa-bell"></i> <span class="caret"></span> </a>
+                            <!-- /.dropdown-user -->
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li id="my_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-user bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">test@gmail.com</h3>
+                                            <p class="nav-dropdown-desc-text">Username/password</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="account_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-account-plan bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Account Plan</h3>
+                                            <p class="nav-dropdown-desc-text">Update account</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-cog bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Refresh</h3>
+                                            <p class="nav-dropdown-desc-text">Updates the Page</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="sign_out" class="nav-dropdown-li-last">
+                                    <a ng-click="Logout()" class="cursorhand">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-log-out bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Sign Out</h3>
+                                            <p class="nav-dropdown-desc-text">See you soon!</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="bookingMgt-icon-user nav_user_icon"></i> <span class="caret"></span> </a>
+                            <!-- /.dropdown-user -->
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li id="my_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-user bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">{{companyEmail}}</h3>
+                                            <p class="nav-dropdown-desc-text">Username/password</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="account_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-account-plan bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Account Plan</h3>
+                                            <p class="nav-dropdown-desc-text">Update account</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-cog bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Refresh</h3>
+                                            <p class="nav-dropdown-desc-text">Updates the Page</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="sign_out" class="nav-dropdown-li-last">
+                                    <a ng-click="Logout()" class="cursorhand">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-log-out bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Sign Out</h3>
+                                            <p class="nav-dropdown-desc-text">See you soon!</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="clearfix"> </div>
+        <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+    </header>
+    <div class="left_sidebar sidebtipt show-leftbar" ng-show="isvisibleMenuiconBar">
+        <ul class="nav">
+            <li class="" id="bookingMgt-dashboard">
+                <a ng-click="redirecttodashboard()" style="cursor:pointer;" data-toggle="tab" class="" id="startDashboard"><i class="fas fa-home"></i><small>Dashboard</small></a>
+            </li>
+            <li class="" id="bookingMgt-calendar">
+                <a ng-click="redirectToCalendar()" data-toggle="tab" class="" id="startCalendar"><i class="fas fa-calendar-alt"></i><small>Calendar</small></a>
+            </li>
+            <li class="" id="bookingMgt-customers" title="">
+                <a ng-click="redirecttoCustomer()" style="cursor:pointer;" data-toggle="tab" class="" id="side-nav-customers"><i class="fas fa-user-friends"></i><small>Customers</small></a>
+            </li>
+            <li class="dropdown active" id="bookingMgt-settings_new">
+                <a ng-click="" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><small>Settings</small></a>
+                <ul class="dropdown-menu">
+                    <li ng-click="RedirecttoStaff()"><a class="staffCss">Staff</a></li>
+                    <li ng-click="redirecttoServices()"><a class="staffCss">Service</a></li>
+                </ul>
+            </li>
+            <li class="reports dropdown" id="bookingMgt-settings_new">
+                <a ng-click="" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-chart-line"></i><small>Reports</small></a>
+                <ul class="dropdown-menu">
+                    <li ng-click="RedirecttoReport()" id="active-business"><a class="staffCss">Business</a></li>
+                    <li ng-click="RedirecttoResourceReport()" id="active-resource"><a class="staffCss">Resource</a></li>
+                    <li ng-click="RedirecttoServiceReport()" id="active-service"><a class="staffCss">Service</a></li>
+                    <li ng-click="RedirecttoCustomerReport()" id="bookinhMgt-paymentMainTab"><a class="staffCss">Customer</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right_section rightnavBarForMobile" id="settings" ng-class="{'rightFullWidth': isActive}">
+        <div class="tabs-_section" style="width: 100px;">
+            <div class="section_tab">
+                <ul class="nav nav-tab nav-stacked">
+                    <li id="redirecttostaffactive" class="staff_sec">
+                        <a ng-click="RedirecttoStaff()" class="cursorhand servics">
+                            STAFF
+                        </a>
+                    </li>
+                    <!--<li ng-hide="hideTabsLink" ng-show="thisstaffhideshow" id="redirecttoservicesactive">
+                        <a ng-click="redirecttoServices()" class="cursorhand servics">
+                            SERVICES
+                        </a>
+                    </li>-->
+                    <!--/* ===============================   */-->
+                    <li ng-show="hideStaffDetailsLink" ng-hide="thisstaffhideshow" id="staffdetailsLinkactive" class="">
+                        <a class="cursorhand servics servics_sec ">
+                            <i class="far fa-file-alt"></i><br>
+                        </a>
+                        DETAILS
+                    </li>
+                    <li ng-show="hideStaffServicesLink" ng-hide="thisstaffhideshow" id="staffserviceslinkactive" class="">
+                        <a class="cursorhand servics servics_sec">
+                            <i class="fas fa-cogs"></i><br>
+                        </a>
+                        SERVICES
+                    </li>
+                    <li ng-show="hideStaffHoursLink" ng-hide="thisstaffhideshow" id="staffhourslinkactive" class="">
+                        <a class="cursorhand servics servics_sec">
+                            <i class="far fa-clock"></i><br>
+                        </a>
+                        WORKING HOURS
+                    </li>
+                    <li ng-show="hideStaffBreakLink" ng-hide="thisstaffhideshow" id="staffbreaklinkactive" class="">
+                        <a class="cursorhand servics servics_sec">
+                            <i class="fas fa-stopwatch"></i><br>
+                        </a>
+                        BREAKS
+                    </li>
+                    <li ng-show="hideStaffTimeOffLink" ng-hide="thisstaffhideshow" id="stafftimeOfflinkactive" class="">
+                        <a class="cursorhand servics servics_sec">
+                            <i class="far fa-clock"></i><br>
+                        </a>
+                        TIME OFF
+                    </li>
+                </ul>
+            </div>
+            <div class="row row_section">
+                <div class="col-sm-6">
+                    <div ng-show="thisstaffhideshow" ng-hide="hideTabsLink" class="left_side2 addcustomerSec allServiceCategorySec">
+                        <div class="categoriesSec">
+                            <div class="categoryButton">
+                                <div class="Button_Section">
+                                    <div class="row">
+                                        <div class="col-sm-8 col-xs-10">
+                                            <h3 style="font-size: 20px;">Staff ({{TotalNoOfStaff}})</h3>
+                                        </div>
+                                        <div class="col-sm-4 col-xs-2">
+                                            <button class="pull-right btn btn-circle" id="settingCategory" title="" data-original-title="Add New Staff" ng-click="IsVisibleAddNewStaffPopUp = !IsVisibleAddNewStaffPopUp">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="newaddCategoryPopup" class="addCustomer bottomArrow addCategoryPopup" style="display:block;" ng-show="IsVisibleAddNewStaffPopUp">
+                                            <h3 class="addCustomerTitle">Add New Staff</h3>
+                                            <form name="AddStaffForm" ng-submit="AddStaff(AddStaffForm)" novalidate class="css-form">
+                                                <div class="addcustomerContent">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="customerField form-group">
+                                                                <input id="categoryNewName" class="form-control" type="text" placeholder="Staff Name" ng-model="StaffName" name="StaffName" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="customerField form-group">
+                                                                <input id="categoryNewName" class="form-control" type="text" placeholder="Staff Email" ng-model="StaffEmail">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row button_row">
+                                                        <div class="col-md-6 col-xs-6 text-right">
+                                                            <button id="addcategoryBtn" type="submit" class="btn  add_category_btn addCustomerbtn">Add Staff</button>
+                                                        </div>
+                                                        <div class="col-md-6 col-xs-6">
+                                                            <button id="cancelBtn" class="btn btn-default cateCancelbtn Cancel" type="button" ng-click="StaffCancel(AddStaffForm)">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="categoryList staffList">
+                                <ul>
+                                    <li ng-repeat="item in ListofStaff | startFrom:currentPage*pageSize | limitTo:pageSize" ng-click="EditStaff(item)" ng-class="{selected:StaffId==item.Id}">
+                                        <div class="item-cat-sec">
+                                            <span>
+                                                <a class="cursorhand">
+                                                    <img style="width: 30px !important;height: 30px;border-radius: 100%;margin-top: 0px;" src="/Content/Assets/images/provider_img2.png">
+                                                </a>
+                                            </span>
+                                            <span class="categoryServices ng-binding">{{item.FirstName}}</span>
+                                            <i class="fa fa-angle-right"></i>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="image_staff" ng-hide="IsVisibleAddNewStaffPopUp">
+                        <a><img src="https://image.ibb.co/mi7vO9/hello.png" alt="hello"></a>
+                        <div class="image_text">
+                            <h3>Hi there :)</h3>
+                            <p>Click on any of the staff on the list to details, or press the <span>+</span> button to create a new staff</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="booking-settingsTabContent" class="tab-content fullheight tabcontent">
+            <div class="tab-pane full-height servicesTabs active" id="staff">
+                <div class="row staffaddCustomerSec rowmrgnDiv">
+                    <div id="staff-DetailsTAb" class="staffservicesSec hidden" style="padding-right: 0;">
+                        <div id="staffContentNav" class="detail-navbar staffDetail staffContent">
+                            <ul ng-show="thisstaffhideshow" ng-hide="hideTabsLink" class="nav nav-pills">
+                                <li ng-click="StaffDetailsLink()" id="StaffDetailsLink" class="tabs_panel"><a data-target="#staff_details" data-toggle="tab" class="cursorhand">DETAILS</a></li>
+                                <li ng-click="StaffServicesLink()" id="StaffServicesLink" class="tabs_panel"><a data-target="#staff-services" data-toggle="tab" class="cursorhand">SERVICES</a></li>
+                                <li ng-click="StaffHoursLink()" id="StaffHoursLink" class="tabs_panel"><a data-target="#staff-hours" data-toggle="tab" class="cursorhand">WORKING-HOURS</a></li>
+                                <li ng-click="StaffBreakLink()" id="StaffBreakLink" class="tabs_panel"><a data-target="#staff-break" data-toggle="tab" class="cursorhand">BREAKS</a></li>
+                                <li ng-click="StaffTimeOffLink()" id="StaffTimeOffLink" class="tabs_panel"><a data-target="#staff-timeoff" data-toggle="tab" class="cursorhand">TIME OFF</a></li>
+                                <li style="float:right;">
+                                    <div class="addServiceButton">
+                                        <span>Delete Staff</span>
+                                        <a ng-click="DeleteStaff()" id="deleteBtn" class="serviceButton btn btn-default">
+                                            <i class="far fa-trash-alt" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="container-fluid staff-details-container appointmentTab">
+                            <div class="tab-content content_div">
+                                <div class="tab-pane staffDetailSec active" id="staff_details">
+                                    <div class="customerProfileDiv staffProfileDiv">
+                                        <div class="staffUserDetail DetailDiv">
+                                            <div class="allservicesText">
+                                                <a ng-click="showAllStaff()" class="serviceButton btn btn-default">
+                                                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                                </a>
+                                                <h3 class="serviceProText Detail_heading">Details of <span class="AddStaff">{{staffName}}:</span></h3>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <form class="form-horizontal imageUploadForm">
+                                                        <div class="form-group staffformGroup">
+                                                            <div class="">
+                                                                <label>Name</label>
+                                                                <input type="text" class="customerName form-control" id="name" name="name" placeholder="Mark" ng-model="staffName" ng-blur="UpdateStaff()">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="">
+                                                                <label>Email</label>
+                                                                <input type="email" class="form-control" id="email" placeholder="mark@bm.com" name="email" ng-model="staffEmail" ng-blur="UpdateStaff()">
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <form class="form-horizontal customerDetail">
+                                                        <div class="form-group">
+                                                            <label>Mobile</label>
+                                                            <input type="text" class="form-control" id="text" ng-model="staffMobileNo" placeholder="Mobile" ng-blur="UpdateStaff()" name="text">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="">
+                                                                <label>CC Email</label>
+                                                                <input type="email" class="form-control" id="email" placeholder="CC Email" name="email">
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="servicesTextareaDiv staffTextaria">
+                                                        <label>Description</label>
+                                                        <textarea class="form-control" placeholder="Service Description" maxlength="500"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="one_div Details_Div">
+                                        <a id="sideIconDetailClickDetails"><i class="far fa-file-alt"></i><span class="tooltip-left">Details</span></a>
+                                        <a ng-click="sideIconServicesClick()" id="sideIconServicesClickDetails" data-target="#staff-services" data-toggle="tab"><i class="fas fa-cogs"></i><span class="tooltip-left">Services</span></a>
+                                        <a ng-click="sideIconWHoursClick()" id="sideIconWHoursClickDetails" data-target="#staff-hours" data-toggle="tab"><i class="far fa-clock"></i><span class="tooltip-left">WORKING HOURS</span></a>
+                                        <a ng-click="sideIconBreaksClick()" id="sideIconBreaksClickDetails" data-target="#staff-break" data-toggle="tab"><i class="fas fa-stopwatch"></i><span class="tooltip-left">BREAKS</span></a>
+                                        <a ng-click="sideIconTimeOffClick()" id="sideIconTimeOffClickDetails" data-target="#staff-timeoff" data-toggle="tab"><i class="far fa-clock"></i><span class="tooltip-left">TIME OFF</span></a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="staff-services">
+                                    <div class="customerProfileDiv staffProfileDiv">
+                                        <div class="staffServices">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="serviceProvideSec DetailDiv">
+                                                        <div class="allservicesText">
+                                                            <a ng-click="showAllStaff()" class="serviceButton btn btn-default">
+                                                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                                            </a>
+                                                            <h3 class="serviceProText">Services <span class="AddStaff">{{staffName}}</span> Provides ({{EmployeeServiceCount}}):</h3>
+                                                        </div>
+                                                        <div class="service-table_scrool">
+                                                            <table class="service-table table table-bordered table-striped">
+                                                                <tbody>
+                                                                    <tr ng-repeat="item in ListofAllServices">
+                                                                        <td>
+                                                                            <div class="padding_control background_color">
+                                                                                <div class="sampleStaffService">
+                                                                                    <div class="dropdown serviceprovideBtn">
+                                                                                        <div class="checkbox active">
+                                                                                            <label class="labelBox" id="clickLabel">
+                                                                                                <input type="checkbox" value="" ng-click="AssignServicetoEmployee(item)" ng-model="item.Confirmed">
+                                                                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                                                <span ng-if="item.Name == 'All Services'" class="bold_bbName">{{item.Name}}</span>
+                                                                                                <span ng-if="item.Name != 'All Services'" class="item-name">{{item.Name}}</span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="padding_control background_color">
+                                                                                <div class="StaffminText">
+                                                                                    <span ng-if="item.Cost=='Cost'" class="bold_bb">{{item.Cost}}</span>
+                                                                                    <span ng-if="item.Cost!=='Cost'" class="item-cost">{{item.Cost}}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="padding_control background_color">
+                                                                                <div class="StaffminText">
+                                                                                    <span ng-if="item.DurationInMinutes == 'Duration'" class="bold_bb">{{item.DurationInMinutes}} min</span>
+                                                                                    <span ng-if="item.DurationInMinutes !== 'Duration'" class="item-duration">{{item.DurationInMinutes}} min</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="one_div Services_Div">
+                                            <a ng-click="sideIconDetailClick()" id="sideIconDetailClickService" data-target="#staff_details" data-toggle="tab"><i class="far fa-file-alt"></i><span class="tooltip-left">Details</span></a>
+                                            <a id="sideIconServiceClickService"><i class="fas fa-cogs"></i><span class="tooltip-left">Services</span></a>
+                                            <a ng-click="sideIconWHoursClick()" id="sideIconWHoursClickService" data-target="#staff-hours" data-toggle="tab"><i class="far fa-clock"></i><span class="tooltip-left">WORKING HOURS</span></a>
+                                            <a ng-click="sideIconBreaksClick()" id="sideIconBreaksClickService" data-target="#staff-break" data-toggle="tab"><i class="fas fa-stopwatch"></i><span class="tooltip-left">BREAKS</span></a>
+                                            <a ng-click="sideIconTimeOffClick()" id="sideIconTimeOffClickService" data-target="#staff-timeoff" data-toggle="tab"><i class="far fa-clock"></i><span class="tooltip-left">TIME OFF</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="staff-hours">
+                                    <div class="customerProfileDiv staffProfileDiv">
+                                        <div class="staffServices">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="staffWorkingHoursSec DetailDiv">
+                                                        <div class="allservicesText">
+                                                            <a ng-click="showAllStaff()" class="serviceButton btn btn-default">
+                                                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                                            </a>
+                                                            <h3 class="serviceProText">Working hours of <span class="AddStaff">{{staffName}}:</span></h3>
+                                                        </div>
+                                                        <div class="Working_table">
+                                                            <table class="table table-bordered table-striped table_control">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Working/Holiday</th>
+                                                                        <th>Day</th>
+                                                                        <th>Start</th>
+                                                                        <th>End</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="sss">
+                                                                    <tr ng-repeat="timedetail in WorkingHours">
+                                                                        <td>
+                                                                            <div class="">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="onoffswitch" ng-model="timedetail.Available" class="onoffswitch-checkbox" checked>
+                                                                                    <label class="onoffswitch-label" ng-click="EnabledDisabledDay(timedetail)" for="myonoffswitch">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="StaffColumnDiv">
+                                                                                <div class="week_div">
+                                                                                    <p>{{timedetail.Day}}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="StaffColumnDiv">
+                                                                                <div class="week_div selecttotext">
+
+                                                                                    <select class="select_btn" ng-model="timedetail.StartTime" ng-disabled="!timedetail.Available" ng-change="SetEmployeeWorkingTime(timedetail)">
+                                                                                        <option ng-repeat="option in StartTime" value="{{option}}">{{option}}</option>
+                                                                                    </select>
+                                                                                    <div class="clearfix"></div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="StaffColumnDiv">
+                                                                                <div class="week_div selecttotext">
+                                                                                    <select class="select_btn" ng-model="timedetail.EndTime" ng-disabled="!timedetail.Available" ng-change="SetEmployeeWorkingTime(timedetail)">
+                                                                                        <option ng-repeat="option in EndTime" value="{{option}}">{{option}}</option>
+                                                                                    </select>
+                                                                                    <div class="clearfix"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="one_div WHours_Div">
+                                            <a ng-click="sideIconDetailClick()" id="sideIconDetailClickWHours" data-target="#staff_details" data-toggle="tab"><i class="far fa-file-alt"></i><span class="tooltip-left">Details</span></a>
+                                            <a ng-click="sideIconServicesClick()" id="sideIconServicesClickWHours" data-target="#staff-services" data-toggle="tab"><i class="fas fa-cogs"></i><span class="tooltip-left">Services</span></a>
+                                            <a ng-click="sideIconWHoursClick()" id="sideIconWHoursClickWHours"><i class="far fa-clock"></i><span class="tooltip-left">WORKING HOURS</span></a>
+                                            <a ng-click="sideIconBreaksClick()" id="sideIconBreaksClickWHours" data-target="#staff-break" data-toggle="tab"><i class="fas fa-stopwatch"></i><span class="tooltip-left">BREAKS</span></a>
+                                            <a ng-click="sideIconTimeOffClick()" id="sideIconTimeOffClickWHours" data-target="#staff-timeoff" data-toggle="tab"><i class="far fa-clock"></i><span class="tooltip-left">TIME OFF</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="staff-break">
+                                    <div class="customerProfileDiv staffProfileDiv">
+                                        <div class="staffServices">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="staffWorkingHoursSec breaks_sec DetailDiv">
+                                                        <div class="allservicesText">
+                                                            <a ng-click="showAllStaff()" class="serviceButton btn btn-default">
+                                                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                                            </a>
+                                                            <h3 class="serviceProText">Breaks hours of <span class="AddStaff">{{staffName}}:</span></h3>
+                                                        </div>
+                                                        <div class="Breaks_table">
+                                                            <table class="table table-bordered table-striped table_control">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="padding: 0 !important;text-align: left;">
+                                                                            <span>Delete</span>
+                                                                            <span>Start</span>
+                                                                            <span>End</span>
+                                                                            <span>Break</span>
+                                                                            <span style="border:none;"> Day</span>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr ng-repeat="BreakTime in listofBreakingHours">
+                                                                        <td>
+                                                                            <div class="StaffColumnDiv">
+
+                                                                                <div class="week_div BreakSelectDiv" ng-if="BreakTime.StartEndTime.length!=0" ng-repeat="break in BreakTime.StartEndTime" ng-class="{'my-disable':BreakTime.Available==false}">
+                                                                                    <div class="BreakDeleteBtn">
+                                                                                        <button class="btn btn-default" ng-click="DeleteBreakTime(break.Id)">
+                                                                                            <i class="far fa-trash-alt"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <select class="select_btn" ng-model="break.Start" id="starttime_{{break.Id}}" ng-change="UpdateBreakTime(break,'Start')">
+                                                                                        <option ng-repeat="timeoption in StartTime" value="{{timeoption}}">{{timeoption}}</option>
+                                                                                    </select>
+                                                                                    <select class="select_btn" ng-model="break.End" id="endtime_{{break.Id}}" ng-change="UpdateBreakTime(break,'End')">
+                                                                                        <option ng-repeat="timeoption in EndTime" value="{{timeoption}}">{{timeoption}}</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div id="staffbreakDeleteBox" class="addCustomer staffBreakTooltip" ng-show="ConfirmDeletePopup" ng-init="ConfirmDeletePopup=false" style="display:block;">
+                                                                                    <div class="pointerRightIcon rightImage"></div>
+                                                                                    <h3 class="addCustomerTitle">Are you sure?</h3>
+                                                                                    <div class="addcustomerContent">
+                                                                                        <button id="deleteBtn" class="btn btn-danger addCustomerbtn">Delete</button>
+                                                                                        <button id="staffcancleBtn" class="btn btn-default addCustomerbtn">Cancel</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="StaffColumnDiv Day_sec">
+                                                                                <div class="week_div">
+                                                                                    <p>{{BreakTime.Day}}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="StaffColumnDiv" ng-if="BreakTime.Available==false">
+                                                                                <button class="addBreakBtn btn break_btn" type="button" disabled style="background-color:#e6e6e6;color:#333333;opacity:0.65;">Holiday</button>
+                                                                            </div>
+                                                                            <div class="StaffColumnDiv break_txt" ng-if="BreakTime.Available==true">
+                                                                                <button class="addBreakBtn btn" id="btnBreak" ng-click="AddBreak(BreakTime)" type="button">Add Break</button>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="one_div Breaks_Div">
+                                            <a ng-click="sideIconDetailClick()" id="sideIconDetailClickBreaks" data-target="#staff_details" data-toggle="tab"><i class="far fa-file-alt"></i><span class="tooltip-left">Details</span></a>
+                                            <a ng-click="sideIconServicesClick()" id="sideIconServicesClickBreaks" data-target="#staff-services" data-toggle="tab"><i class="fas fa-cogs"></i><span class="tooltip-left">Services</span></a>
+                                            <a ng-click="sideIconWHoursClick()" id="sideIconWHoursClickBreaks" data-target="#staff-hours" data-toggle="tab"><i class="far fa-clock"></i><span class="tooltip-left">WORKING HOURS</span></a>
+                                            <a id="sideIconBreaksClickBreaks"><i class="fas fa-stopwatch"></i><span class="tooltip-left">BREAKS</span></a>
+                                            <a ng-click="sideIconTimeOffClick()" id="sideIconTimeOffClick" data-target="#staff-timeoff" data-toggle="tab"><i class="far fa-clock"></i><span class="tooltip-left">TIME OFF</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="staff-timeoff" style="">
+                                    <div class="stafftimeOff customerProfileDiv ">
+                                        <div class="staffServices">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="serviceProvideSec">
+                                                        <div class="timeOffText DetailDiv">
+                                                            <div class="allservicesText">
+                                                                <a ng-click="showAllStaff()" class="serviceButton btn btn-default">
+                                                                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                                                </a>
+                                                                <h3 class="serviceProText">Time Off for <span class="AddStaff">{{staffName}}:</span></h3>
+                                                                <div class="download_btn">
+                                                                    <button class="pull-right btn btn-circle addstaffBtn timeOffPlusBtn" id="timeOffPlusBtn" title="" data-toggle="modal" data-target="#timeoffPopUp" ng-click="AddtimeoffPopup()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                                    <button class="pull-right btn exportBtn btn-circle timeOffPlusBtn" id="exporttimeOffBtn" title="" data-toggle="modal" data-target="#ExportModal">
+                                                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal fade appointmentPopup StaffPopupHead" id="ExportModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog appointPopupHead StaffPopupHead">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header staffModalPopup">
+                                                                            <button type="button" class="close modalcloseIcon" data-dismiss="modal"><span aria-hidden="true" class="">×</span><span class="sr-only">Close</span></button>
+                                                                            <h3 class="modal-title" id="lineModalLabel">Export Time off</h3>
+                                                                        </div>
+                                                                        <div class="modal-body staffBodyDiv">
+                                                                            <div class="staffPopUpDiv">
+                                                                                <form class="form-horizontal ">
+
+                                                                                    <div class="form-group staffStartDate">
+                                                                                        <label class="control-label col-sm-4" for="pwd">Start Date</label>
+                                                                                        <div class="col-sm-8 dateTimeDiv">
+                                                                                            <span class="glyphicon glyphicon-ok calendarOk"></span><input type="text" class="form-control datepickerBox" placeholder="Fri, May 12" id="datetimepicker4">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group staffStartDate">
+                                                                                        <label class="control-label col-sm-4" for="pwd">End Date</label>
+                                                                                        <div class="col-sm-8 dateTimeDiv">
+                                                                                            <span class="glyphicon glyphicon-ok calendarOk"></span><input type="text" class="form-control datepickerBox" placeholder="Fri, May 12" id="datetimepicker5">
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group staffStartDate">
+
+                                                                                        <div class="col-sm-12 StaffrecurringDiv">
+                                                                                            <div class="StaffDateTime">
+                                                                                                <p>From 29 Jun 2017 to 29 Jun 2017</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer staffFooter">
+                                                                            <div class="btn-group saveChangesDiv" role="group">
+                                                                                <button type="button" class="btn saveChangesBtn btn-default" data-action="save" role="button">Export</button>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="modalPopupbg" class="fade modal_bg in"></div>
+                                                            </div>
+
+
+
+                                                            <div class="modal fade appointmentPopup" id="timeoffPopUp" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+                                                                <div class="modal-dialog appointPopupHead StaffPopupHead">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header staffModalPopup">
+                                                                            <button type="button" class="close modalcloseIcon" data-dismiss="modal"><span aria-hidden="true" class="">×</span><span class="sr-only">Close</span></button>
+                                                                            <h3 class="modal-title" id="lineModalLabel">Add New Time off</h3>
+                                                                        </div>
+                                                                        <div class="modal-body staffBodyDiv">
+                                                                            <!-- content goes here -->
+                                                                            <div class="staffPopUpDiv">
+                                                                                <form class="form-horizontal" ng-submit="AddtimeOff()">
+
+                                                                                    <div class="form-group staffStartDate">
+                                                                                        <label class="control-label col-sm-4" for="pwd">Start Date</label>
+                                                                                        <div class="col-sm-8 dateTimeDiv">
+                                                                                            <span class="glyphicon glyphicon-ok calendarOk"></span><!--<input type="text" class="form-control datepickerBox" placeholder="Fri, May 12" id="datetimepicker4">-->
+                                                                                            <input type="text" class="form-control calendarBox" datepicker-popup="dd MMM yyyy" ng-model="startdate" open="opened" datepicker-options="dateOptions" name='theDate' ng-required="true" />
+
+                                                                                            <div class="selectDropdown">
+                                                                                                <select class="select_btn dateTimeSelect" ng-model="StartoffTime" ng-init="alldaystatus ? StartoffTime='00:00' : StartoffTime ='08:00 AM'" ng-show="alldaystatus==false">
+                                                                                                    <option ng-repeat="StartoffTime in StartTime" value="{{StartoffTime}}">{{StartoffTime}}</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group staffStartDate">
+                                                                                        <label class="control-label col-sm-4" for="pwd">End Date</label>
+                                                                                        <div class="col-sm-8 dateTimeDiv">
+                                                                                            <span class="glyphicon glyphicon-ok calendarOk"></span>
+                                                                                            <input type="text" class="form-control calendarBox" datepicker-popup="dd MMM yyyy" ng-model="enddate" open="opened" datepicker-options="dateOptions" name='theDate' ng-required="true" />
+                                                                                            <div class="selectDropdown">
+                                                                                                <select class="select_btn dateTimeSelect" ng-model="EndoffTime" ng-init="alldaystatus ? EndoffTime ='00:00' : EndoffTime= '05:00 PM'" ng-show="alldaystatus==false">
+                                                                                                    <option ng-repeat="EndoffTime in EndTime" value="{{EndoffTime}}">{{EndoffTime}}</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label class="control-label col-sm-4" for="pwd"></label>
+                                                                                        <div class="col-sm-8 recurringDiv">
+                                                                                            <div class="allStaffDiv">
+                                                                                                <div class="dropdown serviceprovideBtn">
+                                                                                                    <div class="checkbox allDayCheck">
+                                                                                                        <label class="labelBox" id="clickLabel">
+                                                                                                            <input type="checkbox" value="" ng-model="alldaystatus" ng-init="alldaystatus=true">
+                                                                                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                                                            All Day
+                                                                                                        </label>
+                                                                                                    </div>
+                                                                                                    <div class="moreOptionDiv">
+                                                                                                        <a class="moreOptionText cursorhand" ng-click="showoption = !showoption"> <span class="Staffplus">+</span><span class="Staffminus">-</span>More Options</a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group staffStartDate hideContent" ng-show="showoption">
+                                                                                        <label class="control-label col-sm-4" for="pwd">Recurring?</label>
+                                                                                        <div class="col-sm-8 StaffrecurringDiv">
+                                                                                            <div class="onoffswitch recurringOnOffBtn">
+                                                                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitchrequi" checked="">
+                                                                                                <label class="onoffswitch-label" for="myonoffswitchrequi">
+                                                                                                    <span class="onoffswitch-inner"></span>
+                                                                                                    <span class="onoffswitch-switch"></span>
+                                                                                                </label>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group staffStartDate hideContent">
+                                                                                        <label class="control-label col-sm-4" for="pwd">Notes</label>
+                                                                                        <div class="col-sm-8 StaffrecurringDiv">
+                                                                                            <textarea class="form-control apptNotes" placeholder="Details..." maxlength="500" ng-model="notes"></textarea>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group staffStartDate">
+                                                                                        <div class="col-sm-12 StaffrecurringDiv">
+                                                                                            <div class="StaffDateTime">
+                                                                                                <p ng-if="alldaystatus==true">From {{startdate | date:'dd MMM yyyy' }}  to {{enddate | date:'dd MMM yyyy'}}</p>
+                                                                                                <p ng-if="alldaystatus==false">From {{startdate | date:'dd MMM yyyy'}} {{StartoffTime}}  to {{enddate | date:'dd MMM yyyy'}} {{EndoffTime }} </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="modal-footer staffFooter">
+                                                                                        <div class="btn-group saveChangesDiv" role="group">
+                                                                                            <button type="submit" class="btn saveChangesBtn btn-default" data-action="save" role="button">Save Changes</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="modalPopupbg" class="fade modal_bg in"></div>
+                                                            </div>
+                                                            <!--//////////////Update TimeOff Popup///////////////-->
+                                                            <div class="modal appointmentPopup" id="UpdatetimeoffPopUp" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+                                                                <div class="modal-dialog appointPopupHead StaffPopupHead">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header staffModalPopup">
+                                                                            <button type="button" class="close modalcloseIcon" data-dismiss="modal" ng-click="CloseEditTimeOffModel()"><span aria-hidden="true" class="">×</span><span class="sr-only">Close</span></button>
+                                                                            <h3 class="modal-title" id="lineModalLabel">Edit Time off</h3>
+                                                                        </div>
+                                                                        <div class="modal-body staffBodyDiv">
+                                                                            <!-- content goes here -->
+                                                                            <div class="staffPopUpDiv">
+                                                                                <form class="form-horizontal" ng-submit="UpdateTimeOff()">
+                                                                                    <div class="form-group staffStartDate">
+                                                                                        <label class="control-label col-sm-4" for="pwd">Start Date</label>
+                                                                                        <div class="col-sm-8 dateTimeDiv">
+                                                                                            <span class="glyphicon glyphicon-ok calendarOk"></span>
+                                                                                            <input type="text" class="form-control calendarBox" datepicker-popup="dd MMM yyyy" ng-model="EditStartDate" open="opened" datepicker-options="dateOptions" name='theDate' ng-required="true" />
+
+                                                                                            <div class="selectDropdown">
+                                                                                                <select class="select_btn dateTimeSelect" ng-model="EditStartoffTime " ng-init="alldaystatus ? EditStartoffTime='00:00' : EditStartoffTime ='08:00 AM'" ng-show="alldaystatus==false">
+                                                                                                    <option ng-repeat="EditStartoffTime in StartTime" value="{{EditStartoffTime}}">{{EditStartoffTime}}</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group staffStartDate">
+                                                                                        <label class="control-label col-sm-4" for="pwd">End Date</label>
+                                                                                        <div class="col-sm-8 dateTimeDiv">
+                                                                                            <span class="glyphicon glyphicon-ok calendarOk"></span>
+                                                                                            <input type="text" class="form-control calendarBox" datepicker-popup="dd MMM yyyy" ng-model="EditEndDate" open="opened" datepicker-options="dateOptions" name='theDate' ng-required="true" />
+                                                                                            <div class="selectDropdown">
+                                                                                                <select class="select_btn dateTimeSelect" ng-model="EditEndoffTime" ng-init="alldaystatus ? EditEndoffTime ='00:00' : EditEndoffTime = '05:00 PM'" ng-show="alldaystatus==false">
+                                                                                                    <option ng-repeat="EditEndoffTime in EndTime" value="{{EditEndoffTime}}">{{EditEndoffTime}}</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label class="control-label col-sm-4" for="pwd"></label>
+                                                                                        <div class="col-sm-8 recurringDiv">
+                                                                                            <div class="allStaffDiv">
+                                                                                                <div class="dropdown serviceprovideBtn">
+                                                                                                    <div class="checkbox allDayCheck">
+                                                                                                        <label class="labelBox" id="clickLabel">
+                                                                                                            <input type="checkbox" value="" ng-model="alldaystatus" ng-init="alldaystatus=true">
+                                                                                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                                                            All Day
+                                                                                                        </label>
+                                                                                                    </div>
+                                                                                                    <div class="moreOptionDiv">
+                                                                                                        <a class="moreOptionText cursorhand" ng-click="showoption = !showoption"> <span class="Staffplus">+</span><span class="Staffminus">-</span>More Options</a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group staffStartDate hideContent" ng-show="showoption">
+                                                                                        <label class="control-label col-sm-4" for="pwd">Recurring?</label>
+                                                                                        <div class="col-sm-8 StaffrecurringDiv">
+                                                                                            <div class="onoffswitch recurringOnOffBtn">
+                                                                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitchrequi" checked="">
+                                                                                                <label class="onoffswitch-label" for="myonoffswitchrequi">
+                                                                                                    <span class="onoffswitch-inner"></span>
+                                                                                                    <span class="onoffswitch-switch"></span>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group staffStartDate hideContent">
+                                                                                        <label class="control-label col-sm-4" for="pwd">Notes</label>
+                                                                                        <div class="col-sm-8 StaffrecurringDiv">
+                                                                                            <textarea class="form-control apptNotes" placeholder="Details..." maxlength="500" ng-model="notes"></textarea>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group staffStartDate">
+                                                                                        <div class="col-sm-12 StaffrecurringDiv">
+                                                                                            <div class="StaffDateTime">
+                                                                                                <p ng-if="alldaystatus==true">From {{startdate | date:'dd MMMM yyyy' }}  to {{enddate | date:'dd MMMM yyyy'}}</p>
+                                                                                                <p ng-if="alldaystatus==false">From {{startdate | date:'dd MMMM yyyy'}} {{EditStartoffTime}}  to {{enddate | date:'dd MMMM yyyy'}} {{EditEndoffTime }} </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="modal-footer staffFooter">
+                                                                                        <div class="btn-group saveChangesDiv" role="group">
+                                                                                            <button type="submit" class="btn saveChangesBtn btn-default" data-action="save" role="button">Save Changes</button>
+                                                                                        </div>
+                                                                                        <button type="button" class="pull-right btn" style="background: none;color: #949494;" id="deletetimeoffbtn" ng-click="Deletetimeoff()">
+                                                                                            Delete
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="modalPopupbg" class="fade modal_bg in"></div>
+                                                            </div>
+                                                            <div class="timeOffSec">
+                                                                <div class="row addstaffDiv" ng-repeat="item in timeOffDetail" ng-click="EditTimeOff(item)">
+                                                                    <div class="col-md-1 col-sm-12">
+                                                                        <div class="staffCalendar" ng-if="item.IsOffAllDay==true">
+                                                                            <i style="font-size: 14px;" class="fa fa-calendar-o" aria-hidden="true"></i>
+                                                                        </div>
+                                                                        <div class="staffCalendar" ng-if="item.IsOffAllDay==false">
+                                                                            <i style="font-size: 14px;" class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-11 col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-5 col-sm-5">
+                                                                                <div class="dateText">
+                                                                                    <h4 ng-if="item.IsOffAllDay==true">{{item.Start | date:"dd MMM yyyy"}} to {{item.End | date:"dd MMM yyyy"}}</h4>
+                                                                                    <h4 ng-if="item.IsOffAllDay==false">{{item.Start | date:"dd MMM yyyy"}}, {{item.Start | date:"h:mm a"}} to {{item.End | date:"dd MMM yyyy"}},{{item.End | date:"h:mm a"}}</h4>
+                                                                                    <p>No Description</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-3 col-sm-3">
+                                                                                <div class="dateText">
+                                                                                    <p>No Repeat</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-3 col-sm-3">
+                                                                                <div class="dateText">
+                                                                                    <p ng-if="item.IsOffAllDay==true">Full Day</p>
+                                                                                    <p ng-if="item.IsOffAllDay==false">Break</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-1 col-sm-1">
+                                                                                <i style="padding: 16px 0px;" class="fa fa-angle-right"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="staffCalendar">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="one_div TimeOff_Div">
+                                            <a ng-click="sideIconDetailClick()" id="sideIconDetailClickTimeOff" data-target="#staff_details" data-toggle="tab"><i class="far fa-file-alt"></i><span class="tooltip-left">Details</span></a>
+                                            <a ng-click="sideIconServicesClick()" id="sideIconServicesClickTimeOff" data-target="#staff-services" data-toggle="tab"><i class="fas fa-cogs"></i><span class="tooltip-left">Services</span></a>
+                                            <a ng-click="sideIconWHoursClick()" id="sideIconWHoursClickTimeOff" data-target="#staff-hours" data-toggle="tab"><i class="far fa-clock"></i><span class="tooltip-left">WORKING HOURS</span></a>
+                                            <a ng-click="sideIconBreaksClick()" id="sideIconBreaksClickTimeOff" data-target="#staff-break" data-toggle="tab"><i class="fas fa-stopwatch"></i><span class="tooltip-left">BREAKS</span></a>
+                                            <a id="sideIconTimeOffClickTimeOff"><i class="far fa-clock"></i><span class="tooltip-left">TIME OFF</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane full-height servicesTabs" id="accounts">
+                <div id="accountsSideNav" class="span3 secondary-navbar container-fluid"> dfsdfsdfd </div>
+            </div>
+            <div class="tab-pane full-height servicesTabs" id="services">
+                <div class="row staffaddCustomerSec rowmrgnDiv">
+
+                    <div class="upgradeDiv">
+                        <div class="row upgradeDivrow">
+                            <div class="col-xs-12 visible-xs">
+                                <div class="row">
+                                    <div class="col-xs-4 upgradeButton">
+                                        <button class="btn btn-default" type="button"> Upgrade</button>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <div class="upgradeListbar pull-right">
+                                            <ul class="list-inline">
+                                                <li class="dropdown">
+                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> <i class="fa fa-bell-o" aria-hidden="true"></i> <span class="caret"></span> </a>
+                                                    <!-- /.dropdown-user -->
+                                                    <ul class="dropdown-menu dropdown-user animated flipInY upgradeDropdown">
+                                                        <li id="my_details">
+                                                            <a href="#">
+                                                                <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-user bookingMgt-icon-fsize"></span> </div>
+                                                                <div class="nav-dropdown-desc-holder">
+                                                                    <h3 class="nav-dropdown-desc-header">test@gmail.com</h3>
+                                                                    <p class="nav-dropdown-desc-text">Username/password</p>
+                                                                </div>
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                        <li id="account_details">
+                                                            <a href="#">
+                                                                <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-account-plan bookingMgt-icon-fsize"></span> </div>
+                                                                <div class="nav-dropdown-desc-holder">
+                                                                    <h3 class="nav-dropdown-desc-header">Account Plan</h3>
+                                                                    <p class="nav-dropdown-desc-text">Update account</p>
+                                                                </div>
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-cog bookingMgt-icon-fsize"></span> </div>
+                                                                <div class="nav-dropdown-desc-holder">
+                                                                    <h3 class="nav-dropdown-desc-header">Refresh</h3>
+                                                                    <p class="nav-dropdown-desc-text">Updates the Page</p>
+                                                                </div>
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                        <li id="sign_out" class="nav-dropdown-li-last">
+                                                            <a ng-click="Logout()" class="cursorhand">
+                                                                <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-log-out bookingMgt-icon-fsize"></span> </div>
+                                                                <div class="nav-dropdown-desc-holder">
+                                                                    <h3 class="nav-dropdown-desc-header">Sign Out</h3>
+                                                                    <p class="nav-dropdown-desc-text">See you soon!</p>
+                                                                </div>
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> <i class="bookingMgt-icon-user nav_user_icon"></i> <span class="caret"></span> </a>
+                                                    <!-- /.dropdown-user -->
+                                                    <ul class="dropdown-menu dropdown-user animated flipInY userUpgradeDropdown upgradeDropdown">
+                                                        <li id="my_details">
+                                                            <a href="#">
+                                                                <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-user bookingMgt-icon-fsize"></span> </div>
+                                                                <div class="nav-dropdown-desc-holder">
+                                                                    <h3 class="nav-dropdown-desc-header">test@gmail.com</h3>
+                                                                    <p class="nav-dropdown-desc-text">Username/password</p>
+                                                                </div>
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                        <li id="account_details">
+                                                            <a href="#">
+                                                                <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-account-plan bookingMgt-icon-fsize"></span> </div>
+                                                                <div class="nav-dropdown-desc-holder">
+                                                                    <h3 class="nav-dropdown-desc-header">Account Plan</h3>
+                                                                    <p class="nav-dropdown-desc-text">Update account</p>
+                                                                </div>
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-cog bookingMgt-icon-fsize"></span> </div>
+                                                                <div class="nav-dropdown-desc-holder">
+                                                                    <h3 class="nav-dropdown-desc-header">Refresh</h3>
+                                                                    <p class="nav-dropdown-desc-text">Updates the Page</p>
+                                                                </div>
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                        <li id="sign_out" class="nav-dropdown-li-last">
+                                                            <a ng-click="Logout()" class="cursorhand">
+                                                                <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-log-out bookingMgt-icon-fsize"></span> </div>
+                                                                <div class="nav-dropdown-desc-holder">
+                                                                    <h3 class="nav-dropdown-desc-header">Sign Out</h3>
+                                                                    <p class="nav-dropdown-desc-text">See you soon!</p>
+                                                                </div>
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 left_side2 addcustomerSec allServiceCategorySec">
+                        <div class="categoriesSec">
+                            <div class="categoriesHead">
+                                <h3>Categories (2)</h3>
+                            </div>
+                            <div class="categoryButton">
+                                <button class="pull-right btn btn-circle" id="settingCategory" title="" data-original-title="Add New Staff">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="newaddCategoryPopup" class="addCustomer bottomArrow  addCategoryPopup">
+                                            <div class="arrow"></div>
+                                            <h3 class="addCustomerTitle">Add New Staff</h3>
+                                            <div class="addcustomerContent">
+                                                <div class="customerField form-group">
+                                                    <input id="categoryNewName" class="form-control" type="text" placeholder="Staff Name">
+                                                </div>
+                                                <div class="customerField form-group">
+                                                    <input id="categoryNewName" class="form-control" type="text" placeholder="Staff Email">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 col-xs-6">
+                                                        <button id="addcategoryBtn" class="btn  add_category_btn addCustomerbtn">Add Category</button>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6">
+                                                        <button id="cancelBtn" class="btn btn-default cateCancelbtn">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="categoryList">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-book" aria-hidden="true"></i>
+                                            <span class="categoryServices">All Services (1)</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-book" aria-hidden="true"></i>
+                                            <span class="categoryServices">Category 1 (0)</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-book" aria-hidden="true"></i>
+                                            <span class="categoryServices">Category 2 (0)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 categoryRightSec allServiceSec">
+                        <div class="categoryButtonsDiv">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <div class="customerDetail">
+                                        <h3>All Services</h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <div class="addServiceButton">
+                                        <a href="#" class="serviceButton btn btn-default">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                            <span>Add Service</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sampleServiceSec">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="sampleServicediv">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <div class="borderWidth"></div>
+                                                <div class="serviceDragImage"></div>
+                                                <div class="sampleServiceImage">
+                                                    <!--<img src="images/service-icon-big.png">-->
+                                                    <div class="samSerDiv">
+                                                        <h4 class="sampleHead">Sample Service</h4>
+                                                        <p class="sampleParaText">sdasdasdfs</p>
+                                                        <div class="serviceSampleDetail pull-right">
+                                                            <span>60 mins</span>
+                                                            <span>₹ 10</span>
+                                                            <span>No Buffer</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="rightIcon">
+                                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane full-height servicesTabs" id="classesSetting"> sdfsdfdfd </div>
+            <div class="tab-pane full-height servicesTabs" id="payments">
+                <div id="paymentsSideNav" class="span3 secondary-navbar container-fluid servicesTabs full-height"> </div>
+                fsdfsdfsd
+            </div>
+            <div class="tab-pane full-height servicesTabs" id="notifications">
+                <div class="bookingMgt-loader" style="display:block;"> sdfdf </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
