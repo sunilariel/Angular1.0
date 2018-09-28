@@ -164,23 +164,22 @@
             </li>
 
 
-            <li class="dropdown" id="bookingMgt-settings_new">
-                <a ng-click="" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><small>Settings</small></a>
-                <ul class="dropdown-menu">
+            <li class="bookingMgt-settings_new dropdown" ng-class="{'open' : toggle }" id="bookingMgt-settings">
+                <a ng-click="toggle = !toggle" class="aaaaa" data-toggle="collapse" data-target="#keySettings"><i class="fas fa-cog"></i><small>Settings</small></a>
+                <ul class="collapse bbbbb" id="keySettings">
                     <li ng-click="RedirecttoStaff()" id="redirecttostaffactive" class=""><a class="staffCss">Staff</a></li>
                     <li ng-click="redirecttoServices()" id="redirecttoservicesactive"><a class="staffCss">Service</a></li>
                 </ul>
             </li>
-            <li class="reports dropdown active" id="bookingMgt-settings_new">
-                <a ng-click="" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-chart-line"></i><small>Reports</small></a>
-                <ul class="dropdown-menu">
-                    <li ng-click="RedirecttoReport()"><a class="staffCss">Business</a></li>
-                    <li ng-click="RedirecttoResourceReport()"><a class="staffCss">Resource</a></li>
-                    <li ng-click="RedirecttoServiceReport()"><a class="staffCss">Service</a></li>
-                    <li ng-click="RedirecttoCustomerReport()"><a class="staffCss">Customer</a></li>
+            <li class="reports bookingMgt-settings_new dropdown" id="bookingMgt-reports">
+                <a ng-click="" class="aaaaa" data-toggle="collapse" data-target="#keyReports"><i class="fas fa-chart-line"></i><small>Reports</small></a>
+                <ul class="collapse bbbbb" id="keyReports">
+                    <li ng-click="RedirecttoReport()" id="active-business"><a class="staffCss">Business</a></li>
+                    <li ng-click="RedirecttoResourceReport()" id="active-resource"><a class="staffCss">Resource</a></li>
+                    <li ng-click="RedirecttoServiceReport()" id="active-service"><a class="staffCss">Service</a></li>
+                    <li ng-click="RedirecttoCustomerReport()" id="bookinhMgt-paymentMainTab"><a class="staffCss">Customer</a></li>
                 </ul>
             </li>
-
 
         </ul>
     </div>
@@ -191,7 +190,7 @@
             <div class="section_tab">
 
                 <ul class="nav nav-tab nav-stacked">
-                    <li id="active-business" ng-click="RedirecttoBuisnessReport()" class="staff_sec">
+                    <li id="active-business" ng-click="RedirecttoBuisnessReport()" class="staff_sec active">
                         <a title="Business" class="cursorhand servics">
                             BUISNESS
                         </a>

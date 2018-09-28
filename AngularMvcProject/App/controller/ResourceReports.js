@@ -111,7 +111,7 @@
 
         var tttt = angular.element(document.querySelector("#resourcereportactive"));
         tttt.addClass('active');
-        $scope.toggle = true;
+        //$scope.toggle = true;
         var ReportCount = false;
         var GetStaffProvider = bookingService.GetStaffData($routeParams.CompanyId);
         GetStaffProvider.then(function (response) {

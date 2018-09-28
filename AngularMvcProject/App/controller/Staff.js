@@ -1,7 +1,7 @@
 ﻿app.controller("staffController", ['$scope', '$http', '$routeParams', '$filter', '$timeout', '$location', 'bookingService', '$rootScope', '$route',
     function ($scope, $http, $routeParams, $filter, $timeout, $location, bookingService, $rootScope, $route) {
 
-       
+
 
 
 
@@ -15,43 +15,50 @@
             $location.path("/Calendar/" + $routeParams.CompanyId);
         }
         $scope.RedirecttoStaff = function () {
-            debugger;
-
-            $location.path("/Setting/" + $routeParams.CompanyId);
-            $scope.thisstaffhideshow = {
-                show: true,
-                hide: true
-            };
-            var tttt = angular.element(document.querySelector("#redirecttostaffactive"));
-            tttt.addClass('active');
-            angular.element(document.querySelector("#staffdetailsLinkactive")).removeClass('active');
-            angular.element(document.querySelector("#staffserviceslinkactive")).removeClass('active');
-            angular.element(document.querySelector("#staffhourslinkactive")).removeClass('active');
-            angular.element(document.querySelector("#staffbreaklinkactive")).removeClass('active');
-            angular.element(document.querySelector("#stafftimeOfflinkactive")).removeClass('active');
-
-            angular.element(document.querySelector("#redirecttoservicesactive")).removeClass('active');
-
-        }
-        $scope.showAllStaff = function () {
-            
-            debugger;
+            //debugger;
+            $scope.init();
             $location.path("/Setting/" + $routeParams.CompanyId);
 
             angular.element(document.querySelector("#staff-DetailsTAb")).addClass('hidden');
             angular.element(document.querySelector(".tabs-_section")).removeClass('hidden');
-            
+
             angular.element(document.querySelector("#redirecttostaffactive")).addClass('active');
             angular.element(document.querySelector("#staffserviceslinkactive")).addClass('hidden');
             angular.element(document.querySelector("#staffserviceslinkactive")).removeClass('active');
 
             angular.element(document.querySelector("#staffdetailsLinkactive")).removeClass('active');
             angular.element(document.querySelector("#staffdetailsLinkactive")).addClass('hidden');
-            
-            
+
+
             angular.element(document.querySelector("#staffhourslinkactive")).addClass('hidden');
             angular.element(document.querySelector("#staffhourslinkactive")).removeClass('active');
-            
+
+            angular.element(document.querySelector("#staffbreaklinkactive")).addClass('hidden');
+            angular.element(document.querySelector("#staffbreaklinkactive")).removeClass('active');
+
+            angular.element(document.querySelector("#stafftimeOfflinkactive")).addClass('hidden');
+            angular.element(document.querySelector("#stafftimeOfflinkactive")).removeClass('active');
+
+        }
+        $scope.showAllStaff = function () {
+
+            //debugger;
+            $location.path("/Setting/" + $routeParams.CompanyId);
+
+            angular.element(document.querySelector("#staff-DetailsTAb")).addClass('hidden');
+            angular.element(document.querySelector(".tabs-_section")).removeClass('hidden');
+
+            angular.element(document.querySelector("#redirecttostaffactive")).addClass('active');
+            angular.element(document.querySelector("#staffserviceslinkactive")).addClass('hidden');
+            angular.element(document.querySelector("#staffserviceslinkactive")).removeClass('active');
+
+            angular.element(document.querySelector("#staffdetailsLinkactive")).removeClass('active');
+            angular.element(document.querySelector("#staffdetailsLinkactive")).addClass('hidden');
+
+
+            angular.element(document.querySelector("#staffhourslinkactive")).addClass('hidden');
+            angular.element(document.querySelector("#staffhourslinkactive")).removeClass('active');
+
             angular.element(document.querySelector("#staffbreaklinkactive")).addClass('hidden');
             angular.element(document.querySelector("#staffbreaklinkactive")).removeClass('active');
 
@@ -61,7 +68,7 @@
         }
 
         $scope.redirecttodashboard = function () {
-            debugger;
+            //debugger;
             $location.path("/dashboard/" + $routeParams.CompanyId);
         }
         $scope.redirecttoServices = function () {
@@ -127,7 +134,7 @@
         }
 
         $scope.init = function () {
-            debugger;
+            //debugger;
 
             $(".left_sidebar").removeClass("show-leftbar");
             //$scope.custom = true;
@@ -183,7 +190,7 @@
         //$scope.getData = function () {
         //    return $filter('filter')($scope.ListofStaff, $scope.q)
         //}
-        
+
         //$scope.numberOfPages = function () {
         //    return Math.ceil($scope.getData().length / $scope.pageSize);
         //}
@@ -196,19 +203,41 @@
 
 
 
+        $scope.IsVisibleAddNewStaffPopUps = function myfunction(form) {
+            $scope.StaffEmail = "";
+            $scope.StaffName = "";
+            $scope.staffMobileNo = "";
+            form.StaffName.$untouched = true;
+            form.StaffName.$setUntouched();
+            form.StaffName.$setPristine();
+            form.StaffEmail.$untouched = true;
+            form.StaffEmail.$setUntouched();
+            form.StaffEmail.$setPristine();
+            form.staffMobileNo.$untouched = true;
+            form.staffMobileNo.$setUntouched();
+            form.staffMobileNo.$setPristine();
+            return !$scope.IsVisibleAddNewStaffPopUp;
 
-
-
-
-
-
-
+        }
+        //$scope.filterValue = function ($event) {
+        //    if (isNaN(String.fromCharCode($event.keyCode))) {
+        //        $event.preventDefault();
+        //    }
+        //};
         //Add Staff//
         $scope.AddStaff = function (form) {
             debugger;
+            $scope.ph_numbr = /^\+?\d{10}$/;
+            $scope.eml_add = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
             if (form.$invalid == true) {
                 if (form.StaffName.$invalid == true) {
                     form.StaffName.$setTouched();
+                }
+                else if (form.StaffEmail.$invalid == true) {
+                    form.StaffEmail.$setTouched();
+                }
+                else if (form.staffMobileNo.$invalid == true) {
+                    form.staffMobileNo.$setTouched();
                 }
                 return false;
             }
@@ -223,17 +252,19 @@
                 "LastName": "",
                 "Address": "",
                 "Email": $scope.StaffEmail,
-                "TelephoneNo": "",
+                "TelephoneNo": $scope.staffMobileNo,
                 "CreationDate": CurrentDate
             }
 
             var result = bookingService.AddStaff(requestedstaff);
             result.then(function (response) {
-                if (response.data.Success == false) {
-                    if (response.data.Message.includes("Already member")) {
-                        $scope.MessageText = "Staff already exists!";
-                        $scope.IsVisible = true;
-                    }
+                debugger;
+                //if (response.data.Success == true) {
+                if (response.data.ReturnObject.EmloyeeId == 0) {
+                    //alert("Staff already exists!");
+                    form.staffEmail = focus;
+                    $scope.MessageText = "Staff already exists!";
+                    $scope.IsVisible = true;                  
                     $timeout(function () {
                         $scope.IsVisible = true;
                         $timeout(function () {
@@ -242,32 +273,35 @@
                     }, 1000)
                 }
 
-                if (response.data.Success == true) {
+                //if (response.data.Success == true) {
+                else {
+                    debugger;
                     //$scope.StaffId= response.data.ReturnObject.EmloyeeId;
                     $scope.MessageText = "Adding new Staff";
                     $scope.IsVisible = true;
                     //$scope.init();
                     $timeout(function () {
                         $scope.MessageText = "New Staff Added";
-                        //$timeout(function () {
-                        //    $scope.IsVisible = false;
-                        //    $scope.IsVisibleAddNewStaffPopUp = false;
+                        $timeout(function () {
+                            $scope.IsVisible = false;
+                            $scope.IsVisibleAddNewStaffPopUp = false;
 
-                        //    //Clear the form elements value//
-                        //    $scope.StaffEmail = "";
-                        //    $scope.StaffName = "";
-                        //    form.StaffName.$setUntouched();
-                        //    form.StaffName.$untouched = true;
+                            //Clear the form elements value//
+                            $scope.StaffEmail = "";
+                            $scope.StaffName = "";
+                            form.StaffName.$setUntouched();
+                            form.StaffName.$untouched = true;
 
-                        //    var StaffResult = bookingService.GetAllStaff($routeParams.CompanyId);
-                        //    StaffResult.then(function (response) {
-                        //        $scope.ListofStaff = [];
-                        //        $scope.ListofStaff = response.data;
-                        //        $scope.EditStaff(response.data[0]);
-                        //        $scope.TotalNoOfStaff = $scope.ListofStaff.length;
-                        //    });
-                        //}, 1000);
+                            var StaffResult = bookingService.GetAllStaff($routeParams.CompanyId);
+                            StaffResult.then(function (response) {
+                                $scope.ListofStaff = [];
+                                $scope.ListofStaff = response.data;
+                                $scope.EditStaff(response.data[0]);
+                                $scope.TotalNoOfStaff = $scope.ListofStaff.length;
+                            });
+                        }, 1000);
                     }, 800)
+
 
                     //////////////////////
 
@@ -301,19 +335,27 @@
                             }
                         var result = bookingService.SetEmployeeWorkingHours(workinghours);
                     });
+                    $route.reload();
                 }
-                 $route.reload();
+                //$route.reload();
             })
-           
+
         }
         $scope.StaffCancel = function (form) {
-            debugger;
-            $scope.IsVisibleAddNewStaffPopUp = false
-            //Clear the form elements value
+            
             $scope.StaffEmail = "";
             $scope.StaffName = "";
+            $scope.staffMobileNo = "";
             form.StaffName.$untouched = true;
             form.StaffName.$setUntouched();
+            form.StaffName.$setPristine();
+            form.StaffEmail.$untouched = true;
+            form.StaffEmail.$setUntouched();
+            form.StaffEmail.$setPristine();
+            form.staffMobileNo.$untouched = true;
+            form.staffMobileNo.$setUntouched();
+            form.staffMobileNo.$setPristine();
+            $scope.IsVisibleAddNewStaffPopUp = false
 
         }
 
@@ -336,7 +378,7 @@
 
 
         $scope.StaffDetailsLink = function () {
-            debugger;
+            //debugger;
             $scope.hideStaffDetailsLink = {
                 show: true,
                 hide: true
@@ -428,7 +470,7 @@
         }
 
         $scope.StaffServicesLink = function () {
-            debugger;
+            //debugger;
             $scope.hideStaffServicesLink = {
                 show: true,
                 hide: true
@@ -502,7 +544,7 @@
         }
 
         $scope.StaffHoursLink = function () {
-            debugger;
+            //debugger;
             $scope.hideStaffHoursLink = {
                 show: true,
                 hide: true
@@ -582,7 +624,7 @@
         }
 
         $scope.StaffBreakLink = function () {
-            debugger;
+            //debugger;
             $scope.hideStaffBreakLink = {
                 show: true,
                 hide: true
@@ -666,7 +708,7 @@
         }
 
         $scope.StaffTimeOffLink = function () {
-            debugger;
+            //debugger;
             $scope.hideStaffTimeOffLink = {
                 show: true,
                 hide: true
@@ -736,39 +778,39 @@
             angular.element(document.querySelector("#sideIconServicesClickTimeOff")).removeClass('active');
         }
 
-        
-        
+
+
 
         $scope.EditStaff = function (item) {
-            debugger;
+            //debugger;
             angular.element(document.querySelector(".tabs-_section")).addClass('hidden');
             angular.element(document.querySelector("#staff-DetailsTAb")).removeClass('hidden');
             angular.element(document.querySelector("#StaffDetailsLink")).addClass('active');
             angular.element(document.querySelector("#sideIconDetailClickDetails")).addClass('active');
-            
+
             angular.element(document.querySelector("#sideIconTimeOffClickDetails")).removeClass('active');
             angular.element(document.querySelector("#staffdetailsLinkactive")).removeClass('active');
-            
+
 
             angular.element(document.querySelector("#StaffServicesLink")).removeClass('active');
             angular.element(document.querySelector("#StaffHoursLink")).removeClass('active');
             angular.element(document.querySelector("#StaffBreakLink")).removeClass('active');
             angular.element(document.querySelector("#StaffTimeOffLink")).removeClass('active');
-            
-            
-            
+
+
+
 
             angular.element(document.querySelector("#staff-services")).addClass('hidden');
             angular.element(document.querySelector("#staff-hours")).addClass('hidden');
             angular.element(document.querySelector("#staff-break")).addClass('hidden');
             angular.element(document.querySelector("#staff-timeoff")).addClass('hidden');
-            
-            
+
+
 
             angular.element(document.querySelector("#staff_details")).removeClass('hidden');
             angular.element(document.querySelector("#staff_details")).addClass('active');
-            
-            
+
+
 
             $scope.StaffId = item.Id;
             $scope.staffName = item.FirstName;
@@ -814,9 +856,9 @@
                 if (response.data.length > 0) {
                     //var tttt = angular.element(document.querySelector("#Name"));
                     //tttt.addClass('active');
-                    debugger;
+                    //debugger;
                     $scope.ListofAllServices.push({ "Id": "", "CompanyId": $routeParams.CompanyId, "Name": NameElement.innerText, "CategoryName": "", "CategoryId": "", "DurationInMinutes": DurationElement.innerText, "Cost": CostElement.innerText, "Currency": "", "CreationDate": new Date() })
-                    debugger;
+                    //debugger;
                 }
                 angular.forEach(response.data, function (value, key) {
                     $scope.ListofAllServices.push({ "Id": value.Id, "CompanyId": value.CompanyId, "Name": value.Name, "CategoryName": value.CategoryName, "CategoryId": value.CategoryId, "DurationInMinutes": value.DurationInMinutes, "Cost": "$" + value.Cost, "Currency": value.Currency, "CreationDate": new Date(), "Confirmed": value.Confirmed })
@@ -847,7 +889,7 @@
             ///BreakTimeHours//
             var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee(item.Id);
             BreakTimeHours.then(function (response) {
-                debugger;
+                //debugger;
                 $scope.listofBreakingHours = [];
                 for (var i = 0; i < response.data.length; i++) {
                     $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Id": response.data[i].Id, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -860,7 +902,7 @@
 
         //Delete Staff by using wizard Controller DeleteStaff method by api
         $scope.DeleteStaff = function () {
-            debugger;
+            //debugger;
             var result = bookingService.DeleteStaff($scope.StaffId);
             result.then(function (response) {
                 if (response.data.Success == true) {
@@ -877,7 +919,7 @@
                         //        $scope.ListofStaff = response.data;
                         //        if (response.data.length > 0) {
                         //            $scope.EditStaff(response.data[0]);
-                                    
+
                         //        }
                         //        else {
                         //            $route.reload();
@@ -893,7 +935,7 @@
         }
 
         $scope.UpdateStaff = function () {
-            debugger;
+            //debugger;
             var CurrentDate = new Date();
             if ($scope.StaffId != null) {
                 var requestedStaff =
@@ -933,7 +975,7 @@
 
         $scope.AssignServicetoEmployee = function (item) {
 
-            debugger;
+            //debugger;
             if (item.Confirmed == true) {
                 //Assigned All Service to Staff
                 if (item.Name == "All Services") {
@@ -1050,7 +1092,7 @@
 
         //Get Allocated Staff Service Count//
         $scope.GetAllocatedStaffServiceCount = function () {
-            debugger;
+            //debugger;
             var ServiceResult = bookingService.GetAllServiceStatus($routeParams.CompanyId, $scope.StaffId);
             ServiceResult.then(function (response) {
                 $scope.EmployeeServiceCount = response.data[0].AllocatedServiceCount != null ? response.data[0].AllocatedServiceCount : 0;
@@ -1060,8 +1102,9 @@
 
 
 
+
         $scope.EnabledDisabledDay = function (timeInfo) {
-            debugger;
+            //debugger;
             angular.forEach($scope.WorkingHours, function (value, key) {
                 if (timeInfo.Day == value.Day) {
                     var CurrentDate = new Date();
@@ -1086,7 +1129,7 @@
                                 //Geting Break Hours.As days are enabled/disabled//
                                 var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee($scope.StaffId);
                                 BreakTimeHours.then(function (response) {
-                                    debugger;
+                                    //debugger;
                                     $scope.listofBreakingHours = [];
                                     for (var i = 0; i < response.data.length; i++) {
                                         $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -1124,7 +1167,7 @@
                                 //Geting Break Hours.As days are enabled/disabled//
                                 var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee($scope.StaffId);
                                 BreakTimeHours.then(function (response) {
-                                    debugger;
+                                    //debugger;
                                     $scope.listofBreakingHours = [];
                                     for (var i = 0; i < response.data.length; i++) {
                                         $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -1151,7 +1194,7 @@
 
         //Set Enable and disable working Time
         $scope.SetEmployeeWorkingTime = function (timedetail) {
-            debugger;
+            //debugger;
             var CurrentDate = new Date();
             var workinghours =
                 {
@@ -1182,7 +1225,7 @@
 
         //Get Working Hours of Employee//
         $scope.GetWorkingHoursOfEmployee = function (EmployeeId) {
-            debugger
+            //debugger
             var result = bookingService.GetWorkingHoursofEmployee(EmployeeId);
             result.then(function (response) {
                 $scope.WorkingHours = [];
@@ -1198,7 +1241,7 @@
 
         //Set Time Off//
         $scope.AddtimeOff = function () {
-            debugger;
+            //debugger;
             var StartDate = new Date($scope.startdate);
             var EndDate = new Date($scope.enddate);
 
@@ -1282,7 +1325,7 @@
         });
 
         $scope.AddtimeoffPopup = function () {
-            debugger;
+            //debugger;
             $scope.startdate = new Date();
             $scope.StartoffTime = "08:00 AM";
             $scope.EndoffTime = "05:00 PM";
@@ -1292,7 +1335,7 @@
 
 
         $scope.SetEmployeeBreakTime = function (time) {
-            debugger;
+            //debugger;
 
             var BreakTime = {
                 "CompanyId": $routeParams.CompanyId,
@@ -1305,10 +1348,10 @@
             var apirequest = bookingService.AddEmployeeBreakTime(BreakTime);
             apirequest.then(function (response) {
                 if (response.data.Success == true) {
-                    debugger;
+                    //debugger;
                     var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee(time.EmployeeId);
                     BreakTimeHours.then(function (response) {
-                        debugger;
+                        //debugger;
                         $scope.listofBreakingHours = [];
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -1329,7 +1372,7 @@
         }
 
         $scope.UpdateTimeOff = function () {
-            debugger;
+            //debugger;
             var UpdatedTimeoff = {
                 "Id": $scope.TimeOffId,
                 "CompanyId": $routeParams.CompanyId,
@@ -1360,7 +1403,7 @@
         }
 
         $scope.EditTimeOff = function (item) {
-            debugger;
+            //debugger;
             angular.element(document.querySelector('#UpdatetimeoffPopUp')).css('display', 'block');
             $scope.TimeOffId = item.Id;
             var StartDateTime = item.Start.split('T');
@@ -1384,7 +1427,7 @@
 
 
         $scope.Deletetimeoff = function () {
-            debugger;
+            //debugger;
             var apirequest = bookingService.DeleteTimeOff($scope.TimeOffId);
             apirequest.then(function (response) {
                 if (response.data.Success == true) {
@@ -1404,13 +1447,13 @@
         }
 
         $scope.CloseEditTimeOffModel = function () {
-            debugger;
+            //debugger;
             angular.element(document.querySelector('#UpdatetimeoffPopUp')).css('display', 'none');
         }
 
 
         $scope.GetTimeOffDetail = function (Id) {
-            debugger;
+            //debugger;
             var result = bookingService.GetTimeOffDetail(Id);
             result.then(function (response) {
                 $scope.timeOffDetail = response.data;
@@ -1418,7 +1461,7 @@
         }
 
         $scope.AddBreak = function (item) {
-            debugger;
+            //debugger;
             var BreakTime = {
 
                 "CompanyId": $routeParams.CompanyId,
@@ -1434,7 +1477,7 @@
             var apirequest = bookingService.AddEmployeeBreakTime(BreakTime);
             apirequest.then(function (response) {
                 if (response.data.Success == true) {
-                    debugger;
+                    //debugger;
                     //var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee(item.EmployeeId);
                     //BreakTimeHours.then(function (response) {
                     //    debugger;
@@ -1458,7 +1501,7 @@
         }
         //Update BreakTime of Employee
         $scope.UpdateBreakTime = function (time, status) {
-            debugger;
+            //debugger;
             var UpdatedbreakTime = {
                 "Id": time.Id,
                 "CompanyId": $routeParams.CompanyId,
@@ -1490,7 +1533,7 @@
 
         //Delete BreakTime of Employee//
         $scope.DeleteBreakTime = function (Id) {
-            debugger;
+            //debugger;
             var requestapi = bookingService.DeleteBreak(Id);
             requestapi.then(function (response) {
                 if (response.data.Success == true) {
@@ -1511,10 +1554,10 @@
 
 
         $scope.GetBreakHours = function (Id) {
-            debugger;
+            //debugger;
             var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee(Id);
             BreakTimeHours.then(function (response) {
-                debugger;
+                //debugger;
                 $scope.listofBreakingHours = [];
                 for (var i = 0; i < response.data.length; i++) {
                     $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Id": response.data[i].Id, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -1523,7 +1566,7 @@
         }
 
         $scope.Logout = function () {
-            debugger;
+            //debugger;
             $rootScope.IsLoggedInUser = false;
             var apirequest = bookingService.SignOut();
             sessionStorage.removeItem('userInfo-token');
@@ -1533,8 +1576,17 @@
     }]);
 
 
+//app.filter('startFrom', function () {
+//    return function (input, start) {
+//        start = +start; //parse to int
+//        //return input.slice(start);
+//        return input.slice(start);
+//    }
+//});
+
 app.filter('startFrom', function () {
     return function (input, start) {
+        if (!input || !input.length) { return; }
         start = +start; //parse to int
         return input.slice(start);
     }

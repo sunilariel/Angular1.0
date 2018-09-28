@@ -95,7 +95,7 @@
 
     $scope.init = function () {   
         //$scope.custom = true;
-
+        debugger;
         $(".left_sidebar").removeClass("show-leftbar");
         $scope.hidethisCustomerReport = {
             hide: true

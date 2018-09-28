@@ -133,16 +133,16 @@
             <li class="" id="bookingMgt-customers" title="">
                 <a ng-click="redirecttoCustomer()" style="cursor:pointer;" data-toggle="tab" class="" id="side-nav-customers"><i class="fas fa-user-friends"></i><small>Customers</small></a>
             </li>
-            <li class="dropdown active" id="bookingMgt-settings_new">
-                <a ng-click="" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><small>Settings</small></a>
-                <ul class="dropdown-menu">
-                    <li ng-click="RedirecttoStaff()"><a class="staffCss">Staff</a></li>
-                    <li ng-click="redirecttoServices()"><a class="staffCss">Service</a></li>
+            <li class="bookingMgt-settings_new dropdown" ng-class="{'open' : toggle }" id="bookingMgt-settings">
+                <a ng-click="toggle = !toggle" class="aaaaa" data-toggle="collapse" data-target="#keySettings"><i class="fas fa-cog"></i><small>Settings</small></a>
+                <ul class="collapse bbbbb" id="keySettings">
+                    <li ng-click="RedirecttoStaff()" id="redirecttostaffactive" class=""><a class="staffCss">Staff</a></li>
+                    <li ng-click="redirecttoServices()" id="redirecttoservicesactive"><a class="staffCss">Service</a></li>
                 </ul>
             </li>
-            <li class="reports dropdown" id="bookingMgt-settings_new">
-                <a ng-click="" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-chart-line"></i><small>Reports</small></a>
-                <ul class="dropdown-menu">
+            <li class="reports bookingMgt-settings_new dropdown" id="bookingMgt-reports">
+                <a ng-click="" class="aaaaa" data-toggle="collapse" data-target="#keyReports"><i class="fas fa-chart-line"></i><small>Reports</small></a>
+                <ul class="collapse bbbbb" id="keyReports">
                     <li ng-click="RedirecttoReport()" id="active-business"><a class="staffCss">Business</a></li>
                     <li ng-click="RedirecttoResourceReport()" id="active-resource"><a class="staffCss">Resource</a></li>
                     <li ng-click="RedirecttoServiceReport()" id="active-service"><a class="staffCss">Service</a></li>
@@ -155,7 +155,7 @@
         <div class="tabs-_section" style="width: 100px;">
             <div class="section_tab">
                 <ul class="nav nav-tab nav-stacked">
-                    <li id="redirecttostaffactive" class="staff_sec">
+                    <li id="redirecttostaffactive" class="staff_sec active">
                         <a ng-click="RedirecttoStaff()" class="cursorhand servics">
                             STAFF
                         </a>
@@ -205,11 +205,14 @@
                             <div class="categoryButton">
                                 <div class="Button_Section">
                                     <div class="row">
-                                        <div class="col-sm-8 col-xs-10">
+                                        <div class="col-sm-3 col-xs-4">
                                             <h3 style="font-size: 20px;">Staff ({{TotalNoOfStaff}})</h3>
                                         </div>
+                                        <div class="col-sm-5 col-xs-6">
+                                            <input style="height:35px" type="text" class="form-control" placeholder="Search.." ng-model="searchName">
+                                        </div>
                                         <div class="col-sm-4 col-xs-2">
-                                            <button class="pull-right btn btn-circle" id="settingCategory" title="" data-original-title="Add New Staff" ng-click="IsVisibleAddNewStaffPopUp = !IsVisibleAddNewStaffPopUp">
+                                            <button class="pull-right btn btn-circle" id="settingCategory" title="" data-original-title="Add New Staff" ng-click="IsVisibleAddNewStaffPopUp = IsVisibleAddNewStaffPopUps(AddStaffForm)">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                             </button>
                                         </div>
@@ -221,7 +224,7 @@
                                             <h3 class="addCustomerTitle">Add New Staff</h3>
                                             <form name="AddStaffForm" ng-submit="AddStaff(AddStaffForm)" novalidate class="css-form">
                                                 <div class="addcustomerContent">
-                                                    <div class="row">
+                                                    <!--<div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="customerField form-group">
                                                                 <input id="categoryNewName" class="form-control" type="text" placeholder="Staff Name" ng-model="StaffName" name="StaffName" required>
@@ -229,10 +232,59 @@
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="customerField form-group">
-                                                                <input id="categoryNewName" class="form-control" type="text" placeholder="Staff Email" ng-model="StaffEmail">
+                                                                <input id="categoryNewName" class="form-control" type="text" placeholder="Staff Email" ng-model="StaffEmail" name="StaffEmail" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>-->
+
+
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group staffformGroup">
+                                                                <div class="" ng-class="{ 'has-error' : AddStaffForm.StaffName.$invalid && !AddStaffForm.StaffName.$pristine }">
+                                                                    <!--<label>Name</label>-->
+                                                                    <p ng-show="AddStaffForm.StaffName.$invalid && !AddStaffForm.StaffName.$pristine" class="help-block">Name is required.</p>
+                                                                    <input id="categoryNewName" class="form-control" type="text" placeholder="Staff Name" ng-model="StaffName" name="StaffName" required>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="">
+                                                                    <!--<label>Email</label>-->                                                                    
+                                                                    <p style="color:#a94442" ng-if="AddStaffForm.StaffEmail.$error.required && AddStaffForm.StaffEmail.$dirty">Email is required</p>
+                                                                    <p style="color:#a94442" ng-show="AddStaffForm.StaffEmail.$error.pattern">Enter a valid email.</p>
+                                                                    <input name="StaffEmail" ng-model="StaffEmail" id="eml" type="text" ng-pattern="eml_add" ng-required="true" autocomplete="off" placeholder="Email" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group" ng-class="{ 'has-error' : AddStaffForm.staffMobileNo.$invalid && !AddStaffForm.staffMobileNo.$pristine }">
+                                                                <!--<label>Mobile</label>-->                                                                
+                                                                <span style="color:#a94442" ng-if="AddStaffForm.staffMobileNo.$error.required && AddStaffForm.staffMobileNo.$dirty">Mobile number is required</span>
+                                                                <span style="color:#a94442" ng-show="AddStaffForm.staffMobileNo.$error.pattern">Please enter a 10 digit number</span>
+                                                                <input name="staffMobileNo" ng-model="staffMobileNo" id="c_num" type="text" ng-required="true" ng-pattern="ph_numbr" autocomplete="off" placeholder="Mobile" class="form-control">                                                                
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="">
+                                                                    <!--<label>CC Email</label>-->
+                                                                    <input type="email" class="form-control" id="email" placeholder="CC Email" name="email">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="servicesTextareaDiv staffTextaria">
+                                                                <!--<label>Description</label>-->
+                                                                <textarea class="form-control" placeholder="Service Description" maxlength="500"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
+
+
+
+
                                                     <div class="row button_row">
                                                         <div class="col-md-6 col-xs-6 text-right">
                                                             <button id="addcategoryBtn" type="submit" class="btn  add_category_btn addCustomerbtn">Add Staff</button>
@@ -249,7 +301,7 @@
                             </div>
                             <div class="categoryList staffList">
                                 <ul>
-                                    <li ng-repeat="item in ListofStaff | startFrom:currentPage*pageSize | limitTo:pageSize" ng-click="EditStaff(item)" ng-class="{selected:StaffId==item.Id}">
+                                    <li ng-repeat="item in ListofStaff | filter:searchName | startFrom:currentPage*pageSize | limitTo:pageSize" ng-click="EditStaff(item)" ng-class="{selected:StaffId==item.Id}">
                                         <div class="item-cat-sec">
                                             <span>
                                                 <a class="cursorhand">
@@ -272,7 +324,7 @@
                         <a><img src="https://image.ibb.co/mi7vO9/hello.png" alt="hello"></a>
                         <div class="image_text">
                             <h3>Hi there :)</h3>
-                            <p>Click on any of the staff on the list to details, or press the <span>+</span> button to create a new staff</p>
+                            <p>Click on any of the staff on the list for details, or press the <span>+</span> button to create a new staff</p>
                         </div>
                     </div>
 
@@ -293,10 +345,20 @@
                                 <li style="float:right;">
                                     <div class="addServiceButton">
                                         <span>Delete Staff</span>
-                                        <a ng-click="DeleteStaff()" id="deleteBtn" class="serviceButton btn btn-default">
+                                        <a ng-click="ShowDeletePopUp=true" id="deleteBtn" class="serviceButton btn btn-default">
                                             <i class="far fa-trash-alt" aria-hidden="true"></i>
                                         </a>
                                     </div>
+                                    <span class="staff-break-delete-holder" ng-show="ShowDeletePopUp">
+                                        <div class="popover left staff-delete-box staffbbtns" style="">
+                                            <div class="arrow staffarrowbtn"></div>
+                                            <h3 class="popover-title surecntnt">Are you sure?</h3>
+                                            <div class="btn_box staffbtnpadn">
+                                                <button id="" class="btn btn-danger deletebtn" ng-click="DeleteStaff()">Delete</button>
+                                                <button class="new-gray-btn btn btn-default cancelbtn" ng-click="ShowDeletePopUp=false">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </span>
                                 </li>
                             </ul>
                             <div class="clearfix"></div>
@@ -354,7 +416,16 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row" style="padding:20px;">
+                                                <div class="col-sm-12">
+                                                    <div class="categoryButtonsDiv text-center categoryDeleteBtnDiv">
+                                                        <button id="serviceSaveBtn" class="add_category_btn serviceSaveBtn" ng-click="SaveService()">Save</button>
+                                                        <button id="serviceCancelBtn" class="btn btn-default serviceCancelBtn" ng-click="showAllStaff()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+
                                     </div>
                                     <div class="one_div Details_Div">
                                         <a id="sideIconDetailClickDetails"><i class="far fa-file-alt"></i><span class="tooltip-left">Details</span></a>
@@ -538,9 +609,8 @@
                                                                 <tbody>
                                                                     <tr ng-repeat="BreakTime in listofBreakingHours">
                                                                         <td>
-                                                                            <div class="StaffColumnDiv">
-
-                                                                                <div class="week_div BreakSelectDiv" ng-if="BreakTime.StartEndTime.length!=0" ng-repeat="break in BreakTime.StartEndTime" ng-class="{'my-disable':BreakTime.Available==false}">
+                                                                            <div class="StaffColumnDiv week_div BreakSelectDiv">
+                                                                                <div class="" ng-if="BreakTime.StartEndTime.length!=0" ng-repeat="break in BreakTime.StartEndTime" ng-class="{'my-disable':BreakTime.Available==false}">
                                                                                     <div class="BreakDeleteBtn">
                                                                                         <button class="btn btn-default" ng-click="DeleteBreakTime(break.Id)">
                                                                                             <i class="far fa-trash-alt"></i>
@@ -582,6 +652,11 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
+
+
+
                                         <div class="one_div Breaks_Div">
                                             <a ng-click="sideIconDetailClick()" id="sideIconDetailClickBreaks" data-target="#staff_details" data-toggle="tab"><i class="far fa-file-alt"></i><span class="tooltip-left">Details</span></a>
                                             <a ng-click="sideIconServicesClick()" id="sideIconServicesClickBreaks" data-target="#staff-services" data-toggle="tab"><i class="fas fa-cogs"></i><span class="tooltip-left">Services</span></a>
@@ -871,13 +946,13 @@
                                                                             </div>
                                                                             <div class="col-md-3 col-sm-3">
                                                                                 <div class="dateText">
-                                                                                    <p>No Repeat</p>
+                                                                                    <!--<p>No Repeat</p>-->
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-3 col-sm-3">
                                                                                 <div class="dateText">
-                                                                                    <p ng-if="item.IsOffAllDay==true">Full Day</p>
-                                                                                    <p ng-if="item.IsOffAllDay==false">Break</p>
+                                                                                    <!--<p ng-if="item.IsOffAllDay==true">Full Day</p>
+                                                                                    <p ng-if="item.IsOffAllDay==false">Break</p>-->
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-1 col-sm-1">

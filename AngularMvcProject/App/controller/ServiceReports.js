@@ -187,7 +187,7 @@
 
     $scope.init = function () {
         //$scope.custom = true;
-
+        debugger;
 
         $(".left_sidebar").removeClass("show-leftbar");
         $scope.hidethisServiceReport = {
@@ -205,7 +205,7 @@
         tttt.addClass('active');
         debugger;
         $scope.ServiceExist=true;
-        $scope.toggle = true;
+        //$scope.toggle = true;
         var ReportCount = 0;
         //var apirequest = bookingService.getServicesData($routeParams.CompanyId);
         //apirequest.then(function (response) {

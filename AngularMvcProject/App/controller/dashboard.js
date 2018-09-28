@@ -501,6 +501,32 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         };
 
 
+        //bookingMgt-settings
+        //bookingMgt-reports
+        //$scope.bookingMgtsettings = function () {
+            
+
+
+
+        //    var state = $(this).data('state');
+        //    state = !state;
+        //    if (state) {
+
+        //        $("#bookingMgt-settings").addClass("open");
+        //    }
+        //    else {
+        //        $("#bookingMgt-settings").removeClass("open");
+        //    }
+        //    $(this).datas('state', state);
+        //    $scope.isActive = !$scope.isActive;            
+        //}
+        //$scope.bookingMgtreports = function () {
+        //    alert("seytuy");
+        //    angular.element(document.querySelector("#bookingMgt-settings")).addClass('open');
+        //}
+   
+        //bookingMgt-settings_new
+
         $scope.EditDatePicker = function () {
             debugger;
             if ($scope.count == 0) {
@@ -569,7 +595,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         });
 
         $scope.Logout = function () {
-            debugger;
+            //debugger;
             $rootScope.IsLoggedInUser = false;
             var apirequest = bookingService.SignOut();
             sessionStorage.removeItem('userInfo-token');

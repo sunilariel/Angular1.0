@@ -18,10 +18,24 @@
             $location.path("/dashboard/" + $routeParams.CompanyId);
         }
         $scope.redirecttoServices = function () {
+            debugger;
             $location.path("/Services/" + $routeParams.CompanyId);
+            debugger
+            $scope.init();
             var tttt = angular.element(document.querySelector("#redirecttoservicesactive"));
             tttt.addClass('active');
             angular.element(document.querySelector("#redirecttostaffactive")).removeClass('active');
+            debugger;
+            angular.element(document.querySelector(".row_section")).removeClass('hidden');
+            $scope.showAllServicesDiv = true;
+            $scope.hidecategoryList = false;
+            ////hidecategoryList
+            ////$scope.showAddServiceDiv = true;
+            //$scope.showAllServicesDiv = true;
+            ////$scope.EditServiceDiv = true;
+            ////$scope.showCategoryServicesDiv = true;
+            //$scope.hidecategoryList = true;
+            ////$scope.showcategoryList = true;           
         }
 
         $scope.RedirecttoReport = function () {
@@ -89,7 +103,7 @@
 
             $scope.showAddServiceDiv = true;
             $scope.showCategoryServicesDiv = true;
-            
+
             if (servicenameform.ServiceName.value == "") {
                 $scope.showAllServicesDiv = true;
             }
@@ -98,7 +112,7 @@
             }
 
 
-            $scope.CategoryCheckedCount = 0;
+            //$scope.CategoryCheckedCount = 0;
             $scope.EditServiceDiv = true;
             $scope.ShowDeletePopUp = false;
 
@@ -122,6 +136,7 @@
             var CompanyId = $routeParams.CompanyId;
             var responsedata = bookingService.GetCategories(CompanyId);
             responsedata.then(function (response) {
+                debugger;
                 if (response.data.length > 0) {
                     $scope.Categories = [];
                     $scope.Categories = response.data;
@@ -184,17 +199,26 @@
         $scope.showAllServicePopup = function () {
 
             debugger;
-
+            $scope.init();
             if ($scope.ServiceDividedByCategory) {
-               
+                debugger;
+
+                var id = $scope.CategoryId;
+                //var name = $scope.CategoryName
+                //item = [];
+                //item.id = id;
+                //item.name = name;
+                //$scope.ShowCategoryService(item);
                 angular.element(document.querySelector(".row_section")).addClass('hidden');
                 $scope.EditServiceDiv = true;
                 $scope.showCategoryServicesDiv = false;
                 $scope.showAddServiceDiv = true;
-                $scope.CategoryId = null;
+                $scope.CategoryId = id;
+                $scope.showAllServicesDiv = true;
+
             }
-            else if ($scope.AllServices){
-               
+            else if ($scope.AllServices) {
+
                 angular.element(document.querySelector(".row_section")).addClass('hidden');
                 $scope.showAllServicesDiv = false;
                 $scope.showcategoryList = {
@@ -207,7 +231,7 @@
                 $scope.EditServiceDiv = true;
             }
 
-            
+
             //$scope.init();
         }
 
@@ -256,6 +280,13 @@
             $scope.showCategoryServicesDiv = false;
         }
 
+        
+        $scope.showcategorypopups = function myfunction() {            
+            $scope.CategoryName = "";
+            return !$scope.showcategorypopup;
+
+        }
+
         //Updating Category Name//
         $scope.EditCategory = function (categoryName) {
             debugger;
@@ -274,22 +305,23 @@
                     $scope.IsVisible = true;
                     $timeout(function () {
                         $scope.MessageText = "Category Name Saved"
-                        
+
                         $timeout(function () {
                             $scope.IsVisible = false;
                         }, 1000)
                     }, 500);
                 }
-               
+
             });
-            
+
         }
 
         //Delete Category//
 
         $scope.DeleteCategory = function (item) {
             debugger;
-            
+            alert("delete");
+            $scope.showAllServicesDiv = false;
             var responseresult = bookingService.DeleteCategory($routeParams.CompanyId, item.Id);
             responseresult.then(function (response) {
                 if (response.data.Success == true) {
@@ -301,16 +333,16 @@
                             $scope.IsVisible = false;
                             $scope.init();
                         }, 100)
-                    }, 1000);                    
+                    }, 1000);
                     angular.element(document.querySelector(".row_section")).removeClass('hidden');
-                    $scope.showAllServicesDiv = true;
+
                     $scope.hidecategoryList = false;
                     $scope.showCategoryServicesDiv = true;
                     $scope.ServiceDividedByCategory = null;
                 }
-               
+
             });
-            
+
         }
 
 
@@ -353,6 +385,7 @@
             });
         }
 
+      
         $scope.CategoryCancel = function () {
             $scope.showcategorypopup = false
             $scope.CategoryName = "";
@@ -365,12 +398,11 @@
             $scope.Colour = Colour;
         }
 
+        
 
-
-        $scope.SaveService = function () {
-            debugger;
-
-            if (servicenameform.ServiceName.value == "") {
+        $scope.SaveService = function (form) {
+            debugger;           
+            if (servicenameform.ServiceName.value == "") {                     
                 $scope.MessageText = "Service name cannot be empty!";
                 $scope.IsVisible = true;
                 $timeout(function () {
@@ -602,7 +634,7 @@
 
         $scope.updateService = function () {
             debugger;
-            
+
             if ($scope.ServiceName == "") {
                 $scope.MessageText = "Service name cannot be zero!";
                 $scope.IsVisible = true;
@@ -663,10 +695,31 @@
                     "Buffer": $scope.BufferTime,
                     "CreationDate": "2017-07-05T05:21:50.3448321+00:00"
                 }
-
+            $scope.UpdatedServiceCopy = {
+                "Id": $scope.ServiceId,
+                "CompanyId": $routeParams.CompanyId,
+                "Name": $scope.ServiceName,
+                "Description": $scope.ServiceDescription,
+                "CategoryName": "",
+                "CategoryId": null,
+                "DurationInMinutes": $scope.UpdateServiceTime,
+                "DurationInHours": "",
+                "Cost": $scope.ServiceCost,
+                "Currency": "",
+                "Colour": $scope.ColourCode,
+                "Buffer": $scope.BufferTime,
+                "CreationDate": "2017-07-05T05:21:50.3448321+00:00"
+            }
             var result = bookingService.UpdateService(UpdatedService);
             result.then(function (response) {
                 if (response.data.Success == true) {
+                    debugger;
+                    if ($scope.ServiceDividedByCategory != null) {
+                        $scope.ServiceDividedByCategory[0].Cost = $scope.UpdatedServiceCopy.Cost;
+                        $scope.ServiceDividedByCategory[0].Name = $scope.UpdatedServiceCopy.Name;
+                        $scope.ServiceDividedByCategory[0].DurationInMinutes = $scope.UpdatedServiceCopy.DurationInMinutes;
+                    }
+
                     $scope.MessageText = "Saving Service";
                     $scope.IsVisible = true;
                     $timeout(function () {
@@ -675,9 +728,26 @@
                         $timeout(function () {
                             $scope.IsVisible = false;
                         }, 1000)
+                        $scope.EditServiceDiv = false;
+                        $scope.showAddServiceDiv = true;
+                        $scope.showCategoryServicesDiv = true;
+                        $scope.showAllServicesDiv = true;
                     }, 500)
                 }
             });
+
+            //var response = bookingService.GetCategoriesAssignedToService($routeParams.CompanyId, $scope.ServiceId);
+            //debugger;
+            //response.then(function (response) {
+            //    $scope.CategoryCheckedCount = response.data.length;
+            //    for (var i = 0; i < response.data.length; i++) {
+            //        angular.forEach($scope.Categories, function (value, key) {
+            //            if (response.data[i].Id == value.Id) {
+            //                value.Confirmed = true;
+            //            }
+            //        })
+            //    }
+            //})
 
         }
 
@@ -813,6 +883,7 @@
 
         $scope.AssignCategorytoService = function (category) {
             $scope.CategoryConfirmedCount();
+
             if (category.Confirmed == true) {
                 var responsedata = bookingService.AssignCategorytoService($routeParams.CompanyId, $scope.ServiceId, category.Id);
                 responsedata.then(function (response) {

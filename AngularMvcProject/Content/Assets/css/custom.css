@@ -16,6 +16,80 @@
 
 /*04-SEp-2018 Start*/
 
+.left_sidebar .dropdown.open {
+    margin-bottom: 85px;
+}
+.left_sidebar .open.dropdown .aaaaa:before {
+    transform: rotate(180deg);
+}
+.left_sidebar .dropdown .aaaaa:before {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";    
+    font-size: 10px;
+    position: absolute;
+    right: 0;
+    top: 14px;
+}
+.left_sidebar ul.nav li:hover .aaaaa:before {
+    color: #fff !important;
+}
+.bbbbb {
+    min-width: 100%;
+    margin: 0 !important;
+    border: none !important;
+    border-bottom: 3px solid #3594dd !important;
+    padding: 5px 0 0px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.open > .bbbbb {
+    display: block;
+}
+/*ul#keySettings {
+    height: 89px;
+}
+ul#keyReports {
+    height: 157px;
+}*/
+.left_sidebar .bookingMgt-settings_new ul.bbbbb li:hover {
+    background: linear-gradient(141deg, rgba(101, 172, 232, 0.74) 0%, rgb(43, 144, 222) 51%, rgba(78, 156, 222, 0.83) 75%);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.bbbbb li {
+    margin: 1px 2px 0px !important;
+}
+li#bookingMgt-settings {
+    transition: .4s;
+}
+.bookingMgt-settings_new ul.bbbbb li:hover .staffCss {
+    color: #fff !important;
+}
+.bookingMgt-settings_new ul.bbbbb li .staffCss {
+    color: #000 !important;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 2px 27px;
+    padding-left: 40px;
+}
+.dropdown-menu > li > a:focus, .bbbbb > li > a:hover {
+    background: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #detail label.control-label.col-sm-4 {
     text-align: left;
@@ -628,7 +702,12 @@ li#reportsClick_active .cursorhand.Reports .fas.fa-chart-line {
     border-right: 6px solid transparent;
     border-left: 6px solid transparent;
 }
-
+.left_sidebar ul#keyReports li{
+    padding: 5px 20px !important;
+}
+.left_sidebar ul#keySettings li {
+    padding: 6px 20px !important;
+}
 .categoryButton {
     padding: 10px 15px;
     vertical-align: middle;
@@ -822,7 +901,7 @@ ul.nav.navbar-nav.navbar-right li a:hover {
         background: linear-gradient(141deg, #2089da 0%, rgba(32, 137, 218, 0.9) 51%, rgb(32, 137, 218) 75%);
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
     }
-.left_sidebar li#bookingMgt-settings_new ul.dropdown-menu li:hover {
+.left_sidebar .bookingMgt-settings_new ul.dropdown-menu li:hover {
     background: linear-gradient(141deg, rgba(101, 172, 232, 0.74) 0%, rgb(43, 144, 222) 51%, rgba(78, 156, 222, 0.83) 75%);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
@@ -1202,7 +1281,7 @@ header.top ul.nav.navbar-nav.navbar-right {
     font-family: 'Chalkboard';
 }*/
 
-li#bookingMgt-settings_new ul.dropdown-menu li .staffCss {
+.bookingMgt-settings_new ul.dropdown-menu li .staffCss {
     color: #000 !important;
     font-size: 14px;
     font-weight: 500;
@@ -1210,16 +1289,17 @@ li#bookingMgt-settings_new ul.dropdown-menu li .staffCss {
     padding-left: 40px;
 }
 
-li#bookingMgt-settings_new ul.dropdown-menu li:hover .staffCss {
+.bookingMgt-settings_new ul.dropdown-menu li:hover .staffCss {
     color: #fff !important;
 }
 
-li#bookingMgt-settings_new ul.dropdown-menu li:hover .dropdown-toggle:before {
+.bookingMgt-settings_new ul.dropdown-menu li:hover .dropdown-toggle:before {
     color: #fff !important;
 }
 
 .left_sidebar .dropdown.open {
     margin-bottom: 85px;
+    transition: .4s;
 }
 
 .left_sidebar .dropdown .dropdown-toggle:before {
@@ -1348,7 +1428,7 @@ li#bookingMgt-settings_new ul.dropdown-menu li:hover .dropdown-toggle:before {
     letter-spacing: 1.5px;
     display: inline-block;
     margin: 0;
-    padding: 0 !important;
+    padding: 0px 36px !important;
     vertical-align: middle;
 }
 
@@ -3328,20 +3408,26 @@ select.select_btn {
 }
 
     .addCustomer h3.addCustomerTitle {
-        margin-top: 20px;
+        /*margin-top: 20px;
         margin-bottom: 0;
         padding: 8px 14px;
         font-size: 20px !important;
         font-weight: 500;
-        line-height: 18px;
-        /* background-color: #f8f8f8; */
+        line-height: 18px;        
         -webkit-border-radius: 5px 5px 0 0;
         -moz-border-radius: 5px 5px 0 0;
         border-radius: 5px 5px 0 0;
         color: #2089da !important;
         max-width: 352px;
         margin: 20px auto 0;
-        text-align: left;
+        text-align: left;*/
+        font-weight: 500;
+        line-height: 18px;
+        border-radius: 5px 5px 0 0;
+        color: #2089da !important;
+        max-width: 352px;
+        margin: 20px auto 0;
+        text-align: center;
     }
 
 h3.addCustomerTitle {
@@ -3933,12 +4019,16 @@ span.dotSplitter {
 }
 
 .addCategoryPopup {
-    top: 11px;
+    /*top: 11px;
     left: 106%;
     width: 100%;
     position: absolute;
     right: 0;
-    padding: 20px 10px;
+    padding: 20px 10px;*/
+    top: -50px;
+    left: 106%;
+    width: 100%;
+    position: absolute;
 }
 
 .add_category_btn {
@@ -4603,6 +4693,7 @@ ul.dashboardNtfList {
 .addServiceButton {
     text-align: right;
     padding-right: 5px;
+    cursor: pointer;
 }
 /*.customerDetail {
     padding-left: 5px;
@@ -5994,7 +6085,7 @@ span.staffdatepickerTime {
     border-radius: 30px;
     padding: 7px 10px;
     font-size: 13px;
-    width: 100%;
+    width: 75%;
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #2089da;
@@ -7271,7 +7362,7 @@ h4.resource_hd {
 
 .breaks_sec .BreakSelectDiv {
     float: left;
-    width: 60%;
+    width: 60%;    
 }
 
 .breaks_sec .Day_sec {
@@ -7281,15 +7372,15 @@ h4.resource_hd {
 }
 
 .breaks_sec .break_txt {
-    width: 18%;
+    width: 15%;
     float: right;
     margin: 0 10px;
 }
 
 .breaks_sec .addBreakBtn.btn.break_btn {
-    max-width: 80px;
-    float: right;
-    margin: 0 70px;
+    /*max-width: 100px;
+    float: right;*/
+    margin: 0px 10px;
 }
 
 .BreakDeleteBtn button.btn.btn-default {
@@ -8280,12 +8371,11 @@ span.providerImage.cursorhand.cstmersidepimg img {
 }
 
 .popover.left.staff-delete-box.staffbbtns {
-    left: auto;
-    right: 44px;
+    left: -105px;
+    right: 0px;
     width: 211px;
-    top: -32px;
+    top: -60px;
     display: block;
-    height: 91px;
 }
 
 .arrow.staffarrowbtn {
@@ -8361,8 +8451,8 @@ h3.popover-title.surecntnt {
     margin-right: 4px;
     height: 35px !important;
     line-height: 32px !important;
-    background: none repeat scroll 0 0 #f84c58 !important;
-    border-color: #f84c58 !important;
+    background: none repeat scroll 0 0 #2089da !important;
+    border-color: #2089da !important;
     color: whitesmoke !important;
     background: #F1F5F7;
     border-color: #F1F5F7;
