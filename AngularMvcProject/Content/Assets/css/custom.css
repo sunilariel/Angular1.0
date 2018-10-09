@@ -388,7 +388,7 @@ li.selectCustomer.cursorhand.cstmersidebarl.ng-scope.selected {
     font-weight: 500;
     color: #333;
     padding: 10px 10px;
-    height: 55px;
+    height: 45px;
     width: 100% !important;
     border: none;
     border-left: 4px solid #ccc;
@@ -2070,8 +2070,8 @@ span.staff-break-delete-holder button.btn.btn-circle {
 .group_label {
     background: #fff;
     padding: 0;
-    /* margin: 10px 45px 40px 45px; */
-    max-width: 450px;
+    /* margin: 10px 45px 40px 45px;
+    max-width: 450px; */
     margin: 40px auto;
 }
 
@@ -2285,9 +2285,9 @@ select.select_btn {
     margin: 3px auto 0;
 }
 
-.step3_form .row .col-md-2.col-sm-2, .step3_form .row .col-md-4.col-sm-4, .step3_form .row .col-md-6.col-sm-6, .step3_form .row .col-md-3.col-sm-3.col-xs-3 {
+/*.step3_form .row .col-md-2.col-sm-2, .step3_form .row .col-md-4.col-sm-4, .step3_form .row .col-md-6.col-sm-6, .step3_form .row .col-md-3.col-sm-3.col-xs-3 {
     padding: 10px 5px;
-}
+}*/
 
 .border_top button {
     margin: 0;
@@ -2302,12 +2302,17 @@ select.select_btn {
         color: #FFF;
         border-color: #2089da;
     }
+form.css-form button.btn.btn-default {
+    background: #2089da;
+    color: #fff;
+    outline: none;
+}
 
 .border_top {
-    margin-top: -50px;
+    margin-top:0;
     padding-top: 15px;
     /* border-top: 1px solid #ccc; */
-    padding-right: 50px;
+    padding-right: 0;
 }
 
     .border_top .form-group input {
@@ -2331,9 +2336,9 @@ select.select_btn {
     display: inline-block;
 }
 
-.step3_form span.time {
+/*.step3_form span.time {
     margin-left: 8px;
-}
+}*/
 
 .step3_form .dropdown ul.dropdown-menu {
     left: -160px;
@@ -2359,13 +2364,26 @@ select.select_btn {
     transition: ease-in-out 0.5s;
     border-radius: 3px;
     color: #555;
+    outline:none !important;
+}
+    .step3_form .dropdown button#dLabel:hover {
+        border:none !important;
+        box-shadow:none !important;
+    } 
+.step3_form .dropdown button#dLabel:hover {
+    background: #F1F5F7;
+    border: 1px solid #51a7eb !important;
+    box-shadow: 0 0 3px rgba(82, 168, 236, 0.8) !important;
 }
 
-    .step3_form .dropdown button#dLabel:hover {
-        background: #F1F5F7;
-        border: 1px solid #51a7eb !important;
-        box-shadow: 0 0 3px rgba(82, 168, 236, 0.8) !important;
-    }
+/*#nameRequired .has-error-service {
+    color: #a94442 !important;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    
+}*/
+
 
 .step3_form .dropdown .angle_down i.fa.fa-angle-down {
     color: #fff;
@@ -2417,9 +2435,9 @@ select.select_btn {
 }
 
 .step3_form .close_img img {
-    margin-top: 16px;
+    margin-top: 20px;
     color: #717171;
-    max-width: 8px;
+    max-width: 10px;
 }
 
 a.close_icon img {

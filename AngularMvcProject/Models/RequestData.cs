@@ -17,7 +17,8 @@ namespace AngularMvcProject.Models
         public string County { get; set; }
         public string Town { get; set; }
         public string Description { get; set; }
-        public string Password { get; set; }
+        //public string UniqueReference { get; set; }
+        public string Password { get; set; }        
         public string CreationDate { get; set; }
     }
     public class CreateAccount

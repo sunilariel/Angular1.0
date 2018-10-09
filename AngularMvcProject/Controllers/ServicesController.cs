@@ -112,8 +112,7 @@ namespace AngularMvcProject.Controllers
         {
             try
             {
-                var result = "";
-               
+                var result = "";               
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/services/AssignCategoryToService?companyId=" + CompanyId + "&categoryId=" + CategoryId + "&serviceId=" + SeviceId);
                 httpWebRequest.Method = "PUT";
                 httpWebRequest.ContentType = "application/json";

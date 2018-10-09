@@ -68,7 +68,8 @@ app.controller("SignUp", ['$scope', '$http', '$timeout', '$location', '$rootScop
                     Website: "a",
                     County: "aaa",
                     Town: "aaaaa",
-                    Description: "aa",
+                    Description: "aa", 
+                    //UniqueReference:"4254b8fb-09f0-48e7-9f76-3516d1fc91c4",
                     Password: $scope.Password,
                     CreationDate: "2017-05-22T05:55:21.9148617+00:00"
                 }

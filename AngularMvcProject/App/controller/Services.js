@@ -1,6 +1,5 @@
-﻿app.controller("servicesController", ['$scope', '$http', '$routeParams', '$timeout', '$location', 'bookingService', '$rootScope',
-    function ($scope, $http, $routeParams, $timeout, $location, bookingService, $rootScope) {
-
+﻿app.controller("servicesController", ['$scope', '$http', '$routeParams', '$filter', '$timeout', '$location', 'bookingService', '$rootScope', '$route',
+    function ($scope, $http, $routeParams, $filter, $timeout, $location, bookingService, $rootScope, $route) {
 
         //Redirection to different pages////
         $scope.redirecttoCustomer = function () {
@@ -166,6 +165,13 @@
 
         //Show the AddService Section with staff name
         $scope.AddServicePopup = function () {
+
+            
+            angular.element(document.querySelector("#timeRequired")).addClass('ng-hide');
+            angular.element(document.querySelector("#nameRequired")).addClass('ng-hide');
+            angular.element(document.querySelector("#removeName-has-error")).removeClass('has-error');
+            angular.element(document.querySelector("#removetime-has-error")).removeClass('has-error');
+
             $scope.hidecategoryList = {
                 show: true,
                 hide: true
@@ -199,6 +205,8 @@
         $scope.showAllServicePopup = function () {
 
             debugger;
+            angular.element(document.querySelector("#nameRequired")).addClass('ng-hide');
+            angular.element(document.querySelector("#timeRequired")).addClass('ng-hide');
             $scope.init();
             if ($scope.ServiceDividedByCategory) {
                 debugger;
@@ -280,8 +288,8 @@
             $scope.showCategoryServicesDiv = false;
         }
 
-        
-        $scope.showcategorypopups = function myfunction() {            
+
+        $scope.showcategorypopups = function myfunction() {
             $scope.CategoryName = "";
             return !$scope.showcategorypopup;
 
@@ -385,7 +393,7 @@
             });
         }
 
-      
+
         $scope.CategoryCancel = function () {
             $scope.showcategorypopup = false
             $scope.CategoryName = "";
@@ -398,11 +406,22 @@
             $scope.Colour = Colour;
         }
 
-        
+
 
         $scope.SaveService = function (form) {
-            debugger;           
-            if (servicenameform.ServiceName.value == "") {                     
+            debugger;
+            if ($scope.servicenameform.$invalid) {
+                angular.element(document.querySelector("#nameRequired")).removeClass('ng-hide');
+                //angular.element(document.querySelector("#nameRequired")).removeClass('help-block');
+                //angular.element(document.querySelector("#nameRequired")).addClass('has-error-service');
+                
+                //alert("dhdhddh");
+
+            }
+            if ($scope.servicedetailform.ServiceTime.$invalid) {
+                angular.element(document.querySelector("#timeRequired")).removeClass('ng-hide');
+            }
+            if (servicenameform.ServiceName.value == "") {
                 $scope.MessageText = "Service name cannot be empty!";
                 $scope.IsVisible = true;
                 $timeout(function () {
