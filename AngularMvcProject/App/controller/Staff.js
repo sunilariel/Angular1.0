@@ -264,7 +264,7 @@
                     //alert("Staff already exists!");
                     form.staffEmail = focus;
                     $scope.MessageText = "Staff already exists!";
-                    $scope.IsVisible = true;                  
+                    $scope.IsVisible = true;
                     $timeout(function () {
                         $scope.IsVisible = true;
                         $timeout(function () {
@@ -306,7 +306,7 @@
                     //////////////////////
 
                     //Set Working hours in Staff Section in MileStone_4//
-                    $scope.WorkingHours = [{ "Day": "Monday", "StartTime": "08:00 AM", "EndTime": "05:00 PM", "Available": true, "NameOfDay": 1 },
+                    $scope.WorkingHours = [{ "Day": "Monday", "StartTime": "08:00 AM", "EndTime": "08:00 PM", "Available": true, "NameOfDay": 1 },
                     { "Day": "Tuesday", "StartTime": "08:00 AM", "EndTime": "05:00 PM", "Available": true, "NameOfDay": 2 },
                     { "Day": "Wednesday", "StartTime": "08:00 AM", "EndTime": "05:00 PM", "Available": true, "NameOfDay": 3 },
                     { "Day": "Thursday", "StartTime": "08:00 AM", "EndTime": "05:00 PM", "Available": true, "NameOfDay": 4 },
@@ -342,7 +342,7 @@
 
         }
         $scope.StaffCancel = function (form) {
-            
+
             $scope.StaffEmail = "";
             $scope.StaffName = "";
             $scope.staffMobileNo = "";
@@ -1208,7 +1208,9 @@
                     "IsOffAllDay": false,
                     "CreationDate": CurrentDate
                 }
+            // $scope.CurrentWorkingHourData = workinghours;
             var result = bookingService.SetEmployeeWorkingHours(workinghours);
+            //  debugger;
             result.then(function (response) {
                 if (response.data.Success == true) {
                     $scope.MessageText = "Saving Staff Working Hours";
@@ -1325,10 +1327,18 @@
         });
 
         $scope.AddtimeoffPopup = function () {
-            //debugger;
+            // debugger;
             $scope.startdate = new Date();
-            $scope.StartoffTime = "08:00 AM";
-            $scope.EndoffTime = "05:00 PM";
+            var currentDate = $scope.startdate;
+            var currentDay = currentDate.getDay();
+            angular.forEach($scope.WorkingHours, function (value, key) {
+                if (value.NameOfDay == currentDay) {
+                    $scope.StartoffTime = value.StartTime;
+                    $scope.EndoffTime = value.EndTime;
+                }
+            });
+            // $scope.StartoffTime = "08:00 AM";
+            //$scope.EndoffTime = "05:00 PM";
             $scope.alldaystatus = true
         }
 

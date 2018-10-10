@@ -328,29 +328,41 @@
 
         $scope.DeleteCategory = function (item) {
             debugger;
-            alert("delete");
-            $scope.showAllServicesDiv = false;
-            var responseresult = bookingService.DeleteCategory($routeParams.CompanyId, item.Id);
-            responseresult.then(function (response) {
-                if (response.data.Success == true) {
-                    $scope.MessageText = "Only Category will be deleted not the service."
-                    $scope.IsVisible = true;
-                    $timeout(function () {
-                        $scope.MessageText = "Category Deleted."
+            //alert("delete");
+            var r = confirm("Are you sure you want to delete this item?");
+            if (r ==true) {
+                $scope.showAllServicesDiv = false;
+                var responseresult = bookingService.DeleteCategory($routeParams.CompanyId, item.Id);
+                responseresult.then(function (response) {
+                    if (response.data.Success == true) {
+                        $scope.MessageText = "Only Category will be deleted not the service."
+                        $scope.IsVisible = true;
                         $timeout(function () {
-                            $scope.IsVisible = false;
-                            $scope.init();
-                        }, 100)
-                    }, 1000);
-                    angular.element(document.querySelector(".row_section")).removeClass('hidden');
+                            $scope.MessageText = "Category Deleted."
+                            $timeout(function () {
+                                $scope.IsVisible = false;
+                                $scope.init();
+                            }, 100)
+                        }, 1000);
+                        angular.element(document.querySelector(".row_section")).removeClass('hidden');
 
-                    $scope.hidecategoryList = false;
-                    $scope.showCategoryServicesDiv = true;
-                    $scope.ServiceDividedByCategory = null;
-                }
+                        $scope.hidecategoryList = false;
+                        $scope.showCategoryServicesDiv = true;
+                        $scope.ServiceDividedByCategory = null;
+                    }
 
-            });
-
+                });
+            }
+            else {
+                $scope.init();
+                angular.element(document.querySelector(".row_section")).removeClass('hidden');
+                $scope.showAllServicesDiv = true;
+                $scope.hidecategoryList = false;
+                $scope.showCategoryServicesDiv = true;
+                $scope.ServiceDividedByCategory = null;
+                debugger;
+                $route.reload();
+            }          
         }
 
 
