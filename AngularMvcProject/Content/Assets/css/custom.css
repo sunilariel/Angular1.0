@@ -1895,7 +1895,7 @@ span.staff-break-delete-holder button.btn.btn-circle {
     position: relative;
     margin-top: 0;
     background-color: rgba(200, 200, 200, 0.2);
-    padding: 10px 5px;
+    padding: 0 5px;
 }
 
 .btn_circle span {
@@ -2077,7 +2077,7 @@ span.staff-break-delete-holder button.btn.btn-circle {
 
 .css-form p {
     margin: 0;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .group_label > p {
@@ -3219,10 +3219,11 @@ button#deleteBtn {
 /* 23-may-2017 css start here ===================== */
 .stepwizard-step .active {
     background-color: #2089da;
-    padding: 14px 50px;
+    padding: 14px 15px;
     border-radius: 2px;
     box-shadow: 0 16px 26px -10px rgba(32, 137, 218, 0.46), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(54, 165, 244, 0.2);
-    margin-left: -13px;
+    width: 100% !important;
+    display: inline-block;
 }
 
 a#step4 {
@@ -7726,8 +7727,55 @@ table.table {
 }
 
 /* 3 August 2018 css Closed */
+
+
+
+
+
+.dateTimeDiv ul li table .btn {
+    background: none;
+    margin: 0 !important;
+    font-size: 13px !important;
+    padding: 6px 9px;
+}
+.dateTimeDiv ul li table .btn.btn-info {
+        color: #2089da;
+   }
+
+.dateTimeDiv ul li table thead th {
+    font-size: 12px;
+    text-align: center !important;
+}
+
+.wizardPadDiv .step3_form form.css-form .form-control {
+    background: #eee;
+}
+.wizardPadDiv .step3_form > .row {
+    margin-bottom: 5px;
+}
+
+
+.close_img {
+    cursor: pointer;
+    background: #2089da;
+    border: none;
+    border-radius: 100%;
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.14);
+    padding: 9px 13px;
+    outline: none !important;
+    color: #fff;
+    margin-left: 10px;
+    display: inline-block;
+}
+.close_img:hover {
+    background: #fff;
+    color: #2089da;  
+}
 /* Sep-11-2017 media css start here ============================= */
 @media (max-width:767px) {
+    .modal-open .modal {
+        padding-right: 0px !important;
+    }
     .resources_div {
         text-align: left;
     }
@@ -7904,9 +7952,15 @@ table.table {
         margin: 20px;
         margin-right: 30px;
     }
+
+    .staffBodyDiv {
+        padding: 25px 15px;
+    }
 }
 
 @media (max-width:415px) {
+
+
     .time_frame label {
         width: 49%;
     }
@@ -10269,6 +10323,20 @@ ul.searching-cust li span {
 
 
         /*   July-5-2017 css end here     */
+
+
+
+
+
+
+        #booking-settingsTabContent h3 {
+            padding: 0px 9px !important;
+            margin-left: 0;
+        }
+
+
+
+
 
 
     }

@@ -233,12 +233,16 @@
                 if (form.StaffName.$invalid == true) {
                     form.StaffName.$setTouched();
                 }
+                else if (form.staffMobileNo.$invalid == true) {
+                    if ($scope.ph_numbr = /^\+?\d{10}$/) {
+                        form.staffMobileNo.$setTouched();
+                    }
+                    
+                }
                 else if (form.StaffEmail.$invalid == true) {
                     form.StaffEmail.$setTouched();
                 }
-                else if (form.staffMobileNo.$invalid == true) {
-                    form.staffMobileNo.$setTouched();
-                }
+                
                 return false;
             }
 
@@ -249,7 +253,7 @@
                 "UserName": $scope.StaffEmail,
                 "Password": "",
                 "FirstName": $scope.StaffName,
-                "LastName": "",
+                "LastName": $scope.LastName,
                 "Address": "",
                 "Email": $scope.StaffEmail,
                 "TelephoneNo": $scope.staffMobileNo,
