@@ -343,7 +343,8 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
                         //Adding dropdown in full calendar righ section//
                         var e = document.getElementsByClassName("fc-right");
-                        var headerhtml = "<div class='row tooldropdwn'><div class='col-sm-3'><div class='dropdownrighticon'> <i class='fa fa-plus maindricons' aria-hidden='true'></i><div class='dropdownbox'><a href='#'><i class='fa fa-users plusbox' aria-hidden='true'></i>Add staff</a><a href='#'><i class='fa fa-truck plusbox' aria-hidden='true'></i>Add service</a><a href='#'><i class='fa fa-book  plusbox' aria-hidden='true'></i>Add customer</a><a href='#'><i class='fa fa-sitemap plusbox' aria-hidden='true'></i>Add class</a></div></div></div><div class='col-sm-3'><div class='dropdownrighticon'><i class='fa fa-signal maindricons' aria-hidden='true'></i><div class='dropdownbox'><a class='signalheader' href='#'>testerariel's Weekly Stats</a><ul class='signalbox'><li class=''><a href='#'><span id='totalApptsCount' class='scontent'>1</span><label class='pricetexts'>Appts.</label></a></li><li><a href='#'><span id='confirmedApptsCost' class='scontent'>₹0</span><label class='pricetexts'>Confirmed</label></a></li><li><a href='#'><span id='projectedApptsCost' class='scontent'>₹0</span><label class='pricetexts'>Projected</label></a></li><div class='clear_all'></div></ul></div></div></div><div class='col-sm-3'><div class='dropdownrighticon'><i class='fa fa-cog settingt maindricons' aria-hidden='true'></i><div class='dropdownbox droprmegnp'><a href='#'>Providers</a><a class='listbbordermtor' href='#'><i class='fa fa-check checkbtn' aria-hidden='true'></i>View as dropdown</a><a class='listbborder' href='#'><i class='fa fa-tablet tabletbtn' aria-hidden='true'></i>view as tabs</a><a class='listbborder' href='#'>Disable off-hours booking</a><a class='listbborder' href='#'>Enable double booking</a><a class='listbborder' href='#'>Disable custom service duration</a><a class='listbborder' href='#'>Disable custom service cost</a><a class='listbborder cursorhand' data-toggle='modal' data-target='#myModal' >Change business hours</a><a class='listbborder' href='#'>Hide calendar stats</a></div></div></div><div class='col-sm-3'> </div></div>";
+                        var headerhtml = "";
+                        //var headerhtml = "<div class='row tooldropdwn'><div class='col-sm-3'><div class='dropdownrighticon'> <i class='fa fa-plus maindricons' aria-hidden='true'></i><div class='dropdownbox'><a href='#'><i class='fa fa-users plusbox' aria-hidden='true'></i>Add staff</a><a href='#'><i class='fa fa-truck plusbox' aria-hidden='true'></i>Add service</a><a href='#'><i class='fa fa-book  plusbox' aria-hidden='true'></i>Add customer</a><a href='#'><i class='fa fa-sitemap plusbox' aria-hidden='true'></i>Add class</a></div></div></div><div class='col-sm-3'><div class='dropdownrighticon'><i class='fa fa-signal maindricons' aria-hidden='true'></i><div class='dropdownbox'><a class='signalheader' href='#'>testerariel's Weekly Stats</a><ul class='signalbox'><li class=''><a href='#'><span id='totalApptsCount' class='scontent'>1</span><label class='pricetexts'>Appts.</label></a></li><li><a href='#'><span id='confirmedApptsCost' class='scontent'>₹0</span><label class='pricetexts'>Confirmed</label></a></li><li><a href='#'><span id='projectedApptsCost' class='scontent'>₹0</span><label class='pricetexts'>Projected</label></a></li><div class='clear_all'></div></ul></div></div></div><div class='col-sm-3'><div class='dropdownrighticon'><i class='fa fa-cog settingt maindricons' aria-hidden='true'></i><div class='dropdownbox droprmegnp'><a href='#'>Providers</a><a class='listbbordermtor' href='#'><i class='fa fa-check checkbtn' aria-hidden='true'></i>View as dropdown</a><a class='listbborder' href='#'><i class='fa fa-tablet tabletbtn' aria-hidden='true'></i>view as tabs</a><a class='listbborder' href='#'>Disable off-hours booking</a><a class='listbborder' href='#'>Enable double booking</a><a class='listbborder' href='#'>Disable custom service duration</a><a class='listbborder' href='#'>Disable custom service cost</a><a class='listbborder cursorhand' data-toggle='modal' data-target='#myModal' >Change business hours</a><a class='listbborder' href='#'>Hide calendar stats</a></div></div></div><div class='col-sm-3'> </div></div>";
 
                         $compile($(headerhtml))($scope);
                         angular.element(e).append(headerhtml);
@@ -764,7 +765,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Update Event on Calendar//
         $scope.UpdateAppointment = function () {
-
+            debugger;
             var date = new Date($scope.dt);
             var firstDay = new Date(date.getFullYear(), date.getMonth(), 2);
             var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1);
@@ -784,6 +785,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                     "EndMinute": $scope.time,
                     "IsAdded": true,
                     "Message": "",
+                    "Notes":$scope.notes,
                     "CustomerIds": [$scope.CustomerId],
                     "Start": $scope.dt,
                     "End": $scope.dt,
@@ -936,6 +938,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Save Event on Calendar//
         $scope.SaveAppointment = function (form) {
+            debugger;
             var SelectedDate = $scope.hidden;
             var selectedvalue = $scope.option;
             var date = new Date(SelectedDate);
@@ -998,8 +1001,9 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
                         var time = $scope.timeoption.split(" ");
                         var starttime = time[0].split(":");
-
+                        debugger;
                         var appointment = {
+                            
                             "CompanyId": $routeParams.CompanyId,
                             "ServiceId": $scope.selectedservice,
                             "EmployeeId": $scope.selectedprovider,
@@ -1080,7 +1084,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             else {
                 var time = $scope.timeoption.split(" ");
                 var starttime = time[0].split(":");
-
+                debugger;
                 var appointment = {
                     "CompanyId": $routeParams.CompanyId,
                     "ServiceId": $scope.selectedservice,
@@ -1093,6 +1097,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                     "EndMinute": $scope.time,
                     "IsAdded": true,
                     "Message": $scope.notes,
+                    "Notes":$scope.notes,
                     //"CustomerIds": [$scope.CustomerId],
                     "CustomerIds": [$scope.CustomerId],
                     "Start": SelectedDate,
@@ -1513,6 +1518,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
         });
 
         $scope.$watch("dt", function (newValue, oldValue) {
+            debugger;
             $scope.timeInfoFrom = [];
             if (newValue != null && oldValue != null) {
                 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

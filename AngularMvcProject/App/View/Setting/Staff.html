@@ -138,6 +138,7 @@
                 <ul class="collapse bbbbb" id="keySettings">
                     <li ng-click="RedirecttoStaff()" id="redirecttostaffactive" class=""><a class="staffCss">Staff</a></li>
                     <li ng-click="redirecttoServices()" id="redirecttoservicesactive"><a class="staffCss">Service</a></li>
+                    <!--<li ng-click="redirecttoServices()" id="redirecttoservicesactive"><a class="staffCss">Service</a></li>-->
                 </ul>
             </li>
             <li class="reports bookingMgt-settings_new dropdown" id="bookingMgt-reports">
@@ -245,11 +246,11 @@
                                                                     <!--<label>Name</label>-->
                                                                     <p ng-show="AddStaffForm.StaffName.$invalid && !AddStaffForm.StaffName.$pristine" class="help-block">Name is required.</p>
                                                                     <input id="categoryNewName" class="form-control" type="text" placeholder="First Name" ng-model="StaffName" name="StaffName" required>
-                                                                    
+
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
-                                                                <div class="">                                      
+                                                                <div class="">
                                                                     <!--<p style="color:#a94442" ng-if="AddStaffForm.StaffEmail.$error.required && AddStaffForm.StaffEmail.$dirty">Email is required</p>
                                                                     <p style="color:#a94442" ng-show="AddStaffForm.StaffEmail.$error.pattern">Enter a valid email.</p>
                                                                     <input name="StaffEmail" ng-model="StaffEmail" id="eml" type="text" ng-pattern="eml_add" ng-required="true" autocomplete="off" placeholder="Email" class="form-control">-->
@@ -269,10 +270,10 @@
                                                             </div>
 
                                                             <div class="form-group" ng-class="{ 'has-error' : AddStaffForm.staffMobileNo.$invalid && !AddStaffForm.staffMobileNo.$pristine }">
-                                                                <!--<label>Mobile</label>-->                                                                
+                                                                <!--<label>Mobile</label>-->
                                                                 <span style="color:#a94442" ng-if="AddStaffForm.staffMobileNo.$error.required && AddStaffForm.staffMobileNo.$dirty">Mobile number is required</span>
                                                                 <span style="color:#a94442" ng-show="AddStaffForm.staffMobileNo.$error.pattern">Please enter a 10 digit number</span>
-                                                                <input name="staffMobileNo" ng-model="staffMobileNo" id="c_num" type="text" ng-required="true" ng-pattern="ph_numbr" autocomplete="on" placeholder="Mobile" class="form-control">                                                                
+                                                                <input name="staffMobileNo" ng-model="staffMobileNo" id="c_num" type="text" ng-required="true" ng-pattern="ph_numbr" autocomplete="on" placeholder="Mobile" class="form-control">
                                                             </div>
                                                             <!--<div class="form-group">
                                                                 <div class="">
@@ -399,7 +400,7 @@
                                                     <form class="form-horizontal imageUploadForm">
                                                         <div class="form-group staffformGroup">
                                                             <div class="">
-                                                                <label>Name</label>
+                                                                <label>First Name</label>
                                                                 <input type="text" class="customerName form-control" id="name" name="name" placeholder="Mark" ng-model="staffName" ng-blur="UpdateStaff()">
                                                             </div>
                                                         </div>
@@ -414,16 +415,23 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <form class="form-horizontal customerDetail">
+                                                        <!--<div class="form-group">
+                                                            <label>Mobile</label>
+                                                            <input type="text" class="form-control" id="text" ng-model="staffMobileNo" placeholder="Mobile" ng-blur="UpdateStaff()" name="text">
+                                                        </div>-->
+
+                                                        <div class="form-group">
+                                                            <label>Last Name</label>
+                                                            <input type="text" class="form-control" id="text" ng-model="LastName" placeholder="Last Name" ng-blur="UpdateStaff()" name="text">
+                                                        </div>
+
+
+
                                                         <div class="form-group">
                                                             <label>Mobile</label>
                                                             <input type="text" class="form-control" id="text" ng-model="staffMobileNo" placeholder="Mobile" ng-blur="UpdateStaff()" name="text">
                                                         </div>
-                                                        <div class="form-group">
-                                                            <div class="">
-                                                                <label>CC Email</label>
-                                                                <input type="email" class="form-control" id="email" placeholder="CC Email" name="email">
-                                                            </div>
-                                                        </div>
+
 
                                                     </form>
                                                 </div>
@@ -432,7 +440,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="servicesTextareaDiv staffTextaria">
                                                         <label>Description</label>
-                                                        <textarea class="form-control" placeholder="Service Description" maxlength="500"></textarea>
+                                                        <textarea class="form-control" placeholder="Staff Description" maxlength="500"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
