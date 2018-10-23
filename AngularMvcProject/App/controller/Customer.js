@@ -1,5 +1,5 @@
-﻿app.controller('customerController', ['$scope', '$location', '$filter', '$window', '$routeParams', '$q', '$http', '$timeout', 'bookingService', '$rootScope',
-    function ($scope, $location, $filter, $window, $routeParams, $q, $http, $timeout, bookingService, $rootScope) {
+﻿app.controller('customerController', ['$scope', '$location', '$filter', '$window', '$routeParams', '$q', '$http', '$timeout', 'bookingService', '$rootScope', '$route',
+    function ($scope, $location, $filter, $window, $routeParams, $q, $http, $timeout, bookingService, $rootScope, $route) {
         //This will hide the DIV by default.
         // debugger;
         $scope.procedures = [
@@ -438,28 +438,28 @@
             $scope.timeInfoFrom = [];
         }
 
+
+
+
         $scope.CreateCustomer = function (form) {
             debugger;
-
-
             if (form.$invalid == true) {
                 if (form.customerName.$invalid == true) {
                     form.customerName.$setTouched();
                     form.customerName.$touched = true;
+                    angular.element(document.querySelector("#customerName_color")).removeClass("ng-hide");
+
+                    //$scope.createCustomerform.$invalid == false;
                     return false;
                 }
             }
+            $scope.eml_add = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
             if (form.$invalid == true) {
+
                 if (form.customerEmail.$invalid == true) {
                     form.customerEmail.$setTouched();
                     form.customerEmail.$touched = true;
-                    return false;
-                }
-            }
-            if (form.$invalid == true) {
-                if (form.customerMobile.$invalid == true) {
-                    form.customerMobile.$setTouched();
-                    form.customerMobile.$touched = true;
+                    angular.element(document.querySelector("#customerEmail_color")).removeClass("ng-hide");
                     return false;
                 }
             }
@@ -467,7 +467,42 @@
                 if (form.customerPassword.$invalid == true) {
                     form.customerPassword.$setTouched();
                     form.customerPassword.$touched = true;
+                    angular.element(document.querySelector("#customerPassword_color")).removeClass("ng-hide");
                     return false;
+                }
+            }
+           
+            
+            if (form.$invalid == true) {
+                $scope.regEx = "/[^0-9]/g;"
+                if (form.customerExt.$invalid == true) {
+                    if ($scope.regEx = /[^0-9]/g) {
+                        form.customerExt.$setTouched();
+                        form.customerExt.$touched = true;
+                        angular.element(document.querySelector("#customerExt_color")).removeClass("ng-hide")
+                        return false;
+                    }
+                }
+                
+            }
+            
+            if (form.$invalid == true) {
+                $scope.ph_numbr = /^\+?\d{10}$/;
+                if (form.customerMobile.$invalid == true) {
+
+                    if ($scope.ph_numbr = /^\+?\d{10}$/) {
+                        form.customerExt.$untouched = true;
+                        form.customerExt.$setUntouched();
+                        form.customerMobile.$setTouched();
+                        form.customerMobile.$touched = true;
+                        
+                        angular.element(document.querySelector("#customerExt_code")).addClass("hidden")
+                        angular.element(document.querySelector("#customerExt_color")).addClass("ng-hide")
+                        angular.element(document.querySelector("#customerExt_color")).addClass("hidden")
+                        angular.element(document.querySelector("#customerMobile_color")).removeClass("ng-hide");
+                        return false;
+                    }                       
+                    
                 }
             }
             $scope.MobileNo = $scope.customerExt + $scope.customerMobile;
@@ -489,14 +524,13 @@
             }
             var createcustomer = bookingService.CreateCustomer(obj);
             createcustomer.then(function (response) {
+                debugger;
                 if (response.data.Success == true) {
                     $scope.CustomerId = response.data.ReturnObject.CustomerId;
                     $scope.MessageText = "Saving Data";
                     $scope.msg = "Create Customer Successfully";
-
                     var GetCustomer = bookingService.GetAllCustomer($scope.CompanyId);
                     GetCustomer.then(function (response) {
-
                         $scope.customerArr = [];
                         $scope.customerArr = response.data;
                         $scope.showcustomer = false;
@@ -514,6 +548,8 @@
                         form.customerName.$untouched = true;
                         form.customerEmail.$setUntouched();
                         form.customerEmail.$untouched = true;
+                        form.customerExt.$untouched = true;
+                        form.customerExt.$setUntouched();
                         form.customerMobile.$untouched = true;
                         form.customerMobile.$setUntouched();
                         form.customerPassword.$untouched = true;
@@ -521,6 +557,7 @@
                         angular.element(document.querySelector("#booking-settingsTabContent")).addClass("hidden");
                         angular.element(document.querySelector(".tabs-_section")).removeClass("hidden");
                         //$scope.showcustomer = false;
+                        $route.reload();
                     });
 
                     $timeout(function () {
@@ -529,9 +566,11 @@
                         },
                             1000)
                     }, 500);
+                    
                 }
                 else {
                     if (response.data.Message == "Customer creation failed: Already member") {
+                        alert("dfffff");
                         $scope.MessageText = "Customer Already Exits";
                         $scope.IsVisible = true;
 
@@ -541,6 +580,7 @@
 
                     }
                 }
+                
             }, function () {
                 $scope.showcustomer = false;
                 alert('Error in updating record');
@@ -549,21 +589,27 @@
 
         //On Cancel btn click hide the popup and clear the form elements values//
         $scope.CustomerCancel = function (form) {
+            debugger;
 
-            $scope.showcustomer = false;
-            $scope.customerName = null;
-            $scope.customerEmail = null;
-            $scope.customerPassword = null;
-            $scope.customerExt = null;
-            $scope.customerMobile = null;
-            form.customerName.$setUntouched();
-            form.customerName.$untouched = true;
-            form.customerEmail.$setUntouched();
-            form.customerEmail.$untouched = true;
-            form.customerMobile.$untouched = true;
-            form.customerMobile.$setUntouched();
-            form.customerPassword.$untouched = true;
-            form.customerPassword.$setUntouched();
+            //angular.element(document.querySelector("#customerName_color")).addClass("ng-hide");
+            //angular.element(document.querySelector("#customerEmail_color")).addClass("ng-hide");
+            //$scope.showcustomer = false;
+            //$scope.customerName = null;
+            //$scope.customerEmail = null;
+            //$scope.customerPassword = null;
+            //$scope.customerExt = null;
+            //$scope.customerMobile = null;
+            //form.customerName.$setUntouched();
+            //form.customerName.$untouched = true;
+            //form.customerEmail.$setUntouched();
+            //form.customerEmail.$untouched = true;
+            //form.customerMobile.$untouched = true;
+            //form.customerMobile.$setUntouched();
+            //form.customerPassword.$untouched = true;
+            //form.customerPassword.$setUntouched();
+            //angular.element(document.querySelector("#customerName_color")).addClass("ng-hide");
+            //angular.element(document.querySelector("#customerEmail_color")).addClass("ng-hide");
+            $route.reload();
         }
 
         //Edit Customer getting details  
@@ -751,6 +797,7 @@
                         }, 1000)
 
                     }, 500);
+                    $route.reload();
                 });
 
 
@@ -1173,7 +1220,7 @@
         }
 
 
-       
+
 
         $scope.DeleteCustomerNote = function (Id) {
             var apideleterequest = bookingService.DeleteCustomerNote($routeParams.CompanyId, Id);

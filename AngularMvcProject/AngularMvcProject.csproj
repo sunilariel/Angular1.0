@@ -264,6 +264,7 @@
     <Content Include="Content\Assets\js\scheduler.min.css" />
     <Content Include="Content\Assets\js\trix.js" />
     <Content Include="Content\Assets\js\ui-bootstrap-tpls-0.5.0.js" />
+    <Content Include="Content\demo.css" />
     <Content Include="Content\dx.common.css" />
     <Content Include="Content\dx.dark.css" />
     <Content Include="Content\dx.light.css" />
@@ -272,6 +273,7 @@
     <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\fullcalendar.print.min.css" />
+    <Content Include="Content\intlTelInput.min.css" />
     <Content Include="Content\LoginCss\main.css" />
     <Content Include="Content\LoginCss\util.css" />
     <Content Include="Index.html" />
@@ -391,6 +393,7 @@
     <Content Include="Scripts\fullcalendar\locale\zh-tw.js" />
     <Content Include="Scripts\gcal.js" />
     <None Include="Scripts\jquery-2.0.0.intellisense.js" />
+    <Content Include="Scripts\intlTelInput.js" />
     <Content Include="Scripts\jquery-2.0.0.js" />
     <Content Include="Scripts\jquery-2.0.0.min.js" />
     <Content Include="Scripts\jquery-2.0.0.min.map" />
@@ -407,6 +410,7 @@
     <Content Include="Scripts\ng-csv.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\utils.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

@@ -663,7 +663,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         status = "Paid";
                     }
 
-                    element[0].innerHTML = "<div class='fc-content'><span class='fc-title unmaincntent' style='padding-left:5px;font-size: 11px;font-weight: 500;'>" + eventdetail[8] + "</span><span class='fc-title' style='text-align: right;float: right;font-size: 9px;padding: 0px 5px;'>" + status + "</span><div style='margin-top: 20px;'><span style='padding-left:5px;font-size: 11px !important;'>" + eventdetail[1] + "  " + "£" + eventdetail[2] + "</span></div></div>";
+                    element[0].innerHTML = "<div class='fc-content'><span class='fc-title unmaincntent' style='padding-left:5px;font-size: 11px;font-weight: 500;'>" + eventdetail[8] + "</span><span class='fc-title' style='text-align: right;float: right;font-size: 9px;padding: 0px 5px;'>" + status + "</span><div style='margin-top: 5px;'><span style='padding-left:5px;font-size: 11px !important;'>" + eventdetail[1] + "  " + "£" + eventdetail[2] + "</span></div></div>";
                 }
             }
             else {

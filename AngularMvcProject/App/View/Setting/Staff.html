@@ -288,7 +288,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="">
                                                                 <!--<label>Email</label>-->
-                                                                <p style="color:#a94442" ng-if="AddStaffForm.StaffEmail.$error.required && AddStaffForm.StaffEmail.$dirty">Email is required</p>
+                                                                <p style="color:#a94442" ng-show="AddStaffForm.StaffEmail.$error.required && AddStaffForm.StaffEmail.$dirty">Email is required</p>
                                                                 <p style="color:#a94442" ng-show="AddStaffForm.StaffEmail.$error.pattern">Enter a valid email.</p>
                                                                 <input name="StaffEmail" ng-model="StaffEmail" id="eml" type="text" ng-pattern="eml_add" ng-required="true" autocomplete="off" placeholder="Email" class="form-control">
                                                             </div>

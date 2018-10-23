@@ -236,7 +236,6 @@ D:\Officials\Angular1.0 Latest Clone\Angular1.0\AngularMvcProject\bin\Microsoft.
 D:\Officials\Angular1.0 Latest Clone\Angular1.0\AngularMvcProject\bin\Microsoft.Owin.Security.Google.xml
 D:\Officials\Angular1.0 Latest Clone\Angular1.0\AngularMvcProject\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Officials\Angular1.0 Latest Clone\Angular1.0\AngularMvcProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Officials\Angular1.0 Latest Clone\Angular1.0\AngularMvcProject\obj\Debug\AngularMvcProject.csprojResolveAssemblyReference.cache
 D:\Officials\Angular1.0 Latest Clone\Angular1.0\AngularMvcProject\obj\Debug\AngularMvcProject.csproj.CoreCompileInputs.cache
 D:\Officials\Angular1.0 Latest Clone\Angular1.0\AngularMvcProject\obj\Debug\AngularMvcProject.dll
 D:\Officials\Angular1.0 Latest Clone\Angular1.0\AngularMvcProject\obj\Debug\AngularMvcProject.pdb

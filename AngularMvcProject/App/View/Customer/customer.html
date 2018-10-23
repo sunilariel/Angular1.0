@@ -236,21 +236,56 @@
                                         <h3 class="addCustomerTitle">Add New Customer</h3>
                                         <div class="addcustomerContent">
                                             <div class="form-group">
-                                                <input id="customerName" class="form-control" type="text" placeholder="Name" name="customerName" ng-model="customerName" required>
-                                                <br />
-                                                <input class="form-control emailField" type="text" placeholder="E-mail" name="customerEmail" ng-model="customerEmail" required>
-                                                <br />
-                                                <input id="customerPassword" class="form-control" type="text" placeholder="Password" name="customerPassword" ng-model="customerPassword" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-3 col-sm-2 col-xs-3  userNumber">
-                                                    <input id="customerExt" class="form-control" type="text" placeholder="Code" maxlength="4" ng-model="customerExt">
+                                                <div ng-class="{ 'has-error':createCustomerform.customerName.$invalid && !createCustomerform.customerName.$pristine }">
+                                                    <p style="color:#a94442" id="customerName_color" ng-show="createCustomerform.customerName.$dirty && createCustomerform.customerName.$error.required"
+                                                       class="help-block">Name is required</p>
+                                                    <input id="customerName" class="form-control" type="text" placeholder="Name" name="customerName" ng-model="customerName" required>
+                                                    <br />
                                                 </div>
-                                                <div class="col-md-9 col-sm-10 col-xs-9 mobilenumberField">
-                                                    <input id="customerMobile" class="form-control" type="text" placeholder="Mobile" ng-model="customerMobile" name="customerMobile" required>
+
+                                                <p style="color:#a94442" id="customerEmail_color" ng-show="createCustomerform.customerEmail.$error.required && createCustomerform.customerEmail.$dirty">Email is required</p>
+                                                <p style="color:#a94442" ng-show="createCustomerform.customerEmail.$error.pattern">Enter a valid email.</p>
+                                                <!--<input class="form-control emailField" type="email" placeholder="E-mail" name="customerEmail" ng-model="customerEmail" required>-->
+
+                                                <input name="customerEmail" ng-model="customerEmail" id="eml" type="text" ng-pattern="eml_add" ng-required="true" autocomplete="off" placeholder="Email" class="form-control emailField">
+                                                <br />
+
+                                                <div ng-class="{ 'has-error':createCustomerform.customerPassword.$invalid && !createCustomerform.customerPassword.$pristine }">
+                                                    <p style="color:#a94442" id="customerPassword_color" ng-show="createCustomerform.customerPassword.$dirty && createCustomerform.customerPassword.$error.required"
+                                                       class="help-block">Password is required</p>
+                                                    <input id="customerPassword" class="form-control" type="text" placeholder="Password" name="customerPassword" ng-model="customerPassword" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <p style="color:#a94442" id="customerExt_color" ng-show="createCustomerform.customerExt.$error.required && createCustomerform.customerExt.$dirty">code number is required</p>
+                                                <p style="color:#a94442" id="customerExt_code" ng-show="createCustomerform.customerExt.$error.pattern">Please enter code number</p>
+
+                                                <p style="color:#a94442" id="customerMobile_color" ng-show="createCustomerform.customerMobile.$error.required && createCustomerform.customerMobile.$dirty">Mobile number is required</p>
+                                                <p style="color:#a94442" ng-show="createCustomerform.customerMobile.$error.pattern">Please enter a 10 digit number</p>
+                                                <div class="col-md-3 col-sm-2 col-xs-3  userNumber"  ng-class="{ 'has-error':createCustomerform.customerExt.$invalid && !createCustomerform.customerExt.$pristine }">
+                                                    
+                                                    <input id="customerExt" class="form-control" type="text" placeholder="Code" maxlength="4" ng-pattern="regEx" ng-model="customerExt" name="customerExt" ng-required="true">
+                                                </div>
+                                                <div class="col-md-9 col-sm-10 col-xs-9 mobilenumberField" ng-class="{ 'has-error':createCustomerform.customerMobile.$invalid && !createCustomerform.customerMobile.$pristine }">
+                                                    <!--<input id="customerMobile" class="form-control" type="text" placeholder="Mobile" ng-model="customerMobile" name="customerMobile" required>-->
+
+                                                    <input name="customerMobile" ng-model="customerMobile" id="c_num" type="text" ng-required="true" ng-pattern="ph_numbr" autocomplete="on" placeholder="Mobile" class="form-control">
+
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
+
+
+
+                                            <!--<div class="form-group" ng-class="{ 'has-error' : createCustomerform.customerMobile.$invalid && !createCustomerform.customerMobile.$pristine }">
+
+                                                <span style="color:#a94442" ng-if="createCustomerform.customerMobile.$error.required && createCustomerform.customerMobile.$dirty">Mobile number is required</span>
+                                                <span style="color:#a94442" ng-show="createCustomerform.customerMobile.$error.pattern">Please enter a 10 digit number</span>
+                                                <input name="customerMobile" ng-model="customerMobile" id="c_num" type="text" ng-required="true" ng-pattern="ph_numbr" autocomplete="on" placeholder="Mobile" class="form-control">
+                                            </div>-->
+
+
                                             <div class="row button_row">
                                                 <div class="col-md-6 col-xs-6 text-right">
                                                     <button id="addnewCustomer" style="max-width: 105px;" type="submit" class="btn  add_category_btn addCustomerbtn">Add Customer</button>
