@@ -578,7 +578,7 @@
 
                                                                                     <div class="selectDropdown">
                                                                                         <div class="gifImage" ng-show="timeslotsloading"><img src="/Content/Assets/images/loading.gif" /></div>
-                                                                                        <select class="select_btn dateTimeSelect" style="line-height:1;" ng-model="timeoption" name="timeoption" ng-init="timeoption='8:00 AM'">
+                                                                                        <select class="select_btn dateTimeSelect" style="line-height:1;" ng-model="timeoption" name="timeoption">
                                                                                             <option ng-repeat="timeoption in timeInfoFrom " value="{{timeoption}}">{{timeoption}}</option>
                                                                                         </select>
                                                                                     </div>
@@ -689,9 +689,9 @@
                                                                                     <input type="text" class="form-control calendarBox" datepicker-popup="EEE, MMM d" ng-model="dt" open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-click="EditDatePicker()" name='theDate' ng-required="true" />
 
                                                                                     <div class="selectDropdown">
-                                                                                        <div class="gifImage" ng-show="timeslotsloading"><img src="/Content/Assets/images/loading.gif" /></div>
-                                                                                        <select class="select_btn dateTimeSelect" style="line-height:1;" ng-model="timeoption" name="timeoption">
-                                                                                            <option ng-repeat="timeoption in timeInfoFrom " value="{{timeoption}}">{{timeoption}}</option>
+                                                                                        <div class="gifImage" ng-show="timeslotsloading"><img src="/Content/Assets/images/loading.gif" /></div> 
+                                                                                        <select class="select_btn dateTimeSelect" style="line-height:1;" ng-model="editTimeoption" name="timeoption">
+                                                                                            <option ng-repeat="option in timeInfoFrom" value="{{option}}">{{option}}</option>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>

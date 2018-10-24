@@ -224,6 +224,7 @@ namespace AngularMvcProject.Models
         public bool IsAdded { get; set; }
         public string Message { get; set; }
         public List<int> CustomerIds { get; set; }
+        public string Notes { get; set; }
         public string Start { get; set; }
         public string End { get; set; }
         public int Status { get; set; }

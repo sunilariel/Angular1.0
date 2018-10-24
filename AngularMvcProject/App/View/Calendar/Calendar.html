@@ -119,7 +119,7 @@
             </div><!-- /.container-fluid -->
         </nav>
         <div class="clearfix"> </div>
-        <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:15px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+        <!--<div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:15px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>-->
 
     </header>
     <div class="left_sidebar sidebtipt show-leftbar">
@@ -307,6 +307,7 @@
                     <button type="button" ng-click="CloseAppointmentModal()" class="close modalcloseIcon" data-dismiss="modal"><span aria-hidden="true" class="">×</span><span class="sr-only">Close</span></button>
                     <h3 class="modal-title" id="lineModalLabel">Appointment</h3>
                 </div>
+                <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:15px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
                 <div class="form-horizontal appointPopUpform">
                     <form ng-submit="SaveAppointment(Eventform)" name="Eventform" novalidate class="css-form">
                         <div class="modal-body appointPopupBody" ng-hide="ShowAddAppointmentPopup">
@@ -383,7 +384,7 @@
                                                 <input type="text" class="form-control calendarBox" datepicker-popup="EEE, MMM d" ng-model="dt" ng-init="DatePickerinit()" open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-click="SetDatePicker()" id="calendardatepicker" name='theDate' ng-required="true" />
                                                 <div class="selectDropdown">
                                                     <div class="gifImage" ng-show="timeslotsloading"><img src="/Content/Assets/images/loading.gif" /></div>
-                                                    <select class="select_btn dateTimeSelect" style="line-height:1;" ng-model="timeoption" name="timeoption" ng-init="timeoption='8:00 AM'">
+                                                    <select class="select_btn dateTimeSelect" style="line-height:1;" ng-model="timeoption" name="timeoption">
                                                         <option ng-repeat="timeoption in timeInfoFrom track by $index" value="{{timeoption}}">{{timeoption}}</option>
                                                     </select>
                                                 </div>
@@ -392,7 +393,7 @@
                                         <div class="form-group">
                                             <label class="control-label" for="pwd">Notes</label>
                                             <div class="notesForCustomer">
-                                                <textarea class="form-control apptNotes" placeholder="Notes for the Customer" maxlength="500" ng-model="notes"></textarea>
+                                                <textarea class="form-control apptNotes" placeholder="Notes for the Customer" maxlength="500" ng-model="notes" name="notes"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -495,6 +496,7 @@
                     <button type="button" class="close modalcloseIcon" ng-click="CloseUpdateAppointmentPopup()" data-dismiss="modal"><span aria-hidden="true" class="">×</span><span class="sr-only">Close</span></button>
                     <h3 class="modal-title" id="lineModalLabel">Appointment</h3>
                 </div>
+                <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:15px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
                 <div class="form-horizontal appointPopUpform">
                     <form ng-submit="UpdateAppointment(appointmentform)" name="updateappointmentform" novalidate class="css-form">
                         <div class="modal-body appointPopupBody" ng-hide="ShowAddAppointmentPopup">
@@ -570,7 +572,7 @@
 
                                             <div class="selectDropdown">
                                                 <div class="gifImage" ng-show="timeslotsloading"><img src="/Content/Assets/images/loading.gif" /></div>
-                                                <select class="select_btn dateTimeSelect" ng-model="timeoption" name="timeoption" ng-init="timeoption='8:00 AM'">
+                                                <select class="select_btn dateTimeSelect" ng-model="editTimeoption" name="editTimeoption">
                                                     <option ng-repeat="timeoption in timeInfoFrom track by $index " value="{{timeoption}}">{{timeoption}}</option>
                                                 </select>
                                             </div>
@@ -579,7 +581,7 @@
                                     <div class="form-group">
                                         <label class="control-label" for="pwd">Notes</label>
                                         <div class="notesForCustomer">
-                                            <textarea class="form-control apptNotes" placeholder="Notes for the Customer" maxlength="500" ng-model="notes"></textarea>
+                                            <textarea class="form-control apptNotes" placeholder="Notes for the Customer" maxlength="500" ng-model="notes" name="notes"></textarea>
                                         </div>
                                     </div>
                                 </div>

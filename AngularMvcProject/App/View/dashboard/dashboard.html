@@ -245,7 +245,7 @@
                                             <th>Staff</th>
                                             <th>Cost</th>
                                             <th>Status</th>
-                                            <th>Actions</th>
+                                            <th style="width:125px">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -364,7 +364,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="pwd">Notes</label>
                                                     <div class="notesForCustomer">
-                                                        <textarea class="form-control apptNotes" placeholder="Notes for the Customer" maxlength="500" ng-model="notes"></textarea>
+                                                        <textarea class="form-control apptNotes" placeholder="Notes for the Customer" maxlength="500" ng-model="notes" name="notes"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -384,6 +384,7 @@
                                             <button type="button" ng-click="showhideUpdateAppointment()" class="close modalcloseIcon" data-dismiss="modal"><span aria-hidden="true" class="">×</span><span class="sr-only">Close</span></button>
                                             <h3 class="serviceProText Detail_heading">Appointments of <span class="AddStaff ng-binding">{{CustomerName}}</span>:</h3>
                                         </div>
+                                        <div style="width: 100%; text-align: center;position: absolute;z-index: 999999; top:65px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
                                         <div class="form-horizontal appointPopUpform">
                                             <form ng-submit="UpdateAppointment(appointmentform)" name="updateappointmentform" novalidate class="css-form">
                                                 <div class="modal-body appointPopupBody" ng-hide="ShowAddAppointmentPopup">
@@ -471,7 +472,7 @@
                                                             <div class="form-group">
                                                                 <label class="control-label" for="pwd">Notes</label>
                                                                 <div class="notesForCustomer">
-                                                                    <textarea class="form-control apptNotes" placeholder="Notes for the Customer" ng-model="notes"></textarea>
+                                                                    <textarea class="form-control apptNotes" placeholder="Notes for the Customer" ng-model="notes" name="notes"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>

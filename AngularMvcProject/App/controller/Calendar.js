@@ -2,9 +2,9 @@
 
 
 app.controller('calendarController', ['$scope', '$location', '$filter', '$window', '$routeParams',
-    '$q', '$http', '$timeout', 'bookingService', '$rootScope', 'uiCalendarConfig', '$templateCache', '$compile',
+    '$q', '$http', '$timeout', 'bookingService', '$rootScope', 'uiCalendarConfig', '$templateCache', '$compile', '$route',
     function ($scope, $location, $filter, $window, $routeParams, $q, $http, $timeout, bookingService, $rootScope,
-        uiCalendarConfig, $templateCache, $compile) {
+        uiCalendarConfig, $templateCache, $compile, $route) {
         var isFirstTime = true;
         //Redirection       
         $scope.redirecttoCustomer = function () {
@@ -201,6 +201,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             //Getting all employees(provider) for appointment dropdown(Add Appointment)
             var GetStaffProvider = bookingService.GetStaffData($routeParams.CompanyId);
             GetStaffProvider.then(function (response) {
+                debugger;
                 if (response.data.length > 0) {
                     for (var i = 0; i < response.data.length; i++) {
                         resourceobj = "";
@@ -240,6 +241,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         });
 
                         angular.forEach(response.data, function (value, key) {
+                            debugger;
                             $scope.events.push({
                                 title: value.Service.Name,
                                 id: value.Id + "," + value.Service.Name + "," + value.Service.Cost + "," + value.Employee.FirstName + "," + value.Status + "," + value.Service.DurationInMinutes + "," + value.Service.Id + "," + value.Employee.Id + "," + value.Customers[0].FirstName + "," + value.Customers[0].Id + "," + value.Customers[0].Email + "," + value.Customers[0].TelephoneNo + "," + value.Notes,
@@ -473,7 +475,9 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                     });
 
                     angular.forEach(response.data, function (value, key) {
+                        debugger;
                         $scope.events.push({
+                            
                             title: value.Service.Name,
                             id: value.Id + "," + value.Service.Name + "," + value.Service.Cost + "," + value.Employee.FirstName + "," + value.Status + "," + value.Service.DurationInMinutes + "," + value.Service.Id + "," + value.Employee.Id + "," + value.Customers[0].FirstName + "," + value.Customers[0].Id + "," + value.Customers[0].Email + "," + value.Customers[0].TelephoneNo + "," + value.Notes,
                             //id: value.Id + "," + value.Service.Name + "," + value.Service.Cost + "," + value.Employee.FirstName + "," + value.Status + "," + value.Service.DurationInMinutes + "," + value.Service.Id + "," + value.Employee.Id,
@@ -734,7 +738,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             debugger;
             //Close the Detail PopUp//            
             angular.element(document.querySelector("#detailPopup")).css("display", "none");
-
+           
             //Get All Staff of particular CompanyId
             var GetStaffProvider = bookingService.GetStaffData($routeParams.CompanyId);
             GetStaffProvider.then(function (response) {
@@ -752,10 +756,11 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             var appointmentdate = new Date(date[0]);
             var time = date[1].split(":");
             var appointmenttime = new Date(1997, 4, 5, time[0], time[1], time[2]);
-            $scope.timeoption = $filter('date')(appointmenttime, 'h:mm a');
+            ///alert($filter('date')(appointmenttime, 'h:mm a'));
+            $scope.editTimeoption = $filter('date')(appointmenttime, 'h:mm a');
             $scope.dt = appointmentdate;
             $scope.ServiceDetail($scope.AppointmentServiceId);
-
+            //$scope.notes = $scope.Notes;
             $scope.price = $scope.AppointmentServiceCost;
             $scope.time = $scope.AppointmentDuration;
 
@@ -805,6 +810,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                     }
                 }
                 if (response.data.Success == true) {
+                    debugger;
                     $scope.MessageText = "Updating Appointment";
                     $scope.IsVisible = true;
                     $scope.AppointmentId = response.data.ReturnObject;
@@ -812,7 +818,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         $scope.MessageText = "Appointment Updated";
                         $timeout(function () {
                             $scope.IsVisible = false;
-
+                            debugger;
                             var apirequest = bookingService.GetBookingsForEmployeesByIdBetweenDates($routeParams.CompanyId, $scope.selectedprovider, firstDay, lastDay);
                             apirequest.then(function (response) {
                                 angular.forEach(response.data, function (value, key) {
@@ -1148,6 +1154,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                                 })
                             }, 1000);
                         }, 500)
+                        $route.reload();
                     }
                 });
             }
@@ -1315,10 +1322,11 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             $scope.timeInfoFrom = [];
             $scope.Status = "1";
             //  $scope.selectedprovider = "-- Select a Provider --";
-            $scope.notes = "";
+            //$scope.notes = "";
             $scope.ServicePriceTimeDetailIsVisible = false;
             angular.element(document.querySelector("#squarespaceModal")).css("display", "none");
             angular.element(document.querySelector("#squarespaceModal")).css("opacity", 0);
+            //$route.reload();
         }
 
         $scope.viewRender = function (view, element) {
@@ -1592,8 +1600,9 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             $scope.timeInfoFrom = [];
             $scope.Status = "1";
             $scope.selectedprovider = "-- Select a Provider --";
-            $scope.notes = "";
+            //$scope.notes = "";
             $scope.ServicePriceTimeDetailIsVisible = false;
+            //$route.reload();
         }
 
         //------------Add event on Calendar-----------------//

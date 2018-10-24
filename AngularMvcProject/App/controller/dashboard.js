@@ -1,7 +1,7 @@
 ﻿/// <reference path="dashboard.js" />
 //var app = angular.module('MyApp', [])
-app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http', '$routeParams', '$filter', '$location', 'bookingService', '$rootScope',
-    function ($scope, $timeout, $window, $http, $routeParams, $filter, $location, bookingService, $rootScope) {
+app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http', '$routeParams', '$filter', '$location', 'bookingService', '$rootScope', '$route',
+    function ($scope, $timeout, $window, $http, $routeParams, $filter, $location, bookingService, $rootScope, $route) {
         //This will hide the DIV by default.
         $scope.procedures = [
             {
@@ -102,18 +102,18 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             angular.element(document.querySelector("#active-customer")).addClass('active');
         }
 
-        
+
 
         $scope.leftSideClick = function () {
-           
+
             //angular.element(document.querySelector(".left_sidebar")).addClass('hidden');
             //$scope.custom = $scope.custom === false ? true : false;
 
             var state = $(this).data('state');
-            
+
             state = !state;
             if (state) {
-              
+
                 $(".left_sidebar").addClass("show-leftbar");
             }
             else {
@@ -125,11 +125,11 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             //angular.element(document.querySelector(".left_sidebar")).removeClass('hijhko');
 
             //angular.element(document.querySelector(".left_sidebar")).css("display", "block");
-            
+
 
         }
 
-        
+
 
 
         $scope.addNewChoice = function (procedure) {
@@ -155,7 +155,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             procedure.choice.splice(lastItem);
             $scope.MessageText = "Saving Staff breaks..";
             $timeout(function () {
-            $scope.MessageText = "Staff breaks saved."; $timeout(function () { $scope.IsVisible = false; }, 1000)
+                $scope.MessageText = "Staff breaks saved."; $timeout(function () { $scope.IsVisible = false; }, 1000)
             }, 500);
         };
 
@@ -259,6 +259,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                 $scope.CustomerTelephone = response.data.TelephoneNo.substring(2, response.data.TelephoneNo.length);
                 $scope.Code = response.data.TelephoneNo.substring(0, 2);
                 $scope.CustomerAddress = response.data.Address;
+
                 $scope.dt = appointmentdate;
             })
             $scope.appointmentDetailisVisible = !$scope.appointmentDetailisVisible;
@@ -465,6 +466,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                     "EndMinute": $scope.time,
                     "IsAdded": true,
                     "Message": "",
+                    "Notes": $scope.notes,
                     "CustomerIds": [$scope.CustomerId],
                     "Start": $scope.dt,
                     "End": $scope.dt,
@@ -475,6 +477,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                 if (response.data.Success == true) {
                     $scope.appointmentDetailisVisible = true;
                     $scope.init();
+                    $route.reload();
                 }
                 if (response.data.Success == false) {
                     if (response.data.Message == "Booking Cannot Be Added , Not Free Slot Available.") {
@@ -504,7 +507,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         //bookingMgt-settings
         //bookingMgt-reports
         //$scope.bookingMgtsettings = function () {
-            
+
 
 
 
@@ -524,7 +527,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         //    alert("seytuy");
         //    angular.element(document.querySelector("#bookingMgt-settings")).addClass('open');
         //}
-   
+
         //bookingMgt-settings_new
 
         $scope.EditDatePicker = function () {

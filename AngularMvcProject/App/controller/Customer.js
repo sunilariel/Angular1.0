@@ -471,8 +471,8 @@
                     return false;
                 }
             }
-           
-            
+
+
             if (form.$invalid == true) {
                 $scope.regEx = "/[^0-9]/g;"
                 if (form.customerExt.$invalid == true) {
@@ -483,9 +483,9 @@
                         return false;
                     }
                 }
-                
+
             }
-            
+
             if (form.$invalid == true) {
                 $scope.ph_numbr = /^\+?\d{10}$/;
                 if (form.customerMobile.$invalid == true) {
@@ -495,14 +495,14 @@
                         form.customerExt.$setUntouched();
                         form.customerMobile.$setTouched();
                         form.customerMobile.$touched = true;
-                        
+
                         angular.element(document.querySelector("#customerExt_code")).addClass("hidden")
                         angular.element(document.querySelector("#customerExt_color")).addClass("ng-hide")
                         angular.element(document.querySelector("#customerExt_color")).addClass("hidden")
                         angular.element(document.querySelector("#customerMobile_color")).removeClass("ng-hide");
                         return false;
-                    }                       
-                    
+                    }
+
                 }
             }
             $scope.MobileNo = $scope.customerExt + $scope.customerMobile;
@@ -566,7 +566,7 @@
                         },
                             1000)
                     }, 500);
-                    
+
                 }
                 else {
                     if (response.data.Message == "Customer creation failed: Already member") {
@@ -580,7 +580,7 @@
 
                     }
                 }
-                
+
             }, function () {
                 $scope.showcustomer = false;
                 alert('Error in updating record');
@@ -895,7 +895,7 @@
         }
 
         $scope.ServiceDetail = function (SelectedServiceId) {
-
+            debugger;
             $scope.ServiceId = SelectedServiceId;
             var SelectedService = bookingService.GetSelectedService(SelectedServiceId);
             SelectedService.then(function (response) {
@@ -917,9 +917,11 @@
                 $scope.timeslotsloading = true;
                 var result = bookingService.GetFreeBookingSlotsForEmployee(RequestValues);
                 result.then(function (response) {
+                    debugger;
                     if (response.data.Value != null) {
                         for (var i = 0; i < response.data.Value.length; i++) {
                             if (i == 0) {
+                                debugger;
                                 var startdate = response.data.Value[i].Start.split(":");
                                 var startdatetime = new Date(1970, 0, 1, startdate[0], startdate[1], startdate[2]);
                                 var starttime = $filter('date')(startdatetime, 'h:mm a');
@@ -930,16 +932,16 @@
                                 $scope.timeInfoFrom.push(endtime);
                             }
                             else {
+                                debugger;
                                 var date = response.data.Value[i].End.split(":");
                                 var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
                                 var time = $filter('date')(datetime, 'h:mm a');
                                 $scope.timeInfoFrom.push(time);
-
                             }
                         }
-
-
+                        debugger;
                         $scope.timeoption = $scope.timeInfoFrom[0];
+                        var t = $scope.timeoption;                        
                     }
                     $scope.timeslotsloading = false;
                 });
@@ -1035,6 +1037,7 @@
             $scope.AppointmentEmployeeId = item.EmployeeId;
             $scope.AppointmentServiceId = item.ServiceId;
             $scope.ServiceTime = item.DurationInMinutes;
+
             if (item.status == 1) {
                 $scope.UpdatedStatus = "No Label";
             }
@@ -1101,7 +1104,10 @@
             var appointmentdate = new Date(date[0]);
             var time = date[1].split(":");
             var appointmenttime = new Date(1997, 4, 5, time[0], time[1], time[2]);
-            $scope.timeoption = $filter('date')(appointmenttime, 'h:mm a');
+
+            var toption = $filter('date')(appointmenttime, 'h:mm a');
+            alert(toption);
+            $scope.editTimeoption = toption;
             $scope.dt = appointmentdate;
             $scope.ServiceDetail($scope.AppointmentServiceId);
             $scope.GetAllocateServiceToEmployee($scope.AppointmentEmployeeId);
