@@ -1,8 +1,8 @@
-﻿app.controller("CustomerReportsController", ['$scope', '$routeParams', '$location', 'bookingService', '$rootScope', function ($scope, $routeParams, $location, bookingService, $rootScope) {
+﻿app.controller("CustomerReportsController", ['$scope', '$routeParams', '$location', 'bookingService', '$rootScope', '$timeout', function ($scope, $routeParams, $location, bookingService, $rootScope, $timeout) {
     //Redirection to different tab section//
     $scope.RedirecttoBuisnessReport = function () {
 
-       $location.path("/BuisnessReports/:CompanyId");
+        $location.path("/BuisnessReports/:CompanyId");
     }
     //$scope.RedirecttoResourceReport = function () {
     //    $location.path("/ResourceReports/" + $routeParams.CompanyId);
@@ -66,7 +66,7 @@
     $scope.redirecttodashboard = function () {
         $location.path("/dashboard/" + $routeParams.CompanyId);
     }
-    
+
 
     $scope.ListofCustomers = [];
 
@@ -87,13 +87,13 @@
         $(this).data('state', state);
 
         $scope.isActive = !$scope.isActive;
-            //angular.element(document.querySelector(".left_sidebar")).removeClass('hijhko');
+        //angular.element(document.querySelector(".left_sidebar")).removeClass('hijhko');
 
-            //angular.element(document.querySelector(".left_sidebar")).css("display", "block");
+        //angular.element(document.querySelector(".left_sidebar")).css("display", "block");
 
     }
 
-    $scope.init = function () {   
+    $scope.init = function () {
         //$scope.custom = true;
         debugger;
         $(".left_sidebar").removeClass("show-leftbar");
@@ -117,7 +117,7 @@
         for (var i = 1; i <= 31; i++) {
             $scope.Date.push(i);
         }
-      
+
         $scope.time = "thismonth";
         var date = new Date();
         var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -180,7 +180,7 @@
         //$scope.hidereportsClick = {
         //    hide: true
         //};
-        
+
         var tttt = angular.element(document.querySelector("#reportsClick_active"));
         tttt.addClass('active');
         angular.element(document.querySelector("#customerreportactive")).removeClass('active');
@@ -227,21 +227,21 @@
         $scope.EndDate = lastDay;
         $scope.CustomerReportDetail = [];
         if ($scope.CustomerExists == true) {
-            if ($scope.allcustomerchecked==true){
+            if ($scope.allcustomerchecked == true) {
                 var httprequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, $scope.CustomerReportIds, $scope.StartDate, $scope.EndDate);
-            httprequest.then(function (response) {
-                debugger;
-                if (Object.keys(response.data).length != 0) {
-                    angular.forEach(response.data, function (value, key) {
-                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
-                    })
-                    $scope.CustomerReportLoader = false;
-                }
-                else {
-                    $scope.CustomerReportDetail.push({ "Customer": "    ", "Bookings": "No Records to display", "Revenue": "    " });
-                    $scope.CustomerReportLoader = false;
-                }
-            })
+                httprequest.then(function (response) {
+                    debugger;
+                    if (Object.keys(response.data).length != 0) {
+                        angular.forEach(response.data, function (value, key) {
+                            $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                        })
+                        $scope.CustomerReportLoader = false;
+                    }
+                    else {
+                        $scope.CustomerReportDetail.push({ "Customer": "    ", "Bookings": "No Records to display", "Revenue": "    " });
+                        $scope.CustomerReportLoader = false;
+                    }
+                })
             }
             else {
                 var httprequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, $scope.SelectedCustomer, $scope.StartDate, $scope.EndDate);
@@ -312,7 +312,7 @@
                         }
                     })
                 }
-        }
+            }
         }
         else {
             $scope.CustomerReportLoader = false;
@@ -339,36 +339,36 @@
         //    $scope.Order = "true"
         //}
         $scope.CustomerReportDetail = [];
-         if ($scope.allcustomerchecked==false){
-        var apirequest = bookingService.GetCustomerReportsBetweenDatesByOrder($routeParams.CompanyId, $scope.CustomerReportIds, $scope.StartDate, $scope.EndDate, $scope.toggle, field);
-        apirequest.then(function (response) {
-            debugger;
-            if (Object.keys(response.data).length != 0) {
-                $scope.CustomerReportDetail = [];
-                angular.forEach(response.data, function (value, key) {
-                    $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
-                })
-            }
-            else {
-                $scope.CustomerReportDetail.push({ "Customer": "    ", "Bookings": "No Records to display", "Revenue": "    " });
-            }
-        })
-         }
-        else{
-             var apirequest = bookingService.GetCustomerReportsBetweenDatesByOrder($routeParams.CompanyId, $scope.SelectedCustomer, $scope.StartDate, $scope.EndDate, $scope.toggle, field);
-             apirequest.then(function (response) {
-                 debugger;
-                 if (Object.keys(response.data).length != 0) {
-                     $scope.CustomerReportDetail = [];
-                     angular.forEach(response.data, function (value, key) {
-                         $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
-                     })
-                 }
-                 else {
-                     $scope.CustomerReportDetail.push({ "Customer": "    ", "Bookings": "No Records to display", "Revenue": "    " });
-                 }
-             })
-         }
+        if ($scope.allcustomerchecked == false) {
+            var apirequest = bookingService.GetCustomerReportsBetweenDatesByOrder($routeParams.CompanyId, $scope.CustomerReportIds, $scope.StartDate, $scope.EndDate, $scope.toggle, field);
+            apirequest.then(function (response) {
+                debugger;
+                if (Object.keys(response.data).length != 0) {
+                    $scope.CustomerReportDetail = [];
+                    angular.forEach(response.data, function (value, key) {
+                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                    })
+                }
+                else {
+                    $scope.CustomerReportDetail.push({ "Customer": "    ", "Bookings": "No Records to display", "Revenue": "    " });
+                }
+            })
+        }
+        else {
+            var apirequest = bookingService.GetCustomerReportsBetweenDatesByOrder($routeParams.CompanyId, $scope.SelectedCustomer, $scope.StartDate, $scope.EndDate, $scope.toggle, field);
+            apirequest.then(function (response) {
+                debugger;
+                if (Object.keys(response.data).length != 0) {
+                    $scope.CustomerReportDetail = [];
+                    angular.forEach(response.data, function (value, key) {
+                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                    })
+                }
+                else {
+                    $scope.CustomerReportDetail.push({ "Customer": "    ", "Bookings": "No Records to display", "Revenue": "    " });
+                }
+            })
+        }
     }
 
     $scope.GetAllCustomerReport = function (item) {
@@ -384,14 +384,14 @@
                 customerhttprequest.then(function (response) {
                     debugger;
                     $scope.CustomerIds = "";
-                    if(response.data.length != 0) {
+                    if (response.data.length != 0) {
 
                         $scope.CustomerReportLoader = true;
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.CustomerIds = response.data[i].Id + "," + $scope.CustomerIds;
                             $scope.ListofCustomers = response.data;
                         }
-                       
+
                         $scope.CustomerReportIds = $scope.CustomerIds.substring(0, $scope.CustomerIds.length - 1);
 
                         var apirequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, $scope.CustomerReportIds, $scope.StartDate, $scope.EndDate);
@@ -427,7 +427,7 @@
 
     $scope.CustomerChange = function (Id) {
         debugger;
-       
+
         $scope.CustomerReportLoader = true;
         $scope.CustomerReportDetail = [];
         var ReportCount = false;
@@ -440,11 +440,108 @@
                 $scope.CustomerReportLoader = false;
             })
             $scope.CustomerReportLoader = false;
-            if (ReportCount == false) {              
+            if (ReportCount == false) {
                 $scope.CustomerReportDetail.push({ "Customer": "    ", "Bookings": "No Records to display", "Revenue": "    " });
                 $scope.CustomerReportLoader = false;
             }
         })
     }
+
+
+
+    $scope.SetWorkingHours = function (timedata) {
+        debugger;
+        var buisnesshour = {
+            Id: "",
+            CompanyId: $routeParams.CompanyId,
+            Start: timedata.timeFrom,
+            End: timedata.timeTo,
+            NameOfDay: timedata.day,
+            IsOffAllDay: timedata.available == true ? false : true,
+            CreationDate: new Date(),
+        }
+
+        var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
+        apirequest.then(function (response) {
+            if (response.data.Success == true) {
+                $scope.MessageText = "Saving buisness Hours";
+                $scope.IsVisible = true;
+                $timeout(function () {
+                    $scope.MessageText = "Buisness Hours Saved"
+                    $timeout(function () {
+                        $scope.IsVisible = false;
+                    }, 1000)
+                }, 800)
+            }
+        })
+    }
+
+    $scope.timeInfFrom = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+
+
+    $scope.timeInfoTo = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+
+    $scope.businessHourInfo = [{ 'day': 'Monday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 1 },
+    { 'day': 'Tuesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 2 },
+    { 'day': 'Wednesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 3 },
+    { 'day': 'Thursday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 4 },
+    { 'day': 'Friday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 5 },
+    { 'day': 'Saturday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 6 },
+    { 'day': 'Sunday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 0 },]
+
+    $scope.switchOnOff = function (item) {
+        debugger;
+        for (var i = 0; i < $scope.businessHourInfo.length; i++)
+        // if (item.day != "Sunday" && item.day != "Saturday") {
+        {
+            if (item.day == $scope.businessHourInfo[i].day) {
+                if (item['available'] == true) {
+                    $scope.businessHourInfo[i].available = false;
+
+                    var buisnesshour = {
+                        Id: "",
+                        CompanyId: $routeParams.CompanyId,
+                        Start: item.timeFrom,
+                        End: item.timeTo,
+                        NameOfDay: item.day,
+                        IsOffAllDay: true,
+                        CreationDate: new Date(),
+                    }
+                }
+                else {
+                    $scope.businessHourInfo[i].available = true;
+
+                    var buisnesshour = {
+                        Id: "",
+                        CompanyId: $routeParams.CompanyId,
+                        Start: item.timeFrom,
+                        End: item.timeTo,
+                        NameOfDay: item.day,
+                        IsOffAllDay: false,
+                        CreationDate: new Date(),
+                    }
+                }
+                break;
+            }
+        }
+        var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
+        apirequest.then(function (response) {
+            debugger;
+            if (response.data.Success == true) {
+                $scope.MessageText = "Saving buisness Hours";
+                $scope.IsVisible = true;
+                $timeout(function () {
+                    $scope.MessageText = "Buisness Hours Saved"
+                    $timeout(function () {
+                        $scope.IsVisible = false;
+                    }, 1000)
+                }, 800)
+            }
+        })
+    }
+
+
+
+
 
 }])

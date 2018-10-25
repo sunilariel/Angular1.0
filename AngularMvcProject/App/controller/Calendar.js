@@ -288,6 +288,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Events Executed after all events has been rendered//        
         $scope.eventAfterAllRender = function () {
+            debugger;
             //This code will render only on intialize time.
             if (headerinit == true) {
                 headerinit = false
@@ -359,7 +360,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Change View function//
         $scope.ChangeView = function (View) {
-
+            debugger;
             if (View == "month") {
                 $scope.SelectedView = "Monthly";
             }
@@ -1037,11 +1038,11 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                                     $scope.MessageText = "Not Free Slot Available";
                                     $scope.IsVisible = true;
                                     $timeout(function () {
-
                                         $scope.IsVisible = false;
                                     }, 1000)
                                 }
                             }
+
                             if (response.data.Success == true) {
                                 $scope.MessageText = "Creating Appointment";
                                 $scope.IsVisible = true;
@@ -1703,7 +1704,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
         //Buisness Working Hours Section in Calendar
 
         $scope.switchOnOff = function (item) {
-
+            debugger;
             for (var i = 0; i < $scope.businessHourInfo.length; i++)
             // if (item.day != "Sunday" && item.day != "Saturday") {
             {
@@ -1739,6 +1740,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             }
             var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
             apirequest.then(function (response) {
+                debugger;
                 if (response.data.Success == true) {
                     $scope.MessageText = "Saving buisness Hours";
                     $scope.IsVisible = true;
@@ -1753,7 +1755,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
         }
 
         $scope.SetWorkingHours = function (timedata) {
-
+            debugger;
             var buisnesshour = {
                 Id: "",
                 CompanyId: $routeParams.CompanyId,

@@ -156,6 +156,7 @@
                     <ul class="collapse bbbbb" id="keySettings">
                         <li ng-click="RedirecttoStaff()" id="redirecttostaffactive" class=""><a class="staffCss">Staff</a></li>
                         <li ng-click="redirecttoServices()" id="redirecttoservicesactive"><a class="staffCss">Service</a></li>
+                        <li><a class="listbborder cursorhand staffCss" data-toggle="modal" data-target="#myModal">Business</a></li>
                     </ul>
                 </li>
                 <li class="reports bookingMgt-settings_new dropdown" id="bookingMgt-reports">
@@ -169,6 +170,79 @@
                 </li>
             </ul>
         </div>
+
+        <div class="modal fade booking_div" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Booking Page</h4>
+                    </div>
+                    <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:15px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+                    <div class="modal-body">
+                        <div class="side_left sidebrpadding">
+                            <ul class="list-unstyled">
+                                <li><a href="" title=""> <span><i class="fa fa-home sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">OVERVIEW</span></span></a></li>
+                                <li><a href="" title=""> <span><i class="fa fa-building-o sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">COMPANY DETAILS</span></span></a></li>
+                                <li><a href="" title=""> <span><i class="fa fa-clock-o sidebaricon active" aria-hidden="true"></i><span class="sidebarcntent active">BUSINESS HOURS</span></span></a></li>
+                                <li><a href="" title=""> <span><i class="fa fa-exclamation-triangle sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">BOOKING POLICIES</span></span></a></li>
+                                <li><a href="" title=""> <span><i class="fa fa-pencil-square-o sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">CUSTOMIZATION</span></span></a></li>
+                                <li><a href="" title=""> <span><i class="fa fa-star-o sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">REVIEW</span></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="business_right">
+                            <h3 class="businesshrs">Business Operating Hours</h3>
+                            <div class="drop_select cabtnstyle">
+                                <label>Time Zone</label>
+                                <select class="form-control">
+                                    <option value="(GMT +02:00) Central European Time - Andorra">(GMT +02:00) Central European Time - Andorra</option>
+                                    <option value="(GMT +02:00) Central European Time - Brussels">(GMT +02:00) Central European Time - Brussels</option>
+                                    <option value="(GMT +02:00) Central European Time - Rome">(GMT +02:00) Central European Time - Rome</option>
+                                    <option value="(GMT +02:00) Central European Time - Vienna">(GMT +02:00) Central European Time - Vienna</option>
+                                </select>
+                            </div>
+                            <div class="staffWorkingHoursSec">
+                                <div class="colom_div" ng-repeat="timedata in businessHourInfo">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-3 col-xs-3 StaffColumnDiv ">
+                                            <div class="week_div">
+                                                <p>{{timedata.day}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch" ng-model="timedata.available" class="onoffswitch-checkbox" checked>
+                                                <label class="onoffswitch-label" ng-click="switchOnOff(timedata)" for="myonoffswitch">
+                                                    <span class="onoffswitch-inner"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 StaffColumnDiv">
+                                            <div class="week_div businessHourSelect businesshourDiv">
+                                                <select class="select_btn" ng-required="true" ng-model="timedata.timeFrom" ng-disabled="!timedata.available" ng-change="SetWorkingHours(timedata)">
+                                                    <option ng-repeat="option in timeInfFrom" value="{{option}}">{{option}}</option>
+                                                </select>
+                                                <span>to</span>
+                                                <select class="select_btn" ng-required="true" ng-model="timedata.timeTo" ng-disabled="!timedata.available" ng-change="SetWorkingHours(timedata)">
+                                                    <option ng-repeat="option in timeInfoTo" value="{{option}}">{{option}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="staff-hours-note popuopf">
+                                    <span class="pfcntent">To change staff working hours and their availability in the calendar, <a id="note_navigate" href="javascript:void(0);">click here</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="right_section" id="settings" ng-class="{'rightFullWidth': isActive}">
             <div class="tabs-_section" style="width: 100px;">
                 <div class="section_tab">

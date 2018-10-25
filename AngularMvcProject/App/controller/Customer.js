@@ -386,6 +386,7 @@
             //  $scope.SelectedYear = (new Date().getFullYear()).toString();
             $scope.CompanyId = $routeParams.CompanyId;
             $scope.showcustomer = false;
+            
             $scope.appointmentDetailisVisible = false;
             $scope.selecteddate = $filter('date')(new Date(), "EEE, MMM d");
             $scope.ServicePriceTimeDetailIsVisible = false;
@@ -412,9 +413,12 @@
             //On init Getting List of Customers.
             var GetCustomer = bookingService.GetAllCustomer($scope.CompanyId);
             GetCustomer.then(function (response) {
+                debugger;
                 $scope.CustomerCount = response.data.length;
                 if ($scope.CustomerCount == 0) {
+                    
                     $scope.showcustomer = true;
+                    
                     $scope.setstaffdetails = true;
                 }
                 else {
@@ -582,10 +586,13 @@
                 }
 
             }, function () {
+                debugger;
                 $scope.showcustomer = false;
                 alert('Error in updating record');
             });
         };
+
+        
 
         //On Cancel btn click hide the popup and clear the form elements values//
         $scope.CustomerCancel = function (form) {
@@ -778,7 +785,7 @@
 
                 var GetCustomer = bookingService.GetAllCustomer($scope.CompanyId);
                 GetCustomer.then(function (response) {
-
+                    debugger;
                     $scope.customerArr = [];
                     $scope.customerArr = response.data;
                     $scope.CustomerCount = response.data.length
@@ -1686,6 +1693,105 @@
                 return def.promise();
             }
         });
+
+
+
+        $scope.SetWorkingHours = function (timedata) {
+            debugger;
+            var buisnesshour = {
+                Id: "",
+                CompanyId: $routeParams.CompanyId,
+                Start: timedata.timeFrom,
+                End: timedata.timeTo,
+                NameOfDay: timedata.day,
+                IsOffAllDay: timedata.available == true ? false : true,
+                CreationDate: new Date(),
+            }
+
+            var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
+            apirequest.then(function (response) {
+                if (response.data.Success == true) {
+                    $scope.MessageText = "Saving buisness Hours";
+                    $scope.IsVisible = true;
+                    $timeout(function () {
+                        $scope.MessageText = "Buisness Hours Saved"
+                        $timeout(function () {
+                            $scope.IsVisible = false;
+                        }, 1000)
+                    }, 800)
+                }
+            })
+        }
+
+        $scope.timeInfFrom = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+
+
+        $scope.timeInfoTo = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+
+        $scope.businessHourInfo = [{ 'day': 'Monday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 1 },
+        { 'day': 'Tuesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 2 },
+        { 'day': 'Wednesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 3 },
+        { 'day': 'Thursday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 4 },
+        { 'day': 'Friday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 5 },
+        { 'day': 'Saturday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 6 },
+        { 'day': 'Sunday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 0 },]
+
+        $scope.switchOnOff = function (item) {
+            debugger;
+            for (var i = 0; i < $scope.businessHourInfo.length; i++)
+            // if (item.day != "Sunday" && item.day != "Saturday") {
+            {
+                if (item.day == $scope.businessHourInfo[i].day) {
+                    if (item['available'] == true) {
+                        $scope.businessHourInfo[i].available = false;
+
+                        var buisnesshour = {
+                            Id: "",
+                            CompanyId: $routeParams.CompanyId,
+                            Start: item.timeFrom,
+                            End: item.timeTo,
+                            NameOfDay: item.day,
+                            IsOffAllDay: true,
+                            CreationDate: new Date(),
+                        }
+                    }
+                    else {
+                        $scope.businessHourInfo[i].available = true;
+
+                        var buisnesshour = {
+                            Id: "",
+                            CompanyId: $routeParams.CompanyId,
+                            Start: item.timeFrom,
+                            End: item.timeTo,
+                            NameOfDay: item.day,
+                            IsOffAllDay: false,
+                            CreationDate: new Date(),
+                        }
+                    }
+                    break;
+                }
+            }
+            var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
+            apirequest.then(function (response) {
+                debugger;
+                if (response.data.Success == true) {
+                    $scope.MessageText = "Saving buisness Hours";
+                    $scope.IsVisible = true;
+                    $timeout(function () {
+                        $scope.MessageText = "Buisness Hours Saved"
+                        $timeout(function () {
+                            $scope.IsVisible = false;
+                        }, 1000)
+                    }, 800)
+                }
+            })
+        }
+
+
+
+
+
+
 
         //Pie Chart//
         var GetHeader = function () {

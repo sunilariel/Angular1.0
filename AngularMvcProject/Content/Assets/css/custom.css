@@ -19,20 +19,24 @@
 .left_sidebar .dropdown.open {
     margin-bottom: 85px;
 }
+
 .left_sidebar .open.dropdown .aaaaa:before {
     transform: rotate(180deg);
 }
+
 .left_sidebar .dropdown .aaaaa:before {
     font-family: 'Glyphicons Halflings';
-    content: "\e114";    
+    content: "\e114";
     font-size: 10px;
     position: absolute;
     right: 0;
     top: 14px;
 }
+
 .left_sidebar ul.nav li:hover .aaaaa:before {
     color: #fff !important;
 }
+
 .bbbbb {
     min-width: 100%;
     margin: 0 !important;
@@ -44,6 +48,7 @@
     left: 0;
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
+
 .open > .bbbbb {
     display: block;
 }
@@ -61,12 +66,15 @@ ul#keyReports {
 .bbbbb li {
     margin: 1px 2px 0px !important;
 }
+
 li#bookingMgt-settings {
     transition: .4s;
 }
+
 .bookingMgt-settings_new ul.bbbbb li:hover .staffCss {
     color: #fff !important;
 }
+
 .bookingMgt-settings_new ul.bbbbb li .staffCss {
     color: #000 !important;
     font-size: 14px;
@@ -74,6 +82,7 @@ li#bookingMgt-settings {
     padding: 2px 27px;
     padding-left: 40px;
 }
+
 .dropdown-menu > li > a:focus, .bbbbb > li > a:hover {
     background: none !important;
 }
@@ -111,6 +120,7 @@ li#bookingMgt-settings {
     border-bottom: 2px solid #2089da !important;
     color: #2089da !important;
 }
+
 .deatailForm .dropdown.labeldrowDownBtn {
     float: none !important;
 }
@@ -512,17 +522,18 @@ span.item-name.ng-binding {
 li#reportsClick_active .cursorhand.Reports {
     background: #fff;
 }
+
 .table-responsive.table_1 table.table.table-bordered i {
     padding-left: 5px;
 }
 
-    li#reportsClick_active .cursorhand.Reports:hover {
-        background: #2089da;
-    }
+li#reportsClick_active .cursorhand.Reports:hover {
+    background: #2089da;
+}
 
-        li#reportsClick_active .cursorhand.Reports:hover .fas.fa-chart-line {
-            color: #fff !important;
-        }
+    li#reportsClick_active .cursorhand.Reports:hover .fas.fa-chart-line {
+        color: #fff !important;
+    }
 
 li#reportsClick_active.active .cursorhand.Reports .fas.fa-chart-line {
     color: #fff !important;
@@ -702,12 +713,15 @@ li#reportsClick_active .cursorhand.Reports .fas.fa-chart-line {
     border-right: 6px solid transparent;
     border-left: 6px solid transparent;
 }
-.left_sidebar ul#keyReports li{
+
+.left_sidebar ul#keyReports li {
     padding: 5px 20px !important;
 }
+
 .left_sidebar ul#keySettings li {
     padding: 6px 20px !important;
 }
+
 .categoryButton {
     padding: 10px 15px;
     vertical-align: middle;
@@ -884,31 +898,33 @@ header.top {
     display: block;
     text-align: left !important;
 }
+
 ul.nav.navbar-nav.navbar-right li a:hover {
     background: linear-gradient(141deg, #2089da 0%, rgba(32, 137, 218, 0.9) 51%, rgb(32, 137, 218) 75%) !important;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
-    .left_sidebar ul.nav li:hover i {
-        color: #fff;
-    }
+.left_sidebar ul.nav li:hover i {
+    color: #fff;
+}
 
-    .left_sidebar ul.nav li:hover small {
-        color: #fff;
-    }
+.left_sidebar ul.nav li:hover small {
+    color: #fff;
+}
 
-    .left_sidebar ul.nav li:hover {
-        background: linear-gradient(141deg, #2089da 0%, rgba(32, 137, 218, 0.9) 51%, rgb(32, 137, 218) 75%);
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
-    }
+.left_sidebar ul.nav li:hover {
+    background: linear-gradient(141deg, #2089da 0%, rgba(32, 137, 218, 0.9) 51%, rgb(32, 137, 218) 75%);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
 .left_sidebar .bookingMgt-settings_new ul.dropdown-menu li:hover {
     background: linear-gradient(141deg, rgba(101, 172, 232, 0.74) 0%, rgb(43, 144, 222) 51%, rgba(78, 156, 222, 0.83) 75%);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
-        .left_sidebar ul.nav li:hover .dropdown-toggle:before {
-            color: #fff !important;
-        }
+.left_sidebar ul.nav li:hover .dropdown-toggle:before {
+    color: #fff !important;
+}
 
 .left_sidebar ul li a small {
     font-size: 12px !important;
@@ -1298,7 +1314,7 @@ header.top ul.nav.navbar-nav.navbar-right {
 }
 
 .left_sidebar .dropdown.open {
-    margin-bottom: 85px;
+    margin-bottom: 123px;
     transition: .4s;
 }
 
@@ -1324,6 +1340,7 @@ header.top ul.nav.navbar-nav.navbar-right {
 .col-md-7 .providetheService:hover .form-control {
     background-color: #f1f5f7;
 }
+
 .DetailDiv:hover .trix-content {
     background-color: #f1f5f7;
 }
@@ -1667,6 +1684,7 @@ ul.nav.navbar-nav.navbar-right li.Mgt-upgrade_btn a:hover {
     background: #fff !important;
     color: #2089da !important;
 }
+
 ul.nav.navbar-nav.navbar-right li.dropdown a:hover {
     background: transparent !important;
     box-shadow: none;
@@ -2302,6 +2320,7 @@ select.select_btn {
         color: #FFF;
         border-color: #2089da;
     }
+
 form.css-form button.btn.btn-default {
     background: #2089da;
     color: #fff;
@@ -2309,7 +2328,7 @@ form.css-form button.btn.btn-default {
 }
 
 .border_top {
-    margin-top:0;
+    margin-top: 0;
     padding-top: 15px;
     /* border-top: 1px solid #ccc; */
     padding-right: 0;
@@ -2364,17 +2383,19 @@ form.css-form button.btn.btn-default {
     transition: ease-in-out 0.5s;
     border-radius: 3px;
     color: #555;
-    outline:none !important;
+    outline: none !important;
 }
+
     .step3_form .dropdown button#dLabel:hover {
-        border:none !important;
-        box-shadow:none !important;
-    } 
-.step3_form .dropdown button#dLabel:hover {
-    background: #F1F5F7;
-    border: 1px solid #51a7eb !important;
-    box-shadow: 0 0 3px rgba(82, 168, 236, 0.8) !important;
-}
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .step3_form .dropdown button#dLabel:hover {
+        background: #F1F5F7;
+        border: 1px solid #51a7eb !important;
+        box-shadow: 0 0 3px rgba(82, 168, 236, 0.8) !important;
+    }
 
 /*#nameRequired .has-error-service {
     color: #a94442 !important;
@@ -2696,10 +2717,12 @@ ul.lableDropdownContent li {
         width: 130px;
         font-weight: 400;
     }
+
 .modal-body.appointPopupBody .dropdown-menu {
     min-width: 250px;
 }
-    .detailText .appointDeatailDiv {
+
+.detailText .appointDeatailDiv {
     border-bottom: 0;
     margin: 10px 0;
 }
@@ -2862,9 +2885,9 @@ span.glyphicon.glyphicon-ok.calendarOk {
 }
 
 
-    .appointPopupHead:hover .form-control {
-        background-color: #f1f5f7 !important;
-    }
+.appointPopupHead:hover .form-control {
+    background-color: #f1f5f7 !important;
+}
 
 .recurringOnOffBtn {
     float: left;
@@ -6783,6 +6806,7 @@ div#dxchart {
         font-weight: normal;
         color: #2089da;
     }
+
 .chooseYearDiv input.dx-texteditor-input {
     background: #2089da;
     color: #fff;
@@ -6796,10 +6820,12 @@ div#dxchart {
     padding: 10px 12px !important;
     margin: 0 5px;
 }
+
     .chooseYearDiv input.dx-texteditor-input:hover {
         background: #fff;
         color: #2089da;
     }
+
 .chooseMonthDiv input.dx-texteditor-input {
     background: #fff;
     color: #2089da;
@@ -6813,13 +6839,15 @@ div#dxchart {
     padding: 10px 12px !important;
     margin: 0 5px;
 }
+
     .chooseMonthDiv input.dx-texteditor-input:hover {
         background: #2089da;
         color: #fff;
     }
+
 .dx-texteditor {
     background: #fff;
-    border:none !important;
+    border: none !important;
     border-radius: 0 !important;
 }
 
@@ -6847,18 +6875,19 @@ div#pie {
     padding: 0px;
     overflow: hidden;*/
 }
+
 .DetailDiv .action {
     text-align: right;
 }
 
-    .pieChartDiv .chartText {
-        font-size: 14px !important;
-        font-weight: normal;
-        fill: #434343 !important;
-        padding-left: 10px;
-        padding-top: 10px;
-        font-family: Lato, Helvetica, sans-serif !important;
-    }
+.pieChartDiv .chartText {
+    font-size: 14px !important;
+    font-weight: normal;
+    fill: #434343 !important;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-family: Lato, Helvetica, sans-serif !important;
+}
 
 .createDiv {
     margin-top: 20px;
@@ -7381,7 +7410,7 @@ h4.resource_hd {
 
 .breaks_sec .BreakSelectDiv {
     float: left;
-    width: 60%;    
+    width: 60%;
 }
 
 .breaks_sec .Day_sec {
@@ -7738,9 +7767,10 @@ table.table {
     font-size: 13px !important;
     padding: 6px 9px;
 }
-.dateTimeDiv ul li table .btn.btn-info {
+
+    .dateTimeDiv ul li table .btn.btn-info {
         color: #2089da;
-   }
+    }
 
 .dateTimeDiv ul li table thead th {
     font-size: 12px;
@@ -7750,6 +7780,7 @@ table.table {
 .wizardPadDiv .step3_form form.css-form .form-control {
     background: #eee;
 }
+
 .wizardPadDiv .step3_form > .row {
     margin-bottom: 5px;
 }
@@ -7767,41 +7798,51 @@ table.table {
     margin-left: 10px;
     display: inline-block;
 }
-.close_img:hover {
-    background: #fff;
-    color: #2089da;  
-}
+
+    .close_img:hover {
+        background: #fff;
+        color: #2089da;
+    }
 /* Sep-11-2017 media css start here ============================= */
 @media (max-width:767px) {
     .modal-open .modal {
         padding-right: 0px !important;
     }
+
     .resources_div {
         text-align: left;
     }
-        .dxChartDiv {
+
+    .dxChartDiv {
         width: 100% !important;
     }
+
     .valueToDateContent {
         margin: 10px 0;
     }
-        div #settings .tabs-_section .col-sm-12.col-md-12 {
+
+    div #settings .tabs-_section .col-sm-12.col-md-12 {
         padding: 0;
     }
+
     .DetailDiv .categoryButtonsDiv .col-md-6.col-sm-6.col-xs-12 {
         margin: 10px 0;
     }
+
     .DetailDiv .allservicesText {
         margin: 15px 0 20px;
     }
+
     div#DashboardAppointmentDetails .allservicesText {
         margin: 15px 15px;
     }
+
     .business-card {
         width: 46%;
         float: left;
         margin: 0 3px;
     }
+
     li.dashboardLi {
         border: none !important;
         background: #fff;
@@ -7811,41 +7852,52 @@ table.table {
         width: 49%;
         margin-bottom: 10px;
     }
+
         li.dashboardLi label.dashboardLable {
             font-size: 13px !important;
             color: #333 !important;
             font-weight: 400;
         }
+
     .business_carsec {
         padding-bottom: 15px;
     }
+
     .tabs-_section .col-sm-9.col-md-12 {
         padding: 0;
     }
+
     .time_frame {
         text-align: left;
     }
+
         .time_frame label {
             padding: 5px 0;
         }
+
     .gre_bg.time_frame.margin_top20 .col-sm-8.text-right {
         text-align: left !important;
     }
-            header .top .navbar-brand {
+
+    header .top .navbar-brand {
         padding: 5px 1px 5px 25px;
     }
+
         header.top .navbar-brand p {
-        float: left;
-        padding: 10px 15px 10px 10px;
-    }
+            float: left;
+            padding: 10px 15px 10px 10px;
+        }
+
     .container-fluid.staff-details-container.appointmentTab {
         margin-top: 15px;
         padding: 0;
     }
+
     .tabs-_section {
         padding: 25px 15px;
     }
-        .detail-navbar.staffDetail ul li.addServiceLi {
+
+    .detail-navbar.staffDetail ul li.addServiceLi {
         float: left !important;
     }
 
@@ -7857,6 +7909,7 @@ table.table {
         font-size: 18px !important;
         margin-top: 5px !important;
     }
+
     i.fa.fa-angle-left {
         font-size: 17px;
         margin: 2px 0px;
@@ -7926,12 +7979,15 @@ table.table {
         border: none;
         padding: 0;
     }
+
         .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
             background: none !important;
         }
+
         .navbar-default .navbar-toggle .icon-bar {
             background-color: #2089da;
         }
+
     .image_staff img {
         max-width: 120px;
     }
@@ -8680,19 +8736,23 @@ ul.searching-cust li span {
     .addcustomerSearch input.form-control {
         width: 100%;
     }
+
     .table_1 table {
         min-width: 800px;
     }
+
         .table_1 table tr th {
             font-size: 14px;
             padding: 0 7px;
         }
+
     .Breaks_table {
         overflow-x: auto;
     }
-    .Breaks_table table.table {
-        min-width: 905px;
-    }
+
+        .Breaks_table table.table {
+            min-width: 905px;
+        }
 
     .table_Scroll {
         overflow: auto;
@@ -8825,15 +8885,19 @@ ul.searching-cust li span {
     #booking-settingsTabContent h3 {
         font-size: 20px;
     }
+
     .Working_table {
         overflow-x: auto;
     }
-    .Working_table table.table {
-        min-width: 640px;
-    }
+
+        .Working_table table.table {
+            min-width: 640px;
+        }
+
     .fullHeight_calender .Height_calender {
         min-width: 800px;
     }
+
     div#calendar .fullHeight_calender {
         overflow-x: auto;
     }
@@ -9035,9 +9099,11 @@ ul.searching-cust li span {
     span.dashboardHead {
         font-size: 16px;
     }
+
     .dxChartDiv {
         margin: 10px 0;
     }
+
     .pieChartDiv {
         margin-top: 20px;
     }
@@ -9046,38 +9112,49 @@ ul.searching-cust li span {
     .DetailDiv .allservicesText {
         margin-bottom: 0;
     }
+
     .right_tabcontent h3 {
         font-size: 20px;
     }
+
     h4.resource_hd {
         font-size: 16px;
     }
+
     .time_frame label {
         font-size: 13px;
         font-weight: 500;
     }
-        .dashboardApptrow {
+
+    .dashboardApptrow {
         padding: 25px 15px;
         margin: 0;
     }
+
     .tabs-_section {
         padding: 25px 15px;
     }
-        .dashboardApptHeader .categoryButtonsDiv .col-md-6.col-sm-6 {
+
+    .dashboardApptHeader .categoryButtonsDiv .col-md-6.col-sm-6 {
         padding: 0;
     }
+
     div#staff-break .customerProfileDiv.staffProfileDiv {
         overflow: hidden !important;
     }
+
     div#staff-hours .customerProfileDiv.staffProfileDiv {
         overflow: hidden !important;
     }
+
     div#staff-services .customerProfileDiv.staffProfileDiv {
         overflow: hidden !important;
     }
+
     .service-table_scrool {
         overflow-x: auto;
     }
+
         .service-table_scrool table.table {
             max-width: none !important;
             min-width: 525px;
@@ -9223,6 +9300,7 @@ ul.searching-cust li span {
         margin: 10px 0 60px 0px;
         padding: 0 15px 15px;
     }
+
     .categoryButtonsDiv {
         padding-left: 0;
     }
@@ -9507,58 +9585,75 @@ ul.searching-cust li span {
         width: 215px;
         box-shadow: none;
     }
+
     div#staff-hours .action .label {
         text-align: left;
         padding-left: 10px;
     }
+
     #booking-settingsTabContent .dropdown-menu {
         min-width: 250px;
     }
-        .allservicesText .Appointment_sec-cust {
+
+    .allservicesText .Appointment_sec-cust {
         display: block;
     }
+
     .customerProfileDiv .DetailDiv .allservicesText a {
         float: left;
         margin-right: 10px;
         margin-top: -5px;
     }
+
     .time_frame {
         text-align: left !important;
     }
+
     .addCustomer .row.button_row .col-md-6 {
         padding: 0 15px;
         text-align: center;
     }
+
     .addCustomer .row.button_row button {
         max-width: 100%;
     }
-        .dashboardStatus {
+
+    .dashboardStatus {
         padding: 15px 20px;
     }
+
     .business_carsec > div {
         display: block;
     }
+
     .DetailDiv {
         height: auto;
     }
+
     .one_div {
         display: none;
     }
+
     div#staff-details {
         padding-right: 0 !important;
     }
+
     .btn_section {
         margin-bottom: 10px;
     }
+
         .btn_section span {
             margin-top: 13px;
         }
+
     div#customer-details {
         padding-right: 0 !important;
     }
+
     .dashboardApptrow {
         padding: 25px 15px;
     }
+
     .row.staffaddCustomerSec.rowmrgnDiv {
         padding: 25px 15px;
     }
@@ -9574,18 +9669,21 @@ ul.searching-cust li span {
     .addcustomerSec {
         padding: 15px 15px;
     }
+
     .Button_Section .col-sm-6.col-xs-10, .Button_Section .col-sm-6.col-xs-2 {
         padding: 0;
     }
+
     .item-cat-sec .cursorhand {
         padding: 10px 10px !important;
     }
+
     .row.row_section .categoryList {
         padding: 5px 0;
     }
 
     .providerCustomer ul.list-inline {
-        height:220px;
+        height: 220px;
     }
 
     .categoryList ul {
@@ -10067,13 +10165,10 @@ ul.searching-cust li span {
     .table_control > tbody > tr > td {
         padding: 5px 10px;
     }
+
     .table_control thead th {
         padding: 14px 10px !important;
     }
-
-
-
-
 }
 
 @media (max-width:710px) {
@@ -10121,11 +10216,13 @@ ul.searching-cust li span {
     label.dashboardLable {
         font-size: 12px;
     }
+
     .business-card {
         width: 100%;
         float: none;
         margin: 5px 0;
     }
+
     .DetailDiv .action {
         margin-top: 25px;
     }
@@ -10134,70 +10231,79 @@ ul.searching-cust li span {
 /*   July-5-2017 css end here     */
 
 
-    @media (max-width:500px) {
-        .active_div:before {
-            left: -50px;
-        }
-        .chooseYearDiv input.dx-texteditor-input {
-            margin-bottom:10px;
-        
-        } 
-        .chooseMonthDiv {
-            margin-right: 0 !important;
-        }
-        div#selectyearbox {
-            width: 100% !important;
-            display: block;
-        }
-        .chooseYearDiv {
-            margin-top: 20px;
-        }
+@media (max-width:500px) {
+    .active_div:before {
+        left: -50px;
+    }
 
-        div#selectbox {
-            width: 100% !important;
-            display: block;
-        }
-        .appointPopupHead .modal-content {
-            border-radius: 0;
-            border: 1px solid #aaa;
-            width: 100%;
-            margin: auto;
-            max-width: 400px;
-        }
-        .DetailDiv form.form-horizontal.imageUploadForm.ng-pristine.ng-valid.ng-valid-maxlength {
-            margin-top: 10px;
-        }
-        trix-toolbar {
-            display: block;
-            margin-top: 35px;
-        }
-        .customerProfileDiv .categoryButtonsDiv .col-md-5.col-sm-5.col-xs-10 {
-            margin-top: 5px;
-        }
-        #booking-settingsTabContent h3 {
-            display: block !important;
-            margin-left: 50px;
-            font-size: 16px !important;
-        }
-        .addCustomer .row.button_row {
-            margin-top: 5px;
-        }
+    .chooseYearDiv input.dx-texteditor-input {
+        margin-bottom: 10px;
+    }
 
-        .categoryButtonsDiv {
-            margin-top: 0px;
-        }
+    .chooseMonthDiv {
+        margin-right: 0 !important;
+    }
 
-        .apptDisplay {
-            padding-bottom: 10px;
-        }
+    div#selectyearbox {
+        width: 100% !important;
+        display: block;
+    }
 
-        .tooltipArrow {
-            left: 37% !important;
-            width: 60% !important;
-        }
-        /* Dashboard page css 22-june-2017 start here ===================== */
+    .chooseYearDiv {
+        margin-top: 20px;
+    }
 
-        /*li.dashboardLi {
+    div#selectbox {
+        width: 100% !important;
+        display: block;
+    }
+
+    .appointPopupHead .modal-content {
+        border-radius: 0;
+        border: 1px solid #aaa;
+        width: 100%;
+        margin: auto;
+        max-width: 400px;
+    }
+
+    .DetailDiv form.form-horizontal.imageUploadForm.ng-pristine.ng-valid.ng-valid-maxlength {
+        margin-top: 10px;
+    }
+
+    trix-toolbar {
+        display: block;
+        margin-top: 35px;
+    }
+
+    .customerProfileDiv .categoryButtonsDiv .col-md-5.col-sm-5.col-xs-10 {
+        margin-top: 5px;
+    }
+
+    #booking-settingsTabContent h3 {
+        display: block !important;
+        margin-left: 50px;
+        font-size: 16px !important;
+    }
+
+    .addCustomer .row.button_row {
+        margin-top: 5px;
+    }
+
+    .categoryButtonsDiv {
+        margin-top: 0px;
+    }
+
+    .apptDisplay {
+        padding-bottom: 10px;
+    }
+
+    .tooltipArrow {
+        left: 37% !important;
+        width: 60% !important;
+    }
+    /* Dashboard page css 22-june-2017 start here ===================== */
+
+    /*li.dashboardLi {
         width: 100%;
         margin-top: 10px;
         margin-bottom: 0px;
@@ -10206,625 +10312,622 @@ ul.searching-cust li span {
         border-right: none !important;
     }*/
 
-        .dashboardStatus {
-            padding: 10px 25px;
-        }
-
-        .allservicesText h4 {
-            font-size: 15px;
-        }
-
-        .dashboardApptrow {
-            margin: 0 auto 30px;
-        }
-
-        .dashboardApptHeader h3 {
-            padding-left: 10px;
-        }
-
-        /* Dashboard page css 22-june-2017 end here ===================== */
-
+    .dashboardStatus {
+        padding: 10px 25px;
     }
 
-    @media (max-width:475px) {
-        .bookingMgt {
-            text-align: center;
+    .allservicesText h4 {
+        font-size: 15px;
+    }
+
+    .dashboardApptrow {
+        margin: 0 auto 30px;
+    }
+
+    .dashboardApptHeader h3 {
+        padding-left: 10px;
+    }
+
+    /* Dashboard page css 22-june-2017 end here ===================== */
+
+}
+
+@media (max-width:475px) {
+    .bookingMgt {
+        text-align: center;
+    }
+
+        .bookingMgt h2 {
+            font-size: 19px;
         }
 
-            .bookingMgt h2 {
-                font-size: 19px;
-            }
-
-            .bookingMgt button.btn.btn-primary.nextBtn.btn-lg.pull-right.waves-effect.waves-light {
-                margin: 0 0 15px;
-                float: none;
-            }
-
-        .setup-content .col-xs-12 .col-md-12 {
-            padding: 0 0px;
+        .bookingMgt button.btn.btn-primary.nextBtn.btn-lg.pull-right.waves-effect.waves-light {
+            margin: 0 0 15px;
+            float: none;
         }
 
-        .group_label label.control-label, .group_label .form-control {
-            width: 100%;
-            margin: 0;
-        }
+    .setup-content .col-xs-12 .col-md-12 {
+        padding: 0 0px;
+    }
 
-        .group_label label.control-label {
-            margin: 12px 0 0;
-        }
+    .group_label label.control-label, .group_label .form-control {
+        width: 100%;
+        margin: 0;
+    }
 
-        .group_label {
-            padding: 15px;
-            margin-bottom: 15px;
-        }
+    .group_label label.control-label {
+        margin: 12px 0 0;
+    }
 
-        .visible {
-            display: none;
-        }
+    .group_label {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
 
-        .addcustomerSearch input.form-control {
-            width: 60%;
-        }
+    .visible {
+        display: none;
+    }
 
-        .appoint_text {
-            font-size: 13px;
-        }
+    .addcustomerSearch input.form-control {
+        width: 60%;
+    }
 
-        .addCustomer .arrow {
-            left: 93%;
-        }
+    .appoint_text {
+        font-size: 13px;
+    }
 
-        .imageUploadForm img {
-            width: 60px;
-            height: 60px;
-        }
+    .addCustomer .arrow {
+        left: 93%;
+    }
 
-        .uploadImageIcon i {
-            width: 40px;
-            height: 40px;
-            top: 30px;
-            left: 24px;
-            font-size: 22px;
-        }
+    .imageUploadForm img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .uploadImageIcon i {
+        width: 40px;
+        height: 40px;
+        top: 30px;
+        left: 24px;
+        font-size: 22px;
+    }
 
 
-        /*    Setting page media css start here 2-June-2017    */
-        /*.addCategoryPopup {
+    /*    Setting page media css start here 2-June-2017    */
+    /*.addCategoryPopup {
         top: 45px;
     }*/
 
-        .serviceIconImage img {
-            width: 90px;
-            height: 90px;
-        }
+    .serviceIconImage img {
+        width: 90px;
+        height: 90px;
+    }
 
-        .serviceIconImage .uploadSeviceIcon i {
-            top: 29%;
-            left: 30px;
-        }
+    .serviceIconImage .uploadSeviceIcon i {
+        top: 29%;
+        left: 30px;
+    }
 
-        /*    Setting page media css end here 2-June-2017    */
-
-
-        /*   July-5-2017 css start here     */
-
-        .dashboardApptHeader .bookBtn {
-            margin: 15px 10px;
-        }
-
-        .dashboardApptHeader h3 {
-            font-size: 12px;
-        }
-
-        .appointService {
-            left: 0;
-        }
+    /*    Setting page media css end here 2-June-2017    */
 
 
+    /*   July-5-2017 css start here     */
 
-        /*   July-5-2017 css end here     */
+    .dashboardApptHeader .bookBtn {
+        margin: 15px 10px;
+    }
 
+    .dashboardApptHeader h3 {
+        font-size: 12px;
+    }
 
-
-
-
-
-        #booking-settingsTabContent h3 {
-            padding: 0px 9px !important;
-            margin-left: 0;
-        }
-
-
-
-
-
-
+    .appointService {
+        left: 0;
     }
 
 
-    @media (max-width: 425px) {
-        .uploadImageIcon i {
-            top: 36px;
-        }
 
-        li.dashboardLi {
-            width: 100%;
-        }
-
-        .addcustomerSearch .iconBar {
-            margin-left: 15px;
-        }
+    /*   July-5-2017 css end here     */
 
 
-        /*  setting page media css start here   */
 
-        .rightnavBarForMobile .tabs_section ul li a {
-            width: 120px;
-        }
 
-        /*  setting page media css end here   */
 
-        /*.addCategoryPopup {
+
+    #booking-settingsTabContent h3 {
+        padding: 0px 9px !important;
+        margin-left: 0;
+    }
+}
+
+
+@media (max-width: 425px) {
+    .uploadImageIcon i {
+        top: 36px;
+    }
+
+    li.dashboardLi {
+        width: 100%;
+    }
+
+    .addcustomerSearch .iconBar {
+        margin-left: 15px;
+    }
+
+
+    /*  setting page media css start here   */
+
+    .rightnavBarForMobile .tabs_section ul li a {
+        width: 120px;
+    }
+
+    /*  setting page media css end here   */
+
+    /*.addCategoryPopup {
         top: 45px;
         left: 36%;
         width: 60%;
     }*/
 
-        /*   July-7 css start here   */
+    /*   July-7 css start here   */
 
-        .customerUserDiv span.uploadImageIcon i {
-            top: 38px;
-            left: 13px;
-        }
-
-        /*   July-7 css start here   */
-
-
+    .customerUserDiv span.uploadImageIcon i {
+        top: 38px;
+        left: 13px;
     }
 
-    @media (max-width: 375px) {
-        .tooltipArrow {
-            width: 100% !important;
-            left: 0% !important;
-            top: 10px;
-        }
-        .chooseMonthDiv {
-            display: block;
-        }
-        .chooseYearDiv {
-            display: block; 
-        }
-            .top_right {
-            padding-top: 5px;
+    /*   July-7 css start here   */
+
+
+}
+
+@media (max-width: 375px) {
+    .tooltipArrow {
+        width: 100% !important;
+        left: 0% !important;
+        top: 10px;
+    }
+
+    .chooseMonthDiv {
+        display: block;
+    }
+
+    .chooseYearDiv {
+        display: block;
+    }
+
+    .top_right {
+        padding-top: 5px;
+    }
+
+        .top_right button.navbar-toggle {
+            margin: 7px;
         }
 
-            .top_right button.navbar-toggle {
-                margin: 7px;
-            }
+    .addcustomerSearch .iconBar ul.dropdown-menu {
+        left: -85px;
+    }
 
-        .addcustomerSearch .iconBar ul.dropdown-menu {
-            left: -85px;
-        }
+    .uploadImageIcon i {
+        top: 34px;
+    }
 
-        .uploadImageIcon i {
-            top: 34px;
-        }
+    .rightnavBarForMobile .tabs_section ul li a {
+        width: 150px;
+    }
+    /*   July-5-2017 css start here     */
 
-        .rightnavBarForMobile .tabs_section ul li a {
-            width: 150px;
-        }
-        /*   July-5-2017 css start here     */
+    .dashboardApptHeader h3 {
+        font-size: 10px;
+    }
 
-        .dashboardApptHeader h3 {
-            font-size: 10px;
-        }
+    .dashboardApptHeader .bookBtn {
+        margin: 15px 3px;
+        font-size: 10px;
+    }
 
-        .dashboardApptHeader .bookBtn {
-            margin: 15px 3px;
-            font-size: 10px;
-        }
-
-        /*.addCategoryPopup {
+    /*.addCategoryPopup {
         top: 45px;
         left: 26%;
         width: 70%;
     }*/
-        /*   July-5-2017 css end here     */
+    /*   July-5-2017 css end here     */
 
+}
+
+
+@media (max-width: 320px) {
+    .rightnavBarForMobile .tabs_section ul li a {
+        width: 150px;
     }
+}
 
+.css-form input.ng-invalid.ng-touched {
+    border: solid 1px #bb4c4c !important;
+    background: #e8c9c9 !important;
+    color: #972a2a !important;
+    border: solid 1px #bb4c4c !important;
+}
 
-    @media (max-width: 320px) {
-        .rightnavBarForMobile .tabs_section ul li a {
-            width: 150px;
-        }
-    }
+.css-form select.ng-invalid.ng-touched {
+    border: solid 1px #bb4c4c !important;
+    background: #e8c9c9 !important;
+    color: #972a2a !important;
+    border: solid 1px #bb4c4c !important;
+}
 
-    .css-form input.ng-invalid.ng-touched {
-        border: solid 1px #bb4c4c !important;
-        background: #e8c9c9 !important;
-        color: #972a2a !important;
-        border: solid 1px #bb4c4c !important;
-    }
+.select_btn:disabled {
+    color: #d4d2d2;
+}
+/* media css end here ================================= */
 
-    .css-form select.ng-invalid.ng-touched {
-        border: solid 1px #bb4c4c !important;
-        background: #e8c9c9 !important;
-        color: #972a2a !important;
-        border: solid 1px #bb4c4c !important;
-    }
-
-    .select_btn:disabled {
-        color: #d4d2d2;
-    }
-    /* media css end here ================================= */
-
-    /* ==================  23-may-2017 css start here  ================== */
+/* ==================  23-may-2017 css start here  ================== */
 
 
 
-    /* ==================  MEDIA QUERY CSS START HERE  ================== */
+/* ==================  MEDIA QUERY CSS START HERE  ================== */
 
 
 
-    .usernameField {
-        max-width: 100%;
-    }
+.usernameField {
+    max-width: 100%;
+}
 
-    div#addCustomerPopup {
-        display: block;
-    }
+div#addCustomerPopup {
+    display: block;
+}
 
-    div#deletetooltipPopup {
-        display: block;
-    }
+div#deletetooltipPopup {
+    display: block;
+}
 
-    .cursorhand {
-        cursor: pointer;
-    }
+.cursorhand {
+    cursor: pointer;
+}
 
-    /*============================10-10-2017 css start here============================================*/
-    .dropdownrighticon {
-        position: relative;
-        display: inline-block;
-    }
+/*============================10-10-2017 css start here============================================*/
+.dropdownrighticon {
+    position: relative;
+    display: inline-block;
+}
 
-    .dropdownbox {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 9999999 !important;
-        right: 0 !important;
-    }
-
-        .dropdownbox a {
-            color: #69737C;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-    .dropdownrighticon:hover .dropdownbox {
-        display: block;
-    }
-
-    .dropdownbox a:hover {
-        background-color: #f1f1f1
-    }
-
-    a.listbborder {
-        padding: 10px 0 10px 20px;
-        border-bottom: solid 1px #ccc;
-    }
+.dropdownbox {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 9999999 !important;
+    right: 0 !important;
+}
 
     .dropdownbox a {
-        font-size: 11px;
+        color: #69737C;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
     }
 
-    ul.signalbox {
-        list-style: none;
-        margin: 15px 30px;
-    }
+.dropdownrighticon:hover .dropdownbox {
+    display: block;
+}
 
-    ul.signalbox {
-        list-style: none;
-        margin: 15px 30px;
-        padding: 0px;
-        width: 250px;
-    }
+.dropdownbox a:hover {
+    background-color: #f1f1f1
+}
 
-        ul.signalbox li {
-            float: left;
-            width: 80px;
-            position: relative;
-            top: 3px;
-            text-align: center;
-        }
+a.listbborder {
+    padding: 10px 0 10px 20px;
+    border-bottom: solid 1px #ccc;
+}
 
-    i.fa.plusbox {
-        margin-right: 10px;
-    }
+.dropdownbox a {
+    font-size: 11px;
+}
 
-    a.signalheader {
-        background: #F1F5F8;
-        line-height: 15px !important;
-        color: #8C949D;
-        text-transform: capitalize;
-        font-size: 12px;
+ul.signalbox {
+    list-style: none;
+    margin: 15px 30px;
+}
+
+ul.signalbox {
+    list-style: none;
+    margin: 15px 30px;
+    padding: 0px;
+    width: 250px;
+}
+
+    ul.signalbox li {
+        float: left;
+        width: 80px;
+        position: relative;
+        top: 3px;
         text-align: center;
     }
 
-    .scontent {
-        font-size: 31px;
-        color: #485861;
-        text-align: center;
+i.fa.plusbox {
+    margin-right: 10px;
+}
+
+a.signalheader {
+    background: #F1F5F8;
+    line-height: 15px !important;
+    color: #8C949D;
+    text-transform: capitalize;
+    font-size: 12px;
+    text-align: center;
+}
+
+.scontent {
+    font-size: 31px;
+    color: #485861;
+    text-align: center;
+}
+
+.weeklybtn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #e4ebf1;
+}
+
+    .weeklybtn:hover {
+        border: 1px solid #ccc;
+        color: #252c32;
+        background-color: white;
     }
 
-    .weeklybtn {
+.row.tooldropdwn i.fa {
+    color: #fff;
+    font-size: 13px;
+}
+
+i.fa.fa-check.checkbtn {
+    margin-right: 4px;
+    font-size: 12px;
+}
+
+i.fa.fa-tablet.tabletbtn {
+    margin-right: 7px;
+    font-size: 12px;
+}
+
+label.pricetexts {
+    display: block !important;
+    text-align: center !important;
+    line-height: 20px !important;
+    color: #b2b2b2;
+    font-weight: normal;
+}
+
+i.fa.fa-plus.maindricons {
+    font-size: 18px;
+}
+
+i.fa.fa-signal.maindricons {
+    font-size: 18px;
+}
+
+i.fa.fa-cog.settingt.maindricons {
+    font-size: 18px;
+}
+/* 6-sep-2017 css start here */
+.booking_btn {
+    position: relative;
+    z-index: 99;
+}
+
+.booking_div button span {
+    color: #fff;
+    font-size: 35px;
+    font-weight: normal;
+}
+
+.booking_div .close {
+    float: left;
+    opacity: inherit;
+}
+
+.booking_div h4 {
+    padding-left: 30px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.booking_div .modal-header {
+    background: #2089da;
+}
+
+.booking_div .modal-dialog {
+    max-width: 1140px;
+    width: 100%;
+}
+
+.booking_div .modal-body {
+    padding: 0;
+}
+
+.side_left {
+    width: 30%;
+    float: left;
+    padding: 25px;
+    background: #f1f5f7;
+}
+
+.business_right {
+    width: 70%;
+    float: right;
+    padding: 25px;
+}
+
+.drop_select {
+    padding: 10px;
+    background: #f8f8f8;
+    margin-bottom: 15px;
+    border-top: 1px solid #CCC
+}
+
+    .drop_select select.form-control {
         display: inline-block;
-        padding: 6px 12px;
-        margin-bottom: 0;
-        font-size: 14px;
-        font-weight: normal;
-        line-height: 1.42857143;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        -ms-touch-action: manipulation;
-        touch-action: manipulation;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        background-color: #e4ebf1;
+        max-width: 250px;
+        margin-left: 30px;
     }
 
-        .weeklybtn:hover {
-            border: 1px solid #ccc;
-            color: #252c32;
-            background-color: white;
-        }
+span.pfcntent {
+    border: solid 1px #E9EDAB;
+    background: #FDFFE5;
+    padding: 10px 10px;
+    color: #ABA62F;
+}
 
-    .row.tooldropdwn i.fa {
-        color: #fff;
-        font-size: 13px;
-    }
+.staff-hours-note.popuopf {
+    margin: 50px 0 0 53px;
+}
 
-    i.fa.fa-check.checkbtn {
-        margin-right: 4px;
-        font-size: 12px;
-    }
+i.fa.sidebaricon {
+    color: #ccc;
+    font-size: 18px;
+    margin-right: 15px;
+}
 
-    i.fa.fa-tablet.tabletbtn {
-        margin-right: 7px;
-        font-size: 12px;
-    }
+span.sidebarcntent {
+    color: #ccc;
+    font-size: 14px;
+}
 
-    label.pricetexts {
-        display: block !important;
-        text-align: center !important;
-        line-height: 20px !important;
-        color: #b2b2b2;
-        font-weight: normal;
-    }
+.side_left.sidebrpadding li {
+    padding: 8px;
+}
 
-    i.fa.fa-plus.maindricons {
-        font-size: 18px;
-    }
+.side_left.sidebrpadding {
+    height: 530px;
+}
 
-    i.fa.fa-signal.maindricons {
-        font-size: 18px;
-    }
-
-    i.fa.fa-cog.settingt.maindricons {
-        font-size: 18px;
-    }
-    /* 6-sep-2017 css start here */
-    .booking_btn {
-        position: relative;
-        z-index: 99;
-    }
-
-    .booking_div button span {
-        color: #fff;
-        font-size: 35px;
-        font-weight: normal;
-    }
-
-    .booking_div .close {
-        float: left;
-        opacity: inherit;
-    }
-
-    .booking_div h4 {
-        padding-left: 30px;
-        color: #fff;
-        font-size: 22px;
-        font-weight: normal;
-    }
-
-    .booking_div .modal-header {
-        background: #00C6BF;
-    }
-
-    .booking_div .modal-dialog {
-        max-width: 1140px;
+    .side_left.sidebrpadding li:hover {
         width: 100%;
+        background-color: rgba(193, 182, 182, 0.15);
     }
 
-    .booking_div .modal-body {
-        padding: 0;
-    }
+span.sidebarcntent.active {
+    color: #495861;
+    font-weight: 400;
+}
 
-    .side_left {
-        width: 30%;
-        float: left;
-        padding: 25px;
-        background: #f1f5f7;
-    }
+i.fa.fa-clock-o.sidebaricon.active {
+    color: #495861;
+    font-weight: 400;
+}
 
-    .business_right {
-        width: 70%;
-        float: right;
-        padding: 25px;
-    }
+h3.businesshrs {
+    font-family: inherit;
+    font-size: 23px;
+    color: #455862;
+    padding: 30px 0px 15px;
+    margin: 0px;
+    font-weight: 400;
+}
 
-    .drop_select {
-        padding: 10px;
-        background: #f8f8f8;
-        margin-bottom: 15px;
-        border-top: 1px solid #CCC
-    }
+.modal-header.headerbgclr {
+    box-shadow: 0px 2px 4px rgba(0,0,0,.1);
+    padding: 0 1.5em 0 0;
+    min-height: 60px;
+    clear: both;
+    height: 3em;
+    clear: both;
+    z-index: 20;
+    position: relative;
+    background: linear-gradient(to right, #00C6BF, #00AECC);
+    background-position: bottom;
+    background-size: cover;
+}
 
-        .drop_select select.form-control {
-            display: inline-block;
-            max-width: 250px;
-            margin-left: 30px;
-        }
+.modal-dialog.modalboxmrgn {
+    margin: 3px auto;
+}
 
-    span.pfcntent {
-        border: solid 1px #E9EDAB;
-        background: #FDFFE5;
-        padding: 10px 10px;
-        color: #ABA62F;
-    }
+.modal-header.headerbgclr h3#myModalLabel {
+    margin-bottom: 0;
+    line-height: 2.8em;
+    color: #fff;
+    font-size: 23px;
+    font-weight: 300 !important;
+}
 
-    .staff-hours-note.popuopf {
-        margin: 50px 0 0 53px;
-    }
+span.popupcntenthcbtn {
+    font-size: 62px !important;
+    color: white !important;
+    font-weight: 100 !important;
+    padding: 0px 19px 0px 28px !important;
+}
 
-    i.fa.sidebaricon {
-        color: #ccc;
-        font-size: 18px;
-        margin-right: 15px;
-    }
+.side_left.sidebrpadding {
+    padding-top: 51px;
+}
 
-    span.sidebarcntent {
-        color: #ccc;
-        font-size: 14px;
-    }
+.fc-toolbar.fc-header-toolbar {
+    position: relative;
+    /* z-index: 10; */
+    padding: 10px 20px !important;
+    background: #2089da;
+    /* background: #f1f5f7; */
+    /* border-bottom: 1px solid #ddd; */
+    margin-top: 0px !important;
+}
 
-    .side_left.sidebrpadding li {
-        padding: 8px;
-    }
-
-    .side_left.sidebrpadding {
-        height: 530px;
-    }
-
-        .side_left.sidebrpadding li:hover {
-            width: 100%;
-            background-color: rgba(193, 182, 182, 0.15);
-        }
-
-    span.sidebarcntent.active {
-        color: #495861;
-        font-weight: 400;
-    }
-
-    i.fa.fa-clock-o.sidebaricon.active {
-        color: #495861;
-        font-weight: 400;
-    }
-
-    h3.businesshrs {
-        font-family: inherit;
-        font-size: 23px;
-        color: #455862;
-        padding: 30px 0px 15px;
-        margin: 0px;
-        font-weight: 400;
-    }
-
-    .modal-header.headerbgclr {
-        box-shadow: 0px 2px 4px rgba(0,0,0,.1);
-        padding: 0 1.5em 0 0;
-        min-height: 60px;
-        clear: both;
-        height: 3em;
-        clear: both;
-        z-index: 20;
-        position: relative;
-        background: linear-gradient(to right, #00C6BF, #00AECC);
-        background-position: bottom;
-        background-size: cover;
-    }
-
-    .modal-dialog.modalboxmrgn {
-        margin: 3px auto;
-    }
-
-    .modal-header.headerbgclr h3#myModalLabel {
-        margin-bottom: 0;
-        line-height: 2.8em;
-        color: #fff;
-        font-size: 23px;
-        font-weight: 300 !important;
-    }
-
-    span.popupcntenthcbtn {
-        font-size: 62px !important;
-        color: white !important;
-        font-weight: 100 !important;
-        padding: 0px 19px 0px 28px !important;
-    }
-
-    .side_left.sidebrpadding {
-        padding-top: 51px;
-    }
-
-    .fc-toolbar.fc-header-toolbar {
-        position: relative;
-        /* z-index: 10; */
-        padding: 10px 20px !important;
-        background: #2089da;
-        /* background: #f1f5f7; */
-        /* border-bottom: 1px solid #ddd; */
-        margin-top: 0px !important;
-    }
-
-    /*.content_div {
+/*.content_div {
     height: auto;
     overflow-y: auto;
     overflow-x: hidden;
 }*/
 
 
-    .msg_box {
-        text-align: center;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        z-index: 9999999;
-        max-width: 174px;
-        margin: 0 auto;
-        color: #000;
-        font-weight: 500;
-        line-height: 26px;
-        background: #FFF39E;
-        border-radius: 0 0 5px 5px;
-        font-size: 12px;
-        padding: 0px 0px;
+.msg_box {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9999999;
+    max-width: 174px;
+    margin: 0 auto;
+    color: #000;
+    font-weight: 500;
+    line-height: 26px;
+    background: #FFF39E;
+    border-radius: 0 0 5px 5px;
+    font-size: 12px;
+    padding: 0px 0px;
+}
+
+header.top {
+    position: relative;
+}
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { /*safari and chrome*/
+    select {
+        height: 30px;
+        line-height: 30px;
+        background: #f4f4f4;
     }
-
-    header.top {
-        position: relative;
-    }
-
-
-
-    @media screen and (-webkit-min-device-pixel-ratio:0) { /*safari and chrome*/
-        select {
-            height: 30px;
-            line-height: 30px;
-            background: #f4f4f4;
-        }
-    }
+}

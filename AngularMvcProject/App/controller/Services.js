@@ -166,7 +166,7 @@
         //Show the AddService Section with staff name
         $scope.AddServicePopup = function () {
 
-            
+
             angular.element(document.querySelector("#timeRequired")).addClass('ng-hide');
             angular.element(document.querySelector("#nameRequired")).addClass('ng-hide');
             angular.element(document.querySelector("#removeName-has-error")).removeClass('has-error');
@@ -329,40 +329,42 @@
         $scope.DeleteCategory = function (item) {
             debugger;
             //alert("delete");
-            var r = confirm("Are you sure you want to delete this item?");
-            if (r ==true) {
-                $scope.showAllServicesDiv = false;
-                var responseresult = bookingService.DeleteCategory($routeParams.CompanyId, item.Id);
-                responseresult.then(function (response) {
-                    if (response.data.Success == true) {
-                        $scope.MessageText = "Only Category will be deleted not the service."
-                        $scope.IsVisible = true;
+            //var r = confirm("Are you sure you want to delete this item?");
+            //if (r ==true) {
+            //$scope.showAllServicesDiv = false;
+            var responseresult = bookingService.DeleteCategory($routeParams.CompanyId, $scope.CategoryId);
+            responseresult.then(function (response) {
+                if (response.data.Success == true) {
+                    $scope.MessageText = "Only Category will be deleted not the service."
+                    $scope.IsVisible = true;
+                    $timeout(function () {
+                        $scope.MessageText = "Category Deleted."
                         $timeout(function () {
-                            $scope.MessageText = "Category Deleted."
-                            $timeout(function () {
-                                $scope.IsVisible = false;
-                                $scope.init();
-                            }, 100)
-                        }, 1000);
-                        angular.element(document.querySelector(".row_section")).removeClass('hidden');
+                            $scope.IsVisible = false;
+                            $scope.init();
+                            $route.reload();
+                            angular.element(document.querySelector(".row_section")).removeClass('hidden');
+                            $scope.showAllServicesDiv = true;
+                            $scope.hidecategoryList = false;
+                            $scope.showCategoryServicesDiv = true;
+                            $scope.ServiceDividedByCategory = null;
+                        }, 500)
+                    }, 800);
 
-                        $scope.hidecategoryList = false;
-                        $scope.showCategoryServicesDiv = true;
-                        $scope.ServiceDividedByCategory = null;
-                    }
+                }
 
-                });
-            }
-            else {
-                $scope.init();
-                angular.element(document.querySelector(".row_section")).removeClass('hidden');
-                $scope.showAllServicesDiv = true;
-                $scope.hidecategoryList = false;
-                $scope.showCategoryServicesDiv = true;
-                $scope.ServiceDividedByCategory = null;
-                debugger;
-                $route.reload();
-            }          
+            });
+            //}
+            //else {
+            //    $scope.init();
+            //    angular.element(document.querySelector(".row_section")).removeClass('hidden');
+            //    $scope.showAllServicesDiv = true;
+            //    $scope.hidecategoryList = false;
+            //    $scope.showCategoryServicesDiv = true;
+            //    $scope.ServiceDividedByCategory = null;
+            //    debugger;
+            //    $route.reload();
+            //}          
         }
 
 
@@ -426,7 +428,7 @@
                 angular.element(document.querySelector("#nameRequired")).removeClass('ng-hide');
                 //angular.element(document.querySelector("#nameRequired")).removeClass('help-block');
                 //angular.element(document.querySelector("#nameRequired")).addClass('has-error-service');
-                
+
                 //alert("dhdhddh");
 
             }
@@ -958,6 +960,115 @@
                 }
             });
         }
+
+
+
+
+
+
+        $scope.SetWorkingHours = function (timedata) {
+            debugger;
+            var buisnesshour = {
+                Id: "",
+                CompanyId: $routeParams.CompanyId,
+                Start: timedata.timeFrom,
+                End: timedata.timeTo,
+                NameOfDay: timedata.day,
+                IsOffAllDay: timedata.available == true ? false : true,
+                CreationDate: new Date(),
+            }
+
+            var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
+            apirequest.then(function (response) {
+                if (response.data.Success == true) {
+                    $scope.MessageText = "Saving buisness Hours";
+                    $scope.IsVisible = true;
+                    $timeout(function () {
+                        $scope.MessageText = "Buisness Hours Saved"
+                        $timeout(function () {
+                            $scope.IsVisible = false;
+                        }, 1000)
+                    }, 800)
+                }
+            })
+        }
+
+        $scope.timeInfFrom = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+
+
+        $scope.timeInfoTo = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+
+        $scope.businessHourInfo = [{ 'day': 'Monday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 1 },
+        { 'day': 'Tuesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 2 },
+        { 'day': 'Wednesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 3 },
+        { 'day': 'Thursday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 4 },
+        { 'day': 'Friday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 5 },
+        { 'day': 'Saturday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 6 },
+        { 'day': 'Sunday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 0 },]
+
+        $scope.switchOnOff = function (item) {
+            debugger;
+            for (var i = 0; i < $scope.businessHourInfo.length; i++)
+            // if (item.day != "Sunday" && item.day != "Saturday") {
+            {
+                if (item.day == $scope.businessHourInfo[i].day) {
+                    if (item['available'] == true) {
+                        $scope.businessHourInfo[i].available = false;
+
+                        var buisnesshour = {
+                            Id: "",
+                            CompanyId: $routeParams.CompanyId,
+                            Start: item.timeFrom,
+                            End: item.timeTo,
+                            NameOfDay: item.day,
+                            IsOffAllDay: true,
+                            CreationDate: new Date(),
+                        }
+                    }
+                    else {
+                        $scope.businessHourInfo[i].available = true;
+
+                        var buisnesshour = {
+                            Id: "",
+                            CompanyId: $routeParams.CompanyId,
+                            Start: item.timeFrom,
+                            End: item.timeTo,
+                            NameOfDay: item.day,
+                            IsOffAllDay: false,
+                            CreationDate: new Date(),
+                        }
+                    }
+                    break;
+                }
+            }
+            var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
+            apirequest.then(function (response) {
+                debugger;
+                if (response.data.Success == true) {
+                    $scope.MessageText = "Saving buisness Hours";
+                    $scope.IsVisible = true;
+                    $timeout(function () {
+                        $scope.MessageText = "Buisness Hours Saved"
+                        $timeout(function () {
+                            $scope.IsVisible = false;
+                        }, 1000)
+                    }, 800)
+                }
+            })
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //Checked and unchecked service provider in add service section//
 
