@@ -16,21 +16,36 @@
                     <h2><span>Create an Account for</span> Free!</h2>
                     <p> Get a free account in 30 seconds. No credit card required.</p>
                 </div>
-                <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
-                    <span class="label-input100">Username</span>
-                    <input type="text" class="input100 usernameField" placeholder="Type your username" name="username" ng-model="username" required>
-                    <i class="far fa-user"></i>
+                <div ng-class="{ 'has-error':myForm.username.$invalid && !myForm.username.$pristine }">
+                    <p style="color:#a94442" id="userName_color" ng-show="myForm.username.$dirty && myForm.username.$error.required"
+                       class="help-block">Name is required</p>
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                        <!--<span class="label-input100">Username</span>-->
+                        <input type="text" class="input100 usernameField" placeholder="Type your username" name="username" ng-model="username" required>
+                        <i class="far fa-user" style="top:15px"></i>
+                    </div>
+                </div>                
+                <div>
+                    <p style="color:#a94442" id="userEmail_color" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required</p>
+                    <p style="color:#a94442" ng-show="myForm.email.$error.pattern">Enter a valid email.</p>
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                        <!--<span class="label-input100">Email</span>
+                        <input type="email" class="input100 usernameField" placeholder="Type youre mail" name="email" ng-model="Email" required>-->
+                        <input name="email" ng-model="Email" id="eml" type="text" ng-pattern="eml_add" ng-required="true" autocomplete="off" placeholder="Email" class="input100 usernameField emailField">
+                        <i class="far fa-envelope" style="top:15px"></i>
+                    </div>
                 </div>
-                <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
-                    <span class="label-input100">Email</span>
-                    <input type="email" class="input100 usernameField" placeholder="Type youre mail" name="email" ng-model="Email" required>
-                    <i class="far fa-envelope"></i>
+
+                <div ng-class="{ 'has-error':myForm.password.$invalid && !myForm.password.$pristine }">
+                    <p style="color:#a94442" id="pswdName_color" ng-show="myForm.password.$dirty && myForm.password.$error.required"
+                       class="help-block">Password is required</p>
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Password is required">
+                        <!--<span class="label-input100">Password</span>-->
+                        <input type="password" class="input100 usernameField" placeholder="Type your password" name="password" ng-model="Password" required>
+                        <i class="fas fa-unlock-alt" style="top:15px"></i>
+                    </div>
                 </div>
-                <div class="wrap-input100 validate-input m-b-23" data-validate="Password is required">
-                    <span class="label-input100">Password</span>
-                    <input type="password" class="input100 usernameField" placeholder="Type your password" name="password" ng-model="Password" required>
-                    <i class="fas fa-unlock-alt"></i>
-                </div>
+                
                 <div class="text-right p-t-8 p-b-31">
                     <a href="#">
                     </a>

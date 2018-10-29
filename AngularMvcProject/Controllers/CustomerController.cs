@@ -84,7 +84,7 @@ namespace AngularMvcProject.Controllers
 
                 return result;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.ToString();
             }
@@ -111,10 +111,10 @@ namespace AngularMvcProject.Controllers
 
 
         [HttpPost]
-        public string DeleteCustomer(string CompanyId,string CustomerId)
+        public string DeleteCustomer(string CompanyId, string CustomerId)
         {
 
-            string apiUrl = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/customer/DeleteCustomer?companyId=" + CompanyId  +"&customerId=" + CustomerId;
+            string apiUrl = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/customer/DeleteCustomer?companyId=" + CompanyId + "&customerId=" + CustomerId;
             string result = "";
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUrl);
             httpWebRequest.Method = "DELETE";
@@ -128,13 +128,13 @@ namespace AngularMvcProject.Controllers
             return result;
 
         }
-       
+
         [HttpPost]
-        public string GetAllocatedServicetoEmployee(string CompanyId,string EmployeeId)
+        public string GetAllocatedServicetoEmployee(string CompanyId, string EmployeeId)
         {
 
             // int Id = Convert.ToInt32(CompanyId);
-            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/staff/GetAllocateServiceForEmployee?empid=" + EmployeeId+ "&compid=" + CompanyId;
+            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/staff/GetAllocateServiceForEmployee?empid=" + EmployeeId + "&compid=" + CompanyId;
             string result = "";
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
             httpWebRequest.ContentType = "application/json";
@@ -145,8 +145,8 @@ namespace AngularMvcProject.Controllers
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 result = streamReader.ReadToEnd();
-            }            
-           return result;
+            }
+            return result;
         }
 
         [HttpPost]
@@ -281,7 +281,7 @@ namespace AngularMvcProject.Controllers
             }
             return result;
         }
-        
+
 
         [HttpPost]
 
@@ -307,8 +307,7 @@ namespace AngularMvcProject.Controllers
         {
             try
             {
-                string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/booking/GetFreeBookingSlotsForEmployee?companyId=" + dataObj.CompanyId + "&serviceId="+ dataObj.ServiceId + "&employeeId=" + dataObj.EmployeeId + "&dateOfBooking=" + dataObj.DateOfBooking + "&day=" + dataObj.Day;
-            
+                string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/booking/GetFreeBookingSlotsForEmployee?companyId=" + dataObj.CompanyId + "&serviceId=" + dataObj.ServiceId + "&employeeId=" + dataObj.EmployeeId + "&dateOfBooking=" + dataObj.DateOfBooking + "&day=" + dataObj.Day;
                 string result = "";
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
                 httpWebRequest.ContentType = "application/json";
@@ -323,22 +322,22 @@ namespace AngularMvcProject.Controllers
 
                 return result;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.ToString();
             }
         }
-        
+
         [HttpPost]
         public string GetAppointmentDetails(string CustomerId)
         {
             // int Id = Convert.ToInt32(CompanyId);
             try
             {
-                var startDate = DateTime.Now.Date.AddYears(-1).ToShortDateString().Replace("/","-");
-             
-                var endDate = DateTime.Now.Date.AddYears(1).ToShortDateString().Replace("/","-");
-               
+                var startDate = DateTime.Now.Date.AddYears(-1).ToShortDateString().Replace("/", "-");
+
+                var endDate = DateTime.Now.Date.AddYears(1).ToShortDateString().Replace("/", "-");
+
                 string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/booking/GetBookingsForCustomerByIdBetweenDates?customerId=" + CustomerId + "&startDate=" + startDate + "&endDate=" + endDate;
                 string result = "";
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
@@ -352,19 +351,19 @@ namespace AngularMvcProject.Controllers
                     result = streamReader.ReadToEnd();
                 }
 
-               
+
 
 
 
                 List<AllAppointments> appointments = JsonConvert.DeserializeObject<List<AllAppointments>>(result);
                 List<AppointmentDetails> ListofAppointment = new List<AppointmentDetails>();
-               foreach( var appointment in appointments)
+                foreach (var appointment in appointments)
                 {
                     AppointmentDetails obj = new AppointmentDetails();
                     obj.BookingId = appointment.Id;
                     obj.EmployeeId = appointment.EmployeeId.ToString();
                     obj.ServiceId = appointment.ServiceId.ToString();
-                    obj.EmployeeName = (appointment.Employee)==null?"": appointment.Employee.FirstName;
+                    obj.EmployeeName = (appointment.Employee) == null ? "" : appointment.Employee.FirstName;
                     obj.ServiceName = appointment.Service.Name;
                     obj.DurationInHours = appointment.Service.DurationInHours;
                     obj.DurationInMinutes = appointment.Service.DurationInMinutes;
@@ -374,7 +373,7 @@ namespace AngularMvcProject.Controllers
                     obj.StartTime = appointment.Start;
                     obj.EndTime = appointment.End;
                     obj.Colour = appointment.Service.Colour;
-                   
+
                     ListofAppointment.Add(obj);
 
                 }
@@ -384,13 +383,13 @@ namespace AngularMvcProject.Controllers
                 return jsondata;
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.ToString();
             }
         }
         [HttpPost]
-        public string SetStatusOfAppointment(string status,string BookingId)
+        public string SetStatusOfAppointment(string status, string BookingId)
         {
             try
             {
@@ -410,7 +409,7 @@ namespace AngularMvcProject.Controllers
                 }
                 return result;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.ToString();
             }
@@ -429,7 +428,7 @@ namespace AngularMvcProject.Controllers
                 httpWebRequest.ProtocolVersion = HttpVersion.Version10;
                 httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
 
-                using (var StreamWriter=new StreamWriter(httpWebRequest.GetRequestStream()))
+                using (var StreamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
                     var JsonString = new JavaScriptSerializer().Serialize(appointment);
                     StreamWriter.Write(JsonString);
@@ -440,11 +439,11 @@ namespace AngularMvcProject.Controllers
                 var httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
                 using (var StreamReader = new StreamReader(httpWebResponse.GetResponseStream()))
                 {
-                  result=  StreamReader.ReadToEnd();                   
+                    result = StreamReader.ReadToEnd();
                 }
                 return result;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.ToString();
             }
@@ -479,7 +478,7 @@ namespace AngularMvcProject.Controllers
         public string GetCustomerStats(string CompanyId, string CustomerId, string Year, string Month)
         {
             try
-            {               
+            {
                 var result = "";
                 string apiUrl = ConfigurationManager.AppSettings["DomainUrl"] + "/api/booking/GetCustomerStats?companyId=" + CompanyId + "&customerId=" + CustomerId + "&year=" + Year + "&month=" + Month;
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUrl);
@@ -512,7 +511,7 @@ namespace AngularMvcProject.Controllers
 
                 //notesdetail.Description = mystring;
 
-                
+
 
 
 
@@ -546,17 +545,17 @@ namespace AngularMvcProject.Controllers
         }
 
         [HttpPost]
-        public string DeleteCustomerNote(string CompanyId,string CustomerNoteId)
+        public string DeleteCustomerNote(string CompanyId, string CustomerNoteId)
         {
             try
             {
-                string apiUrl = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/customer/DeleteCustomerNote?companyId="+ CompanyId +"&customerNoteId="+ CustomerNoteId;
+                string apiUrl = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/customer/DeleteCustomerNote?companyId=" + CompanyId + "&customerNoteId=" + CustomerNoteId;
                 string result = "";
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUrl);
                 httpWebRequest.Method = "DELETE";
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
-               
+
                 var httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
                 using (var StreamReader = new StreamReader(httpWebResponse.GetResponseStream()))
                 {
@@ -576,7 +575,7 @@ namespace AngularMvcProject.Controllers
             try
             {
                 var result = "";
-                string apiUrl = ConfigurationManager.AppSettings["DomainUrl"] + "/api/customer/GetAllCustomerNotes?companyId=" +CompanyId +"&customerId=" +CustomerId;
+                string apiUrl = ConfigurationManager.AppSettings["DomainUrl"] + "/api/customer/GetAllCustomerNotes?companyId=" + CompanyId + "&customerId=" + CustomerId;
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUrl);
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "GET";

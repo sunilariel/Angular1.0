@@ -317,9 +317,8 @@
                                                             <div class="form-group staffformGroup">
                                                                 <div class="" ng-class="{ 'has-error' : AddStaffForm.StaffName.$invalid && !AddStaffForm.StaffName.$pristine }">
                                                                     <!--<label>Name</label>-->
-                                                                    <p ng-show="AddStaffForm.StaffName.$invalid && !AddStaffForm.StaffName.$pristine" class="help-block">Name is required.</p>
+                                                                    <p style="color:#a94442" id="StaffName_color" ng-show="AddStaffForm.StaffName.$dirty && AddStaffForm.StaffName.$error.required" class="help-block">Name is required.</p>
                                                                     <input id="categoryNewName" class="form-control" type="text" placeholder="First Name" ng-model="StaffName" name="StaffName" required>
-
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
@@ -344,9 +343,9 @@
 
                                                             <div class="form-group" ng-class="{ 'has-error' : AddStaffForm.staffMobileNo.$invalid && !AddStaffForm.staffMobileNo.$pristine }">
                                                                 <!--<label>Mobile</label>-->
-                                                                <span style="color:#a94442" ng-if="AddStaffForm.staffMobileNo.$error.required && AddStaffForm.staffMobileNo.$dirty">Mobile number is required</span>
-                                                                <span style="color:#a94442" ng-show="AddStaffForm.staffMobileNo.$error.pattern">Please enter a 10 digit number</span>
-                                                                <input name="staffMobileNo" ng-model="staffMobileNo" id="c_num" type="text" ng-required="true" ng-pattern="ph_numbr" autocomplete="on" placeholder="Mobile" class="form-control">
+                                                                <p style="color:#a94442" id="staffMobileNo_color" ng-show="AddStaffForm.staffMobileNo.$dirty && AddStaffForm.staffMobileNo.$error.required">Mobile number is required</p>
+                                                                <p style="color:#a94442" ng-show="AddStaffForm.staffMobileNo.$error.pattern">Please enter a 10 digit number</p>
+                                                                <input ng-blur="AddStaff(AddStaffForm)" name="staffMobileNo" ng-model="staffMobileNo" id="c_num" type="text" ng-required="true" ng-pattern="ph_numbr" autocomplete="on" placeholder="Mobile" class="form-control">
                                                             </div>
                                                             <!--<div class="form-group">
                                                                 <div class="">
@@ -381,7 +380,7 @@
 
                                                     <div class="row button_row">
                                                         <div class="col-md-6 col-xs-6 text-right">
-                                                            <button id="addcategoryBtn" type="submit" class="btn  add_category_btn addCustomerbtn">Add Staff</button>
+                                                            <button id="addcategoryBtn" ng-disabled="AddStaffForm.$ivvalid" type="submit" class="btn  add_category_btn addCustomerbtn">Add Staff</button>
                                                         </div>
                                                         <div class="col-md-6 col-xs-6">
                                                             <button id="cancelBtn" class="btn btn-default cateCancelbtn Cancel" type="button" ng-click="StaffCancel(AddStaffForm)">Cancel</button>
@@ -495,7 +494,7 @@
 
                                                         <div class="form-group">
                                                             <label>Last Name</label>
-                                                            <input type="text" class="form-control" id="text" ng-model="LastName" placeholder="Last Name" ng-blur="UpdateStaff()" name="text">
+                                                            <input type="text" class="form-control" id="text" ng-model="LastName" placeholder="Last Name" ng-blur="UpdateStaff()" name="name">
                                                         </div>
 
 
@@ -520,7 +519,7 @@
                                             <div class="row" style="padding:20px 0;">
                                                 <div class="col-sm-12">
                                                     <div class="categoryButtonsDiv text-center categoryDeleteBtnDiv">
-                                                        <button id="serviceSaveBtn" class="add_category_btn serviceSaveBtn" ng-click="SaveService()">Save</button>
+                                                        <button id="serviceSaveBtn" class="add_category_btn serviceSaveBtn" ng-click="UpdateStaff()">Save</button>
                                                         <button id="serviceCancelBtn" class="btn btn-default serviceCancelBtn" ng-click="showAllStaff()">Cancel</button>
                                                     </div>
                                                 </div>

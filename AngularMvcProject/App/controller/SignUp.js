@@ -14,33 +14,47 @@ app.controller("SignUp", ['$scope', '$http', '$timeout', '$location', '$rootScop
     $scope.submitTheForm = function (form) {
         debugger;
 
-        if (form.$invalid === true) {
-            if (form.username.$invalid === true) {
+        if (form.$invalid == true) {
+            if (form.username.$invalid == true) {
                 $scope.IsVisible = true;
                 $scope.MessageText = "Name field cannot be blank";
                 $timeout(function () {
                     $scope.IsVisible = false;
                 }, 1000)
                 form.username.$touched = true;
-                form.username.$setTouched();
+                form.username.$setTouched();                
+                angular.element(document.querySelector("#userName_color")).removeClass("ng-hide");
                 return false;
             }
-            if (form.email.$invalid === true) {
+        }
+        $scope.eml_add = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        if (form.$invalid == true) {
+            if (form.email.$invalid == true) {
                 $scope.IsVisible = true;
                 $scope.MessageText = "Email field cannot be blank";
                 $timeout(function () {
                     $scope.IsVisible = false;
                 }, 1000)
                 form.email.$touched = true;
-                form.email.$setTouched();   
+                form.email.$setTouched();
+                angular.element(document.querySelector("#userEmail_color")).removeClass("ng-hide");
                 return false;
-            }            
-            if (form.password.$invalid === true) {
+            }
+        }
+        if (form.$invalid == true) {
+            if (form.password.$invalid == true) {
+                $scope.IsVisible = true;
+                $scope.MessageText = "Password field cannot be blank";
+                $timeout(function () {
+                    $scope.IsVisible = false;
+                }, 1000)
                 form.password.$touched = true;
                 form.password.$setTouched();
+                angular.element(document.querySelector("#pswdName_color")).removeClass("ng-hide");
+                return false;
             }
-            return false;
         }
+
 
         $scope.IsVisible = true;
         $scope.MessageText = "Checking availability"
@@ -50,7 +64,7 @@ app.controller("SignUp", ['$scope', '$http', '$timeout', '$location', '$rootScop
         apirequest.then(function (response) {
             //debugger;
             if (response.data === "true") {
-                $scope.MessageText = "User is already exist";
+                $scope.MessageText = "User already exist";
                 $scope.IsVisible = true;
                 $timeout(function () {
                     $scope.IsVisible = false;
@@ -68,7 +82,7 @@ app.controller("SignUp", ['$scope', '$http', '$timeout', '$location', '$rootScop
                     Website: "a",
                     County: "aaa",
                     Town: "aaaaa",
-                    Description: "aa", 
+                    Description: "aa",
                     //UniqueReference:"4254b8fb-09f0-48e7-9f76-3516d1fc91c4",
                     Password: $scope.Password,
                     CreationDate: "2017-05-22T05:55:21.9148617+00:00"

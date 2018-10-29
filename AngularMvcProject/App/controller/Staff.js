@@ -232,22 +232,36 @@
             if (form.$invalid == true) {
                 if (form.StaffName.$invalid == true) {
                     form.StaffName.$setTouched();
+                    angular.element(document.querySelector("#StaffName_color")).removeClass('ng-hide');
+                    return false;
                 }
-                else if (form.staffMobileNo.$invalid == true) {
+            }
+            if (form.$invalid == true) {
+                if (form.staffMobileNo.$invalid == true) {
                     if ($scope.ph_numbr = /^\+?\d{10}$/) {
                         form.staffMobileNo.$setTouched();
+                        
+                        angular.element(document.querySelector("#staffMobileNo_color")).removeClass('ng-hide');
+                        return false;
+                        
                     }
                     
+                   
                 }
-                else if (form.StaffEmail.$invalid == true) {
-                    form.StaffEmail.$setTouched();
-                }
-                
-                return false;
             }
+            angular.element(document.querySelector("#staffMobileNo_color")).addClass('ng-hide');
+            if (form.$invalid == true) {
+                if (form.StaffEmail.$invalid == true) {
+                    form.StaffEmail.$setTouched();
+                    return false;
+                }
+            }
+           
+
 
             var CurrentDate = new Date();
             var requestedstaff = {
+                
                 "Id": "",
                 "CompanyId": $routeParams.CompanyId,
                 "UserName": $scope.StaffEmail,
@@ -786,7 +800,7 @@
 
 
         $scope.EditStaff = function (item) {
-            //debugger;
+            debugger;
             angular.element(document.querySelector(".tabs-_section")).addClass('hidden');
             angular.element(document.querySelector("#staff-DetailsTAb")).removeClass('hidden');
             angular.element(document.querySelector("#StaffDetailsLink")).addClass('active');
@@ -818,6 +832,7 @@
 
             $scope.StaffId = item.Id;
             $scope.staffName = item.FirstName;
+            $scope.LastName = item.LastName;
             $scope.staffEmail = item.Email;
             $scope.staffMobileNo = item.TelephoneNo;
 
@@ -939,7 +954,7 @@
         }
 
         $scope.UpdateStaff = function () {
-            //debugger;
+            debugger;
             var CurrentDate = new Date();
             if ($scope.StaffId != null) {
                 var requestedStaff =
@@ -949,7 +964,7 @@
                         "UserName": $scope.staffEmail,
                         "Password": "",
                         "FirstName": $scope.staffName,
-                        "LastName": "",
+                        "LastName": $scope.LastName,
                         "Address": "",
                         "Email": $scope.staffEmail,
                         "TelephoneNo": $scope.staffMobileNo,

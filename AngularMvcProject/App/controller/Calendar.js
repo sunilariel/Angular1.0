@@ -895,6 +895,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                 // $scope.today();
 
                 $scope.timeInfoFrom = [];
+                debugger
                 var SelectedDate = $scope.hidden;
                 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 debugger;
@@ -939,7 +940,8 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                     $scope.timeslotsloading = false;
 
                 });
-
+                //alert($scope.timeoption);
+                $scope.timeoption = $scope.timeInfoFrom[0];
             });
         }
 
@@ -1241,7 +1243,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
 
         $scope.GetEventDetails = function (AppointmentId, Operation) {
-
+            debugger;
             var date = new Date($scope.dt);
             var firstDay = new Date(date.getFullYear(), date.getMonth(), 2);
             var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1);
@@ -1561,18 +1563,23 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                                     $scope.timeInfoFrom.push(time);
                                 }
                             }
-                            $scope.ContinueAppointment = false;
+                            //$scope.ContinueAppointment = false;
+                            //$scope.DisabledAddCustomerTab = false;
+
+                            $scope.timeoption = $scope.timeInfoFrom[0];
                             $scope.DisabledAddCustomerTab = false;
+                            $scope.ContinueAppointment = false;
                         }
                         else {
                             $scope.ContinueAppointment = true;
                             $scope.DisabledAddCustomerTab = true;
                         }
-                        $scope.timeoption = $scope.timeInfoFrom[0];
+                        //$scope.timeoption = $scope.timeInfoFrom[0];
                         $scope.timeslotsloading = false;
                     }
                 });
             }
+            $scope.timeoption = $scope.timeInfoFrom[0];
         });
 
         $scope.clear = function () {

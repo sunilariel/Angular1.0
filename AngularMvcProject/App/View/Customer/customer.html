@@ -318,9 +318,7 @@
                                                 </div>
 
                                                 <p style="color:#a94442" id="customerEmail_color" ng-show="createCustomerform.customerEmail.$error.required && createCustomerform.customerEmail.$dirty">Email is required</p>
-                                                <p style="color:#a94442" ng-show="createCustomerform.customerEmail.$error.pattern">Enter a valid email.</p>
-                                                <!--<input class="form-control emailField" type="email" placeholder="E-mail" name="customerEmail" ng-model="customerEmail" required>-->
-
+                                                <p style="color:#a94442" ng-show="createCustomerform.customerEmail.$error.pattern">Enter a valid email.</p>                                               
                                                 <input name="customerEmail" ng-model="customerEmail" id="eml" type="text" ng-pattern="eml_add" ng-required="true" autocomplete="off" placeholder="Email" class="form-control emailField">
                                                 <br />
 
@@ -362,7 +360,7 @@
 
                                             <div class="row button_row">
                                                 <div class="col-md-6 col-xs-6 text-right">
-                                                    <button id="addnewCustomer" style="max-width: 105px;" type="submit" class="btn  add_category_btn addCustomerbtn">Add Customer</button>
+                                                    <button id="addnewCustomer" style="max-width: 105px;" type="submit" class="btn  add_category_btn addCustomerbtn" ng-disabled="createCustomerform.$invalid">Add Customer</button>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6">
                                                     <button id="cancelCustomer" style="max-width: 105px;" class="btn btn-default cateCancelbtn Cancel" type="button" ng-click="CustomerCancel(createCustomerform)" ng-hide="CustomerCount==0">Cancel</button>

@@ -258,7 +258,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div id="newaddCategoryPopup" class="addCustomer bottomArrow  addCategoryPopup" ng-show="showcategorypopup"  style="display:block;">
+                                        <div id="newaddCategoryPopup" class="addCustomer bottomArrow  addCategoryPopup" ng-show="showcategorypopup" style="display:block;">
                                             <!--<div class="arrow"></div>-->
                                             <h3 class="addCustomerTitle">Add New Category</h3>
                                             <form ng-submit="AddCategory()" name="CategoryForm" novalidate class="css-form">
@@ -338,7 +338,7 @@
                                             </a>
                                             All Services
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -353,7 +353,7 @@
                                                             <div class="form-group" id="removeName-has-error" ng-class="{ 'has-error' : servicenameform.ServiceName.$invalid && !servicenameform.ServiceName.$pristine }">
                                                                 <label>Service Name<span>*</span></label>
                                                                 <input type="text" ng-required="true" class="customerName sampServiceName form-control" id="serviceNameColor" placeholder="Enter Service name*" ng-model="ServiceName" name="ServiceName" required>
-                                                               
+
                                                                 <div class="">
                                                                     <div class="dropdown serviceColors">
                                                                         <button class="btn dropdown-toggle chooseServiceColor" type="button" data-toggle="dropdown">
@@ -429,7 +429,7 @@
                                             </div>
                                         </div>
                                         <div class="categoryButtonsDiv text-center categoryDeleteBtnDiv">
-                                            <button id="serviceSaveBtn" class="btn  add_category_btn serviceSaveBtn" ng-click="SaveService()">Save</button>
+                                            <button id="serviceSaveBtn" class="btn  add_category_btn serviceSaveBtn" ng-disabled="servicenameform.$invalid" ng-click="SaveService()">Save</button>
                                             <button id="serviceCancelBtn" class="btn btn-default serviceCancelBtn" ng-click="showAllServicePopup()">Cancel</button>
                                         </div>
                                     </div>
@@ -482,7 +482,7 @@
                                             <a ng-click="ShowDeletePopUp=true" class="serviceButton btn btn-default">
                                                 <i class="far fa-trash-alt" aria-hidden="true"></i>
                                             </a>
-                                            
+
                                         </div>
                                         <span class="staff-break-delete-holder" ng-show="ShowDeletePopUp">
                                             <div class="popover left staff-delete-box" style="right:55px;width: 211px;top:-60px;">
@@ -573,7 +573,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </form>
                                             </div>
                                         </div>
@@ -630,17 +630,17 @@
                                                 </div>
                                             </div>
                                             <!--<div class="col-md-1 col-sm-1 col-xs-8">
-                                                <div class=""> 
-                                                    
+                                                <div class="">
+
                                                     <a ng-click="ShowDeletePopUp=true" class="serviceButton btn btn-default">
                                                         <i class="far fa-trash-alt" aria-hidden="true"></i>
                                                     </a>
-                                                   
+
                                                 </div>
                                             </div>-->
 
                                             <div class="col-md-3 col-sm-3 col-xs-8" style="padding: 5px 20px;">
-                                                <div class="addServiceButton"> 
+                                                <div class="addServiceButton">
                                                     <span>Delete Category</span>
                                                     <a ng-click="ShowDeletePopUp=true" class="serviceButton btn btn-default">
                                                         <i class="far fa-trash-alt" aria-hidden="true"></i>

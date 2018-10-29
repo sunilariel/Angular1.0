@@ -279,6 +279,7 @@ namespace AngularMvcProject.Models
         public int EmployeeId { get; set; }
         public string DateOfBooking { get; set; }
         public string Day { get; set; }
+       
 
     }
 
