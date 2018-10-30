@@ -856,7 +856,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Get Allocated Service to Employee//
         $scope.GetAllocateServiceToEmployee = function (EmployeeId) {
-
+            debugger;
             $scope.showServiceLoader = true;
             $scope.EmployeeId = EmployeeId;
             $rootScope.CalendarEmployeeServices = [];
@@ -885,6 +885,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Get timeslots corespond to service//
         $scope.ServiceDetail = function (SelectedServiceId) {
+            debugger;
             $scope.ServiceId = SelectedServiceId;
             var SelectedService = bookingService.GetSelectedService(SelectedServiceId);
             SelectedService.then(function (response) {
@@ -896,10 +897,12 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
                 $scope.timeInfoFrom = [];
                 debugger
-                var SelectedDate = $scope.hidden;
+                var SelectedDate = $scope.cdate;
+                $filter('date')(SelectedDate, "dd-MM-yyyy");
                 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                
                 debugger;
-                RequestValues = {
+                RequestValues = {                   
                     CompanyId: $routeParams.CompanyId,
                     ServiceId: SelectedServiceId,
                     EmployeeId: $scope.EmployeeId,
@@ -1528,59 +1531,59 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             }
         });
 
-        $scope.$watch("dt", function (newValue, oldValue) {
-            debugger;
-            $scope.timeInfoFrom = [];
-            if (newValue != null && oldValue != null) {
-                var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-                RequestValues = {
-                    CompanyId: $routeParams.CompanyId,
-                    ServiceId: $scope.ServiceId,
-                    EmployeeId: $scope.EmployeeId,
-                    DateofBooking: $filter('date')(newValue, "dd-MM-yyyy"),
-                    Day: days[newValue.getDay()],
-                }
-                $scope.timeslotsloading = true;
-                var result = bookingService.GetFreeBookingSlotsForEmployee(RequestValues);
-                result.then(function (response) {
-                    if (newValue != oldValue) {
-                        if (response.data.Value != null) {
-                            for (var i = 0; i < response.data.Value.length; i++) {
-                                if (i == 0) {
-                                    var startdate = response.data.Value[i].Start.split(":");
-                                    var startdatetime = new Date(1970, 0, 1, startdate[0], startdate[1], startdate[2]);
-                                    var starttime = $filter('date')(startdatetime, 'h:mm a');
-                                    $scope.timeInfoFrom.push(starttime);
-                                    var enddate = response.data.Value[i].End.split(":");
-                                    var enddatetime = new Date(1970, 0, 1, enddate[0], enddate[1], enddate[2]);
-                                    var endtime = $filter('date')(enddatetime, 'h:mm a');
-                                    $scope.timeInfoFrom.push(endtime);
-                                }
-                                else {
-                                    var date = response.data.Value[i].End.split(":");
-                                    var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
-                                    var time = $filter('date')(datetime, 'h:mm a');
-                                    $scope.timeInfoFrom.push(time);
-                                }
-                            }
-                            //$scope.ContinueAppointment = false;
-                            //$scope.DisabledAddCustomerTab = false;
+        //$scope.$watch("dt", function (newValue, oldValue) {
+        //    debugger;
+        //    $scope.timeInfoFrom = [];
+        //    if (newValue != null && oldValue != null) {
+        //        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        //        RequestValues = {
+        //            CompanyId: $routeParams.CompanyId,
+        //            ServiceId: $scope.ServiceId,
+        //            EmployeeId: $scope.EmployeeId,
+        //            DateofBooking: $filter('date')(newValue, "dd-MM-yyyy"),
+        //            Day: days[newValue.getDay()],
+        //        }
+        //        $scope.timeslotsloading = true;
+        //        var result = bookingService.GetFreeBookingSlotsForEmployee(RequestValues);
+        //        result.then(function (response) {
+        //            if (newValue != oldValue) {
+        //                if (response.data.Value != null) {
+        //                    for (var i = 0; i < response.data.Value.length; i++) {
+        //                        if (i == 0) {
+        //                            var startdate = response.data.Value[i].Start.split(":");
+        //                            var startdatetime = new Date(1970, 0, 1, startdate[0], startdate[1], startdate[2]);
+        //                            var starttime = $filter('date')(startdatetime, 'h:mm a');
+        //                            $scope.timeInfoFrom.push(starttime);
+        //                            var enddate = response.data.Value[i].End.split(":");
+        //                            var enddatetime = new Date(1970, 0, 1, enddate[0], enddate[1], enddate[2]);
+        //                            var endtime = $filter('date')(enddatetime, 'h:mm a');
+        //                            $scope.timeInfoFrom.push(endtime);
+        //                        }
+        //                        else {
+        //                            var date = response.data.Value[i].End.split(":");
+        //                            var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
+        //                            var time = $filter('date')(datetime, 'h:mm a');
+        //                            $scope.timeInfoFrom.push(time);
+        //                        }
+        //                    }
+        //                    //$scope.ContinueAppointment = false;
+        //                    //$scope.DisabledAddCustomerTab = false;
 
-                            $scope.timeoption = $scope.timeInfoFrom[0];
-                            $scope.DisabledAddCustomerTab = false;
-                            $scope.ContinueAppointment = false;
-                        }
-                        else {
-                            $scope.ContinueAppointment = true;
-                            $scope.DisabledAddCustomerTab = true;
-                        }
-                        //$scope.timeoption = $scope.timeInfoFrom[0];
-                        $scope.timeslotsloading = false;
-                    }
-                });
-            }
-            $scope.timeoption = $scope.timeInfoFrom[0];
-        });
+        //                    $scope.timeoption = $scope.timeInfoFrom[0];
+        //                    $scope.DisabledAddCustomerTab = false;
+        //                    $scope.ContinueAppointment = false;
+        //                }
+        //                else {
+        //                    $scope.ContinueAppointment = true;
+        //                    $scope.DisabledAddCustomerTab = true;
+        //                }
+        //                //$scope.timeoption = $scope.timeInfoFrom[0];
+        //                $scope.timeslotsloading = false;
+        //            }
+        //        });
+        //    }
+        //    //$scope.timeoption = $scope.timeInfoFrom[0];
+        //});
 
         $scope.clear = function () {
             $scope.dt = null;

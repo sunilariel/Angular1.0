@@ -578,8 +578,8 @@
 
                                             <div class="selectDropdown">
                                                 <div class="gifImage" ng-show="timeslotsloading"><img src="/Content/Assets/images/loading.gif" /></div>
-                                                <select class="select_btn dateTimeSelect" ng-model="editTimeoption" name="editTimeoption">
-                                                    <option ng-repeat="timeoption in timeInfoFrom track by $index " value="{{timeoption}}">{{timeoption}}</option>
+                                                <select class="select_btn dateTimeSelect" [(ngModel)]="editTimeoption" name="editTimeoption">
+                                                    <option ng-repeat="timeoption in timeInfoFrom track by $index" value="{{timeoption}}">{{timeoption}}</option>
                                                 </select>
                                             </div>
                                         </div>
