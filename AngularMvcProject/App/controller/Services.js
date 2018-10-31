@@ -443,8 +443,17 @@
                 }, 1000);
                 return false;
             }
-            if (servicedetailform.ServiceTime.value == "" || servicedetailform.ServiceTime.value == 0 || servicedetailform.ServiceTime.value.includes(".")) {
+            if (servicedetailform.ServiceTime.value == "") {
                 $scope.MessageText = "Service time cannot be empty!";
+                $scope.ServiceTime = "";
+                $scope.IsVisible = true;
+                $timeout(function () {
+                    $scope.IsVisible = false;
+                }, 1000);
+                return false;
+            }
+            if (servicedetailform.ServiceTime.value == 0 || servicedetailform.ServiceTime.value.includes(".")) {
+                $scope.MessageText = "Service time cannot be zero or decimal!";
                 $scope.ServiceTime = "";
                 $scope.IsVisible = true;
                 $timeout(function () {
@@ -679,8 +688,8 @@
             var UpdatedServiceTime = $("#UpdateServiceTime").val();
 
             if ($scope.UpdateServiceTime == "" || UpdatedServiceTime.indexOf(".") > 0 || $scope.UpdateServiceTime == 0) {
-                if ($scope.UpdateServiceTime == "0") {
-                    $scope.MessageText = "Service Time cannot be zero!";
+                if ($scope.UpdateServiceTime == "0" || UpdatedServiceTime.indexOf(".") > 0) {
+                    $scope.MessageText = "Service Time cannot be zero or decimal!";
                 }
                 else {
                     $scope.MessageText = "Service time cannot be empty!";
