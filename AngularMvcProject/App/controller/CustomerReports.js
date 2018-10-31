@@ -118,6 +118,7 @@
             $scope.Date.push(i);
         }
 
+        $scope.allcustomerchecked = true;
         $scope.time = "thismonth";
         var date = new Date();
         var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -153,7 +154,7 @@
                 $scope.CustomerReportIds = $scope.CustomerIds.substring(0, $scope.CustomerIds.length - 1);
 
                 $scope.CustomerReportDetail = [];
-                var httprequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, $scope.SelectedCustomer, $scope.StartDate, $scope.EndDate);
+                var httprequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, $scope.CustomerReportIds, $scope.StartDate, $scope.EndDate);
                 httprequest.then(function (response) {
                     //debugger;
                     angular.forEach(response.data, function (value, key) {

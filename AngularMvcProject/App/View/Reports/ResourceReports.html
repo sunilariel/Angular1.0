@@ -277,7 +277,7 @@
                                 <div class="col-sm-9 text-right resources_div">
                                     <label class="all resources" for="timeframe_today">
                                         All Resources
-                                        <input type="checkbox" name="timeframe" value="AllResource" id="" ng-model="checked" ng-click="GetAllResourcesReport(checked)">
+                                        <input type="checkbox" name="timeframe" value="AllResource" id="" ng-checked="true" ng-model="checked" ng-click="GetAllResourcesReport(checked)">
                                     </label>
 
                                     <select ng-disabled="allresourcechecked" ng-model="SelectedResource" ng-change="ResourceChange(SelectedResource)">
