@@ -95,7 +95,7 @@
 
     $scope.init = function () {
         //$scope.custom = true;
-        debugger;
+        //debugger;
         $(".left_sidebar").removeClass("show-leftbar");
         $scope.hidethisCustomerReport = {
             hide: true
@@ -109,7 +109,7 @@
         angular.element(document.querySelector("#bookinhMgt-paymentMainTab")).addClass('active');
         var tttt = angular.element(document.querySelector("#customerreportactive"));
         tttt.addClass('active');
-        debugger;
+        //debugger;
         $scope.CustomerExists = true;
         $scope.Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         $scope.Years = ["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"];
@@ -142,7 +142,7 @@
         $scope.CustomerIds = "";
         var customerhttprequest = bookingService.GetAllCustomer($routeParams.CompanyId);
         customerhttprequest.then(function (response) {
-            debugger;
+            //debugger;
             if (response.data.length != 0) {
                 $scope.CustomerReportLoader = true;
                 for (var i = 0; i < response.data.length; i++) {
@@ -155,7 +155,7 @@
                 $scope.CustomerReportDetail = [];
                 var httprequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, $scope.SelectedCustomer, $scope.StartDate, $scope.EndDate);
                 httprequest.then(function (response) {
-                    debugger;
+                    //debugger;
                     angular.forEach(response.data, function (value, key) {
                         $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
                     })
@@ -188,7 +188,7 @@
     }
 
     $scope.GetTimeFrame = function (TimeFrame) {
-        debugger;
+        //debugger;
         $scope.CustomerReportLoader = true;
         $scope.BookingReport = [];
 
@@ -230,7 +230,7 @@
             if ($scope.allcustomerchecked == true) {
                 var httprequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, $scope.CustomerReportIds, $scope.StartDate, $scope.EndDate);
                 httprequest.then(function (response) {
-                    debugger;
+                    //debugger;
                     if (Object.keys(response.data).length != 0) {
                         angular.forEach(response.data, function (value, key) {
                             $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
@@ -246,7 +246,7 @@
             else {
                 var httprequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, $scope.SelectedCustomer, $scope.StartDate, $scope.EndDate);
                 httprequest.then(function (response) {
-                    debugger;
+                    //debugger;
                     if (Object.keys(response.data).length != 0) {
                         angular.forEach(response.data, function (value, key) {
                             $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
@@ -267,7 +267,7 @@
     }
 
     $scope.GetTimeFrameReports = function () {
-        debugger;
+        //debugger;
         $scope.BookingReport = [];
         $scope.CustomerReportLoader = true;
         var firstDay = new Date(parseInt($scope.SelectedStartYear), $scope.Months.indexOf($scope.SelectedStartMonth), parseInt($scope.SelectedStartDate));
@@ -299,7 +299,7 @@
                 else {
                     var httprequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, $scope.CustomerReportIds, $scope.StartDate, $scope.EndDate);
                     httprequest.then(function (response) {
-                        debugger;
+                        //debugger;
                         if (Object.keys(response.data).length != 0) {
                             angular.forEach(response.data, function (value, key) {
                                 $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
@@ -330,7 +330,7 @@
     }
 
     $scope.GetCustomerReportbyOrder = function (field) {
-        debugger;
+        //debugger;
         $scope.toggle = !$scope.toggle;
         //if ($scope.toggle == true) {
         //    $scope.Order = "false";
@@ -339,10 +339,10 @@
         //    $scope.Order = "true"
         //}
         $scope.CustomerReportDetail = [];
-        if ($scope.allcustomerchecked == false) {
+        if ($scope.allcustomerchecked == true) {
             var apirequest = bookingService.GetCustomerReportsBetweenDatesByOrder($routeParams.CompanyId, $scope.CustomerReportIds, $scope.StartDate, $scope.EndDate, $scope.toggle, field);
             apirequest.then(function (response) {
-                debugger;
+                //debugger;
                 if (Object.keys(response.data).length != 0) {
                     $scope.CustomerReportDetail = [];
                     angular.forEach(response.data, function (value, key) {
@@ -357,7 +357,7 @@
         else {
             var apirequest = bookingService.GetCustomerReportsBetweenDatesByOrder($routeParams.CompanyId, $scope.SelectedCustomer, $scope.StartDate, $scope.EndDate, $scope.toggle, field);
             apirequest.then(function (response) {
-                debugger;
+                //debugger;
                 if (Object.keys(response.data).length != 0) {
                     $scope.CustomerReportDetail = [];
                     angular.forEach(response.data, function (value, key) {
@@ -372,7 +372,7 @@
     }
 
     $scope.GetAllCustomerReport = function (item) {
-        debugger;
+        //debugger;
         $scope.CustomerReportDetail = [];
         $scope.CustomerReportsloader = true;
         var ReportCount = false;
@@ -382,7 +382,7 @@
 
                 var customerhttprequest = bookingService.GetAllCustomer($routeParams.CompanyId);
                 customerhttprequest.then(function (response) {
-                    debugger;
+                    //debugger;
                     $scope.CustomerIds = "";
                     if (response.data.length != 0) {
 
@@ -426,14 +426,14 @@
     }
 
     $scope.CustomerChange = function (Id) {
-        debugger;
+        //debugger;
 
         $scope.CustomerReportLoader = true;
         $scope.CustomerReportDetail = [];
         var ReportCount = false;
         var httprequest = bookingService.GetCustomerReportsBetweenDates($routeParams.CompanyId, Id, $scope.StartDate, $scope.EndDate);
         httprequest.then(function (response) {
-            debugger;
+            //debugger;
             angular.forEach(response.data, function (value, key) {
                 ReportCount = true;
                 $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
@@ -450,7 +450,7 @@
 
 
     $scope.SetWorkingHours = function (timedata) {
-        debugger;
+        //debugger;
         var buisnesshour = {
             Id: "",
             CompanyId: $routeParams.CompanyId,
@@ -490,7 +490,7 @@
     { 'day': 'Sunday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 0 },]
 
     $scope.switchOnOff = function (item) {
-        debugger;
+        //debugger;
         for (var i = 0; i < $scope.businessHourInfo.length; i++)
         // if (item.day != "Sunday" && item.day != "Saturday") {
         {
@@ -526,7 +526,7 @@
         }
         var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
         apirequest.then(function (response) {
-            debugger;
+            //debugger;
             if (response.data.Success == true) {
                 $scope.MessageText = "Saving buisness Hours";
                 $scope.IsVisible = true;
