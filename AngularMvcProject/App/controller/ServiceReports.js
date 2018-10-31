@@ -67,7 +67,7 @@
     }
 
     $scope.GetTimeFrame = function (TimeFrame) {
-        debugger;
+        //debugger;
         var ReportCount = false;
         $scope.ServiceReportsloader = true;
         if (TimeFrame == "today") {
@@ -186,7 +186,7 @@
 
     $scope.init = function () {
         //$scope.custom = true;
-        debugger;
+        //debugger;
 
         $(".left_sidebar").removeClass("show-leftbar");
         $scope.hidethisServiceReport = {
@@ -202,7 +202,7 @@
 
         var tttt = angular.element(document.querySelector("#servicereportactive"));
         tttt.addClass('active');
-        debugger;
+        //debugger;
         $scope.ServiceExist = true;
         //$scope.toggle = true;
         var ReportCount = 0;
@@ -217,6 +217,8 @@
         //    }
         //})
         //$scope.ServiceReportsloader = true;
+
+        $scope.allservicechecked = true;
         $scope.ServiceTimeFrame = false;
         $scope.allservicechecked = false;
         $scope.Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -257,10 +259,17 @@
                 angular.forEach(response.data, function (value, key) {
                     $scope.ListofServices.push({ "Id": value.Id, "Service": value.Name });
                 })
+
+                var servicesList = [];
+                angular.forEach($scope.ListofServices, function (value, key) {
+                    servicesList.push(value.Id);
+                })
+                var servicesCommaSeperatedList = servicesList.join(',');
+
                 $scope.SelectedService = response.data[0].Id.toString();
 
                 $scope.ServiceReport = [];
-                var apireportrequest = bookingService.GetServiceReportsBetweenDates($routeParams.CompanyId, $scope.SelectedService, firstDay, lastDay);
+                var apireportrequest = bookingService.GetServiceReportsBetweenDates($routeParams.CompanyId, servicesCommaSeperatedList, firstDay, lastDay);
                 apireportrequest.then(function (response) {
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
@@ -464,7 +473,7 @@
 
 
     $scope.SetWorkingHours = function (timedata) {
-        debugger;
+        //debugger;
         var buisnesshour = {
             Id: "",
             CompanyId: $routeParams.CompanyId,
@@ -504,7 +513,7 @@
     { 'day': 'Sunday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 0 },]
 
     $scope.switchOnOff = function (item) {
-        debugger;
+        //debugger;
         for (var i = 0; i < $scope.businessHourInfo.length; i++)
         // if (item.day != "Sunday" && item.day != "Saturday") {
         {
@@ -540,7 +549,7 @@
         }
         var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
         apirequest.then(function (response) {
-            debugger;
+            //debugger;
             if (response.data.Success == true) {
                 $scope.MessageText = "Saving buisness Hours";
                 $scope.IsVisible = true;
