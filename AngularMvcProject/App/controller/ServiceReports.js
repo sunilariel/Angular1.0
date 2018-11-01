@@ -120,7 +120,7 @@
 
                         angular.forEach(response.data, function (value, key) {
                             ReportCount = true;
-                            $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
+                            $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
                             $scope.ServiceReportsloader = false;
                         })
                         if (ReportCount == false) {
@@ -145,7 +145,7 @@
                 apireportrequest.then(function (response) {
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
+                        $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
                         $scope.ServiceReportsloader = false;
                     })
                     if (ReportCount == false) {
@@ -264,7 +264,7 @@
                 apireportrequest.then(function (response) {
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
+                        $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
                         $scope.ServiceReportsloader = false;
                     })
                     if (ReportCount == false) {
@@ -319,7 +319,7 @@
                 apireportrequest.then(function (response) {
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
+                        $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
                         $scope.ServiceReportsloader = false;
                     })
                     if (ReportCount == false) {
@@ -358,7 +358,7 @@
 
                         angular.forEach(response.data, function (value, key) {
                             ReportCount = true;
-                            $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
+                            $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
                             $scope.ServiceReportsloader = false;
                         })
                         if (ReportCount == false) {
@@ -382,7 +382,7 @@
 
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
+                        $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
                         $scope.ServiceReportsloader = false;
                     })
                     if (ReportCount == false) {
@@ -408,7 +408,7 @@
 
             angular.forEach(response.data, function (value, key) {
                 ReportCount = true;
-                $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
+                $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
                 $scope.ServiceReportsloader = false;
             })
             if (ReportCount == false) {
@@ -434,7 +434,7 @@
                 $scope.ServiceReport = [];
                 angular.forEach(response.data, function (value, key) {
                     ReportCount = true;
-                    $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
+                    $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
                 })
                 if (ReportCount == false) {
                     $scope.ServiceReport.push({ "Service": "", "Category": "", "Booking": "", "Revenue": "No Records to display", "Cancellations": "", "CancellationRate": "" });
@@ -447,7 +447,7 @@
                 $scope.ServiceReport = [];
                 angular.forEach(response.data, function (value, key) {
                     ReportCount = true;
-                    $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
+                    $scope.ServiceReport.push({ "Service": value.ServiceName, "Category": value.CategoryName, "Booking": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%" });
                 })
                 if (ReportCount == false) {
                     $scope.ServiceReport.push({ "Service": "", "Category": "", "Booking": "", "Revenue": "No Records to display", "Cancellations": "", "CancellationRate": "" });

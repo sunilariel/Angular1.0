@@ -157,7 +157,7 @@
                 httprequest.then(function (response) {
                     debugger;
                     angular.forEach(response.data, function (value, key) {
-                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                     })
                     $scope.CustomerReportLoader = false;
                 })
@@ -233,7 +233,7 @@
                     debugger;
                     if (Object.keys(response.data).length != 0) {
                         angular.forEach(response.data, function (value, key) {
-                            $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                            $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                         })
                         $scope.CustomerReportLoader = false;
                     }
@@ -249,7 +249,7 @@
                     debugger;
                     if (Object.keys(response.data).length != 0) {
                         angular.forEach(response.data, function (value, key) {
-                            $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                            $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                         })
                         $scope.CustomerReportLoader = false;
                     }
@@ -285,7 +285,7 @@
                     httprequest.then(function (response) {
                         if (Object.keys(response.data).length != 0) {
                             angular.forEach(response.data, function (value, key) {
-                                $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                                $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                             })
                             $scope.CustomerReportLoader = false;
                         }
@@ -302,7 +302,7 @@
                         debugger;
                         if (Object.keys(response.data).length != 0) {
                             angular.forEach(response.data, function (value, key) {
-                                $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                                $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                             })
                             $scope.CustomerReportLoader = false;
                         }
@@ -346,7 +346,7 @@
                 if (Object.keys(response.data).length != 0) {
                     $scope.CustomerReportDetail = [];
                     angular.forEach(response.data, function (value, key) {
-                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                     })
                 }
                 else {
@@ -361,7 +361,7 @@
                 if (Object.keys(response.data).length != 0) {
                     $scope.CustomerReportDetail = [];
                     angular.forEach(response.data, function (value, key) {
-                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                     })
                 }
                 else {
@@ -398,7 +398,7 @@
                         apirequest.then(function (response) {
                             angular.forEach(response.data, function (value, key) {
                                 ReportCount = true;
-                                $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                                $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                             })
                             if (ReportCount == false) {
                                 $scope.CustomerReportDetail.push({ "Customer": "    ", "Bookings": "No Records to display", "Revenue": "    " });
@@ -414,7 +414,7 @@
                 apirequest.then(function (response) {
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                        $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                     })
                     if (ReportCount == false) {
                         $scope.CustomerReportDetail.push({ "Customer": "    ", "Bookings": "No Records to display", "Revenue": "    " });
@@ -436,7 +436,7 @@
             debugger;
             angular.forEach(response.data, function (value, key) {
                 ReportCount = true;
-                $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "£" + value.TotalConfirmedRevenue });
+                $scope.CustomerReportDetail.push({ "Customer": value.Customer.FirstName, "Bookings": value.TotalBookings, "Revenue": "" + value.TotalConfirmedRevenue });
                 $scope.CustomerReportLoader = false;
             })
             $scope.CustomerReportLoader = false;

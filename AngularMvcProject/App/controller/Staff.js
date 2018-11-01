@@ -801,6 +801,8 @@
 
         $scope.EditStaff = function (item) {
             debugger;
+
+
             angular.element(document.querySelector(".tabs-_section")).addClass('hidden');
             angular.element(document.querySelector("#staff-DetailsTAb")).removeClass('hidden');
             angular.element(document.querySelector("#StaffDetailsLink")).addClass('active');

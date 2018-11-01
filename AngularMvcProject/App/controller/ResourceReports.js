@@ -204,7 +204,7 @@
                     $scope.ResourceReport = [];
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
                     })
                     if (ReportCount == false) {
                         $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })
@@ -282,7 +282,7 @@
                 apirequest.then(function (response) {
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
                     })
                     if (ReportCount == false) {
                         $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })
@@ -300,7 +300,7 @@
                     $scope.ResourceReportData = response.data;
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
                     })
                     if (ReportCount == false) {
                         $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })
@@ -339,7 +339,7 @@
                     apirequest.then(function (response) {
                         angular.forEach(response.data, function (value, key) {
                             ReportCount = true;
-                            $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                            $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
                         })
                         if (ReportCount == false) {
                             $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })
@@ -354,7 +354,7 @@
                 apirequest.then(function (response) {
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
                     })
                     if (ReportCount == false) {
                         $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })
@@ -381,7 +381,7 @@
         apirequest.then(function (response) {
             angular.forEach(response.data, function (value, key) {
                 ReportCount = true;
-                $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
             })
             if (ReportCount == false) {
                 $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })
@@ -418,7 +418,7 @@
                 apirequest.then(function (response) {
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
                     })
                     if (ReportCount == false) {
                         $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })
@@ -432,7 +432,7 @@
                 apirequest.then(function (response) {
                     angular.forEach(response.data, function (value, key) {
                         ReportCount = true;
-                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                        $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
                     })
                     if (ReportCount == false) {
                         $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })
@@ -560,7 +560,7 @@
             apirequest.then(function (response) {
                 angular.forEach(response.data, function (value, key) {
                     ReportCount = true;
-                    $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                    $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
                 })
                 if (ReportCount == false) {
                     $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })
@@ -572,7 +572,7 @@
             apirequest.then(function (response) {
                 angular.forEach(response.data, function (value, key) {
                     ReportCount = true;
-                    $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "£" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
+                    $scope.ResourceReport.push({ "Resource": value.Employee.FirstName, "Bookings": value.TotalBookingsAssigned, "Revenue": "" + value.TotalRevenue, "Duration": value.DurationInHours, "Cancellations": value.TotalCancellations, "CancellationRate": value.PerntageOfTotalCancellations + "%", "Tasks": value.TotalBookingsCompleted })
                 })
                 if (ReportCount == false) {
                     $scope.ResourceReport.push({ "Resource": "", "Bookings": "", "Revenue": "", "Duration": "No Records to display", "Cancellations": "", "CancellationRate": "", "Tasks": "" })

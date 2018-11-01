@@ -481,6 +481,7 @@
                 $scope.regEx = "/[^0-9]/g;"
                 if (form.customerExt.$invalid == true) {
                     if ($scope.regEx = /[^0-9]/g) {
+                        form.customerExt.$untouched = true;
                         form.customerExt.$setTouched();
                         form.customerExt.$touched = true;
                         angular.element(document.querySelector("#customerExt_color")).removeClass("ng-hide")
@@ -513,7 +514,7 @@
             var obj = {
                 Url: '/api/customer/Create',
                 ReqStaffData: {
-                    "Id": 1,
+                    "Id": "",
                     "CompanyId": $scope.CompanyId,
                     "UserName": $scope.customerEmail,
                     "Password": $scope.customerPassword,
@@ -529,61 +530,73 @@
             var createcustomer = bookingService.CreateCustomer(obj);
             createcustomer.then(function (response) {
                 debugger;
-                if (response.data.Success == true) {
-                    $scope.CustomerId = response.data.ReturnObject.CustomerId;
-                    $scope.MessageText = "Saving Data";
-                    $scope.msg = "Create Customer Successfully";
-                    var GetCustomer = bookingService.GetAllCustomer($scope.CompanyId);
-                    GetCustomer.then(function (response) {
-                        $scope.customerArr = [];
-                        $scope.customerArr = response.data;
-                        $scope.showcustomer = false;
-                        $scope.CustomerCount = response.data.length;
-                        if ($scope.CustomerCount != 0) {
-                            $scope.EditCustomer(response.data[0]);
-                        }
-                        //Empty the Customer Fields in Popup
-                        $scope.customerName = null;
-                        $scope.customerEmail = null;
-                        $scope.customerExt = null;
-                        $scope.customerPassword = null;
-                        $scope.customerMobile = null;
-                        form.customerName.$setUntouched();
-                        form.customerName.$untouched = true;
-                        form.customerEmail.$setUntouched();
-                        form.customerEmail.$untouched = true;
-                        form.customerExt.$untouched = true;
-                        form.customerExt.$setUntouched();
-                        form.customerMobile.$untouched = true;
-                        form.customerMobile.$setUntouched();
-                        form.customerPassword.$untouched = true;
-                        form.customerPassword.$setUntouched();
-                        angular.element(document.querySelector("#booking-settingsTabContent")).addClass("hidden");
-                        angular.element(document.querySelector(".tabs-_section")).removeClass("hidden");
-                        //$scope.showcustomer = false;
-                        $route.reload();
-                    });
-
+                if (response.data.ReturnObject.CustomerId == 0) {
+                    debugger;
+                    $scope.MessageText = "Customer Email Already Exits!";
+                    $scope.IsVisible = true;
                     $timeout(function () {
-                        $scope.MessageText = "Data Saved"; $timeout(function () {
-                            $scope.IsVisible = false;
-                        },
-                            1000)
-                    }, 500);
-
-                }
-                else {
-                    if (response.data.Message == "Customer creation failed: Already member") {
-                        alert("dfffff");
-                        $scope.MessageText = "Customer Already Exits";
                         $scope.IsVisible = true;
-
                         $timeout(function () {
                             $scope.IsVisible = false;
                         }, 800)
+                    }, 1000)
+                    
+                    //if (response.data.Message == "Customer creation failed: Already member") {
+                        //alert("dfffff");
+                        //$scope.MessageText = "Customer Already Exits";
+                        //$scope.IsVisible = true;
+
+                        //$timeout(function () {
+                        //    $scope.IsVisible = false;
+                        //}, 800)
+
+                    //}
+                }
+                else {
+                        $scope.CustomerId = response.data.ReturnObject.CustomerId;
+                        $scope.MessageText = "Saving Data";
+                        $scope.msg = "Create Customer Successfully";
+                        var GetCustomer = bookingService.GetAllCustomer($scope.CompanyId);
+                        GetCustomer.then(function (response) {
+                            $scope.customerArr = [];
+                            $scope.customerArr = response.data;
+                            $scope.showcustomer = false;
+                            $scope.CustomerCount = response.data.length;
+                            if ($scope.CustomerCount != 0) {
+                                $scope.EditCustomer(response.data[0]);
+                            }
+                            //Empty the Customer Fields in Popup
+                            $scope.customerName = null;
+                            $scope.customerEmail = null;
+                            $scope.customerExt = null;
+                            $scope.customerPassword = null;
+                            $scope.customerMobile = null;
+                            form.customerName.$setUntouched();
+                            form.customerName.$untouched = true;
+                            form.customerEmail.$setUntouched();
+                            form.customerEmail.$untouched = true;
+                            form.customerExt.$untouched = true;
+                            form.customerExt.$setUntouched();
+                            form.customerMobile.$untouched = true;
+                            form.customerMobile.$setUntouched();
+                            form.customerPassword.$untouched = true;
+                            form.customerPassword.$setUntouched();
+                            angular.element(document.querySelector("#booking-settingsTabContent")).addClass("hidden");
+                            angular.element(document.querySelector(".tabs-_section")).removeClass("hidden");
+                            //$scope.showcustomer = false;
+                            $route.reload();
+                        });
+
+                        $timeout(function () {
+                            $scope.MessageText = "Data Saved"; $timeout(function () {
+                                $scope.IsVisible = false;
+                            },
+                                1000)
+                        }, 500);
 
                     }
-                }
+
+                
 
             }, function () {
                 debugger;
@@ -959,6 +972,9 @@
         $scope.SaveAppointment = function (form) {
             //alert("asasasasasas");
             debugger;
+           
+
+            debugger;
             var selectedvalue = $scope.option;
 
             if (form.$invalid == true) {
@@ -1000,6 +1016,7 @@
 
 
             addappointment.then(function (response) {
+                debugger;
                 if (response.data.Success == false) {
                     if (response.data.Message == "Booking Cannot Be Added , Not Free Slot Available.") {
                         $scope.MessageText = "Not Free Slot Available";
@@ -1113,7 +1130,7 @@
             var appointmenttime = new Date(1997, 4, 5, time[0], time[1], time[2]);
 
             var toption = $filter('date')(appointmenttime, 'h:mm a');
-            alert(toption);
+            //alert(toption);
             $scope.editTimeoption = toption;
             $scope.dt = appointmentdate;
             $scope.ServiceDetail($scope.AppointmentServiceId);

@@ -951,6 +951,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
         //Save Event on Calendar//
         $scope.SaveAppointment = function (form) {
             debugger;
+            $scope.CalendarLoader = true;
             var SelectedDate = $scope.hidden;
             var selectedvalue = $scope.option;
             var date = new Date(SelectedDate);

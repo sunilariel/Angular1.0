@@ -509,18 +509,20 @@
 
             var responsedata = bookingService.AddServices(service);
 
-            responsedata.then(function (response) {
 
-                if (response.data.Success == false) {
-                    if (response.data.Message.includes("Already Exists")) {
+
+            responsedata.then(function (response) {
+                debugger;
+                if (response.data.ReturnObject.ServiceId == 0) {
+                    //if (response.data.Message.includes("Already Exists")) {
                         $scope.MessageText = "Service Already Exists";
                         $scope.IsVisible = true;
                         $timeout(function () {
                             $scope.IsVisible = false;
                         }, 1000)
-                    }
+                    //}
                 }
-                if (response.data.Success == true) {
+                else {
                     $scope.ServiceId = response.data.ReturnObject.ServiceId;
 
                     //Assign Staff to Service
@@ -564,12 +566,14 @@
                                         $scope.ServiceTime = "";
                                         $scope.ServiceCost = "";
                                         $scope.BufferTime = "";
+                                        angular.element(document.querySelector("#nameRequired")).addClass('ng-hide');
                                         $scope.ServiceDescription = "";
                                     }
                                 })
 
                             }
                         }
+
                     });
                     $scope.showcategoryList = {
                         show: true,
@@ -577,6 +581,80 @@
                     };
                     $scope.init();
                 }
+
+
+
+
+                //if (response.data.Success == false) {
+                //    debugger;
+                //    if (response.data.Message.includes("Already Exists")) {
+                //        $scope.MessageText = "Service Already Exists";
+                //        $scope.IsVisible = true;
+                //        $timeout(function () {
+                //            $scope.IsVisible = false;
+                //        }, 1000)
+                //    }
+                //}
+                //if (response.data.Success == true) {
+                //    debugger;
+
+                //    $scope.ServiceId = response.data.ReturnObject.ServiceId;
+
+                //    //Assign Staff to Service
+                //    angular.forEach($scope.staffList, function (value, key) {
+
+                //        if (value.staffName != "All Staff" && value.confirmed == true) {
+                //            var CurrentDate = new Date();
+                //            var requestdata = {
+                //                "Id": "",
+                //                "CompanyId": $routeParams.CompanyId,
+                //                "EmployeeId": value.Id,
+                //                "ServiceId": $scope.ServiceId,
+                //                "CreationDate": CurrentDate
+                //            }
+                //            var responseresult = bookingService.AssignStafftoService(requestdata);
+                //            responseresult.then(function (response) {
+
+                //            })
+                //        }
+                //    });
+
+
+                //    //Assign Category to Service
+                //    angular.forEach($scope.Categories, function (value, key) {
+                //        if (value.hasOwnProperty("Confirmed") == true) {
+                //            if (value.Confirmed == true) {
+                //                //var responsedata = bookingService.AssignCategoryToService($scope.ServiceId, value.Id);\                                                            
+                //                //var responsedata = bookingService.UpdateService(updatedservice);
+                //                var responsedata = bookingService.AssignCategorytoService($routeParams.CompanyId, $scope.ServiceId, value.Id);
+                //                responsedata.then(function (response) {
+                //                    if (response.data.Success == true) {
+                //                        $scope.MessageText = "Service Saved";
+                //                        $scope.IsVisible = true;
+                //                        $timeout(function () {
+
+                //                            $scope.IsVisible = false;
+                //                        }, 1000);
+
+                //                        //Empty the value in element//
+                //                        $scope.ServiceName = "";
+                //                        $scope.ServiceTime = "";
+                //                        $scope.ServiceCost = "";
+                //                        $scope.BufferTime = "";
+                //                        $scope.ServiceDescription = "";
+                //                    }
+                //                })
+
+                //            }
+                //        }
+
+                //    });
+                //    $scope.showcategoryList = {
+                //        show: true,
+                //        hide: true
+                //    };
+                //    $scope.init();
+                //}
             })
 
             angular.element(document.querySelector(".row_section")).addClass('hidden');

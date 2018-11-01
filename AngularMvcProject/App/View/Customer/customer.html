@@ -138,7 +138,7 @@
                 </div><!-- /.container-fluid -->
             </nav>
             <div class="clearfix"> </div>
-            <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px; padding-left: 250px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+            <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px; right:0;left:0;bottom:0;margin:0 auto;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
         </header>
         <div class="left_sidebar sidebtipt show-leftbar">
             <ul class="nav">
@@ -178,7 +178,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Booking Page</h4>
                     </div>
-                    <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:15px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+                    <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:15px;right:0;left:0;bottom:0;margin:0 auto;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff;  border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
                     <div class="modal-body">
                         <div class="side_left sidebrpadding">
                             <ul class="list-unstyled">
@@ -360,7 +360,7 @@
 
                                             <div class="row button_row">
                                                 <div class="col-md-6 col-xs-6 text-right">
-                                                    <button id="addnewCustomer" style="max-width: 105px;" type="submit" class="btn  add_category_btn addCustomerbtn" ng-disabled="createCustomerform.$invalid">Add Customer</button>
+                                                    <button id="addnewCustomer" style="max-width: 105px;" type="submit" class="btn  add_category_btn addCustomerbtn">Add Customer</button>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6">
                                                     <button id="cancelCustomer" style="max-width: 105px;" class="btn btn-default cateCancelbtn Cancel" type="button" ng-click="CustomerCancel(createCustomerform)" ng-hide="CustomerCount==0">Cancel</button>

@@ -22,7 +22,7 @@
 <div ng-app="bookingApp" ng-init="init()">
 
 
-    <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+    <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px;right:0;left:0;bottom:0;margin:0 auto;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
 
     <header class="top">
         <nav class="navbar navbar-default">
@@ -144,7 +144,7 @@
             </div><!-- /.container-fluid -->
         </nav>
         <div class="clearfix"> </div>
-        <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da;color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+        <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px;right:0;left:0;bottom:0;margin:0 auto;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da;color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
 
     </header>
 
@@ -249,7 +249,7 @@
                         <div class="gre_bg buttons_sec text-left margin_top20">
                             <div class="row" ng-show="CustomTimeFrame">
                                 <div class="col-md-6">
-                                    <div class="betweenDateDiv">
+                                    <div class="">
                                         <label class="beetweenlabel">Between:</label>
                                         <div class="dateBtnDiv">
                                             <select class="form-control dateselect" ng-model="SelectedStartDate" ng-change="GetTimeFrameReports()">
@@ -269,7 +269,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="betweenDateDiv">
+                                    <div class="">
                                         <label class="beetweenlabel">and</label>
                                         <div class="dateBtnDiv">
                                             <select class="form-control dateselect" ng-model="SelectedEndDate" ng-change="GetTimeFrameReports()">
