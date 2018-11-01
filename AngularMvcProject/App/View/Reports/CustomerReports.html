@@ -331,7 +331,7 @@
                                 <div class="col-sm-9 text-right resources_div">
                                     <label class="all resources" for="timeframe_today">
                                         All Customer
-                                        <input type="checkbox" name="timeframe" value="AllCustomer" id="" ng-model="checked" ng-click="GetAllCustomerReport(checked)">
+                                        <input type="checkbox" name="timeframe" value="AllCustomer" id="" ng-checked="true" ng-model="checked" ng-click="GetAllCustomerReport(checked)">
                                     </label>
                                     <select ng-disabled="allcustomerchecked" ng-model="SelectedCustomer" ng-change="CustomerChange(SelectedCustomer)">
                                         <option ng-repeat="item in ListofCustomers" value="{{item.Id}}">{{item.FirstName}}</option>

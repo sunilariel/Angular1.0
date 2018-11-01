@@ -70,7 +70,7 @@
     //    $location.path("/ResourceReports/" + $routeParams.CompanyId);
     //}
     $scope.leftSideClick = function () {
-        debugger;
+        //debugger;
         //angular.element(document.querySelector(".left_sidebar")).addClass('hidden');
         //$scope.custom = $scope.custom === false ? true : false;
 
@@ -93,7 +93,7 @@
 
     }
     $scope.init = function () {
-        debugger;
+        //debugger;
         //$scope.custom = true;
 
         $(".left_sidebar").removeClass("show-leftbar");
@@ -108,6 +108,8 @@
         angular.element(document.querySelector("#active-resource")).addClass('active');
         angular.element(document.querySelector("#active-service")).removeClass('active');
         angular.element(document.querySelector("#bookinhMgt-paymentMainTab")).removeClass('active');
+
+        $scope.allresourcechecked == true
 
         var tttt = angular.element(document.querySelector("#resourcereportactive"));
         tttt.addClass('active');
@@ -199,7 +201,15 @@
                     $scope.Resources.push({ 'Id': response.data[i].Id, 'CompanyId': response.data[i].CompanyId, 'UserName': response.data[i].UserName, 'staffName': response.data[i].FirstName, 'staffEmail': response.data[i].Email });
                 }
                 $scope.SelectedResource = (response.data[0].Id).toString();
-                var apirequest = bookingService.GetResourceReportsBetweenDates($routeParams.CompanyId, $scope.Resources[0].Id, $scope.StartDate, $scope.EndDate);
+
+                var resourceIdList = [];
+                angular.forEach($scope.Resources, function (value, Key) {
+                    resourceIdList.push(value.Id);
+                })
+                
+                var allResources = resourceIdList.join(',');
+               
+                var apirequest = bookingService.GetResourceReportsBetweenDates($routeParams.CompanyId, allResources, $scope.StartDate, $scope.EndDate);
                 apirequest.then(function (response) {
                     $scope.ResourceReport = [];
                     angular.forEach(response.data, function (value, key) {
@@ -452,7 +462,7 @@
 
 
     $scope.SetWorkingHours = function (timedata) {
-        debugger;
+        //debugger;
         var buisnesshour = {
             Id: "",
             CompanyId: $routeParams.CompanyId,
@@ -492,7 +502,7 @@
     { 'day': 'Sunday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 0 },]
 
     $scope.switchOnOff = function (item) {
-        debugger;
+        //debugger;
         for (var i = 0; i < $scope.businessHourInfo.length; i++)
         // if (item.day != "Sunday" && item.day != "Saturday") {
         {
@@ -528,7 +538,7 @@
         }
         var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
         apirequest.then(function (response) {
-            debugger;
+            //debugger;
             if (response.data.Success == true) {
                 $scope.MessageText = "Saving buisness Hours";
                 $scope.IsVisible = true;
@@ -545,7 +555,7 @@
 
 
     $scope.GetReportbyOrder = function (field) {
-        debugger;
+        //debugger;
         $scope.toggle = !$scope.toggle;
         var ReportCount = false;
         //if ($scope.toggle == true) {

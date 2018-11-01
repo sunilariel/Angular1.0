@@ -282,7 +282,7 @@
                                 <div class="col-sm-9 text-right resources_div">
                                     <label class="all resources" for="timeframe_today">
                                         All Services
-                                        <input type="checkbox" name="timeframe" value="AllService" id="" ng-model="checked" ng-click="GetAllServicesReport(checked)">
+                                        <input type="checkbox" name="timeframe" value="AllService" id="" ng-model="checked" ng-checked="true" ng-click="GetAllServicesReport(checked)">
                                     </label>
                                     <select ng-disabled="allservicechecked" ng-model="SelectedService" ng-change="ServiceChange(SelectedService)">
                                         <option ng-repeat="item in ListofServices" value="{{item.Id}}">{{item.Service}}</option>
