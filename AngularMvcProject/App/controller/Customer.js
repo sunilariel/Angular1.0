@@ -524,7 +524,7 @@
                     "PostCode": $scope.Zip,
                     "Email": $scope.customerEmail,
                     "TelephoneNo": $scope.MobileNo,
-                    "CreationDate": "2017-06-06T08:23:47.5497158+00:00"
+                    "CreationDate": new Date()
                 }
             }
             var createcustomer = bookingService.CreateCustomer(obj);
@@ -701,33 +701,33 @@
                 }, 1000);
                 return false;
             }
-            if (isNaN($scope.Zip)) {
-                $scope.MessageText = "Zip should be numeric";
-                $scope.IsVisible = true;
-                $timeout(function () {
-                    $scope.Zip = "";
-                    $scope.IsVisible = false;
-                }, 1000);
-                return false;
-            }
-            if (isNaN($scope.CustomerCity)) {
-                $scope.MessageText = "Only alphabets are allowed";
-                $scope.IsVisible = true;
-                $timeout(function () {
-                    $scope.CustomerCity = "";
-                    $scope.IsVisible = false;
-                }, 1000);
-                return false;
-            }
-            if (isNaN($scope.CustomerState)) {
-                $scope.MessageText = "Only alphabets are allowed";
-                $scope.IsVisible = true;
-                $timeout(function () {
-                    $scope.CustomerState = "";
-                    $scope.IsVisible = false;
-                }, 1000);
-                return false;
-            }
+            //if (isNaN($scope.Zip)) {
+            //    $scope.MessageText = "Zip should be numeric";
+            //    $scope.IsVisible = true;
+            //    $timeout(function () {
+            //        $scope.Zip = "";
+            //        $scope.IsVisible = false;
+            //    }, 1000);
+            //    return false;
+            //}
+            //if (isNaN($scope.CustomerCity)) {
+            //    $scope.MessageText = "Only alphabets are allowed";
+            //    $scope.IsVisible = true;
+            //    $timeout(function () {
+            //        $scope.CustomerCity = "";
+            //        $scope.IsVisible = false;
+            //    }, 1000);
+            //    return false;
+            //}
+            //if (isNaN($scope.CustomerState)) {
+            //    $scope.MessageText = "Only alphabets are allowed";
+            //    $scope.IsVisible = true;
+            //    $timeout(function () {
+            //        $scope.CustomerState = "";
+            //        $scope.IsVisible = false;
+            //    }, 1000);
+            //    return false;
+            //}
 
             var MobileNumber = $scope.updatedPreCustomerMobileNo + $scope.updatedMobileNo;
             var updateddate = new Date();
@@ -744,7 +744,10 @@
                     "PostCode": $scope.Zip,
                     "Email": $scope.updatedCustomerEmail,
                     "TelephoneNo": MobileNumber,
-                    "CreationDate": updateddate
+                    "CreationDate": updateddate,
+                    "HomePhone": $scope.HomePhone,
+                    "City": $scope.CustomerCity,
+                    "State": $scope.CustomerState
                 }
             }
 

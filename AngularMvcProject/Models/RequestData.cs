@@ -47,6 +47,14 @@ namespace AngularMvcProject.Models
 
         public string TelephoneNo { get; set; }
 
+        public string HomePhone { get; set; }
+
+        public string City { get; set; }
+
+        public string State { get; set; }
+
+        public string PostCode { get; set; }
+
         public string CreationDate { get; set; }
     }
 
