@@ -460,7 +460,7 @@
                                                         <div class="form-group">
                                                             <label class="control-label">Home</label>
                                                             <div class="">
-                                                                <input type="text" class="form-control" id="text" placeholder="Phone" name="text" ng-model="HomePhone">
+                                                                <input type="text" class="form-control" id="text" placeholder="Phone" name="text" ng-model="HomePhone" ng-blur="updateCustomer()">
                                                             </div>
                                                         </div>
                                                     </form>
@@ -492,13 +492,13 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class="control-label">City</label>
-                                                        <input type="text" class="form-control" id="text" placeholder="City" name="text" ng-model="CustomerCity">
+                                                        <input type="text" class="form-control" id="text" placeholder="City" name="text" ng-model="CustomerCity"  ng-blur="updateCustomer()">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="textNumberDiv form-group">
                                                         <label class="control-label">State</label>
-                                                        <input type="text" class="form-control" id="text" placeholder="State" name="text" ng-model="CustomerState">
+                                                        <input type="text" class="form-control" id="text" placeholder="State" name="text" ng-model="CustomerState"  ng-blur="updateCustomer()">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">

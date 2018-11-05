@@ -271,7 +271,8 @@
                 "Address": "",
                 "Email": $scope.StaffEmail,
                 "TelephoneNo": $scope.staffMobileNo,
-                "CreationDate": CurrentDate
+                "CreationDate": CurrentDate,
+                "Description": $scope.Description
             }
 
             var result = bookingService.AddStaff(requestedstaff);
@@ -970,7 +971,8 @@
                         "Address": "",
                         "Email": $scope.staffEmail,
                         "TelephoneNo": $scope.staffMobileNo,
-                        "CreationDate": CurrentDate
+                        "CreationDate": CurrentDate,
+                        "Description": $scope.Description
                     }
                 var responseresult = bookingService.UpdateStaff(requestedStaff);
                 responseresult.then(function (response) {
