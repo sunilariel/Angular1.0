@@ -1,7 +1,7 @@
 ﻿app.controller('customerController', ['$scope', '$location', '$filter', '$window', '$routeParams', '$q', '$http', '$timeout', 'bookingService', '$rootScope', '$route',
     function ($scope, $location, $filter, $window, $routeParams, $q, $http, $timeout, bookingService, $rootScope, $route) {
         //This will hide the DIV by default.
-        // debugger;
+        // //debugger;
         $scope.procedures = [
             {
                 definition: 'Monday',
@@ -197,7 +197,7 @@
 
 
         $scope.rederectCustAppointment = function () {
-            // debugger;
+            // //debugger;
             $scope.hidecustdetailLink = {
                 show: true,
                 hide: true
@@ -358,7 +358,7 @@
 
         //This function will run first on page load.
         $scope.init = function () {
-            debugger;
+            //debugger;
             $(".left_sidebar").removeClass("show-leftbar");
             //$scope.custom = true;
             angular.element(document.querySelector("#customer-app")).removeClass("active");
@@ -375,7 +375,7 @@
             //    show: true,
             //    hide: true
             //};  
-            //  debugger;
+            //  //debugger;
             var count = 0;
             // $scope.LineChartDataSource();      
             //  $scope.PieChartDataSource();
@@ -413,7 +413,7 @@
             //On init Getting List of Customers.
             var GetCustomer = bookingService.GetAllCustomer($scope.CompanyId);
             GetCustomer.then(function (response) {
-                debugger;
+                //debugger;
                 $scope.CustomerCount = response.data.length;
                 if ($scope.CustomerCount == 0) {
                     
@@ -438,7 +438,7 @@
             //Getting all employees(provider) for appointment dropdown(Add Appointment)
             var GetStaffProvider = bookingService.GetStaffData($scope.CompanyId);
             GetStaffProvider.then(function (response) {
-                //  debugger;
+                //  //debugger;
                 $scope.Provider = [];
                 for (var i = 0; i < response.data.length; i++) {
                     $scope.Provider.push({ 'Id': response.data[i].Id, 'CompanyId': response.data[i].CompanyId, 'UserName': response.data[i].UserName, 'staffName': response.data[i].FirstName, 'staffEmail': response.data[i].Email });
@@ -451,7 +451,7 @@
 
 
         $scope.CreateCustomer = function (form) {
-            debugger;
+            //debugger;
             if (form.$invalid == true) {
                 if (form.customerName.$invalid == true) {
                     form.customerName.$setTouched();
@@ -534,9 +534,9 @@
             }
             var createcustomer = bookingService.CreateCustomer(obj);
             createcustomer.then(function (response) {
-                debugger;
+                //debugger;
                 if (response.data.ReturnObject.CustomerId == 0) {
-                    debugger;
+                    //debugger;
                     $scope.MessageText = "Customer Email Already Exits!";
                     $scope.IsVisible = true;
                     $timeout(function () {
@@ -604,7 +604,7 @@
                 
 
             }, function () {
-                debugger;
+                //debugger;
                 $scope.showcustomer = false;
                 alert('Error in updating record');
             });
@@ -614,7 +614,7 @@
 
         //On Cancel btn click hide the popup and clear the form elements values//
         $scope.CustomerCancel = function (form) {
-            debugger;
+            //debugger;
 
             //angular.element(document.querySelector("#customerName_color")).addClass("ng-hide");
             //angular.element(document.querySelector("#customerEmail_color")).addClass("ng-hide");
@@ -639,7 +639,7 @@
 
         //Edit Customer getting details  
         $scope.EditCustomer = function (item) {
-            debugger;
+            //debugger;
 
             angular.element(document.querySelector("#customer_details")).addClass("active");
             angular.element(document.querySelector("#customer-app")).removeClass("active");
@@ -687,7 +687,7 @@
 
         //Updating Customer on blur event of element
         $scope.updateCustomer = function () {
-            debugger;
+            //debugger;
             if (isNaN($scope.updatedMobileNo)) {
                 $scope.MessageText = "Only Numbers is allowed";
                 $scope.IsVisible = true;
@@ -793,7 +793,7 @@
 
         //Delete Customer//
         $scope.DeleteCustomerData = function (CustomerId) {
-            debugger;
+            //debugger;
             var deletecustomer = bookingService.DeleteCustomer($scope.CompanyId, CustomerId);
             deletecustomer.then(function (response) {
                 $scope.MessageText = "Deleting Data"
@@ -806,7 +806,7 @@
 
                 var GetCustomer = bookingService.GetAllCustomer($scope.CompanyId);
                 GetCustomer.then(function (response) {
-                    debugger;
+                    //debugger;
                     $scope.customerArr = [];
                     $scope.customerArr = response.data;
                     $scope.CustomerCount = response.data.length
@@ -896,7 +896,7 @@
 
         //Get Service allocated to employee
         $scope.GetAllocateServiceToEmployee = function (EmployeeId) {
-            debugger;
+            //debugger;
             $scope.EmployeeId = EmployeeId;
             $scope.EmployeeServices = [];
             $scope.showServiceLoader = true;
@@ -923,7 +923,7 @@
         }
 
         $scope.ServiceDetail = function (SelectedServiceId) {
-            debugger;
+            //debugger;
             $scope.ServiceId = SelectedServiceId;
             var SelectedService = bookingService.GetSelectedService(SelectedServiceId);
             SelectedService.then(function (response) {
@@ -945,11 +945,11 @@
                 $scope.timeslotsloading = true;
                 var result = bookingService.GetFreeBookingSlotsForEmployee(RequestValues);
                 result.then(function (response) {
-                    debugger;
+                    //debugger;
                     if (response.data.Value != null) {
                         for (var i = 0; i < response.data.Value.length; i++) {
                             if (i == 0) {
-                                debugger;
+                                //debugger;
                                 var startdate = response.data.Value[i].Start.split(":");
                                 var startdatetime = new Date(1970, 0, 1, startdate[0], startdate[1], startdate[2]);
                                 var starttime = $filter('date')(startdatetime, 'h:mm a');
@@ -960,14 +960,14 @@
                                 $scope.timeInfoFrom.push(endtime);
                             }
                             else {
-                                debugger;
+                                //debugger;
                                 var date = response.data.Value[i].End.split(":");
                                 var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
                                 var time = $filter('date')(datetime, 'h:mm a');
                                 $scope.timeInfoFrom.push(time);
                             }
                         }
-                        debugger;
+                        //debugger;
                         $scope.timeoption = $scope.timeInfoFrom[0];
                         var t = $scope.timeoption;                        
                     }
@@ -979,10 +979,10 @@
 
         $scope.SaveAppointment = function (form) {
             //alert("asasasasasas");
-            debugger;
+            //debugger;
            
 
-            debugger;
+            //debugger;
             var selectedvalue = $scope.option;
 
             if (form.$invalid == true) {
@@ -1024,7 +1024,7 @@
 
 
             addappointment.then(function (response) {
-                debugger;
+                //debugger;
                 if (response.data.Success == false) {
                     if (response.data.Message == "Booking Cannot Be Added , Not Free Slot Available.") {
                         $scope.MessageText = "Not Free Slot Available";
@@ -1060,7 +1060,7 @@
         }
 
         $scope.ShowAppointmentDetail = function (item) {
-            debugger;
+            //debugger;
             $scope.AppointmentStartDate = item.StartTime;
             $scope.AppointmentEndDate = item.EndTime;
             $scope.AppointmentProvider = item.EmployeeName;
@@ -1097,7 +1097,7 @@
 
         $scope.UpdateStatus = function (item) {
 
-            debugger;
+            //debugger;
             $scope.UpdatedStatus = item.Status;
             var SetStatus = bookingService.SetStatusofAppointment(item.Status, $scope.AppointmentBookingId);
             SetStatus.then(function (response) {
@@ -1124,7 +1124,7 @@
             angular.element(document.querySelector("#UpdateAppointmentHideShow")).removeClass("hidden");
 
 
-            debugger;
+            //debugger;
             $scope.ShowAppointmentDetail(item);
             $scope.appointmentDetailisVisible = false;
             $scope.Status = $scope.UpdatedStatus;
@@ -1225,7 +1225,7 @@
         }
 
         $scope.trixBlur = function (e, editor) {
-            debugger;
+            //debugger;
             if ($scope.trix != undefined && $scope.trix != "") {
                 var CustomerNoteDetail = {
                     "CustomerId": $scope.CustomerId,
@@ -1293,7 +1293,7 @@
                 $scope.AppointmentsLoader = false;
                 // $scope.AllAppointmentYears = [];
                 // $scope.AllAppointmentMonths = [];
-                $scope.TotalCost = 0;
+                $scope.TotalCost = 0.0;
                 angular.forEach($scope.ListofAppointments, function (value, key) {
                     $scope.TotalCost = $scope.TotalCost + value.Cost;
                 })
@@ -1722,7 +1722,7 @@
 
 
         $scope.SetWorkingHours = function (timedata) {
-            debugger;
+            //debugger;
             var buisnesshour = {
                 Id: "",
                 CompanyId: $routeParams.CompanyId,
@@ -1752,7 +1752,7 @@
         $scope.timeInfoTo = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
 
         $scope.switchOnOff = function (item) {
-            debugger;
+            //debugger;
             for (var i = 0; i < $scope.businessHourInfo.length; i++)
             {
                 if (item.NameOfDay == $scope.businessHourInfo[i].NameOfDay) {
@@ -1789,7 +1789,7 @@
             }
             var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
             apirequest.then(function (response) {
-                debugger;
+                //debugger;
                 if (response.data.Success == true) {
                     $scope.MessageText = "Saving buisness Hours";
                     $scope.IsVisible = true;

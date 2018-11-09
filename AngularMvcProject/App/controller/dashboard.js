@@ -133,7 +133,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
 
         $scope.addNewChoice = function (procedure) {
-            //debugger;
+            ////debugger;
             $scope.IsVisible = true;
             $scope.MessageText = "Saving Staff breaks..";
             var newItemNo = procedure.choice.length + 1;
@@ -145,11 +145,11 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             procedure.show = true;
         };
         $scope.hidePopup = function (procedure) {
-            //debugger;
+            ////debugger;
             procedure.show = false;
         };
         $scope.removeChoice = function (procedure) {
-            //debugger;
+            ////debugger;
             $scope.IsVisible = true;
             var lastItem = procedure.choice.length - 1;
             procedure.choice.splice(lastItem);
@@ -160,12 +160,12 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         };
 
         $scope.showCustomerpopup = function () {
-            //debugger;
+            ////debugger;
             $scope.showcustomer != $scope.showcustomer;
         };
 
         $scope.init = function () {
-            //debugger;
+            ////debugger;
             $(".left_sidebar").removeClass("show-leftbar");
             //$scope.custom = true;
             $scope.showdashboardloader = true;
@@ -181,7 +181,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
             var apirequestWeeksRevenue = bookingService.GetCurrentWeeksRevenueSummary($routeParams.CompanyId);
             apirequestWeeksRevenue.then(function (response) {
-                //debugger;
+                ////debugger;
                 var CurrentDate = new Date();
                 var first = (CurrentDate.getDate() + 1) - CurrentDate.getDay();
                 var last = first + 6;
@@ -210,7 +210,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             })
             var GetStaffProvider = bookingService.GetStaffData($routeParams.CompanyId);
             GetStaffProvider.then(function (response) {
-                //debugger;
+                ////debugger;
                 $scope.Provider = [];
                 for (var i = 0; i < response.data.length; i++) {
                     $scope.Provider.push({ 'Id': response.data[i].Id, 'CompanyId': response.data[i].CompanyId, 'UserName': response.data[i].UserName, 'staffName': response.data[i].FirstName, 'staffEmail': response.data[i].Email });
@@ -242,7 +242,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         }
 
         $scope.DashboardAppointmentDetail = function (item) {
-            //debugger;  //1111
+            ////debugger;  //1111
             $scope.AppointmentStartDate = item.BookingStartDate;
             $scope.AppointmentEndDate = new Date(item.BookingStartDate).setMinutes(item.BookingDuration, 0, 0);
             $scope.AppointmentProvider = item.EmployeeName;
@@ -258,7 +258,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             $scope.CustomerId = item.CustomerIds[0];
             var apirequest = bookingService.GetCustomerById($scope.CustomerId);
             apirequest.then(function (response) {
-                //debugger;
+                ////debugger;
                 $scope.CustomerName = response.data.FirstName;
                 $scope.CustomerEmail = response.data.Email;
                 $scope.CustomerTelephone = response.data.TelephoneNo.substring(2, response.data.TelephoneNo.length);
@@ -277,7 +277,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         }
 
         $scope.UpdateStatus = function (item) {
-            //debugger;
+            ////debugger;
             var status = $scope.StatusValue;
             $scope.UpdatedStatus = item.Status;
             var SetStatus = bookingService.SetStatusofAppointment(item.Status, $scope.AppointmentBookingId);
@@ -343,7 +343,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
 
         $scope.EditAppointment = function (item) {
-            //debugger;
+            ////debugger;
 
 
 
@@ -376,14 +376,14 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
 
         $scope.GetAllocateServiceToEmployee = function (EmployeeId) {
-            //debugger;
+            ////debugger;
 
             $scope.EmployeeId = EmployeeId;
             $scope.EmployeeServices = [];
             var EmployeeServices = bookingService.GetAllocatedServicetoEmployee($routeParams.CompanyId, EmployeeId);
 
             EmployeeServices.then(function (result) {
-                //debugger;
+                ////debugger;
 
                 $scope.EmployeeServices = result.data;
 
@@ -406,11 +406,11 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         }
 
         $scope.ServiceDetail = function (SelectedServiceId) {
-            //debugger;
+            ////debugger;
             $scope.ServiceId = SelectedServiceId;
             var SelectedService = bookingService.GetSelectedService(SelectedServiceId);
             SelectedService.then(function (response) {
-                //debugger;
+                ////debugger;
                 $scope.price = response.data.Cost;
                 $scope.time = response.data.DurationInMinutes;
                 $scope.ServicePriceTimeDetailIsVisible = true;
@@ -457,7 +457,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         }
 
         $scope.UpdateAppointment = function () {
-            //debugger;
+            ////debugger;
             var appointment =
                 {
                     "Id": $scope.UpdateAppointmentId,
@@ -536,7 +536,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         //bookingMgt-settings_new
 
         $scope.EditDatePicker = function () {
-            //debugger;
+            ////debugger;
             if ($scope.count == 0) {
                 $scope.count = $scope.count + 1;
                 $scope.today();
@@ -561,7 +561,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
 
         $scope.$watch("dt", function (newValue, oldValue) {
-            //debugger;
+            ////debugger;
             $scope.timeInfoFrom = [];
             if (newValue != null && oldValue != null) {
                 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -603,7 +603,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         });
 
         $scope.Logout = function () {
-            ////debugger;
+            //////debugger;
             $rootScope.IsLoggedInUser = false;
             var apirequest = bookingService.SignOut();
             sessionStorage.removeItem('userInfo-token');
@@ -612,7 +612,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
 
         $scope.SetWorkingHours = function (timedata) {
-            //debugger;
+            ////debugger;
             var buisnesshour = {
                 Id: "",
                 CompanyId: $routeParams.CompanyId,
@@ -644,7 +644,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         $scope.timeInfoTo = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
 
         $scope.switchOnOff = function (item) {
-            debugger;
+            //debugger;
             for (var i = 0; i < $scope.businessHourInfo.length; i++) {
                 if (item.NameOfDay == $scope.businessHourInfo[i].NameOfDay) {
                     if (item['IsOpen'] == true) {
@@ -680,7 +680,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             }
             var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
             apirequest.then(function (response) {
-                debugger;
+                //debugger;
                 if (response.data.Success == true) {
                     $scope.MessageText = "Saving buisness Hours";
                     $scope.IsVisible = true;
