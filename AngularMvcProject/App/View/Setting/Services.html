@@ -191,12 +191,12 @@
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3 col-xs-3 StaffColumnDiv ">
                                         <div class="week_div">
-                                            <p>{{timedata.day}}</p>
+                                            <p>{{timedata.NameOfDay}}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-3">
                                         <div class="onoffswitch">
-                                            <input type="checkbox" name="onoffswitch" ng-model="timedata.available" class="onoffswitch-checkbox" checked>
+                                            <input type="checkbox" name="onoffswitch" ng-model="timedata.IsOpen" class="onoffswitch-checkbox" checked>
                                             <label class="onoffswitch-label" ng-click="switchOnOff(timedata)" for="myonoffswitch">
                                                 <span class="onoffswitch-inner"></span>
                                                 <span class="onoffswitch-switch"></span>
@@ -205,11 +205,11 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6 StaffColumnDiv">
                                         <div class="week_div businessHourSelect businesshourDiv">
-                                            <select class="select_btn" ng-required="true" ng-model="timedata.timeFrom" ng-disabled="!timedata.available" ng-change="SetWorkingHours(timedata)">
+                                            <select class="select_btn" ng-required="true" ng-model="timedata.Start" ng-disabled="!timedata.IsOpen" ng-change="SetWorkingHours(timedata)">
                                                 <option ng-repeat="option in timeInfFrom" value="{{option}}">{{option}}</option>
                                             </select>
                                             <span>to</span>
-                                            <select class="select_btn" ng-required="true" ng-model="timedata.timeTo" ng-disabled="!timedata.available" ng-change="SetWorkingHours(timedata)">
+                                            <select class="select_btn" ng-required="true" ng-model="timedata.End" ng-disabled="!timedata.IsOpen" ng-change="SetWorkingHours(timedata)">
                                                 <option ng-repeat="option in timeInfoTo" value="{{option}}">{{option}}</option>
                                             </select>
                                         </div>

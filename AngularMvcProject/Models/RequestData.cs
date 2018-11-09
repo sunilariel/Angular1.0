@@ -55,6 +55,8 @@ namespace AngularMvcProject.Models
 
         public string PostCode { get; set; }
 
+        public string Description { get; set; }
+
         public string CreationDate { get; set; }
     }
 
@@ -348,6 +350,19 @@ namespace AngularMvcProject.Models
         public int NameOfDay { get; set; }
         public string NameOfDayAsString { get; set; }
         public bool IsOffAllDay { get; set; }
+        public string CreationDate { get; set; }
+    }
+
+    public class BusinessHourInfo
+    {
+        public int Id { get; set; }
+        public int CompanyId { get; set; }
+        public string Start { get; set; }
+        public string End { get; set; }
+        public string NameOfDay { get; set; }
+        public int NameOfDayAsNumber { get; set; }
+        public bool IsOffAllDay { get; set; }
+        public bool IsOpen { get; set; }
         public string CreationDate { get; set; }
     }
 

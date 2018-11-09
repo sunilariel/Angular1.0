@@ -11,6 +11,7 @@ using System.Web.Script.Serialization;
 using System.Configuration;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using AngularMvcProject.Extensions;
 
 namespace AngularMvcProject.Controllers
 {
@@ -282,6 +283,47 @@ namespace AngularMvcProject.Controllers
             return result;
         }
 
+        [HttpPost]
+        public string GetOpeningHours(string companyId)
+        {
+
+            // int Id = Convert.ToInt32(CompanyId);
+            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/company/GetOpeningHours?companyId=" + companyId;
+            string result = "";
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "GET";
+            httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+
+            var data = JsonConvert.DeserializeObject<List<BusinessHourInfo>>(result);
+            List<BusinessHourInfo> businessHourInfo = new List<BusinessHourInfo>();
+
+            foreach (var item in data)
+            {
+                BusinessHourInfo obj = new BusinessHourInfo();
+                obj.Id = item.Id;
+                obj.IsOpen = !item.IsOffAllDay;
+                obj.NameOfDay = item.NameOfDay;
+                DateTime startdate = DateTime.Parse(item.Start, CultureInfo.CurrentCulture);
+                obj.Start = startdate.ToString("hh:mm tt");
+                DateTime enddatedate = DateTime.Parse(item.End, CultureInfo.CurrentCulture);
+                obj.End = enddatedate.ToString("hh:mm tt");
+
+                obj.CompanyId = item.CompanyId;
+                obj.CreationDate = item.CreationDate;
+                businessHourInfo.Add(obj);
+            }
+            var jsonresult = JsonConvert.SerializeObject(businessHourInfo.OrderBy(x => ((int)x.NameOfDayAsNumber + 6) % 7));
+            return jsonresult;
+
+        }
 
         [HttpPost]
 

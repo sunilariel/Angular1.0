@@ -69,8 +69,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
         $scope.events = [];
         $scope.WorkingHours = [];
         $scope.BuisnessWorkingHours = [];
-
-
+        
         var headerinit = true;
         $scope.AllProviders = "";
         $scope.ViewList = [{ "Name": "Monthly", "ViewName": "month" },
@@ -78,22 +77,9 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
         { "Name": "Weekly", "ViewName": "agendaWeek" }];
         $scope.SelectedView = "Monthly";
 
-
         //Set Company Buisness Working Hours//
-
         $scope.timeInfFrom = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
-
-
         $scope.timeInfoTo = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
-
-        $scope.businessHourInfo = [{ 'day': 'Monday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 1 },
-        { 'day': 'Tuesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 2 },
-        { 'day': 'Wednesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 3 },
-        { 'day': 'Thursday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 4 },
-        { 'day': 'Friday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 5 },
-        { 'day': 'Saturday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 6 },
-        { 'day': 'Sunday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 0 },]
-
 
         //--------------Initialize Full Calendar-----------//
 
@@ -197,6 +183,11 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                 $scope.CustomerList = response.data;
                 $scope.CustomerCount = response.data.length;
             })
+
+            var getOpeningHoursResponse = bookingService.GetOpeningHours($routeParams.CompanyId);
+            getOpeningHoursResponse.then(function (response) {
+                $scope.businessHourInfo = response.data;
+            });
 
             //Getting all employees(provider) for appointment dropdown(Add Appointment)
             var GetStaffProvider = bookingService.GetStaffData($routeParams.CompanyId);
@@ -1716,32 +1707,32 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         $scope.switchOnOff = function (item) {
             debugger;
-            for (var i = 0; i < $scope.businessHourInfo.length; i++)
-            // if (item.day != "Sunday" && item.day != "Saturday") {
-            {
-                if (item.day == $scope.businessHourInfo[i].day) {
-                    if (item['available'] == true) {
-                        $scope.businessHourInfo[i].available = false;
+            for (var i = 0; i < $scope.businessHourInfo.length; i++) {
+                if (item.NameOfDay == $scope.businessHourInfo[i].NameOfDay) {
+                    if (item['IsOpen'] == true) {
+                        $scope.businessHourInfo[i].IsOffAllDay = true;
+                        $scope.businessHourInfo[i].IsOpen = false;
 
                         var buisnesshour = {
                             Id: "",
                             CompanyId: $routeParams.CompanyId,
-                            Start: item.timeFrom,
-                            End: item.timeTo,
-                            NameOfDay: item.day,
+                            Start: item.Start,
+                            End: item.End,
+                            NameOfDay: item.NameOfDay,
                             IsOffAllDay: true,
                             CreationDate: new Date(),
                         }
                     }
                     else {
-                        $scope.businessHourInfo[i].available = true;
+                        $scope.businessHourInfo[i].IsOffAllDay = false;
+                        $scope.businessHourInfo[i].IsOpen = true;
 
                         var buisnesshour = {
                             Id: "",
                             CompanyId: $routeParams.CompanyId,
-                            Start: item.timeFrom,
-                            End: item.timeTo,
-                            NameOfDay: item.day,
+                            Start: item.Start,
+                            End: item.End,
+                            NameOfDay: item.NameOfDay,
                             IsOffAllDay: false,
                             CreationDate: new Date(),
                         }
@@ -1760,7 +1751,12 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         $timeout(function () {
                             $scope.IsVisible = false;
                         }, 1000)
-                    }, 800)
+                    }, 800);
+
+                    var GetOpeningHoursResponse = bookingService.GetOpeningHours($routeParams.CompanyId);
+                    GetOpeningHoursResponse.then(function (response) {
+                        $scope.businessHourInfo = response.data;
+                    })
                 }
             })
         }

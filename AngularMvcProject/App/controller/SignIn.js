@@ -1,5 +1,5 @@
 ﻿app.controller("SignIn", ['$scope', '$http', '$timeout', '$location', '$window', '$rootScope', function ($scope, $http, $timeout, $location, $window, $rootScope) {
-    debugger;    
+    //debugger;    
     $scope.ShowSignInScreen = {
         show: true,
         hide: true
@@ -28,7 +28,7 @@
     }
     
     $scope.submitTheForm = function (form) {
-        debugger;
+        //debugger;
         if (form.$invalid == true) {            
             if (form.email.$invalid == true) {
                 $scope.IsVisible = true;
@@ -73,7 +73,7 @@
         //    $scope.IsVisible = false;
         //}, 2000)
         $http.post("SignIn/postdata", { json: data }).success(function (data) {
-            debugger;
+            //debugger;
             if (data.success == true) {
 
                 $scope.msg = "Post Data Submitted Successfully!";
@@ -100,7 +100,7 @@
 
     $scope.resetpassword = function (form) {
         alert("reset pswd");
-        debugger;
+        //debugger;
         var dataemail = {
             Email: $scope.Email,
         }

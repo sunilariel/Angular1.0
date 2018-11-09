@@ -311,6 +311,16 @@ app.service("bookingService", function ($http, $window) {
         return response;
     }
 
+    this.GetOpeningHours = function (dataobject) {
+        var response = $http({
+            method: "POST",
+            url: "/Customer/GetOpeningHours",
+            data: { companyId: dataobject },
+            headers: GetHeader()
+        })
+        return response;
+    }
+
 
     //Get Working Time Slots for Employee//
     this.GetFreeBookingSlotsForEmployee = function (dataobject) {
@@ -736,7 +746,7 @@ app.service("bookingService", function ($http, $window) {
     //Report Section//
 
     this.GetBusinessReport = function (companyId, startDate, endDate) {
-        debugger;
+        //debugger;
         var response = $http({
             method: "POST",
             url: "/Report/GetBusinessReport",
@@ -747,7 +757,7 @@ app.service("bookingService", function ($http, $window) {
     }
 
     this.GetResourceReportsBetweenDates = function (companyId, employeeIdArray, startDate, endDate) {
-        debugger;
+        //debugger;
         var response = $http({
             method: "POST",
             url: "/Report/GetResourceReportsBetweenDates",
@@ -758,7 +768,7 @@ app.service("bookingService", function ($http, $window) {
     }
 
     this.GetResourceReportsBetweenDatesinSortedOrder = function (companyId, employeeIdArray, startDate, endDate, Order, Field) {
-        debugger;
+        //debugger;
         var response = $http({
             method: "POST",
             url: "/Report/GetResourceReportsBetweenDatesinSortedOrder",
@@ -769,7 +779,7 @@ app.service("bookingService", function ($http, $window) {
     }
 
     this.GetServiceReportsBetweenDates = function (companyId, employeeIdsString, startDate, endDate) {
-        debugger;
+        //debugger;
         var response = $http({
             method: "POST",
             url: "/Report/GetServiceReportsBetweenDates",
@@ -780,7 +790,7 @@ app.service("bookingService", function ($http, $window) {
     }
 
     this.GetServiceReportsBetweenDatesByOrder = function (companyId, employeeIdsString, startDate, endDate, Order, field) {
-        debugger;
+        //debugger;
         var response = $http({
             method: "POST",
             url: "/Report/GetServiceReportsBetweenDatesByOrder",
@@ -811,7 +821,7 @@ app.service("bookingService", function ($http, $window) {
     }
 
     this.GetCustomerReportsBetweenDatesByOrder = function (companyId, customerIdsString, startDate, endDate, Order, field) {
-        debugger;
+        //debugger;
         var response = $http({
             method: "POST",
             url: "/Report/GetCustomerReportsBetweenDatesByOrder",

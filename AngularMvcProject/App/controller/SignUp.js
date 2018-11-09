@@ -1,6 +1,6 @@
 ﻿//var app = angular.module("bookingApp", []);
 app.controller("SignUp", ['$scope', '$http', '$timeout', '$location', '$rootScope', '$routeParams', 'bookingService', '$window', function ($scope, $http, $timeout, $location, $rootScope, $routeParams, bookingService, $window) {
-    //debugger;
+    ////debugger;
     $scope.username = "";
     $scope.Email = "";
     $scope.Password = "";
@@ -12,7 +12,7 @@ app.controller("SignUp", ['$scope', '$http', '$timeout', '$location', '$rootScop
     }
 
     $scope.submitTheForm = function (form) {
-        debugger;
+        //debugger;
 
         if (form.$invalid == true) {
             if (form.username.$invalid == true) {
@@ -62,7 +62,7 @@ app.controller("SignUp", ['$scope', '$http', '$timeout', '$location', '$rootScop
         //Checking User Existence//
         var apirequest = bookingService.CheckUserExist($scope.Email);
         apirequest.then(function (response) {
-            //debugger;
+            ////debugger;
             if (response.data === "true") {
                 $scope.MessageText = "User already exist";
                 $scope.IsVisible = true;
@@ -113,7 +113,7 @@ app.controller("SignUp", ['$scope', '$http', '$timeout', '$location', '$rootScop
         //var data = JSON.stringify(dataobject);
 
         //$http.post("SignUp/postdata", { json: data }).success(function (data) {
-        //    //debugger;
+        //    ////debugger;
         //    $scope.IsVisible = true;
         //    $scope.MessageText = "Checking availability";
         //    if(data.success==true){
