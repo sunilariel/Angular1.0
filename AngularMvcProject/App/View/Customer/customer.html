@@ -337,7 +337,7 @@
                                                 <p style="color:#a94442" ng-show="createCustomerform.customerMobile.$error.pattern">Please enter a 10 digit number</p>
                                                 <div class="col-md-3 col-sm-2 col-xs-3  userNumber"  ng-class="{ 'has-error':createCustomerform.customerExt.$invalid && !createCustomerform.customerExt.$pristine }">
                                                     
-                                                    <input id="customerExt" class="form-control" type="text" placeholder="Code" maxlength="4" ng-pattern="regEx" ng-model="customerExt" name="customerExt" ng-required="true">
+                                                    <input id="customerExt" class="form-control" type="text" placeholder="Code" maxlength="3" ng-pattern="regEx" ng-model="customerExt" name="customerExt" ng-required="true">
                                                 </div>
                                                 <div class="col-md-9 col-sm-10 col-xs-9 mobilenumberField" ng-class="{ 'has-error':createCustomerform.customerMobile.$invalid && !createCustomerform.customerMobile.$pristine }">
                                                     <!--<input id="customerMobile" class="form-control" type="text" placeholder="Mobile" ng-model="customerMobile" name="customerMobile" required>-->
@@ -449,7 +449,7 @@
                                                             <label class="control-label">Mobile</label>
                                                             <div class="row">
                                                                 <div class="col-md-3 col-sm-4 col-xs-4" style="padding-right: 10px;">
-                                                                    <input type="text" class="form-control" id="text" placeholder="90" name="text" ng-model="updatedPreCustomerMobileNo" maxlength="2" ng-blur="updateCustomer()">
+                                                                    <input type="text" class="form-control" id="text" placeholder="90" name="text" ng-model="updatedPreCustomerMobileNo" maxlength="3" ng-blur="updateCustomer()">
                                                                 </div>
                                                                 <div class="textNumberDiv col-md-9 col-sm-8 col-xs-8" style="padding-left:0;">
                                                                     <input type="text" class="form-control" id="text" placeholder="Phone" maxlength="10" name="text" ng-model="updatedMobileNo" ng-blur="updateCustomer()">

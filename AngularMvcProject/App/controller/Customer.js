@@ -646,8 +646,8 @@
             $scope.SelectedCustomerId = item.Id;
             $scope.updatedCustomerName = item.FirstName;
             $scope.updatedCustomerEmail = item.Email;
-            $scope.updatedPreCustomerMobileNo = item.TelephoneNo.substring(0, 4);
-            $scope.updatedMobileNo = item.TelephoneNo.substring(4, item.length);
+            $scope.updatedPreCustomerMobileNo = item.TelephoneNo.substring(0, 3);
+            $scope.updatedMobileNo = item.TelephoneNo.substring(3, item.length);
             $scope.customerAddress = item.Address;
             $scope.OfficePhone = null;
             $scope.HomePhone = null;

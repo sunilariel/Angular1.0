@@ -320,12 +320,10 @@
                 var lastDay = new Date("1/1/" + nextyear)
             }
             else if (TimeFrame == "custom") {
-
                 $scope.CustomTimeFrame = true;
                 var firstDay = new Date(parseInt($scope.SelectedStartYear), $scope.Months.indexOf($scope.SelectedStartMonth), parseInt($scope.SelectedStartDate));
                 var lastDay = new Date(parseInt($scope.SelectedEndYear), $scope.Months.indexOf($scope.SelectedEndMonth), parseInt($scope.SelectedEndDate));
             }
-
             $scope.StartDate = firstDay;
             $scope.EndDate = lastDay;
             var apirequest = bookingService.GetBusinessReport($routeParams.CompanyId, firstDay, lastDay);

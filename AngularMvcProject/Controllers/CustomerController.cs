@@ -27,7 +27,7 @@ namespace AngularMvcProject.Controllers
         public string CreateCustomer(StaffData dataobj)
         {
             string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + dataobj.Url;
-            dataobj.ReqStaffData.TelephoneNo = "+" + dataobj.ReqStaffData.TelephoneNo;
+            dataobj.ReqStaffData.TelephoneNo = dataobj.ReqStaffData.TelephoneNo;
             string result = "";
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
             httpWebRequest.ContentType = "application/json";
@@ -59,7 +59,7 @@ namespace AngularMvcProject.Controllers
             try
             {
                 string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + customer.Url;
-                customer.ReqStaffData.TelephoneNo = "+" + customer.ReqStaffData.TelephoneNo;
+                customer.ReqStaffData.TelephoneNo = customer.ReqStaffData.TelephoneNo;
                 string result = "";
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
                 httpWebRequest.ContentType = "application/json";
