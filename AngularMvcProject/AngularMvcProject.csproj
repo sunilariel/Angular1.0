@@ -200,6 +200,7 @@
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\wizardController.cs" />
+    <Compile Include="Helpers\CommonHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -232,6 +233,7 @@
     <Content Include="App\View\Reports\ServiceReports.html" />
     <Content Include="App\View\Setting\Services.html" />
     <Content Include="App\View\Setting\Staff.html" />
+    <Content Include="App\View\Shared\_BusinessHoursPopup.html" />
     <Content Include="Content\Assets\css\angular-tooltips.css" />
     <Content Include="Content\Assets\css\angularjs-datetime-picker.css" />
     <Content Include="Content\Assets\css\flaticon.css" />
