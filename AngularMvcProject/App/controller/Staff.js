@@ -15,7 +15,7 @@
             $location.path("/Calendar/" + $routeParams.CompanyId);
         }
         $scope.RedirecttoStaff = function () {
-            //debugger;
+            ////debugger;
             $scope.init();
             $location.path("/Setting/" + $routeParams.CompanyId);
 
@@ -42,7 +42,7 @@
         }
         $scope.showAllStaff = function () {
 
-            //debugger;
+            ////debugger;
             $location.path("/Setting/" + $routeParams.CompanyId);
 
             angular.element(document.querySelector("#staff-DetailsTAb")).addClass('hidden');
@@ -68,7 +68,7 @@
         }
 
         $scope.redirecttodashboard = function () {
-            //debugger;
+            ////debugger;
             $location.path("/dashboard/" + $routeParams.CompanyId);
         }
         $scope.redirecttoServices = function () {
@@ -134,7 +134,7 @@
         }
 
         $scope.init = function () {
-            //debugger;
+            ////debugger;
 
             $(".left_sidebar").removeClass("show-leftbar");
             //$scope.custom = true;
@@ -178,11 +178,16 @@
 
                 $scope.companyEmail = response.data.Email;
             });
+
+            var getOpeningHoursResponse = bookingService.GetOpeningHours($routeParams.CompanyId);
+            getOpeningHoursResponse.then(function (response) {
+                $scope.businessHourInfo = response.data;
+            });
         }
 
         //paging start//
 
-        //debugger;
+        ////debugger;
         //$scope.currentPage = 0;
         //$scope.pageSize = 5;
         //$scope.ListofStaff = [];
@@ -226,7 +231,7 @@
         //};
         //Add Staff//
         $scope.AddStaff = function (form) {
-            debugger;
+            //debugger;
             $scope.ph_numbr = /^\+?\d{10}$/;
             $scope.eml_add = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
             if (form.$invalid == true) {
@@ -271,12 +276,13 @@
                 "Address": "",
                 "Email": $scope.StaffEmail,
                 "TelephoneNo": $scope.staffMobileNo,
-                "CreationDate": CurrentDate
+                "CreationDate": CurrentDate,
+                "Description": $scope.Description
             }
 
             var result = bookingService.AddStaff(requestedstaff);
             result.then(function (response) {
-                debugger;
+                //debugger;
                 //if (response.data.Success == true) {
                 if (response.data.ReturnObject.EmloyeeId == 0) {
                     //alert("Staff already exists!");
@@ -293,7 +299,7 @@
 
                 //if (response.data.Success == true) {
                 else {
-                    debugger;
+                    //debugger;
                     //$scope.StaffId= response.data.ReturnObject.EmloyeeId;
                     $scope.MessageText = "Adding new Staff";
                     $scope.IsVisible = true;
@@ -382,7 +388,7 @@
 
 
         //$scope.ShowStaffTabs = function () {
-        //    debugger;
+        //    //debugger;
         //    alert("hgvjhvj");
         //    $scope.hidestaffdetails = {
         //        show: true,
@@ -396,7 +402,7 @@
 
 
         $scope.StaffDetailsLink = function () {
-            //debugger;
+            ////debugger;
             $scope.hideStaffDetailsLink = {
                 show: true,
                 hide: true
@@ -488,7 +494,7 @@
         }
 
         $scope.StaffServicesLink = function () {
-            //debugger;
+            ////debugger;
             $scope.hideStaffServicesLink = {
                 show: true,
                 hide: true
@@ -562,7 +568,7 @@
         }
 
         $scope.StaffHoursLink = function () {
-            //debugger;
+            ////debugger;
             $scope.hideStaffHoursLink = {
                 show: true,
                 hide: true
@@ -642,7 +648,7 @@
         }
 
         $scope.StaffBreakLink = function () {
-            //debugger;
+            ////debugger;
             $scope.hideStaffBreakLink = {
                 show: true,
                 hide: true
@@ -726,7 +732,7 @@
         }
 
         $scope.StaffTimeOffLink = function () {
-            //debugger;
+            ////debugger;
             $scope.hideStaffTimeOffLink = {
                 show: true,
                 hide: true
@@ -800,7 +806,7 @@
 
 
         $scope.EditStaff = function (item) {
-            debugger;
+            //debugger;
 
 
             angular.element(document.querySelector(".tabs-_section")).addClass('hidden');
@@ -877,9 +883,9 @@
                 if (response.data.length > 0) {
                     //var tttt = angular.element(document.querySelector("#Name"));
                     //tttt.addClass('active');
-                    //debugger;
+                    ////debugger;
                     $scope.ListofAllServices.push({ "Id": "", "CompanyId": $routeParams.CompanyId, "Name": NameElement.innerText, "CategoryName": "", "CategoryId": "", "DurationInMinutes": DurationElement.innerText, "Cost": CostElement.innerText, "Currency": "", "CreationDate": new Date() })
-                    //debugger;
+                    ////debugger;
                 }
                 angular.forEach(response.data, function (value, key) {
                     $scope.ListofAllServices.push({ "Id": value.Id, "CompanyId": value.CompanyId, "Name": value.Name, "CategoryName": value.CategoryName, "CategoryId": value.CategoryId, "DurationInMinutes": value.DurationInMinutes, "Cost": "$" + value.Cost, "Currency": value.Currency, "CreationDate": new Date(), "Confirmed": value.Confirmed })
@@ -910,7 +916,7 @@
             ///BreakTimeHours//
             var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee(item.Id);
             BreakTimeHours.then(function (response) {
-                //debugger;
+                ////debugger;
                 $scope.listofBreakingHours = [];
                 for (var i = 0; i < response.data.length; i++) {
                     $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Id": response.data[i].Id, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -923,7 +929,7 @@
 
         //Delete Staff by using wizard Controller DeleteStaff method by api
         $scope.DeleteStaff = function () {
-            //debugger;
+            ////debugger;
             var result = bookingService.DeleteStaff($scope.StaffId);
             result.then(function (response) {
                 if (response.data.Success == true) {
@@ -956,7 +962,7 @@
         }
 
         $scope.UpdateStaff = function () {
-            debugger;
+            //debugger;
             var CurrentDate = new Date();
             if ($scope.StaffId != null) {
                 var requestedStaff =
@@ -970,7 +976,8 @@
                         "Address": "",
                         "Email": $scope.staffEmail,
                         "TelephoneNo": $scope.staffMobileNo,
-                        "CreationDate": CurrentDate
+                        "CreationDate": CurrentDate,
+                        "Description": $scope.Description
                     }
                 var responseresult = bookingService.UpdateStaff(requestedStaff);
                 responseresult.then(function (response) {
@@ -996,7 +1003,7 @@
 
         $scope.AssignServicetoEmployee = function (item) {
 
-            //debugger;
+            ////debugger;
             if (item.Confirmed == true) {
                 //Assigned All Service to Staff
                 if (item.Name == "All Services") {
@@ -1113,7 +1120,7 @@
 
         //Get Allocated Staff Service Count//
         $scope.GetAllocatedStaffServiceCount = function () {
-            //debugger;
+            ////debugger;
             var ServiceResult = bookingService.GetAllServiceStatus($routeParams.CompanyId, $scope.StaffId);
             ServiceResult.then(function (response) {
                 $scope.EmployeeServiceCount = response.data[0].AllocatedServiceCount != null ? response.data[0].AllocatedServiceCount : 0;
@@ -1125,7 +1132,7 @@
 
 
         $scope.EnabledDisabledDay = function (timeInfo) {
-            //debugger;
+            ////debugger;
             angular.forEach($scope.WorkingHours, function (value, key) {
                 if (timeInfo.Day == value.Day) {
                     var CurrentDate = new Date();
@@ -1150,7 +1157,7 @@
                                 //Geting Break Hours.As days are enabled/disabled//
                                 var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee($scope.StaffId);
                                 BreakTimeHours.then(function (response) {
-                                    //debugger;
+                                    ////debugger;
                                     $scope.listofBreakingHours = [];
                                     for (var i = 0; i < response.data.length; i++) {
                                         $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -1188,7 +1195,7 @@
                                 //Geting Break Hours.As days are enabled/disabled//
                                 var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee($scope.StaffId);
                                 BreakTimeHours.then(function (response) {
-                                    //debugger;
+                                    ////debugger;
                                     $scope.listofBreakingHours = [];
                                     for (var i = 0; i < response.data.length; i++) {
                                         $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -1215,7 +1222,7 @@
 
         //Set Enable and disable working Time
         $scope.SetEmployeeWorkingTime = function (timedetail) {
-            //debugger;
+            ////debugger;
             var CurrentDate = new Date();
             var workinghours =
                 {
@@ -1231,7 +1238,7 @@
                 }
             // $scope.CurrentWorkingHourData = workinghours;
             var result = bookingService.SetEmployeeWorkingHours(workinghours);
-            //  debugger;
+            //  //debugger;
             result.then(function (response) {
                 if (response.data.Success == true) {
                     $scope.MessageText = "Saving Staff Working Hours";
@@ -1264,7 +1271,7 @@
 
         //Set Time Off//
         $scope.AddtimeOff = function () {
-            //debugger;
+            ////debugger;
             var StartDate = new Date($scope.startdate);
             var EndDate = new Date($scope.enddate);
 
@@ -1348,7 +1355,7 @@
         });
 
         $scope.AddtimeoffPopup = function () {
-            // debugger;
+            // //debugger;
             $scope.startdate = new Date();
             var currentDate = $scope.startdate;
             var currentDay = currentDate.getDay();
@@ -1366,7 +1373,7 @@
 
 
         $scope.SetEmployeeBreakTime = function (time) {
-            //debugger;
+            ////debugger;
 
             var BreakTime = {
                 "CompanyId": $routeParams.CompanyId,
@@ -1379,10 +1386,10 @@
             var apirequest = bookingService.AddEmployeeBreakTime(BreakTime);
             apirequest.then(function (response) {
                 if (response.data.Success == true) {
-                    //debugger;
+                    ////debugger;
                     var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee(time.EmployeeId);
                     BreakTimeHours.then(function (response) {
-                        //debugger;
+                        ////debugger;
                         $scope.listofBreakingHours = [];
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -1403,7 +1410,7 @@
         }
 
         $scope.UpdateTimeOff = function () {
-            //debugger;
+            ////debugger;
             var UpdatedTimeoff = {
                 "Id": $scope.TimeOffId,
                 "CompanyId": $routeParams.CompanyId,
@@ -1434,7 +1441,7 @@
         }
 
         $scope.EditTimeOff = function (item) {
-            //debugger;
+            ////debugger;
             angular.element(document.querySelector('#UpdatetimeoffPopUp')).css('display', 'block');
             $scope.TimeOffId = item.Id;
             var StartDateTime = item.Start.split('T');
@@ -1458,7 +1465,7 @@
 
 
         $scope.Deletetimeoff = function () {
-            //debugger;
+            ////debugger;
             var apirequest = bookingService.DeleteTimeOff($scope.TimeOffId);
             apirequest.then(function (response) {
                 if (response.data.Success == true) {
@@ -1478,13 +1485,13 @@
         }
 
         $scope.CloseEditTimeOffModel = function () {
-            //debugger;
+            ////debugger;
             angular.element(document.querySelector('#UpdatetimeoffPopUp')).css('display', 'none');
         }
 
 
         $scope.GetTimeOffDetail = function (Id) {
-            //debugger;
+            ////debugger;
             var result = bookingService.GetTimeOffDetail(Id);
             result.then(function (response) {
                 $scope.timeOffDetail = response.data;
@@ -1492,7 +1499,7 @@
         }
 
         $scope.AddBreak = function (item) {
-            //debugger;
+            ////debugger;
             var BreakTime = {
 
                 "CompanyId": $routeParams.CompanyId,
@@ -1508,10 +1515,10 @@
             var apirequest = bookingService.AddEmployeeBreakTime(BreakTime);
             apirequest.then(function (response) {
                 if (response.data.Success == true) {
-                    //debugger;
+                    ////debugger;
                     //var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee(item.EmployeeId);
                     //BreakTimeHours.then(function (response) {
-                    //    debugger;
+                    //    //debugger;
                     //    $scope.listofBreakingHours = [];
                     //    for (var i = 0; i < response.data.length; i++) {
                     //        $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -1532,7 +1539,7 @@
         }
         //Update BreakTime of Employee
         $scope.UpdateBreakTime = function (time, status) {
-            //debugger;
+            ////debugger;
             var UpdatedbreakTime = {
                 "Id": time.Id,
                 "CompanyId": $routeParams.CompanyId,
@@ -1564,7 +1571,7 @@
 
         //Delete BreakTime of Employee//
         $scope.DeleteBreakTime = function (Id) {
-            //debugger;
+            ////debugger;
             var requestapi = bookingService.DeleteBreak(Id);
             requestapi.then(function (response) {
                 if (response.data.Success == true) {
@@ -1585,10 +1592,10 @@
 
 
         $scope.GetBreakHours = function (Id) {
-            //debugger;
+            ////debugger;
             var BreakTimeHours = bookingService.GetBreakTimeHoursofEmployee(Id);
             BreakTimeHours.then(function (response) {
-                //debugger;
+                ////debugger;
                 $scope.listofBreakingHours = [];
                 for (var i = 0; i < response.data.length; i++) {
                     $scope.listofBreakingHours.push({ "EmployeeId": response.data[i].EmployeeId, "Id": response.data[i].Id, "Available": response.data[i].Available, "CompanyId": response.data[i].CompanyId, "Day": response.data[i].Day, "DayOfWeek": response.data[i].DayOfWeek, "CreationDate": response.data[i].CreationDate, "StartEndTime": response.data[i].StartEndTime });
@@ -1597,7 +1604,7 @@
         }
 
         $scope.Logout = function () {
-            //debugger;
+            ////debugger;
             $rootScope.IsLoggedInUser = false;
             var apirequest = bookingService.SignOut();
             sessionStorage.removeItem('userInfo-token');
@@ -1608,7 +1615,7 @@
 
 
         $scope.SetWorkingHours = function (timedata) {
-            debugger;
+            //debugger;
             var buisnesshour = {
                 Id: "",
                 CompanyId: $routeParams.CompanyId,
@@ -1639,42 +1646,34 @@
 
         $scope.timeInfoTo = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
 
-        $scope.businessHourInfo = [{ 'day': 'Monday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 1 },
-        { 'day': 'Tuesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 2 },
-        { 'day': 'Wednesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 3 },
-        { 'day': 'Thursday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 4 },
-        { 'day': 'Friday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 5 },
-        { 'day': 'Saturday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 6 },
-        { 'day': 'Sunday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 0 },]
-
         $scope.switchOnOff = function (item) {
-            debugger;
-            for (var i = 0; i < $scope.businessHourInfo.length; i++)
-            // if (item.day != "Sunday" && item.day != "Saturday") {
-            {
-                if (item.day == $scope.businessHourInfo[i].day) {
-                    if (item['available'] == true) {
-                        $scope.businessHourInfo[i].available = false;
+            //debugger;
+            for (var i = 0; i < $scope.businessHourInfo.length; i++) {
+                if (item.NameOfDay == $scope.businessHourInfo[i].NameOfDay) {
+                    if (item['IsOpen'] == true) {
+                        $scope.businessHourInfo[i].IsOffAllDay = true;
+                        $scope.businessHourInfo[i].IsOpen = false;
 
                         var buisnesshour = {
                             Id: "",
                             CompanyId: $routeParams.CompanyId,
-                            Start: item.timeFrom,
-                            End: item.timeTo,
-                            NameOfDay: item.day,
+                            Start: item.Start,
+                            End: item.End,
+                            NameOfDay: item.NameOfDay,
                             IsOffAllDay: true,
                             CreationDate: new Date(),
                         }
                     }
                     else {
-                        $scope.businessHourInfo[i].available = true;
+                        $scope.businessHourInfo[i].IsOffAllDay = false;
+                        $scope.businessHourInfo[i].IsOpen = true;
 
                         var buisnesshour = {
                             Id: "",
                             CompanyId: $routeParams.CompanyId,
-                            Start: item.timeFrom,
-                            End: item.timeTo,
-                            NameOfDay: item.day,
+                            Start: item.Start,
+                            End: item.End,
+                            NameOfDay: item.NameOfDay,
                             IsOffAllDay: false,
                             CreationDate: new Date(),
                         }
@@ -1684,7 +1683,7 @@
             }
             var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
             apirequest.then(function (response) {
-                debugger;
+                //debugger;
                 if (response.data.Success == true) {
                     $scope.MessageText = "Saving buisness Hours";
                     $scope.IsVisible = true;
@@ -1693,22 +1692,15 @@
                         $timeout(function () {
                             $scope.IsVisible = false;
                         }, 1000)
-                    }, 800)
+                    }, 800);
+
+                    var GetOpeningHoursResponse = bookingService.GetOpeningHours($routeParams.CompanyId);
+                    GetOpeningHoursResponse.then(function (response) {
+                        $scope.businessHourInfo = response.data;
+                    })
                 }
             })
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
     }]);
 

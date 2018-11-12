@@ -70,7 +70,7 @@
     //    $location.path("/ResourceReports/" + $routeParams.CompanyId);
     //}
     $scope.leftSideClick = function () {
-        //debugger;
+        ////debugger;
         //angular.element(document.querySelector(".left_sidebar")).addClass('hidden');
         //$scope.custom = $scope.custom === false ? true : false;
 
@@ -93,7 +93,7 @@
 
     }
     $scope.init = function () {
-        //debugger;
+        ////debugger;
         //$scope.custom = true;
 
         $(".left_sidebar").removeClass("show-leftbar");
@@ -240,6 +240,11 @@
         $scope.SelectedEndMonth = $scope.Months[EndDate.getMonth()];
         $scope.SelectedEndYear = EndDate.getFullYear().toString();
         $scope.SelectedEndDate = (EndDate.getDate()).toString();
+
+        var getOpeningHoursResponse = bookingService.GetOpeningHours($routeParams.CompanyId);
+        getOpeningHoursResponse.then(function (response) {
+            $scope.businessHourInfo = response.data;
+        });
 
     }
 
@@ -462,7 +467,7 @@
 
 
     $scope.SetWorkingHours = function (timedata) {
-        //debugger;
+        ////debugger;
         var buisnesshour = {
             Id: "",
             CompanyId: $routeParams.CompanyId,
@@ -493,42 +498,34 @@
 
     $scope.timeInfoTo = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
 
-    $scope.businessHourInfo = [{ 'day': 'Monday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 1 },
-    { 'day': 'Tuesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 2 },
-    { 'day': 'Wednesday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 3 },
-    { 'day': 'Thursday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 4 },
-    { 'day': 'Friday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': true, 'NameOfDay': 5 },
-    { 'day': 'Saturday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 6 },
-    { 'day': 'Sunday', 'timeFrom': "08:00 AM", 'timeTo': "05:00 PM", 'available': false, 'NameOfDay': 0 },]
-
     $scope.switchOnOff = function (item) {
         //debugger;
-        for (var i = 0; i < $scope.businessHourInfo.length; i++)
-        // if (item.day != "Sunday" && item.day != "Saturday") {
-        {
-            if (item.day == $scope.businessHourInfo[i].day) {
-                if (item['available'] == true) {
-                    $scope.businessHourInfo[i].available = false;
+        for (var i = 0; i < $scope.businessHourInfo.length; i++) {
+            if (item.NameOfDay == $scope.businessHourInfo[i].NameOfDay) {
+                if (item['IsOpen'] == true) {
+                    $scope.businessHourInfo[i].IsOffAllDay = true;
+                    $scope.businessHourInfo[i].IsOpen = false;
 
                     var buisnesshour = {
                         Id: "",
                         CompanyId: $routeParams.CompanyId,
-                        Start: item.timeFrom,
-                        End: item.timeTo,
-                        NameOfDay: item.day,
+                        Start: item.Start,
+                        End: item.End,
+                        NameOfDay: item.NameOfDay,
                         IsOffAllDay: true,
                         CreationDate: new Date(),
                     }
                 }
                 else {
-                    $scope.businessHourInfo[i].available = true;
+                    $scope.businessHourInfo[i].IsOffAllDay = false;
+                    $scope.businessHourInfo[i].IsOpen = true;
 
                     var buisnesshour = {
                         Id: "",
                         CompanyId: $routeParams.CompanyId,
-                        Start: item.timeFrom,
-                        End: item.timeTo,
-                        NameOfDay: item.day,
+                        Start: item.Start,
+                        End: item.End,
+                        NameOfDay: item.NameOfDay,
                         IsOffAllDay: false,
                         CreationDate: new Date(),
                     }
@@ -547,15 +544,18 @@
                     $timeout(function () {
                         $scope.IsVisible = false;
                     }, 1000)
-                }, 800)
+                }, 800);
+
+                var GetOpeningHoursResponse = bookingService.GetOpeningHours($routeParams.CompanyId);
+                GetOpeningHoursResponse.then(function (response) {
+                    $scope.businessHourInfo = response.data;
+                })
             }
         })
     }
-
-
-
+    
     $scope.GetReportbyOrder = function (field) {
-        //debugger;
+        ////debugger;
         $scope.toggle = !$scope.toggle;
         var ReportCount = false;
         //if ($scope.toggle == true) {

@@ -187,35 +187,7 @@
                             </select>
                         </div>
                         <div class="staffWorkingHoursSec">
-                            <div class="colom_div" ng-repeat="timedata in businessHourInfo">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-3 col-xs-3 StaffColumnDiv ">
-                                        <div class="week_div">
-                                            <p>{{timedata.day}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <div class="onoffswitch">
-                                            <input type="checkbox" name="onoffswitch" ng-model="timedata.available" class="onoffswitch-checkbox" checked>
-                                            <label class="onoffswitch-label" ng-click="switchOnOff(timedata)" for="myonoffswitch">
-                                                <span class="onoffswitch-inner"></span>
-                                                <span class="onoffswitch-switch"></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6 StaffColumnDiv">
-                                        <div class="week_div businessHourSelect businesshourDiv">
-                                            <select class="select_btn" ng-required="true" ng-model="timedata.timeFrom" ng-disabled="!timedata.available" ng-change="SetWorkingHours(timedata)">
-                                                <option ng-repeat="option in timeInfFrom" value="{{option}}">{{option}}</option>
-                                            </select>
-                                            <span>to</span>
-                                            <select class="select_btn" ng-required="true" ng-model="timedata.timeTo" ng-disabled="!timedata.available" ng-change="SetWorkingHours(timedata)">
-                                                <option ng-repeat="option in timeInfoTo" value="{{option}}">{{option}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="App/View/Shared/_BusinessHoursPopup.html"></a>
 
                             <div class="staff-hours-note popuopf">
                                 <span class="pfcntent">To change staff working hours and their availability in the calendar, <a id="note_navigate" href="javascript:void(0);">click here</a></span>
@@ -350,9 +322,9 @@
                                                 <form class="form-horizontal imageUploadForm" name="servicenameform" novalidate>
                                                     <div class="form-group 	serviceIconImage">
                                                         <div class="sampleServicesSec">
-                                                            <div class="form-group" id="removeName-has-error" ng-class="{ 'has-error' : servicenameform.ServiceName.$invalid && !servicenameform.ServiceName.$pristine }">
+                                                            <div class="form-group" id="removeName-has-error"  ng-class="{ 'has-error' : servicenameform.ServiceName.$invalid && !servicenameform.ServiceName.$pristine }">
                                                                 <label>Service Name<span>*</span></label>
-                                                                <input type="text" ng-required="true" class="customerName sampServiceName form-control" id="serviceNameColor" placeholder="Enter Service name*" ng-model="ServiceName" name="ServiceName" required>
+                                                                <input type="text" ng-required="true" tabindex="1" class="customerName sampServiceName form-control" id="serviceNameColor" placeholder="Enter Service name*" ng-model="ServiceName" name="ServiceName" required>
 
                                                                 <div class="">
                                                                     <div class="dropdown serviceColors">
@@ -373,12 +345,12 @@
                                                             <div class="form-group">
                                                                 <div class="">
                                                                     <label class="control-label">Service Cost (£)</label>
-                                                                    <input type="text" class="form-control" id="text" placeholder="Cost for the Service" name="ServiceCost" ng-model="ServiceCost">
+                                                                    <input type="text" class="form-control"  tabindex="3" id="text" placeholder="Cost for the Service" name="ServiceCost" ng-model="ServiceCost">
                                                                 </div>
                                                             </div>
                                                             <div class="servicesTextareaDiv form-group">
                                                                 <label>Service Description</label>
-                                                                <textarea class="form-control" placeholder="Service Description" maxlength="500" ng-model="ServiceDescription"></textarea>
+                                                                <textarea class="form-control"  tabindex="5" placeholder="Service Description" maxlength="500" ng-model="ServiceDescription"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -386,10 +358,10 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <form class="form-horizontal customerDetail" name="servicedetailform" novalidate>
-                                                    <div class="form-group" id="removetime-has-error" ng-class="{ 'has-error' : servicedetailform.ServiceTime.$invalid && !servicedetailform.ServiceTime.$pristine }">
+                                                    <div class="form-group" id="removetime-has-error"  ng-class="{ 'has-error' : servicedetailform.ServiceTime.$invalid && !servicedetailform.ServiceTime.$pristine }">
                                                         <label class="">Service Time (mins*)</label>
                                                         <div class="">
-                                                            <input type="text" class="form-control" id="text" placeholder="Time in min*" name="ServiceTime" ng-model="ServiceTime" ng-required="true" required>
+                                                            <input type="text" class="form-control" tabindex="2" id="text" placeholder="Time in min*" name="ServiceTime" ng-model="ServiceTime" ng-required="true" required>
                                                         </div>
                                                         <span id="timeRequired" style="color:#a94442" class="help-block"
                                                               ng-show="servicedetailform.ServiceTime.$invalid && !servicedetailform.ServiceTime.$pristine">
@@ -399,7 +371,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Buffer Time (mins)</label>
                                                         <div class="">
-                                                            <input type="text" class="form-control" id="text" placeholder="Time in min" name="text" ng-model="BufferTime">
+                                                            <input type="text" class="form-control" tabindex="4" id="text" placeholder="Time in min" name="text" ng-model="BufferTime">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -415,7 +387,7 @@
                                                                         <li ng-repeat="data in Categories">
                                                                             <label>
                                                                                 <span class="serviceCheckboxDiv">
-                                                                                    <input type="checkbox" class="sampleCheckbox" name="" value="service" ng-model="data.Confirmed" ng-click="CategoryConfirmedCount()">{{data.Name}}
+                                                                                    <input type="checkbox" tabindex="6" class="sampleCheckbox" name="" value="service" ng-model="data.Confirmed" ng-click="CategoryConfirmedCount()">{{data.Name}}
                                                                                 </span>
                                                                             </label>
                                                                         </li>

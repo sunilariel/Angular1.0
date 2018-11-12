@@ -202,35 +202,7 @@
                                 </select>
                             </div>
                             <div class="staffWorkingHoursSec">
-                                <div class="colom_div" ng-repeat="timedata in businessHourInfo">
-                                    <div class="row">
-                                        <div class="col-md-3 col-sm-3 col-xs-3 StaffColumnDiv ">
-                                            <div class="week_div">
-                                                <p>{{timedata.day}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 col-xs-3">
-                                            <div class="onoffswitch">
-                                                <input type="checkbox" name="onoffswitch" ng-model="timedata.available" class="onoffswitch-checkbox" checked>
-                                                <label class="onoffswitch-label" ng-click="switchOnOff(timedata)" for="myonoffswitch">
-                                                    <span class="onoffswitch-inner"></span>
-                                                    <span class="onoffswitch-switch"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6 StaffColumnDiv">
-                                            <div class="week_div businessHourSelect businesshourDiv">
-                                                <select class="select_btn" ng-required="true" ng-model="timedata.timeFrom" ng-disabled="!timedata.available" ng-change="SetWorkingHours(timedata)">
-                                                    <option ng-repeat="option in timeInfFrom" value="{{option}}">{{option}}</option>
-                                                </select>
-                                                <span>to</span>
-                                                <select class="select_btn" ng-required="true" ng-model="timedata.timeTo" ng-disabled="!timedata.available" ng-change="SetWorkingHours(timedata)">
-                                                    <option ng-repeat="option in timeInfoTo" value="{{option}}">{{option}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <a href="App/View/Shared/_BusinessHoursPopup.html"></a>
 
                                 <div class="staff-hours-note popuopf">
                                     <span class="pfcntent">To change staff working hours and their availability in the calendar, <a id="note_navigate" href="javascript:void(0);">click here</a></span>
@@ -442,17 +414,21 @@
                                                         <div class="form-group appointaploadDiv">
                                                             <div class="customerNameDiv">
                                                                 <label class="control-label">Name</label>
-                                                                <input type="text" class="customerName namevalueField form-control" value="Mark" id="name" name="name" placeholder="Name" ng-model="updatedCustomerName" ng-blur="updateCustomer()">
+                                                                <input type="text" tabindex="1" class="customerName namevalueField form-control" value="Mark" id="name" name="name" placeholder="Name" ng-model="updatedCustomerName" ng-blur="updateCustomer()">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Mobile</label>
                                                             <div class="row">
                                                                 <div class="col-md-3 col-sm-4 col-xs-4" style="padding-right: 10px;">
+<<<<<<< HEAD
                                                                     <input type="text" class="form-control" id="text" placeholder="90" name="text" ng-model="updatedPreCustomerMobileNo" maxlength="3" ng-blur="updateCustomer()">
+=======
+                                                                    <input type="text" tabindex="3" class="form-control" id="text" placeholder="90" name="text" ng-model="updatedPreCustomerMobileNo" maxlength="2" ng-blur="updateCustomer()">
+>>>>>>> e6cc5adca835332ee984c55a7c1b33175488b26e
                                                                 </div>
                                                                 <div class="textNumberDiv col-md-9 col-sm-8 col-xs-8" style="padding-left:0;">
-                                                                    <input type="text" class="form-control" id="text" placeholder="Phone" maxlength="10" name="text" ng-model="updatedMobileNo" ng-blur="updateCustomer()">
+                                                                    <input type="text" tabindex="4" class="form-control" id="text" placeholder="Phone" maxlength="10" name="text" ng-model="updatedMobileNo" ng-blur="updateCustomer()">
 
                                                                 </div>
                                                             </div>
@@ -460,7 +436,7 @@
                                                         <div class="form-group">
                                                             <label class="control-label">Home</label>
                                                             <div class="">
-                                                                <input type="text" class="form-control" id="text" placeholder="Phone" name="text" ng-model="HomePhone">
+                                                                <input type="text" tabindex="6" class="form-control" id="text" placeholder="Phone" name="text" ng-model="HomePhone" ng-blur="updateCustomer()">
                                                             </div>
                                                         </div>
                                                     </form>
@@ -470,19 +446,19 @@
                                                         <div class="form-group">
                                                             <label class="control-label">Email</label>
                                                             <div class="">
-                                                                <input type="email" class="form-control" id="email" placeholder="Email" name="email" ng-model="updatedCustomerEmail" ng-blur="updateCustomer()">
+                                                                <input type="email" tabindex="2" class="form-control" id="email" placeholder="Email" name="email" ng-model="updatedCustomerEmail" ng-blur="updateCustomer()">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Office</label>
                                                             <div class="">
-                                                                <input type="text" class="form-control" id="text" placeholder="Phone" name="text" ng-model="OfficePhone">
+                                                                <input type="text" tabindex="5" class="form-control" id="text" placeholder="Phone" name="text" ng-model="OfficePhone">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Address</label>
                                                             <div class="">
-                                                                <input type="text" class="form-control" id="text" placeholder="Address" name="text" ng-model="customerAddress" ng-blur="updateCustomer()">
+                                                                <input type="text" tabindex="7" class="form-control" id="text" placeholder="Address" name="text" ng-model="customerAddress" ng-blur="updateCustomer()">
                                                             </div>
                                                         </div>
                                                     </form>
@@ -492,19 +468,19 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class="control-label">City</label>
-                                                        <input type="text" class="form-control" id="text" placeholder="City" name="text" ng-model="CustomerCity">
+                                                        <input type="text" tabindex="8" class="form-control" id="text" placeholder="City" name="text" ng-model="CustomerCity"  ng-blur="updateCustomer()">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="textNumberDiv form-group">
                                                         <label class="control-label">State</label>
-                                                        <input type="text" class="form-control" id="text" placeholder="State" name="text" ng-model="CustomerState">
+                                                        <input type="text" tabindex="9" class="form-control" id="text" placeholder="State" name="text" ng-model="CustomerState"  ng-blur="updateCustomer()">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="textNumberDiv form-group">
                                                         <label class="control-label">Zip</label>
-                                                        <input type="text" class="form-control" id="text" placeholder="Zip" maxlength="6" name="text" ng-model="Zip" ng-blur="updateCustomer()">
+                                                        <input type="text" tabindex="10" class="form-control" id="text" placeholder="Zip" maxlength="6" name="text" ng-model="Zip" ng-blur="updateCustomer()">
                                                     </div>
                                                 </div>
                                             </div>
