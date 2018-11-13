@@ -925,7 +925,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                 // $scope.today();
 
                 $scope.timeInfoFrom = [];
-                debugger
+                //debugger;
                 var SelectedDate = $scope.hidden;
                 $filter('date')(SelectedDate, "dd-MM-yyyy");
                 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -1202,7 +1202,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Delete Event on Calendar//
         $scope.DeleteAppointment = function (Id, EmployeeId) {
-            debugger
+            //debugger;
             var date = new Date($scope.cdate);
             var firstDay = new Date(date.getFullYear(), date.getMonth(), 2);
             var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1);

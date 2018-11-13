@@ -19,7 +19,7 @@
         $scope.redirecttoServices = function () {
             //debugger;
             $location.path("/Services/" + $routeParams.CompanyId);
-            debugger
+            //debugger;
             $scope.init();
             var tttt = angular.element(document.querySelector("#redirecttoservicesactive"));
             tttt.addClass('active');
