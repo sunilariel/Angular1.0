@@ -1140,6 +1140,8 @@
 
             $scope.existingTime = $filter('date')(appointmenttime, 'h:mm a');
             //$scope.timeoption = $scope.existingTime;
+            $scope.timeoption = $scope.timeInfoFrom[0];
+            $scope.editTimeoption = $scope.timeInfoFrom[0];
 
             //$scope.EmployeeId = $scope.AppointmentEmployeeId;
             $scope.editcount = 0;
@@ -1402,6 +1404,7 @@
                             }
                         }
                         $scope.timeoption = $scope.timeInfoFrom[0];
+                        $scope.editTimeoption = $scope.timeInfoFrom[0];
                         $scope.timeslotsloading = false;
                     }
                 });
