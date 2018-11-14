@@ -524,6 +524,7 @@
                                                                     <th>Service</th>
                                                                     <th>Duration</th>
                                                                     <th>Cost</th>
+                                                                    <th>Status</th>
                                                                     <th>Actions</th>
                                                                 </tr>
                                                             </thead>
@@ -534,6 +535,7 @@
                                                                     <td>{{item.ServiceName}}</td>
                                                                     <td>{{item.DurationInMinutes}} min </td>
                                                                     <td>{{item.Cost | currency : '£' : 0}}</td>
+                                                                    <td>{{item.status}}</td>
                                                                     <td>
                                                                         <div class="apptViewFooter">
                                                                             <a ng-click="EditAppointment(item)" class="editAppt cursorhand" data-toggle="modal" data-target="#UpdateAppointmentPopup">
