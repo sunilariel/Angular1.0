@@ -429,23 +429,10 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                 result.then(function (response) {
                     if (response.data.Value != null) {
                         for (var i = 0; i < response.data.Value.length; i++) {
-                            if (i == 0) {
-                                var startdate = response.data.Value[i].Start.split(":");
-                                var startdatetime = new Date(1970, 0, 1, startdate[0], startdate[1], startdate[2]);
-                                var starttime = $filter('date')(startdatetime, 'h:mm a');
-                                $scope.timeInfoFrom.push(starttime);
-                                var enddate = response.data.Value[i].End.split(":");
-                                var enddatetime = new Date(1970, 0, 1, enddate[0], enddate[1], enddate[2]);
-                                var endtime = $filter('date')(enddatetime, 'h:mm a');
-                                $scope.timeInfoFrom.push(endtime);
-                            }
-                            else {
-                                var date = response.data.Value[i].End.split(":");
-                                var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
-                                var time = $filter('date')(datetime, 'h:mm a');
-                                $scope.timeInfoFrom.push(time);
-
-                            }
+                            var date = response.data.Value[i].Start.split(":");
+                            var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
+                            var time = $filter('date')(datetime, 'h:mm a');
+                            $scope.timeInfoFrom.push(time);
                         }
                         $scope.timeoption = $scope.timeInfoFrom[0];
                     }
@@ -577,22 +564,10 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                     if (newValue != oldValue) {
                         if (response.data.Value != null) {
                             for (var i = 0; i < response.data.Value.length; i++) {
-                                if (i == 0) {
-                                    var startdate = response.data.Value[i].Start.split(":");
-                                    var startdatetime = new Date(1970, 0, 1, startdate[0], startdate[1], startdate[2]);
-                                    var starttime = $filter('date')(startdatetime, 'h:mm a');
-                                    $scope.timeInfoFrom.push(starttime);
-                                    var enddate = response.data.Value[i].End.split(":");
-                                    var enddatetime = new Date(1970, 0, 1, enddate[0], enddate[1], enddate[2]);
-                                    var endtime = $filter('date')(enddatetime, 'h:mm a');
-                                    $scope.timeInfoFrom.push(endtime);
-                                }
-                                else {
-                                    var date = response.data.Value[i].End.split(":");
-                                    var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
-                                    var time = $filter('date')(datetime, 'h:mm a');
-                                    $scope.timeInfoFrom.push(time);
-                                }
+                                var date = response.data.Value[i].Start.split(":");
+                                var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
+                                var time = $filter('date')(datetime, 'h:mm a');
+                                $scope.timeInfoFrom.push(time);
                             }
                         }
                         $scope.timeslotsloading = false;
