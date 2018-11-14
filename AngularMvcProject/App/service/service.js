@@ -206,7 +206,16 @@ app.service("bookingService", function ($http, $window) {
         })
         return response;
     }
+    this.GetCompanySmsPackges = function (dataobject) {
 
+        var response = $http({
+            method: 'post',
+            url: '/Customer/GetCompanySmsPackges',
+            data: { Id: dataobject },
+            headers: GetHeader()
+        })
+        return response;
+    }
     this.DeleteCustomer = function (companyId, customerId) {
 
         var response = $http({

@@ -70,7 +70,11 @@
 
 
         }
-
+        $scope.redirecttoNotifications = function () {
+            $location.path("/Notifications/" + $routeParams.CompanyId);
+            angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
+            angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
+        }
         //Redirection on a tag click by using route param passing parameter
         $scope.redirecttoCustomer = function () {
             $location.path("/customer/" + $routeParams.CompanyId);

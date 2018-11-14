@@ -36,7 +36,11 @@
             //$scope.hidecategoryList = true;
             ////$scope.showcategoryList = true;           
         }
-
+        $scope.redirecttoNotifications = function () {
+            $location.path("/Notifications/" + $routeParams.CompanyId);
+            angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
+            angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
+        }
         $scope.RedirecttoReport = function () {
             $location.path("/BuisnessReports/" + $routeParams.CompanyId);
             angular.element(document.querySelector("#active-business")).addClass('active');

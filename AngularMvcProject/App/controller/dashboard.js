@@ -68,7 +68,11 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             angular.element(document.querySelector("#redirecttostaffactive")).removeClass('active');
             angular.element(document.querySelector("#redirecttoservicesactive")).addClass('active');
         }
-
+        $scope.redirecttoNotifications = function () {
+            $location.path("/Notifications/" + $routeParams.CompanyId);
+            angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
+            angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
+        }
 
         $scope.RedirecttoReport = function () {
             $location.path("/BuisnessReports/" + $routeParams.CompanyId);

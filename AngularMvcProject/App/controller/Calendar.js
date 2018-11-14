@@ -14,7 +14,11 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
         $scope.redirectToCalendar = function () {
             $location.path("/Calendar/" + $routeParams.CompanyId);
         }
-
+        $scope.redirecttoNotifications = function () {
+            $location.path("/Notifications/" + $routeParams.CompanyId);
+            angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
+            angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
+        }
         $scope.RedirecttoStaff = function () {
             $location.path("/Setting/" + $routeParams.CompanyId);
         }

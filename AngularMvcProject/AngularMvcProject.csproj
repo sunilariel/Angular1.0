@@ -218,6 +218,7 @@
     <Content Include="App\controller\Customer.js" />
     <Content Include="App\controller\CustomerReports.js" />
     <Content Include="App\controller\dashboard.js" />
+    <Content Include="App\controller\Notifications.js" />
     <Content Include="App\controller\ResourceReports.js" />
     <Content Include="App\controller\ServiceReports.js" />
     <Content Include="App\controller\Services.js" />
@@ -229,6 +230,7 @@
     <Content Include="App\View\Customer\customer.html" />
     <Content Include="App\View\Reports\BuisnessReports.html" />
     <Content Include="App\View\Reports\CustomerReports.html" />
+    <Content Include="App\View\Reports\Notifications.html" />
     <Content Include="App\View\Reports\ResourceReports.html" />
     <Content Include="App\View\Reports\ServiceReports.html" />
     <Content Include="App\View\Setting\Services.html" />
@@ -321,6 +323,7 @@
     <Content Include="Content\Assets\fonts\icomoon.woff" />
     <Content Include="Content\Assets\fonts\icomoon.woff2" />
     <Content Include="Content\Assets\fonts\Chalkboard.otf" />
+    <Content Include="App\View\_leftMenu.html" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <Content Include="Scripts\dx.all.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -465,7 +468,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>8905</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8905/</IISUrl>
+          <IISUrl>http://localhost:8915/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

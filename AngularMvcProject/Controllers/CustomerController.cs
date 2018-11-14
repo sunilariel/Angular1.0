@@ -109,7 +109,24 @@ namespace AngularMvcProject.Controllers
             }
             return result;
         }
+        [HttpPost]
+        public string GetCompanySmsPackges(String id)
+        {
+            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/companyregistration/GetCompanySmsPackges?companyId=" + id;
+            string result = "";
 
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "GET";
+            httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+            return result;
+        }
 
         [HttpPost]
         public string DeleteCustomer(string CompanyId, string CustomerId)

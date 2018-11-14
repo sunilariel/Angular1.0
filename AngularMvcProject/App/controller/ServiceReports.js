@@ -22,7 +22,11 @@
         angular.element(document.querySelector("#active-service")).removeClass('active');
         angular.element(document.querySelector("#active-customer")).removeClass('active');
     }
-
+    $scope.redirecttoNotifications = function () {
+        $location.path("/Notifications/" + $routeParams.CompanyId);
+        angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
+        angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
+    }
     $scope.RedirecttoResourceReport = function () {
         $location.path("/ResourceReports/" + $routeParams.CompanyId);
         angular.element(document.querySelector("#active-business")).removeClass('active');
