@@ -306,7 +306,18 @@
                                                     <a ng-click="EditAppointment(item)" class="editAppt cursorhand" data-toggle="modal" data-target="#UpdateDashboardAppointmentPopup">
                                                         <i class="far fa-edit"></i>
                                                     </a>
-                                                    <a class="apptDeleteBtn cursorhand" ng-click="DeleteAppointment(item)"><i class="far fa-trash-alt"></i></a>
+                                                    <a class="apptDeleteBtn cursorhand" ng-click="ShowAppointmentDeletePopUp=true"><i class="far fa-trash-alt"></i></a>
+
+                                                    <span class="staff-break-delete-holder" ng-show="ShowAppointmentDeletePopUp">
+                                                        <div class="popover left staff-delete-box staffbbtns" style="left: -60px;">
+                                                            <div class="arrow staffarrowbtn"></div>
+                                                            <h3 class="popover-title surecntnt">Are you sure?</h3>
+                                                            <div class="btn_box staffbtnpadn">
+                                                                <button id="" class="btn btn-danger deletebtn" ng-click="DeleteAppointment(item)">Delete</button>
+                                                                <button class="new-gray-btn btn btn-default cancelbtn" ng-click="ShowAppointmentDeletePopUp=false">Cancel</button>
+                                                            </div>
+                                                        </div>
+                                                    </span>
                                                 </div>
                                             </td>
                                         </tr>
