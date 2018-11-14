@@ -386,7 +386,7 @@
             //  $scope.SelectedYear = (new Date().getFullYear()).toString();
             $scope.CompanyId = $routeParams.CompanyId;
             $scope.showcustomer = false;
-            
+
             $scope.appointmentDetailisVisible = false;
             $scope.selecteddate = $filter('date')(new Date(), "EEE, MMM d");
             $scope.ServicePriceTimeDetailIsVisible = false;
@@ -416,9 +416,9 @@
                 //debugger;
                 $scope.CustomerCount = response.data.length;
                 if ($scope.CustomerCount == 0) {
-                    
+
                     $scope.showcustomer = true;
-                    
+
                     $scope.setstaffdetails = true;
                 }
                 else {
@@ -445,6 +445,7 @@
                 }
             });
             $scope.timeInfoFrom = [];
+            //$scope.existingTime = null;
         }
 
 
@@ -545,63 +546,63 @@
                             $scope.IsVisible = false;
                         }, 800)
                     }, 1000)
-                    
-                    //if (response.data.Message == "Customer creation failed: Already member") {
-                        //alert("dfffff");
-                        //$scope.MessageText = "Customer Already Exits";
-                        //$scope.IsVisible = true;
 
-                        //$timeout(function () {
-                        //    $scope.IsVisible = false;
-                        //}, 800)
+                    //if (response.data.Message == "Customer creation failed: Already member") {
+                    //alert("dfffff");
+                    //$scope.MessageText = "Customer Already Exits";
+                    //$scope.IsVisible = true;
+
+                    //$timeout(function () {
+                    //    $scope.IsVisible = false;
+                    //}, 800)
 
                     //}
                 }
                 else {
-                        $scope.CustomerId = response.data.ReturnObject.CustomerId;
-                        $scope.MessageText = "Saving Data";
-                        $scope.msg = "Create Customer Successfully";
-                        var GetCustomer = bookingService.GetAllCustomer($scope.CompanyId);
-                        GetCustomer.then(function (response) {
-                            $scope.customerArr = [];
-                            $scope.customerArr = response.data;
-                            $scope.showcustomer = false;
-                            $scope.CustomerCount = response.data.length;
-                            if ($scope.CustomerCount != 0) {
-                                $scope.EditCustomer(response.data[0]);
-                            }
-                            //Empty the Customer Fields in Popup
-                            $scope.customerName = null;
-                            $scope.customerEmail = null;
-                            $scope.customerExt = null;
-                            $scope.customerPassword = null;
-                            $scope.customerMobile = null;
-                            form.customerName.$setUntouched();
-                            form.customerName.$untouched = true;
-                            form.customerEmail.$setUntouched();
-                            form.customerEmail.$untouched = true;
-                            form.customerExt.$untouched = true;
-                            form.customerExt.$setUntouched();
-                            form.customerMobile.$untouched = true;
-                            form.customerMobile.$setUntouched();
-                            form.customerPassword.$untouched = true;
-                            form.customerPassword.$setUntouched();
-                            angular.element(document.querySelector("#booking-settingsTabContent")).addClass("hidden");
-                            angular.element(document.querySelector(".tabs-_section")).removeClass("hidden");
-                            //$scope.showcustomer = false;
-                            $route.reload();
-                        });
+                    $scope.CustomerId = response.data.ReturnObject.CustomerId;
+                    $scope.MessageText = "Saving Data";
+                    $scope.msg = "Create Customer Successfully";
+                    var GetCustomer = bookingService.GetAllCustomer($scope.CompanyId);
+                    GetCustomer.then(function (response) {
+                        $scope.customerArr = [];
+                        $scope.customerArr = response.data;
+                        $scope.showcustomer = false;
+                        $scope.CustomerCount = response.data.length;
+                        if ($scope.CustomerCount != 0) {
+                            $scope.EditCustomer(response.data[0]);
+                        }
+                        //Empty the Customer Fields in Popup
+                        $scope.customerName = null;
+                        $scope.customerEmail = null;
+                        $scope.customerExt = null;
+                        $scope.customerPassword = null;
+                        $scope.customerMobile = null;
+                        form.customerName.$setUntouched();
+                        form.customerName.$untouched = true;
+                        form.customerEmail.$setUntouched();
+                        form.customerEmail.$untouched = true;
+                        form.customerExt.$untouched = true;
+                        form.customerExt.$setUntouched();
+                        form.customerMobile.$untouched = true;
+                        form.customerMobile.$setUntouched();
+                        form.customerPassword.$untouched = true;
+                        form.customerPassword.$setUntouched();
+                        angular.element(document.querySelector("#booking-settingsTabContent")).addClass("hidden");
+                        angular.element(document.querySelector(".tabs-_section")).removeClass("hidden");
+                        //$scope.showcustomer = false;
+                        $route.reload();
+                    });
 
-                        $timeout(function () {
-                            $scope.MessageText = "Data Saved"; $timeout(function () {
-                                $scope.IsVisible = false;
-                            },
-                                1000)
-                        }, 500);
+                    $timeout(function () {
+                        $scope.MessageText = "Data Saved"; $timeout(function () {
+                            $scope.IsVisible = false;
+                        },
+                            1000)
+                    }, 500);
 
-                    }
+                }
 
-                
+
 
             }, function () {
                 //debugger;
@@ -610,7 +611,7 @@
             });
         };
 
-        
+
 
         //On Cancel btn click hide the popup and clear the form elements values//
         $scope.CustomerCancel = function (form) {
@@ -874,6 +875,7 @@
             $scope.time = "";
             $scope.timeoption = "";
             $scope.timeInfoFrom = [];
+            //$scope.existingTime = null;
             $scope.Status = "1";
             $scope.selectedprovider = "-- Select a Provider --";
             //  $scope.timeoption = "8:00 AM";
@@ -933,7 +935,6 @@
                 $scope.ServicePriceTimeDetailIsVisible = true;
                 // $scope.today();
 
-                $scope.timeInfoFrom = [];
                 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 RequestValues = {
                     CompanyId: $routeParams.CompanyId,
@@ -947,29 +948,16 @@
                 result.then(function (response) {
                     //debugger;
                     if (response.data.Value != null) {
+                        $scope.timeInfoFrom = [];
                         for (var i = 0; i < response.data.Value.length; i++) {
-                            if (i == 0) {
-                                //debugger;
-                                var startdate = response.data.Value[i].Start.split(":");
-                                var startdatetime = new Date(1970, 0, 1, startdate[0], startdate[1], startdate[2]);
-                                var starttime = $filter('date')(startdatetime, 'h:mm a');
-                                $scope.timeInfoFrom.push(starttime);
-                                var enddate = response.data.Value[i].End.split(":");
-                                var enddatetime = new Date(1970, 0, 1, enddate[0], enddate[1], enddate[2]);
-                                var endtime = $filter('date')(enddatetime, 'h:mm a');
-                                $scope.timeInfoFrom.push(endtime);
-                            }
-                            else {
-                                //debugger;
-                                var date = response.data.Value[i].End.split(":");
-                                var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
-                                var time = $filter('date')(datetime, 'h:mm a');
-                                $scope.timeInfoFrom.push(time);
-                            }
+                            //debugger;
+                            var date = response.data.Value[i].Start.split(":");
+                            var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
+                            var time = $filter('date')(datetime, 'h:mm a');
+                            $scope.timeInfoFrom.push(time);
                         }
                         //debugger;
                         $scope.timeoption = $scope.timeInfoFrom[0];
-                        var t = $scope.timeoption;                        
                     }
                     $scope.timeslotsloading = false;
                 });
@@ -980,7 +968,7 @@
         $scope.SaveAppointment = function (form) {
             //alert("asasasasasas");
             //debugger;
-           
+
 
             //debugger;
             var selectedvalue = $scope.option;
@@ -1117,6 +1105,8 @@
 
         $scope.EditAppointment = function (item) {
 
+            $scope.timeInfoFrom = [];
+
             $scope.hideTable = {
                 show: true,
                 hide: true
@@ -1144,6 +1134,13 @@
             $scope.ServiceDetail($scope.AppointmentServiceId);
             $scope.GetAllocateServiceToEmployee($scope.AppointmentEmployeeId);
             $scope.ServiceId = $scope.AppointmentServiceId;
+
+            //var time = $filter('date')(appointmentdate, 'h:mm a');
+            //$scope.timeInfoFrom.push(time);
+
+            $scope.existingTime = $filter('date')(appointmenttime, 'h:mm a');
+            //$scope.timeoption = $scope.existingTime;
+
             //$scope.EmployeeId = $scope.AppointmentEmployeeId;
             $scope.editcount = 0;
 
@@ -1398,22 +1395,10 @@
                     if (newValue != oldValue) {
                         if (response.data.Value != null) {
                             for (var i = 0; i < response.data.Value.length; i++) {
-                                if (i == 0) {
-                                    var startdate = response.data.Value[i].Start.split(":");
-                                    var startdatetime = new Date(1970, 0, 1, startdate[0], startdate[1], startdate[2]);
-                                    var starttime = $filter('date')(startdatetime, 'h:mm a');
-                                    $scope.timeInfoFrom.push(starttime);
-                                    var enddate = response.data.Value[i].End.split(":");
-                                    var enddatetime = new Date(1970, 0, 1, enddate[0], enddate[1], enddate[2]);
-                                    var endtime = $filter('date')(enddatetime, 'h:mm a');
-                                    $scope.timeInfoFrom.push(endtime);
-                                }
-                                else {
-                                    var date = response.data.Value[i].End.split(":");
-                                    var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
-                                    var time = $filter('date')(datetime, 'h:mm a');
-                                    $scope.timeInfoFrom.push(time);
-                                }
+                                var date = response.data.Value[i].Start.split(":");
+                                var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
+                                var time = $filter('date')(datetime, 'h:mm a');
+                                $scope.timeInfoFrom.push(time);
                             }
                         }
                         $scope.timeoption = $scope.timeInfoFrom[0];
@@ -1730,7 +1715,7 @@
                 End: timedata.timeTo,
                 NameOfDay: timedata.day,
                 IsOffAllDay: timedata.available == true ? false : true,
-				CreationDate: new Date(),
+                CreationDate: new Date(),
             }
 
             var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
@@ -1753,13 +1738,12 @@
 
         $scope.switchOnOff = function (item) {
             //debugger;
-            for (var i = 0; i < $scope.businessHourInfo.length; i++)
-            {
+            for (var i = 0; i < $scope.businessHourInfo.length; i++) {
                 if (item.NameOfDay == $scope.businessHourInfo[i].NameOfDay) {
                     if (item['IsOpen'] == true) {
                         $scope.businessHourInfo[i].IsOffAllDay = true;
                         $scope.businessHourInfo[i].IsOpen = false;
-                        
+
                         var buisnesshour = {
                             Id: "",
                             CompanyId: $routeParams.CompanyId,

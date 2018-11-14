@@ -752,6 +752,10 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             $scope.selectedservice = $scope.AppointmentServiceId;
             var date = $scope.AppointmentStartDate.split("T");
             var appointmentdate = new Date(date[0]);
+            $scope.hidden = appointmentdate;
+            $scope.dt = appointmentdate;
+            $scope.dt1 = appointmentdate;
+            $scope.dt2 = appointmentdate;
             var time = date[1].split(":");
             var appointmenttime = new Date(1997, 4, 5, time[0], time[1], time[2]);
             ///alert($filter('date')(appointmenttime, 'h:mm a'));
@@ -882,6 +886,8 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             })
             // $route.reload();
         }
+
+      
 
         //Get Allocated Service to Employee//
         $scope.GetAllocateServiceToEmployee = function (EmployeeId) {
@@ -1532,19 +1538,19 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //----------------Date Picker Events---------------------//
 
-        $scope.today = function () {
-            $scope.dt = new Date();
-        };
+        //$scope.today = function () {
+        //    $scope.dt = new Date();
+        //};
 
         $scope.DatePickerinit = function () {
             $scope.dt = null;
-            $scope.today();
+            //$scope.today();
         };
         $scope.SetDatePicker = function () {
             //debugger;
             //$scope.dt = new Date();
             //$scope.today();
-
+            return;
 
         }
 
@@ -1568,6 +1574,19 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             }
         });
 
+        $scope.$watch("hidden", function (newValue, oldValue) {
+            if(newValue != oldValue)
+                return;
+        });
+
+        $scope.$watch("dt1", function (newValue, oldValue) {
+            $scope.dt = newValue;
+        });
+
+        $scope.$watch("dt2", function (newValue, oldValue) {
+            $scope.dt = newValue;
+        });
+
         $scope.$watch("dt", function (newValue, oldValue) {
             
             $scope.timeInfoFrom = [];
@@ -1580,6 +1599,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                     DateofBooking: $filter('date')(newValue, "dd-MM-yyyy"),
                     Day: days[newValue.getDay()],
                 }
+                $scope.hidden = newValue;
                 $scope.timeslotsloading = true;
                 var result = bookingService.GetFreeBookingSlotsForEmployee(RequestValues);
                 result.then(function (response) {
@@ -1692,7 +1712,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //---------------Update Event on Calendar--------------------//
         $scope.CloseUpdateAppointmentPopup = function () {
-            $scope.today();
+            //$scope.today();
             $scope.timeslotsloading = false;
             $scope.selectedservice = "";
             $scope.price = "";
