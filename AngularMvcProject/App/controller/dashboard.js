@@ -539,10 +539,10 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
         $scope.EditDatePicker = function () {
             ////debugger;
-            if ($scope.count == 0) {
-                $scope.count = $scope.count + 1;
-                $scope.today();
-            }
+            //if ($scope.count == 0) {
+            //    $scope.count = $scope.count + 1;
+            //    $scope.today();
+            //}
         }
 
         //Disable weekend selection
@@ -564,7 +564,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
         $scope.$watch("dt", function (newValue, oldValue) {
             ////debugger;
-            $scope.timeInfoFrom = [];
+            
             if (newValue != null && oldValue != null) {
                 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 RequestValues = {
@@ -579,12 +579,15 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                 result.then(function (response) {
                     if (newValue != oldValue) {
                         if (response.data.Value != null) {
+                            $scope.timeInfoFrom = [];
                             for (var i = 0; i < response.data.Value.length; i++) {
                                 var date = response.data.Value[i].Start.split(":");
                                 var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
                                 var time = $filter('date')(datetime, 'h:mm a');
                                 $scope.timeInfoFrom.push(time);
                             }
+
+                            $scope.timeoption = $scope.timeInfoFrom[0];
                         }
                         $scope.timeslotsloading = false;
                     }
