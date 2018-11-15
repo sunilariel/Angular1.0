@@ -936,7 +936,6 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                 $scope.ServicePriceTimeDetailIsVisible = true;
                 // $scope.today();
 
-                $scope.timeInfoFrom = [];
                 //debugger;
                 var SelectedDate = $scope.hidden;
                 $filter('date')(SelectedDate, "dd-MM-yyyy");
@@ -955,6 +954,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                 var result = bookingService.GetFreeBookingSlotsForEmployee(RequestValues);
                 result.then(function (response) {
                     if (response.data.Value != null) {
+                        $scope.timeInfoFrom = [];
                         for (var i = 0; i < response.data.Value.length; i++) {
                             var date = response.data.Value[i].Start.split(":");
                             var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);

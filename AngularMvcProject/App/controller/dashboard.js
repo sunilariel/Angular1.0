@@ -350,7 +350,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         $scope.EditAppointment = function (item) {
             ////debugger;
 
-
+            $scope.timeInfoFrom = [];
 
             $scope.DashboardAppointmentDetail(item);
             angular.element(document.querySelector("#DashboardAppointmentDetails")).addClass('hidden');
@@ -369,13 +369,15 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             var appointmenttime = new Date(1997, 4, 5, time[0], time[1], time[2]);
             $scope.timeoption = $filter('date')(appointmenttime, 'h:mm a');
             $scope.dt = appointmentdate;
-            // $scope.ServiceDetail($scope.AppointmentServiceId);
+            $scope.dt1 = appointmentdate;
+            $scope.dt2 = appointmentdate;
+            $scope.ServiceDetail($scope.AppointmentServiceId);
             $scope.GetAllocateServiceToEmployee($scope.AppointmentEmployeeId);
             $scope.ServiceId = $scope.AppointmentServiceId;
             $scope.UpdateAppointmentId = $scope.AppointmentBookingId;
             $scope.count = 0;
             $scope.notes = "";
-
+            $scope.timeoption = $scope.timeInfoFrom[0];
             //$scope.EmployeeId = $scope.AppointmentEmployeeId;
         }
 
@@ -421,7 +423,6 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                 $scope.ServicePriceTimeDetailIsVisible = true;
                 // $scope.today();
 
-                $scope.timeInfoFrom = [];
                 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 RequestValues = {
                     CompanyId: $routeParams.CompanyId,
@@ -434,6 +435,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                 var result = bookingService.GetFreeBookingSlotsForEmployee(RequestValues);
                 result.then(function (response) {
                     if (response.data.Value != null) {
+                        $scope.timeInfoFrom = [];
                         for (var i = 0; i < response.data.Value.length; i++) {
                             var date = response.data.Value[i].Start.split(":");
                             var datetime = new Date(1970, 0, 1, date[0], date[1], date[2]);
@@ -488,6 +490,14 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                 }
             })
         }
+
+        $scope.$watch("dt1", function (newValue, oldValue) {
+            $scope.dt = newValue;
+        });
+
+        $scope.$watch("dt2", function (newValue, oldValue) {
+            $scope.dt = newValue;
+        });
 
         //DateTime Picker
         $scope.today = function () {
