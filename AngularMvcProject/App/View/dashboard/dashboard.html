@@ -139,15 +139,15 @@
             <li class="active" id="bookingMgt-dashboard">
                 <a ng-click="redirecttodashboard()" style="cursor:pointer;" data-toggle="tab" class="" id="startDashboard"><i class="fas fa-home"></i><small>Dashboard</small></a>
             </li>
-            <li class="" id="bookingMgt-calendar">
+            <li class="" id="bookingMgt-calendar" ng-if="IsAdmin">
                 <a ng-click="redirectToCalendar()" data-toggle="tab" class="" id="startCalendar"><i class="fas fa-calendar-alt"></i><small>Calendar</small></a>
             </li>
-            <li class="" id="bookingMgt-customers" title="">
+            <li class="" id="bookingMgt-customers" title="" ng-if="IsAdmin">
                 <a ng-click="redirecttoCustomer()" style="cursor:pointer;" data-toggle="tab" class="" id="side-nav-customers"><i class="fas fa-user-friends"></i><small>Customers</small></a>
             </li>
 
 
-            <li class="bookingMgt-settings_new dropdown" ng-class="{'open' : toggle }" id="bookingMgt-settings">
+            <li class="bookingMgt-settings_new dropdown" ng-class="{'open' : toggle }" id="bookingMgt-settings" ng-if="IsAdmin">
                 <a ng-click="toggle = !toggle" class="aaaaa" data-toggle="collapse" data-target="#keySettings"><i class="fas fa-cog"></i><small>Settings</small></a>
                 <ul class="collapse bbbbb" id="keySettings">
                     <li ng-click="RedirecttoStaff()" id="redirecttostaffactive" class=""><a class="staffCss">Staff</a></li>
@@ -155,7 +155,7 @@
                     <li><a class="listbborder cursorhand staffCss" data-toggle="modal" data-target="#myModal">Business</a></li>
                 </ul>
             </li>
-            <li class="reports bookingMgt-settings_new dropdown" id="bookingMgt-reports">
+            <li class="reports bookingMgt-settings_new dropdown" id="bookingMgt-reports" ng-if="IsAdmin">
                 <a ng-click="" class="aaaaa" data-toggle="collapse" data-target="#keyReports"><i class="fas fa-chart-line"></i><small>Reports</small></a>
                 <ul class="collapse bbbbb" id="keyReports">
                     <li ng-click="RedirecttoReport()" id="active-business"><a class="staffCss">Business</a></li>
@@ -224,7 +224,7 @@
         </div>
         <div id="" class="tab-content full-height">
             <div class="tab-pane full-height active" id="staff">
-                <div class="dashboardStatus">
+                <div class="dashboardStatus" ng-if="IsAdmin">
                     <div class="dashboardDetail">
                         <ul class="dashboardDetailList list-inline">
                             <li class="dashboardLi">
@@ -262,7 +262,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6">
-                                            <div class="addServiceButton">
+                                            <div class="addServiceButton" ng-if="IsAdmin">
                                                 <span>Book Appointment</span>
                                                 <a ng-click="redirectToCalendar()" class="serviceButton btn btn-default">
                                                     <i class="fa fa-plus" aria-hidden="true"></i>

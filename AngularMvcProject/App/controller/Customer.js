@@ -363,6 +363,7 @@
         //This function will run first on page load.
         $scope.init = function () {
             //debugger;
+            $scope.IsAdmin = bookingService.IsAdmin();
             $(".left_sidebar").removeClass("show-leftbar");
             //$scope.custom = true;
             angular.element(document.querySelector("#customer-app")).removeClass("active");

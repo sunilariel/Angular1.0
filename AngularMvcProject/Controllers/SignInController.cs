@@ -42,7 +42,7 @@ namespace AngularMvcProject.Controllers
             if (response.StatusCode == HttpStatusCode.OK && (role == AdminRole || role == StaffRole))
             {
                 string token = data.Headers["Token"];
-                return Json(new { success = true, CompanyId = data.Headers["CompanyId"], Token = token }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, IsAdmin = (role == AdminRole), CompanyId = data.Headers["CompanyId"], Token = token }, JsonRequestBehavior.AllowGet);
             }
             else
             {
@@ -54,9 +54,6 @@ namespace AngularMvcProject.Controllers
                 return Json(e.ToString());
             }
         }
-
-
-
 
         //[HttpPost]
         //public JsonResult postdataforgotpassword(string json)

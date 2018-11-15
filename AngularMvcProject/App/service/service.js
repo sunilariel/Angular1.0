@@ -19,6 +19,10 @@ app.service("bookingService", function ($http, $window) {
         return headers;
     }
 
+    this.IsAdmin = function () {
+        return $window.sessionStorage.getItem('IsAdmin') === "true" ? true : false;
+    }
+
     this.SignUp = function (dataobject) {
         var response = $http({
             method: "POST",

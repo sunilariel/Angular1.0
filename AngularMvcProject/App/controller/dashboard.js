@@ -168,6 +168,8 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
         };
 
         $scope.init = function () {
+
+            $scope.IsAdmin = bookingService.IsAdmin();
             ////debugger;
             $(".left_sidebar").removeClass("show-leftbar");
             //$scope.custom = true;

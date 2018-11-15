@@ -145,7 +145,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
         //Initialize funtion//
         $scope.init = function () {
             //$scope.custom = true;
-            
+            $scope.IsAdmin = bookingService.IsAdmin();
             $(".left_sidebar").removeClass("show-leftbar");
             $scope.ShowCalendarMessage = false;
             $scope.cdate = new Date();

@@ -84,6 +84,7 @@
                 $scope.IsVisible = false;
                 $location.path("/dashboard/" + $scope.companyId);
                 $window.sessionStorage.setItem('userInfo-token', data.Token);
+                $window.sessionStorage.setItem('IsAdmin', data.IsAdmin);
             }
             else if (data.includes("System.Net.WebException: The remote server returned an error")) {
                 $scope.MessageText = "Invalid Credentials.";

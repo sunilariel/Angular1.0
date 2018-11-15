@@ -96,6 +96,7 @@
         $scope.init = function () {
             ////debugger;
             //$scope.custom = true;
+            $scope.IsAdmin = bookingService.IsAdmin();
             $(".left_sidebar").removeClass("show-leftbar");
             $scope.hidereportsClicks = {
                 show: true,

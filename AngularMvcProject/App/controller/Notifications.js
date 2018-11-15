@@ -97,7 +97,7 @@
 
         }
         $scope.init = function () {
-            debugger;
+            $scope.IsAdmin = bookingService.IsAdmin();
             //$scope.custom = true;
 
 
