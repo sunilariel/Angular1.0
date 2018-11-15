@@ -289,7 +289,7 @@
                                             <th>Staff</th>
                                             <th>Cost</th>
                                             <th>Status</th>
-                                            <th style="width:125px">Actions</th>
+                                            <th style="width:125px" ng-if="IsAdmin">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -302,7 +302,7 @@
                                             <td>{{item.EmployeeName}}</td>
                                             <td>£ {{item.BookingCost | number:0}}</td>
                                             <td>{{item.BookingStatusDisplay}}</td>
-                                            <td>
+                                            <td ng-if="IsAdmin">
                                                 <div class="apptViewFooter">
                                                     <a ng-click="EditAppointment(item)" class="editAppt cursorhand" data-toggle="modal" data-target="#UpdateDashboardAppointmentPopup">
                                                         <i class="far fa-edit"></i>
