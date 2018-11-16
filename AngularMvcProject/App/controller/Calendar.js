@@ -145,11 +145,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
         //Initialize funtion//
         $scope.init = function () {
 
-            $('#spinnerModal').modal('show');
-            setTimeout(function () {
-                console.log('hejsan');
-                $('#spinnerModal').modal('hide');
-            }, 3000);
+           
 
 
             //$scope.custom = true;
@@ -227,7 +223,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                     this.selectedId = response.data[0].Id;
                     $scope.selectedId = response.data[0].Id;
                     //$scope.AllProviders = AllStaff.substring(0, AllStaff.length - 1);
-
+                    $('#spinnerModal').modal('show');
                     var apirequest = bookingService.GetBookingsForEmployeesByIdBetweenDates($routeParams.CompanyId, $scope.Provider[0].Id, firstDay, lastDay);
                     apirequest.then(function (response) {
                         
@@ -283,8 +279,12 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         else if (response.data.status == 6) {
                             $scope.UpdatedStatus = "Paid";
                         }
+
+                        $('#spinnerModal').modal('hide');
                     })
                 }
+
+               
             });
         }
 
@@ -464,7 +464,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             $scope.WorkingHours = [];
             $scope.BuisnessWorkingHours = [];
 
-
+            $('#spinnerModal').modal('show');
             var apirequest = bookingService.GetBookingsForEmployeesByIdBetweenDates($routeParams.CompanyId, Id, firstDay, lastDay);
             apirequest.then(function (response) {
                 
@@ -533,7 +533,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                     $("#selectedprovider").text(SelectedStaff);
                     $("#selectedstaffId").val(Id);
                 }
-
+                $('#spinnerModal').modal('hide');
             })
             $timeout(function () {
                 angular.element(document.querySelector("#msg_box")).css("display", "none");
@@ -686,7 +686,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Update the Status of Event//
         $scope.UpdateStatus = function (item) {
-            
+            $('#spinnerModal').modal('show');
             var date = new Date($scope.cdate);
             var firstDay = new Date(date.getFullYear(), date.getMonth(), 2);
             var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1);
@@ -706,6 +706,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         $timeout(function () {
                             $scope.IsVisible = false;
                             //  var selectedId = $("#selectedprovider").text();
+                            
                             var apirequest = bookingService.GetBookingsForEmployeesByIdBetweenDates($routeParams.CompanyId, this.selectedId, firstDay, lastDay);
                             apirequest.then(function (response) {
                                 
@@ -737,12 +738,16 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
                                 uiCalendarConfig.calendars['myCalendar'].fullCalendar('removeEventSources');
                                 uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', $scope.events);
-
+                                $('#spinnerModal').modal('hide');
                             });
+
+                            
                         }, 800)
                     }, 1000)
                 }
             })
+
+           
         }.bind(this);
 
         //Get Details of Appointment//
@@ -792,6 +797,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Update Event on Calendar//
         $scope.UpdateAppointment = function () {
+            $('#spinnerModal').modal('show');
             //debugger;
             var date = new Date($scope.dt);
             var firstDay = new Date(date.getFullYear(), date.getMonth(), 2);
@@ -863,6 +869,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         $timeout(function () {
                             $scope.IsVisible = false;
                             //debugger;
+                            
                             var apirequest = bookingService.GetBookingsForEmployeesByIdBetweenDates($routeParams.CompanyId, $scope.selectedprovider, firstDay, lastDay);
                             apirequest.then(function (response) {
                                 angular.forEach(response.data, function (value, key) {
@@ -887,11 +894,12 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                                 $scope.cdate = $scope.dt;
                                 $scope.getSelectedStaff($scope.selectedprovider);
                                 $('#providers').val($scope.selectedprovider);
+                                $('#spinnerModal').modal('hide');
                             })
 
                             angular.element(document.querySelector("#UpdateAppointmentPopup")).css("display", "none");
                             angular.element(document.querySelector("#UpdateAppointmentPopup")).css("opacity", 0);
-
+                            
                         }, 1000);
                     }, 500)
 
@@ -1209,6 +1217,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
 
         //Delete Event on Calendar//
         $scope.DeleteAppointment = function (Id, EmployeeId) {
+            $('#spinnerModal').modal('show');
             //debugger;
             var date = new Date($scope.cdate);
             var firstDay = new Date(date.getFullYear(), date.getMonth(), 2);
@@ -1251,7 +1260,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         // break;
                     }
                     //}
-                })
+                });
 
                 //for (var i = 0; i < $scope.events.length; i++) {
                 //    if ($scope.events[i].description == Id) {
@@ -1262,7 +1271,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                 uiCalendarConfig.calendars['myCalendar'].fullCalendar('removeEventSources');
                 uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', $scope.events);
 
-
+                
                 var apirequest = bookingService.DeleteAppointment($scope.AppointmentBookingId);
                 apirequest.then(function (response) {
                     if (response.data.Success == true) {
@@ -1279,8 +1288,8 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                             }, 800)
                         }, 1000)
                     }
-                })
-
+                });
+                $('#spinnerModal').modal('hide');
                 //})
             })
         }.bind(this);
@@ -1293,7 +1302,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             var date = new Date($scope.dt);
             var firstDay = new Date(date.getFullYear(), date.getMonth(), 2);
             var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1);
-
+            $('#spinnerModal').modal('show');
             var apirequest = bookingService.GetBookingsForEmployeesByIdBetweenDates($routeParams.CompanyId, $scope.selectedprovider, firstDay, lastDay);
             apirequest.then(function (response) {
                 $scope.events = [];
@@ -1322,6 +1331,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                 }
                 uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', $scope.events);
                 $scope.getSelectedStaff($scope.selectedprovider);
+                $('#spinnerModal').modal('hide');
                 //$('#providers').val($scope.selectedprovider);
 
                 //Empty the values//
@@ -1395,6 +1405,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                 }
                 if (SelectedStaffId != null && SelectedStaffId != "") {
                     //debugger;
+                    $('#spinnerModal').modal('show');
                     var apirequest = bookingService.GetBookingsForEmployeesByIdBetweenDates($routeParams.CompanyId, SelectedStaffId, firstDay, lastDay);
                     apirequest.then(function (response) {
                         $scope.events = [];
@@ -1425,7 +1436,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', $scope.events);
                         //$scope.getSelectedStaff(SelectedStaffId);
                         //$('#providers').val($scope.selectedprovider);
-
+                        $('#spinnerModal').modal('hide');
 
                         ///////////////----------////////////
                         if ($scope.SelectedView == "Monthly") {
@@ -1490,6 +1501,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                     }
                     $scope.AllProviders = AllStaff.substring(0, AllStaff.length - 1);
                     //debugger;
+                    $('#spinnerModal').modal('show');
                     var apirequest = bookingService.GetBookingsForEmployeesByIdBetweenDates($routeParams.CompanyId, $scope.AllProviders, firstDay, lastDay);
                     apirequest.then(function (response) {
                         if (response.data.length != 0) {
@@ -1528,6 +1540,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
                         
                         $scope.cdate = curr;
                         $("#cldtest").val(CurrentDate);
+                        $('#spinnerModal').modal('hide');
                     });
 
                 });
