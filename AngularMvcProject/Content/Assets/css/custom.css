@@ -10947,3 +10947,16 @@ header.top {
         background: #f4f4f4;
     }
 }
+
+
+.load-spinner .modal-dialog {
+    display: table;
+    position: relative;
+    margin: 0 auto;
+    top: calc(33% - 24px);
+}
+
+.load-spinner .modal-dialog .modal-content {
+    background-color: transparent;
+    border: none;
+}
