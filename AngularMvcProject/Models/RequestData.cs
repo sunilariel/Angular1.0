@@ -253,7 +253,8 @@ namespace AngularMvcProject.Models
         public double Cost { get; set; }
         public string Currency { get; set; }
         public string Colour { get; set; }
-        public int status { get; set; }
+        public int Status { get; set; }
+        public string BookingStatusDisplay { get; set; }
         public int CustomerId { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
@@ -276,7 +277,7 @@ namespace AngularMvcProject.Models
         public int Status { get; set; }
         public string Start { get; set; }
         public string End { get; set; }
-
+        public string BookingStatusDisplay { get; set; }
 
     }
 

@@ -531,12 +531,12 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr ng-repeat="item in ListofAppointments" ng-click="ShowAppointmentDetail(item)">
-                                                                    <td>{{item.StartTime | date :'EEE MMM d, y'}} {{item.StartTime | date:'hh:mm a' |lowercase}} - {{item.EndTime | date :'hh:mm a'| lowercase}}</td>
+                                                                    <td>{{item.StartTime | date :'EEE MMM d, y'}} <br> {{item.StartTime | date:'hh:mm a' |lowercase}} - {{item.EndTime | date :'hh:mm a'| lowercase}}</td>
                                                                     <td>{{item.EmployeeName}}</td>
                                                                     <td>{{item.ServiceName}}</td>
                                                                     <td>{{item.DurationInMinutes}} min </td>
                                                                     <td>{{item.Cost | currency : '£' : 0}}</td>
-                                                                    <td>{{item.status}}</td>
+                                                                    <td>{{item.BookingStatusDisplay}}</td>
                                                                     <td>
                                                                         <div class="apptViewFooter">
                                                                             <a ng-click="EditAppointment(item)" class="editAppt cursorhand" data-toggle="modal" data-target="#UpdateAppointmentPopup">

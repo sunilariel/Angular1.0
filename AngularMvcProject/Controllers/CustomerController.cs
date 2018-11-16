@@ -428,7 +428,8 @@ namespace AngularMvcProject.Controllers
                     obj.DurationInMinutes = appointment.Service.DurationInMinutes;
                     obj.Cost = appointment.Service.Cost;
                     obj.Currency = appointment.Service.Currency;
-                    obj.status = appointment.Status;
+                    obj.BookingStatusDisplay = appointment.BookingStatusDisplay;
+                    obj.Status = appointment.Status;
                     obj.StartTime = appointment.Start;
                     obj.EndTime = appointment.End;
                     obj.Colour = appointment.Service.Colour;
