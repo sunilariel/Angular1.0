@@ -963,6 +963,7 @@
                         }
                         //debugger;
                         $scope.timeoption = $scope.timeInfoFrom[0];
+                        $scope.editTimeoption = $scope.timeInfoFrom[0];
                     }
                     $scope.timeslotsloading = false;
                 });
@@ -1173,7 +1174,7 @@
                     "End": $scope.dt,
                     "Status": $scope.Status
                 }
-
+            //$('#spinnerModal').modal('show');
             var apirequest = bookingService.UpdateAppointment(appointment);
             apirequest.then(function (response) {
                 if (response.data.Success == false) {
@@ -1203,9 +1204,13 @@
                             };
 
                         }, 1000);
-                    }, 500)
+                    }, 500);
+
+
                 }
-            })
+            });
+
+            //$('#spinnerModal').modal('hide');
         }
 
         $scope.DeleteAppointment = function (item) {
@@ -1287,7 +1292,7 @@
         }
 
         $scope.GetAppointmentDetails = function (Id) {
-
+            $('#spinnerModal').modal('show');
             $scope.SelectedMonth = "All";
             $scope.AppointmentsLoader = true;
             var result = bookingService.GetAppointmentDetails(Id);
@@ -1339,7 +1344,7 @@
                 $scope.TotalCostofServices = TotalCost;
                 $scope.IsVisible = false;
                 angular.element(document.querySelector("#squarespaceModal")).css("display", "none");
-                //$scope.today();
+                $('#spinnerModal').modal('hide');
             })
         }
 
