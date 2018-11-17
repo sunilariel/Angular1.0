@@ -1,4 +1,4 @@
-﻿app.controller("notificationsController", ['$scope', '$http', '$routeParams', '$filter', '$timeout', '$location', 'bookingService', '$rootScope', '$route',
+﻿app.controller("paymentsController", ['$scope', '$http', '$routeParams', '$filter', '$timeout', '$location', 'bookingService', '$rootScope', '$route',
     function ($scope, $http, $routeParams, $filter, $timeout, $location, bookingService, $rootScope, $route) {
 
         //Redirection to different pages////
@@ -18,7 +18,7 @@
         }
 
         $scope.redirecttoNotifications = function () {
-            $location.path("/Notifications/" + $routeParams.CompanyId);
+            $location.path("/Payments/" + $routeParams.CompanyId);
             angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
             angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
         }

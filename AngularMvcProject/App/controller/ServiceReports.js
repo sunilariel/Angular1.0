@@ -23,7 +23,7 @@
         angular.element(document.querySelector("#active-customer")).removeClass('active');
     }
     $scope.redirecttoNotifications = function () {
-        $location.path("/Notifications/" + $routeParams.CompanyId);
+        $location.path("/Payments/" + $routeParams.CompanyId);
         angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
         angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
     }

@@ -37,7 +37,7 @@
             ////$scope.showcategoryList = true;           
         }
         $scope.redirecttoNotifications = function () {
-            $location.path("/Notifications/" + $routeParams.CompanyId);
+            $location.path("/Payments/" + $routeParams.CompanyId);
             angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
             angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
         }

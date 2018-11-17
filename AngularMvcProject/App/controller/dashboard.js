@@ -69,7 +69,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             angular.element(document.querySelector("#redirecttoservicesactive")).addClass('active');
         }
         $scope.redirecttoNotifications = function () {
-            $location.path("/Notifications/" + $routeParams.CompanyId);
+            $location.path("/Payments/" + $routeParams.CompanyId);
             angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
             angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
         }

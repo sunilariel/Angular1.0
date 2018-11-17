@@ -15,7 +15,7 @@ app.controller('calendarController', ['$scope', '$location', '$filter', '$window
             $location.path("/Calendar/" + $routeParams.CompanyId);
         }
         $scope.redirecttoNotifications = function () {
-            $location.path("/Notifications/" + $routeParams.CompanyId);
+            $location.path("/Payments/" + $routeParams.CompanyId);
             angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');
             angular.element(document.querySelector("#redirecttonotificationsactive")).addClass('active');
         }

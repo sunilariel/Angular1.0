@@ -25,9 +25,9 @@ app.config(function ($routeProvider) {
         templateUrl: "App/View/Setting/Services.html",
         controller: "servicesController"
     })
-    .when("/Notifications/:CompanyId", {
-        templateUrl: "App/View/Reports/Notifications.html",
-        controller: "notificationsController"
+    .when("/Payments/:CompanyId", {
+        templateUrl: "App/View/Reports/Payments.html",
+        controller: "paymentsController"
     })
     .when("/Calendar/:CompanyId", {
         templateUrl: "App/View/Calendar/Calendar.html",
