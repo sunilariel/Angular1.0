@@ -210,11 +210,11 @@ app.service("bookingService", function ($http, $window) {
         })
         return response;
     }
-    this.GetCompanySmsPackges = function (dataobject) {
+    this.GetAllCompanyPurchases = function (dataobject) {
 
         var response = $http({
             method: 'post',
-            url: '/Customer/GetCompanySmsPackges',
+            url: '/Customer/GetAllCompanyPurchases',
             data: { Id: dataobject },
             headers: GetHeader()
         })

@@ -236,7 +236,7 @@
                 <ul class="nav nav-tab nav-stacked">
                     <li id="redirecttoservicesactive" class="active">
                         <a ng-click="redirecttoServices()" class="cursorhand servics" data-toggle="tab">
-                            SERVICES
+                            Purchases
                         </a>
                     </li>
                 </ul>
@@ -258,15 +258,16 @@
                                                         <tr>
                                                             <th>Purchase Type</th>
                                                             <th>Cost</th>
+                                                            <th>Payment Status</th>
                                                             <th>Purchase Date</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr ng-repeat="servicedetail in AllServices">
-                                                            <td>{{servicedetail.PackageName}}</td>
+                                                            <td>{{servicedetail.Name}}</td>
                                                             <td>£{{servicedetail.Cost}}</td>
-                                                            <td>£{{servicedetail.PurchaseDate}}</td>
-
+                                                            <td>{{servicedetail.PaymentStatusDisplayName}}</td>
+                                                            <td>{{servicedetail.CreationDate}}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

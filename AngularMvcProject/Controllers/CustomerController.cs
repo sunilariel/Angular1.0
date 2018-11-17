@@ -110,9 +110,9 @@ namespace AngularMvcProject.Controllers
             return result;
         }
         [HttpPost]
-        public string GetCompanySmsPackges(String id)
+        public string GetAllCompanyPurchases(String id)
         {
-            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/companyregistration/GetCompanySmsPackges?companyId=" + id;
+            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/CompanyPurchase/GetAllCompanyPurchases?companyId=" + id;
             string result = "";
 
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);

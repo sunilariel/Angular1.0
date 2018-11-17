@@ -107,7 +107,7 @@
             angular.element(document.querySelector("#redirecttostaffactive")).removeClass('active');
 
             //Get All Services of particular CompanyId//
-            var responsedata = bookingService.GetCompanySmsPackges($routeParams.CompanyId);
+            var responsedata = bookingService.GetAllCompanyPurchases($routeParams.CompanyId);
             responsedata.then(function (response) {
 
                 $scope.AllServices = [];
