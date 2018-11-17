@@ -185,7 +185,12 @@
 
         </ul>
     </div>
-
+    <div class="modal fade  load-spinner" tabindex="-1" role="dialog" id="spinnerModal">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <span class="fa fa-spinner fa-spin fa-3x w-100"></span>
+            <!--<img width="100" src="/Content/Assets/images/loader.gif" />-->
+        </div>
+    </div>
     
 
     <div ng-controller="BuisnessReportsController" ng-class="{'rightFullWidth': isActive}" class="right_section" id="settings">
@@ -305,11 +310,7 @@
                                 <p>This report shows the total value of the bookings in your Appointedd calendars. <a class="payment-link" target="_blank" href="#">Click here </a> for full payment history.</p>
                                 </p>
                                 <div class="business_carsec">
-                                    <div class="modal" ng-if="BuisnessReportLoader">
-                                        <div class="center">
-                                            <img src="/Content/Assets/images/loader.gif" />
-                                        </div>
-                                    </div>
+                                    
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="business-card">

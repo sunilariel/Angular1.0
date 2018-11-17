@@ -1174,7 +1174,6 @@
                     "End": $scope.dt,
                     "Status": $scope.Status
                 }
-            //$('#spinnerModal').modal('show');
             var apirequest = bookingService.UpdateAppointment(appointment);
             apirequest.then(function (response) {
                 if (response.data.Success == false) {
@@ -1209,8 +1208,6 @@
 
                 }
             });
-
-            //$('#spinnerModal').modal('hide');
         }
 
         $scope.DeleteAppointment = function (item) {

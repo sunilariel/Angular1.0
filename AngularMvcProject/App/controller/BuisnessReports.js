@@ -141,6 +141,7 @@
 
             $scope.StartDate = firstDay;
             $scope.EndDate = lastDay;
+            $('#spinnerModal').modal('show');
             var apirequest = bookingService.GetBusinessReport($routeParams.CompanyId, firstDay, lastDay);
             apirequest.then(function (response) {
 
@@ -153,7 +154,10 @@
                 $scope.TotalMessagesSent = response.data.TotalMessagesSent;
                 $scope.BookingReport.push({ "TotalBookings": response.data.TotalBookings, "TotalRevenue": response.data.TotalRevenue, "TotalCancellations": response.data.TotalCancellations, "TotalBookingMadeExternally": response.data.TotalBookingMadeExternally, "TotalBookingMadeInternally": response.data.TotalBookingMadeInternally, "TotalEmailSent": response.data.TotalEmailSent, "TotalMessagesSent": response.data.TotalMessagesSent })
                 $scope.BuisnessReportLoader = false;
-            })
+                $('#spinnerModal').modal('hide');
+            });
+
+           
         }
 
 
@@ -328,6 +332,7 @@
             }
             $scope.StartDate = firstDay;
             $scope.EndDate = lastDay;
+            $('#spinnerModal').modal('show');
             var apirequest = bookingService.GetBusinessReport($routeParams.CompanyId, firstDay, lastDay);
             apirequest.then(function (response) {
                 $scope.TotalBookings = response.data.TotalBookings;
@@ -339,7 +344,10 @@
                 $scope.TotalMessagesSent = response.data.TotalMessagesSent;
                 $scope.BookingReport.push({ "TotalBookings": response.data.TotalBookings, "TotalRevenue": response.data.TotalRevenue, "TotalCancellations": response.data.TotalCancellations, "TotalBookingMadeExternally": response.data.TotalBookingMadeExternally, "TotalBookingMadeInternally": response.data.TotalBookingMadeInternally, "TotalEmailSent": response.data.TotalEmailSent, "TotalMessagesSent": response.data.TotalMessagesSent })
                 $scope.BuisnessReportLoader = false;
-            })
+                $('#spinnerModal').modal('hide');
+            });
+
+            
         }
 
         $scope.GetTimeFrameReports = function () {
@@ -352,6 +360,7 @@
 
             $scope.StartDate = firstDay;
             $scope.EndDate = lastDay;
+            $('#spinnerModal').modal('show');
             var apirequest = bookingService.GetBusinessReport($routeParams.CompanyId, firstDay, lastDay);
             apirequest.then(function (response) {
                 $scope.TotalBookings = response.data.TotalBookings;
@@ -363,6 +372,7 @@
                 $scope.TotalMessagesSent = response.data.TotalMessagesSent;
                 $scope.BookingReport.push({ "TotalBookings": response.data.TotalBookings, "TotalRevenue": response.data.TotalRevenue, "TotalCancellations": response.data.TotalCancellations, "TotalBookingMadeExternally": response.data.TotalBookingMadeExternally, "TotalBookingMadeInternally": response.data.TotalBookingMadeInternally, "TotalEmailSent": response.data.TotalEmailSent, "TotalMessagesSent": response.data.TotalMessagesSent })
                 $scope.BuisnessReportLoader = false;
+                $('#spinnerModal').modal('hide');
             })
         }
 
