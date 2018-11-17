@@ -178,7 +178,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
             $scope.MessageText = "Fetching Data...";
             $scope.IsVisible = true;
 
-
+            $('#spinnerModal').modal('show');
 
 
 
@@ -208,11 +208,13 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
                         $scope.ListofWeekSchedule = response.data;
                         $scope.IsVisible = false;
                         $scope.showdashboardloader = false;
-                    })
+                        $('#spinnerModal').modal('hide');
+                    });
                 })
 
 
-            })
+            });
+
             var GetStaffProvider = bookingService.GetStaffData($routeParams.CompanyId);
             GetStaffProvider.then(function (response) {
                 ////debugger;
@@ -349,7 +351,7 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
         $scope.EditAppointment = function (item) {
             ////debugger;
-
+           
             $scope.timeInfoFrom = [];
 
             $scope.DashboardAppointmentDetail(item);
