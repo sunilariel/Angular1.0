@@ -1,0 +1,301 @@
+﻿<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+
+<div ng-controller="purchaseController" ng-init="init()">
+    <header class="top">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid" style="padding: 0;">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" ng-click="" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        <a class="logo-sec" href="https://ibb.co/dg9iJd"><img src="https://thumb.ibb.co/dg9iJd/booking_com.png" alt="booking_com" border="0"></a>
+                        <p><a ng-click="leftSideClick()"><img src="https://thumb.ibb.co/kbHWOd/icon.png" alt="icon" border="0"></a></p>
+                    </div>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="Mgt-upgrade_btn"><a href="#" title="">Upgrade</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fas fa-bell"></i> <span class="caret"></span> </a>
+                            <!-- /.dropdown-user -->
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li id="my_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-user bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">test@gmail.com</h3>
+                                            <p class="nav-dropdown-desc-text">Username/password</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="account_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-account-plan bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Account Plan</h3>
+                                            <p class="nav-dropdown-desc-text">Update account</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-cog bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Refresh</h3>
+                                            <p class="nav-dropdown-desc-text">Updates the Page</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="sign_out" class="nav-dropdown-li-last">
+                                    <a ng-click="Logout()" class="cursorhand">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-log-out bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Sign Out</h3>
+                                            <p class="nav-dropdown-desc-text">See you soon!</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="bookingMgt-icon-user nav_user_icon"></i> <span class="caret"></span> </a>
+                            <!-- /.dropdown-user -->
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li id="my_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-user bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">{{companyEmail}}</h3>
+                                            <p class="nav-dropdown-desc-text">Username/password</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="account_details">
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-account-plan bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Account Plan</h3>
+                                            <p class="nav-dropdown-desc-text">Update account</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-cog bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Refresh</h3>
+                                            <p class="nav-dropdown-desc-text">Updates the Page</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li id="sign_out" class="nav-dropdown-li-last">
+                                    <a ng-click="Logout()" class="cursorhand">
+                                        <div class="nav-dropdown-icon-holder"> <span class="bookingMgt-icon-log-out bookingMgt-icon-fsize"></span> </div>
+                                        <div class="nav-dropdown-desc-holder">
+                                            <h3 class="nav-dropdown-desc-header">Sign Out</h3>
+                                            <p class="nav-dropdown-desc-text">See you soon!</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="clearfix"> </div>
+        <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:65px;right:0;left:0;bottom:0;margin:0 auto;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da;color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+    </header>
+    <div class="left_sidebar sidebtipt show-leftbar">
+        <ul class="nav">
+            <li class="" id="bookingMgt-dashboard">
+                <a ng-click="redirecttodashboard()" style="cursor:pointer;" data-toggle="tab" class="" id="startDashboard"><i class="fas fa-home"></i><small>Dashboard</small></a>
+            </li>
+            <li class="" id="bookingMgt-calendar">
+                <a ng-click="redirectToCalendar()" data-toggle="tab" class="" id="startCalendar"><i class="fas fa-calendar-alt"></i><small>Calendar</small></a>
+            </li>
+            <li class="" id="bookingMgt-customers" title="" ng-if="IsAdmin">
+                <a ng-click="redirecttoCustomer()" style="cursor:pointer;" data-toggle="tab" class="" id="side-nav-customers"><i class="fas fa-user-friends"></i><small>Customers</small></a>
+            </li>
+            <li class="" id="bookingMgt-purchase" title="" ng-if="IsAdmin">
+                <a ng-click="redirecttoPurchase()" style="cursor:pointer;" data-toggle="tab" class="" id="side-nav-purchase"><i class="fas fa-dollar-sign"></i><small>Purchase</small></a>
+            </li>
+            <li class="bookingMgt-settings_new dropdown" ng-class="{'open' : toggle }" id="bookingMgt-settings" ng-if="IsAdmin">
+                <a ng-click="toggle = !toggle" class="aaaaa" data-toggle="collapse" data-target="#keySettings"><i class="fas fa-cog"></i><small>Settings</small></a>
+                <ul class="collapse bbbbb" id="keySettings">
+                    <li ng-click="RedirecttoStaff()" id="redirecttostaffactive" class=""><a class="staffCss">Staff</a></li>
+                    <li ng-click="redirecttoServices()" id="redirecttoservicesactive"><a class="staffCss">Service</a></li>
+
+                    <li><a class="listbborder cursorhand staffCss" data-toggle="modal" data-target="#myModal">Business</a></li>
+
+                </ul>
+            </li>
+            <li class="reports bookingMgt-settings_new dropdown" id="bookingMgt-reports" ng-if="IsAdmin">
+                <a ng-click="" class="aaaaa" data-toggle="collapse" data-target="#keyReports"><i class="fas fa-chart-line"></i><small>Reports</small></a>
+                <ul class="collapse bbbbb" id="keyReports">
+                    <li ng-click="RedirecttoReport()" id="active-business"><a class="staffCss">Business</a></li>
+                    <li ng-click="RedirecttoResourceReport()" id="active-resource"><a class="staffCss">Resource</a></li>
+                    <li ng-click="RedirecttoServiceReport()" id="active-service"><a class="staffCss">Service</a></li>
+                    <li ng-click="RedirecttoCustomerReport()" id="bookinhMgt-paymentMainTab"><a class="staffCss">Customer</a></li>
+                    <li ng-click="redirecttoNotifications()" id="redirecttonotificationsactive"><a class="staffCss">Payments</a></li>
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="modal fade booking_div" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Booking Page</h4>
+                </div>
+                <div style="width: 100%;text-align: center;position: absolute;z-index: 999999; top:15px;right:0;left:0;bottom:0;margin:0 auto;" ng-if="IsVisible"><span class="noDisplay" style="background:#2089da; color:#fff; padding:5px 10px; border-radius:0 0 2px 2px;" ng-bind="MessageText"></span></div>
+                <div class="modal-body">
+                    <div class="side_left sidebrpadding">
+                        <ul class="list-unstyled">
+                            <li><a href="" title=""> <span><i class="fa fa-home sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">OVERVIEW</span></span></a></li>
+                            <li><a href="" title=""> <span><i class="fa fa-building-o sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">COMPANY DETAILS</span></span></a></li>
+                            <li><a href="" title=""> <span><i class="fa fa-clock-o sidebaricon active" aria-hidden="true"></i><span class="sidebarcntent active">BUSINESS HOURS</span></span></a></li>
+                            <li><a href="" title=""> <span><i class="fa fa-exclamation-triangle sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">BOOKING POLICIES</span></span></a></li>
+                            <li><a href="" title=""> <span><i class="fa fa-pencil-square-o sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">CUSTOMIZATION</span></span></a></li>
+                            <li><a href="" title=""> <span><i class="fa fa-star-o sidebaricon" aria-hidden="true"></i><span class="sidebarcntent">REVIEW</span></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="business_right">
+                        <h3 class="businesshrs">Business Operating Hours</h3>
+                        <div class="drop_select cabtnstyle">
+                            <label>Time Zone</label>
+                            <select class="form-control">
+                                <option value="(GMT +02:00) Central European Time - Andorra">(GMT +02:00) Central European Time - Andorra</option>
+                                <option value="(GMT +02:00) Central European Time - Brussels">(GMT +02:00) Central European Time - Brussels</option>
+                                <option value="(GMT +02:00) Central European Time - Rome">(GMT +02:00) Central European Time - Rome</option>
+                                <option value="(GMT +02:00) Central European Time - Vienna">(GMT +02:00) Central European Time - Vienna</option>
+                            </select>
+                        </div>
+                        <div class="staffWorkingHoursSec">
+                            <div ng-include="'App/View/Shared/_BusinessHoursPopup.html'"></div>
+
+                            <div class="staff-hours-note popuopf">
+                                <span class="pfcntent">To change staff working hours and their availability in the calendar, <a id="note_navigate" href="javascript:void(0);">click here</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right_section rightnavBarForMobile" id="settings" ng-class="{'rightFullWidth': isActive}">
+        <div class="tabs-_section" style="width: 100px;">
+            <div class="section_tab">
+                <ul class="nav nav-tab nav-stacked">
+                    <li id="redirecttoservicesactive" class="active">
+                        <a ng-click="redirecttoServices()" class="cursorhand servics" data-toggle="tab">
+                            Purchases
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="booking-settingsTabContent" class="tab-content full-height tabcontent row row_section">
+                <div class="full-height servicesTabs" id="services">
+
+                    <div class=" categoryRightSec allServiceSec" ng-hide="showAllServicesDiv">
+                        <div class="customerProfileDiv">
+                            <div class="DetailDiv">
+
+                                <div class="sampleServiceSec">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="sampleServicediv service-table_scrool">
+                                                <table class="table table-bordered table-striped table_control">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Purchase Type</th>
+                                                            <th>Cost</th>
+                                                            <th>Payment Status</th>
+                                                            <th>Purchase Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="servicedetail in AllServices">
+                                                            <td>{{servicedetail.Name}}</td>
+                                                            <td>£{{servicedetail.Cost}}</td>
+                                                            <td>{{servicedetail.PaymentStatusDisplayName}}</td>
+                                                            <td>{{servicedetail.CreationDate | date :'EEE MMM d, y'}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
