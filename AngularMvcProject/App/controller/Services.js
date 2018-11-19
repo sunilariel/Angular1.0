@@ -9,6 +9,9 @@
         $scope.redirectToCalendar = function () {
             $location.path("/Calendar/" + $routeParams.CompanyId);
         }
+        $scope.redirecttoPurchase = function () {
+            $location.path("/Purchase/" + $routeParams.CompanyId);
+        }
 
         $scope.RedirecttoStaff = function () {
             $location.path("/Setting/" + $routeParams.CompanyId);

@@ -218,6 +218,7 @@
     <Content Include="App\controller\Customer.js" />
     <Content Include="App\controller\CustomerReports.js" />
     <Content Include="App\controller\dashboard.js" />
+    <Content Include="App\controller\Purchase.js" />
     <Content Include="App\controller\Payments.js" />
     <Content Include="App\controller\ResourceReports.js" />
     <Content Include="App\controller\ServiceReports.js" />
@@ -228,6 +229,7 @@
     <Content Include="App\controller\wizard.js" />
     <Content Include="App\View\Calendar\Calendar.html" />
     <Content Include="App\View\Customer\customer.html" />
+    <Content Include="App\View\Purchase\Purchase.html" />
     <Content Include="App\View\Reports\BuisnessReports.html" />
     <Content Include="App\View\Reports\CustomerReports.html" />
     <Content Include="App\View\Reports\Payments.html" />

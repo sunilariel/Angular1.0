@@ -53,6 +53,9 @@
     $scope.redirecttoCustomer = function () {
         $location.path("/customer/" + $routeParams.CompanyId);
     }
+    $scope.redirecttoPurchase = function () {
+        $location.path("/Purchase/" + $routeParams.CompanyId);
+    }
 
     $scope.redirectToCalendar = function () {
 

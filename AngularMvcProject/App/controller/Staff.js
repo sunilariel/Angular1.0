@@ -14,6 +14,10 @@
         $scope.redirectToCalendar = function () {
             $location.path("/Calendar/" + $routeParams.CompanyId);
         }
+        $scope.redirecttoPurchase = function () {
+            $location.path("/Purchase/" + $routeParams.CompanyId);
+        }
+
         $scope.redirecttoNotifications = function () {
             $location.path("/Payments/" + $routeParams.CompanyId);
             angular.element(document.querySelector("#redirecttonotificationsactive")).removeClass('active');

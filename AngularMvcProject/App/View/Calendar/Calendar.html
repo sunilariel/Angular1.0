@@ -133,6 +133,9 @@
             <li class="" id="bookingMgt-customers" title="" ng-if="IsAdmin">
                 <a ng-click="redirecttoCustomer()" style="cursor:pointer;" data-toggle="tab" class="" id="side-nav-customers"><i class="fas fa-user-friends"></i><small>Customers</small></a>
             </li>
+            <li class="" id="bookingMgt-purchase" title="" ng-if="IsAdmin">
+                <a ng-click="redirecttoPurchase()" style="cursor:pointer;" data-toggle="tab" class="" id="side-nav-purchase"><i class="fas fa-dollar-sign"></i><small>Purchase</small></a>
+            </li>
             <li class="bookingMgt-settings_new dropdown" ng-class="{'open' : toggle }" id="bookingMgt-settings" ng-if="IsAdmin">
                 <a ng-click="toggle = !toggle" class="aaaaa" data-toggle="collapse" data-target="#keySettings"><i class="fas fa-cog"></i><small>Settings</small></a>
                 <ul class="collapse bbbbb" id="keySettings">

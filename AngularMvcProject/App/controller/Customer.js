@@ -101,6 +101,9 @@
         $scope.redirectToCalendar = function () {
             $location.path("/Calendar/" + $routeParams.CompanyId);
         }
+        $scope.redirecttoPurchase = function () {
+            $location.path("/Purchase/" + $routeParams.CompanyId);
+        }
 
         $scope.redirecttodashboard = function () {
 

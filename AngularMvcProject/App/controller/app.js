@@ -17,6 +17,10 @@ app.config(function ($routeProvider) {
         templateUrl: "App/View/Customer/customer.html",
         controller: "customerController"
     })
+    .when("/Purchase/:CompanyId", {
+        templateUrl: "App/View/Purchase/Purchase.html",
+        controller: "purchaseController"
+    })
     .when("/Setting/:CompanyId", {
         templateUrl: "App/View/Setting/Staff.html",
         controller:"staffController"

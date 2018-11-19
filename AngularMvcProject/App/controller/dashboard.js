@@ -58,11 +58,14 @@ app.controller('dashboardController', ['$scope', '$timeout', '$window', '$http',
 
         }
 
+        $scope.redirecttoPurchase = function () {
+            $location.path("/Purchase/" + $routeParams.CompanyId);
+        }
+
         $scope.RedirecttoStaff = function () {
             $location.path("/Setting/" + $routeParams.CompanyId);
         }
-
-
+        
         $scope.redirecttoServices = function () {
             $location.path("/Services/" + $routeParams.CompanyId);
             angular.element(document.querySelector("#redirecttostaffactive")).removeClass('active');
