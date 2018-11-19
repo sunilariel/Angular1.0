@@ -120,6 +120,11 @@
 
                 $scope.companyEmail = response.data.Email;
             });
+
+            var getOpeningHoursResponse = bookingService.GetOpeningHours($routeParams.CompanyId);
+            getOpeningHoursResponse.then(function (response) {
+                $scope.businessHourInfo = response.data;
+            });
         }
 
         $scope.showServicePage = function () {
@@ -184,6 +189,95 @@
             var apirequest = bookingService.SignOut();
             sessionStorage.removeItem('userInfo-token');
             $location.path("/signin");
+        }
+
+        $scope.SetWorkingHours = function (timedata) {
+            ////debugger;
+            var buisnesshour = {
+                Id: "",
+                CompanyId: $routeParams.CompanyId,
+                Start: timedata.timeFrom,
+                End: timedata.timeTo,
+                NameOfDay: timedata.day,
+                IsOffAllDay: timedata.available == true ? false : true,
+                CreationDate: new Date(),
+            }
+
+            var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
+            apirequest.then(function (response) {
+                if (response.data.Success == true) {
+                    $scope.MessageText = "Saving buisness Hours";
+                    $scope.IsVisible = true;
+                    $timeout(function () {
+                        $scope.MessageText = "Buisness Hours Saved"
+                        $timeout(function () {
+                            $scope.IsVisible = false;
+                        }, 1000)
+                    }, 800)
+                }
+            })
+        }
+
+        $scope.timeInfFrom = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+
+
+        $scope.timeInfoTo = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+
+
+        $scope.switchOnOff = function (item) {
+            //debugger;
+            for (var i = 0; i < $scope.businessHourInfo.length; i++) {
+                if (item.NameOfDay == $scope.businessHourInfo[i].NameOfDay) {
+                    if (item['IsOpen'] == true) {
+                        $scope.businessHourInfo[i].IsOffAllDay = true;
+                        $scope.businessHourInfo[i].IsOpen = false;
+
+                        var buisnesshour = {
+                            Id: "",
+                            CompanyId: $routeParams.CompanyId,
+                            Start: item.Start,
+                            End: item.End,
+                            NameOfDay: item.NameOfDay,
+                            IsOffAllDay: true,
+                            CreationDate: new Date(),
+                        }
+                    }
+                    else {
+                        $scope.businessHourInfo[i].IsOffAllDay = false;
+                        $scope.businessHourInfo[i].IsOpen = true;
+
+                        var buisnesshour = {
+                            Id: "",
+                            CompanyId: $routeParams.CompanyId,
+                            Start: item.Start,
+                            End: item.End,
+                            NameOfDay: item.NameOfDay,
+                            IsOffAllDay: false,
+                            CreationDate: new Date(),
+                        }
+                    }
+                    break;
+                }
+            }
+            var apirequest = bookingService.SetCompanyWorkingHours(buisnesshour);
+            apirequest.then(function (response) {
+                //debugger;
+                if (response.data.Success == true) {
+                    $scope.MessageText = "Saving buisness Hours";
+                    $scope.IsVisible = true;
+                    $timeout(function () {
+                        $scope.MessageText = "Buisness Hours Saved"
+                        $timeout(function () {
+                            $scope.IsVisible = false;
+                        }, 1000)
+                    }, 800);
+
+                    var GetOpeningHoursResponse = bookingService.GetOpeningHours($routeParams.CompanyId);
+                    GetOpeningHoursResponse.then(function (response) {
+                        $scope.businessHourInfo = response.data;
+                    })
+                }
+            })
         }
 
     }]);
