@@ -199,6 +199,25 @@ app.service("bookingService", function ($http, $window) {
         return response;
     }
 
+    this.BuyProduct = function (dataobject) {
+
+        var response = $http({
+            method: 'post',
+            url: "/Customer/BuyProduct",
+            data: { productPurchaseData: dataobject },
+            headers: GetHeader()
+        })
+        return response;
+    }
+    this.GetAllProducts = function () {
+
+        var response = $http({
+            method: 'post',
+            url: '/Customer/GetAllProducts',
+            headers: GetHeader()
+        })
+        return response;
+    }
 
     this.GetAllCustomer = function (dataobject) {
 

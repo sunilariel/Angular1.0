@@ -92,6 +92,35 @@ namespace AngularMvcProject.Controllers
         }
 
         [HttpPost]
+        public string BuyProduct(ProductPurchaseData productPurchaseData)
+        {
+            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + productPurchaseData.Url;
+            //string result = "";
+            //var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
+            //httpWebRequest.ContentType = "application/json";
+            //httpWebRequest.Method = "POST";
+            //httpWebRequest.ProtocolVersion = HttpVersion.Version10;
+            //httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
+
+            //using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            //{
+
+            //    var jsonString = new JavaScriptSerializer().Serialize(productPurchaseData.ReqStaffData);
+            //    streamWriter.Write(jsonString);
+            //    streamWriter.Flush();
+            //    streamWriter.Close();
+            //}
+
+            //var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            //using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            //{
+            //    result = streamReader.ReadToEnd();
+            //}
+            
+            return "";
+        }
+
+        [HttpPost]
         public string GetAllCustomer(String id)
         {
             string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/customer/GetAllCustomers?companyId=" + id;
@@ -109,6 +138,16 @@ namespace AngularMvcProject.Controllers
             }
             return result;
         }
+
+        [HttpPost]
+        public string GetAllProducts()
+        {
+            IList<Product> products = new List<Product>();
+            products.Add(new Product { Id = 1, Name = "SMS Package", Cost = 10 });
+            return JsonConvert.SerializeObject(products);
+
+        }
+
         [HttpPost]
         public string GetAllCompanyPurchases(String id)
         {

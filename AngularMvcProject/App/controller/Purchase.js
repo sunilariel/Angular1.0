@@ -38,15 +38,7 @@
             angular.element(document.querySelector(".row_section")).removeClass('hidden');
             $scope.showAllServicesDiv = true;
             $scope.hidecategoryList = false;
-            ////hidecategoryList
-            ////$scope.showAddServiceDiv = true;
-            //$scope.showAllServicesDiv = true;
-            ////$scope.EditServiceDiv = true;
-            ////$scope.showCategoryServicesDiv = true;
-            //$scope.hidecategoryList = true;
-            ////$scope.showcategoryList = true;           
         }
-
         $scope.RedirecttoReport = function () {
             $location.path("/BuisnessReports/" + $routeParams.CompanyId);
             angular.element(document.querySelector("#active-business")).addClass('active');
@@ -79,9 +71,6 @@
             angular.element(document.querySelector("#active-customer")).addClass('active');
         }
         $scope.leftSideClick = function () {
-            //angular.element(document.querySelector(".left_sidebar")).addClass('hidden');
-            //$scope.custom = $scope.custom === false ? true : false;
-
             var state = $(this).data('state');
 
             state = !state;
@@ -95,29 +84,20 @@
             $(this).data('state', state);
 
             $scope.isActive = !$scope.isActive;
-            //angular.element(document.querySelector(".left_sidebar")).removeClass('hijhko');
-
-            //angular.element(document.querySelector(".left_sidebar")).css("display", "block");
-
         }
         $scope.init = function () {
             $scope.IsAdmin = bookingService.IsAdmin();
-            //$scope.custom = true;
-
-
             $(".left_sidebar").removeClass("show-leftbar");
             var tttt = angular.element(document.querySelector("#redirecttoservicesactive"));
             tttt.addClass('active');
             angular.element(document.querySelector("#redirecttostaffactive")).removeClass('active');
 
             //Get All Services of particular CompanyId//
-            var responsedata = bookingService.GetAllCompanyPurchases($routeParams.CompanyId);
-            responsedata.then(function (response) {
+            var allProductsResponsedata = bookingService.GetAllProducts();
+            allProductsResponsedata.then(function (response) {
 
-                $scope.AllServices = [];
-                $scope.AllServices = response.data;
-
-
+                $scope.AllProducts = [];
+                $scope.AllProducts = response.data;
             });
             var CompanyDetails = bookingService.GetCompanyDetails($routeParams.CompanyId);
             CompanyDetails.then(function (response) {
@@ -130,62 +110,58 @@
                 $scope.businessHourInfo = response.data;
             });
         }
+     
+        $scope.BuyProduct = function (form) {
 
-        $scope.showServicePage = function () {
-            debugger;
-            angular.element(document.querySelector(".row_section")).removeClass('hidden');
-            $scope.showAllServicesDiv = true;
-            $scope.hidecategoryList = false;
-            //$scope.init();
-        }
-        $scope.showServiceCPage = function () {
-            debugger;
-            $scope.init();
-            angular.element(document.querySelector(".row_section")).removeClass('hidden');
-            $scope.showAllServicesDiv = true;
-            $scope.hidecategoryList = false;
-            $scope.showCategoryServicesDiv = true;
-            $scope.ServiceDividedByCategory = null;
-            //$scope.init();
-        }
+            //if (form.$invalid == true) {
+            //    if (form.SelectedProduct.$invalid == true) {
+            //        form.SelectedProduct.$setTouched();
+            //        form.SelectedProduct.$touched = true;
+            //        angular.element(document.querySelector("#customerName_color")).removeClass("ng-hide");
 
-        $scope.ShowCategoryService = function (item) {
-            debugger;
-            $scope.init();
-            angular.element(document.querySelector(".row_section")).addClass('hidden');
-            //angular.element(document.querySelector("#allservice")).removeClass("selected");
-            $scope.CategoryName = item.Name;
-            $scope.CategoryId = item.Id;
-            var responsedata = bookingService.GetAllServiceForCategory(item.Id, $routeParams.CompanyId);
-            responsedata.then(function (response) {
+            //        return false;
+            //    }
+            //}
 
-                if (response.data.length > 0) {
-                    $scope.ServiceDividedByCategory = [];
-                    $scope.ServiceDividedByCategory = response.data;
+            if (form.$invalid == true) {
+                if (form.cost.$invalid == true) {
+                    form.cost.$setTouched();
+                    form.cost.$touched = true;
+                    angular.element(document.querySelector("#customerName_color")).removeClass("ng-hide");
+
+                    return false;
                 }
-                else {
-                    $scope.ServiceDividedByCategory = [];
-                    $scope.CategoryId = item.Id;
-                    $scope.CategoryName = item.Name;
+            }
+
+            var obj = {
+                Url: '/api/customer/BuyProduct',
+                ReqStaffData: {
+                    "Id": $scope.SelectedProduct,
+                    "Cost": $scope.cost
                 }
+            }
+
+            var createcustomer = bookingService.BuyProduct(obj);
+            createcustomer.then(function (response) {
+                //debugger;
+                //if (response.data.ReturnObject.BuyProductId == 0)
+                {
+                    //debugger;
+                    $scope.MessageText = "Request Submitted!";
+                    $scope.IsVisible = true;
+                    $timeout(function () {
+                        $scope.IsVisible = true;
+                        $timeout(function () {
+                            $scope.IsVisible = false;
+                        }, 800)
+                    }, 1000)
+                }
+            }, function () {
+                //debugger;
+                $scope.showcustomer = false;
+                alert('Error in submitting request');
             });
-
-            $scope.showAddServiceDiv = true;
-            $scope.showAllServicesDiv = true;
-            $scope.EditServiceDiv = true;
-            $scope.showCategoryServicesDiv = false;
-        }
-
-        $scope.showcategorypopups = function myfunction() {
-            $scope.CategoryName = "";
-            return !$scope.showcategorypopup;
-
-        }
-
-        $scope.EditService = function (item) {
-            alert("You will be contacted soon");
-
-        }
+        };
 
         $scope.Logout = function () {
 

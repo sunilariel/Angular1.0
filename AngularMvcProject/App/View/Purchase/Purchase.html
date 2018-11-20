@@ -211,50 +211,42 @@
                 <ul class="nav nav-tab nav-stacked">
                     <li id="redirecttoservicesactive" class="active">
                         <a ng-click="redirecttoServices()" class="cursorhand servics" data-toggle="tab">
-                            Purchases
+                            Purchase
                         </a>
                     </li>
                 </ul>
             </div>
+            
+            <div class="col-md-12">
+                <form ng-submit="BuyProduct(createCustomerform)" name="createCustomerform" novalidate class="css-form">
+                    <div id="addCustomerPopup" class="addCustomer bottomArrow addServices appointService">
+                        <h3 class="addCustomerTitle">Buy Product</h3>
+                        <div class="addcustomerContent">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="SelectedProduct" ng-change="ResourceChange(SelectedResource)">
+                                    <option ng-repeat="item in AllProducts" value="{{item.Id}}">{{item.Name}}</option>
+                                </select>
+                                </br>
+                                <div ng-class="{ 'has-error':createCustomerform.cost.$invalid && !createCustomerform.cost.$pristine }">
+                                    <p style="color:#a94442" id="customerName_color" ng-show="createCustomerform.cost.$dirty && createCustomerform.cost.$error.required"
+                                       class="help-block">Name is required</p>
+                                    <input id="cost" class="form-control" type="text" placeholder="Amount" name="cost" ng-model="cost" required>
+                                    <br />
+                                </div>
+                                <br />
+                            </div>
 
-            <div id="booking-settingsTabContent" class="tab-content full-height tabcontent row row_section">
-                <div class="full-height servicesTabs" id="services">
-
-                    <div class=" categoryRightSec allServiceSec" ng-hide="showAllServicesDiv">
-                        <div class="customerProfileDiv">
-                            <div class="DetailDiv">
-
-                                <div class="sampleServiceSec">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="sampleServicediv service-table_scrool">
-                                                <table class="table table-bordered table-striped table_control">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Purchase Type</th>
-                                                            <th>Cost</th>
-                                                            <th>Payment Status</th>
-                                                            <th>Purchase Date</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr ng-repeat="servicedetail in AllServices">
-                                                            <td>{{servicedetail.Name}}</td>
-                                                            <td>£{{servicedetail.Cost}}</td>
-                                                            <td>{{servicedetail.PaymentStatusDisplayName}}</td>
-                                                            <td>{{servicedetail.CreationDate | date :'EEE MMM d, y'}}</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="row button_row">
+                                <div class="col-md-6 col-xs-6 text-right">
+                                    <button id="addnewCustomer" style="max-width: 105px;" type="submit" class="btn  add_category_btn addCustomerbtn">Buy</button>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <button id="cancelCustomer" style="max-width: 105px;" class="btn btn-default cateCancelbtn Cancel" type="button" ng-click="CustomerCancel(createCustomerform)" ng-hide="CustomerCount==0">Cancel</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
+                </form>
             </div>
         </div>
     </div>

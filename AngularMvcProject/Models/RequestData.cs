@@ -21,6 +21,21 @@ namespace AngularMvcProject.Models
         public string Password { get; set; }        
         public string CreationDate { get; set; }
     }
+
+    public class ProductPurchaseData
+    {
+        public string Url { get; set; }
+
+        public Product ReqStaffData { get; set; }
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public decimal Cost { get; set; }
+        public string Name { get; set; }
+    }
+
     public class CreateAccount
     {
         public string Url { get; set; }
