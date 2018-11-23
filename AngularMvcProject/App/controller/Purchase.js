@@ -85,7 +85,9 @@
 
             $scope.isActive = !$scope.isActive;
         }
+        
         $scope.init = function () {
+
             $scope.IsAdmin = bookingService.IsAdmin();
             $(".left_sidebar").removeClass("show-leftbar");
             var tttt = angular.element(document.querySelector("#redirecttoservicesactive"));
@@ -110,7 +112,26 @@
                 $scope.businessHourInfo = response.data;
             });
         }
-     
+
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+            //image: '/img/documentation/checkout/marketplace.png',
+            locale: 'auto',
+            token: function (token) {
+                // Use the token to create the charge with a server-side script.
+                // You can access the token ID with `token.id`
+            }
+        });
+
+        $scope.MakePayment = function () {
+	        handler.open({
+	            name: 'Demo Site',
+	            description: '2 widgets',
+	            currency: 'gbp',
+	            amount: $scope.cost * 100
+	        });
+        }
+
         $scope.BuyProduct = function (form) {
 
             //if (form.$invalid == true) {
@@ -132,6 +153,8 @@
                     return false;
                 }
             }
+
+            $scope.MakePayment();
 
             var obj = {
                 Url: '/api/customer/BuyProduct',
