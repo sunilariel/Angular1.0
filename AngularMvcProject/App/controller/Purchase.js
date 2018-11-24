@@ -143,7 +143,7 @@
                 CompanyPurchase: {
                     "ProductId": $scope.SelectedProduct,
                     "CompanyId": $routeParams.CompanyId,
-                    "Name": "empty",
+                    "Name": $scope.SelectedProduct,
                     "Cost": $scope.cost,
                     "StripeEmail": $scope.stripEmail,
                     "StripeToken": $scope.stripeId,
