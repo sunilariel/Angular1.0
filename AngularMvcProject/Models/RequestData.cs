@@ -26,10 +26,10 @@ namespace AngularMvcProject.Models
     {
         public string Url { get; set; }
 
-        public Product ReqStaffData { get; set; }
+        public CompanyPurchase CompanyPurchase { get; set; }
     }
 
-    public class Product
+    public class CompanyPurchase
     {
         public string StripeEmail { get; set; }
         public string StripeToken { get; set; }

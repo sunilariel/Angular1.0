@@ -106,7 +106,7 @@ namespace AngularMvcProject.Controllers
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
 
-                var jsonString = new JavaScriptSerializer().Serialize(productPurchaseData.ReqStaffData);
+                var jsonString = new JavaScriptSerializer().Serialize(productPurchaseData.CompanyPurchase);
                 streamWriter.Write(jsonString);
                 streamWriter.Flush();
                 streamWriter.Close();
@@ -143,10 +143,21 @@ namespace AngularMvcProject.Controllers
         [HttpPost]
         public string GetAllProducts()
         {
-            IList<Product> products = new List<Product>();
-            products.Add(new Product { Id = 1, Name = "SMS Package", Cost = 10 });
-            return JsonConvert.SerializeObject(products);
+            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/product/GetAll";
+            string result = "";
 
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "GET";
+            httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            return result;
         }
 
         [HttpPost]

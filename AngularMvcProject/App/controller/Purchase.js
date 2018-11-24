@@ -140,7 +140,7 @@
         {
             var obj = {
                 Url: '/api/customer/BuyProduct',
-                ReqStaffData: {
+                CompanyPurchase: {
                     "ProductId": $scope.SelectedProduct,
                     "CompanyId": $routeParams.CompanyId,
                     "Name": "empty",
