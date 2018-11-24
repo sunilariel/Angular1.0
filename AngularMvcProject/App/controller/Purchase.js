@@ -114,22 +114,62 @@
         }
 
         var handler = StripeCheckout.configure({
-            key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+            key: 'pk_test_us6uNLBtIcJ1UUJddQWxFmOy',
             //image: '/img/documentation/checkout/marketplace.png',
             locale: 'auto',
             token: function (token) {
                 // Use the token to create the charge with a server-side script.
                 // You can access the token ID with `token.id`
+                $scope.stripeId = token.id;
+                $scope.stripEmail = token.email;
+                console.log(token);
+                $scope.SubmitPurchaseRequest();
             }
         });
 
-        $scope.MakePayment = function () {
+        $scope.DoStripeCheckout = function () {
 	        handler.open({
 	            name: 'Demo Site',
 	            description: '2 widgets',
 	            currency: 'gbp',
 	            amount: $scope.cost * 100
 	        });
+        }
+
+        $scope.SubmitPurchaseRequest = function ()
+        {
+            var obj = {
+                Url: '/api/customer/BuyProduct',
+                ReqStaffData: {
+                    "ProductId": $scope.SelectedProduct,
+                    "CompanyId": $routeParams.CompanyId,
+                    "Name": "empty",
+                    "Cost": $scope.cost,
+                    "StripeEmail": $scope.stripEmail,
+                    "StripeToken": $scope.stripeId,
+                }
+            }
+
+            var createcustomer = bookingService.BuyProduct(obj);
+            createcustomer.then(function (response) {
+                //debugger;
+                //if (response.data.ReturnObject.BuyProductId == 0)
+                {
+                    //debugger;
+                    $scope.MessageText = "Request Submitted!";
+                    $scope.IsVisible = true;
+                    $timeout(function () {
+                        $scope.IsVisible = true;
+                        $timeout(function () {
+                            $scope.IsVisible = false;
+                        }, 800)
+                    }, 1000)
+                }
+            }, function () {
+                //debugger;
+                $scope.showcustomer = false;
+                alert('Error in submitting request');
+            });
         }
 
         $scope.BuyProduct = function (form) {
@@ -154,36 +194,7 @@
                 }
             }
 
-            $scope.MakePayment();
-
-            var obj = {
-                Url: '/api/customer/BuyProduct',
-                ReqStaffData: {
-                    "Id": $scope.SelectedProduct,
-                    "Cost": $scope.cost
-                }
-            }
-
-            var createcustomer = bookingService.BuyProduct(obj);
-            createcustomer.then(function (response) {
-                //debugger;
-                //if (response.data.ReturnObject.BuyProductId == 0)
-                {
-                    //debugger;
-                    $scope.MessageText = "Request Submitted!";
-                    $scope.IsVisible = true;
-                    $timeout(function () {
-                        $scope.IsVisible = true;
-                        $timeout(function () {
-                            $scope.IsVisible = false;
-                        }, 800)
-                    }, 1000)
-                }
-            }, function () {
-                //debugger;
-                $scope.showcustomer = false;
-                alert('Error in submitting request');
-            });
+            $scope.DoStripeCheckout();
         };
 
         $scope.Logout = function () {

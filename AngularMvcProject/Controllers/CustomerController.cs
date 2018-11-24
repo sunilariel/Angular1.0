@@ -94,29 +94,30 @@ namespace AngularMvcProject.Controllers
         [HttpPost]
         public string BuyProduct(ProductPurchaseData productPurchaseData)
         {
-            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + productPurchaseData.Url;
-            //string result = "";
-            //var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
-            //httpWebRequest.ContentType = "application/json";
-            //httpWebRequest.Method = "POST";
-            //httpWebRequest.ProtocolVersion = HttpVersion.Version10;
-            //httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
+            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/CompanyPurchase/Create";
 
-            //using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            //{
+            string result = "";
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+            httpWebRequest.ProtocolVersion = HttpVersion.Version10;
+            httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
 
-            //    var jsonString = new JavaScriptSerializer().Serialize(productPurchaseData.ReqStaffData);
-            //    streamWriter.Write(jsonString);
-            //    streamWriter.Flush();
-            //    streamWriter.Close();
-            //}
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
 
-            //var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            //using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            //{
-            //    result = streamReader.ReadToEnd();
-            //}
-            
+                var jsonString = new JavaScriptSerializer().Serialize(productPurchaseData.ReqStaffData);
+                streamWriter.Write(jsonString);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
             return "";
         }
 
