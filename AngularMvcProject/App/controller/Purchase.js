@@ -130,7 +130,8 @@
         $scope.DoStripeCheckout = function () {
 	        handler.open({
 	            name: 'Demo Site',
-	            description: '2 widgets',
+                description: '2 widgets',
+                email: $scope.companyEmail,
 	            currency: 'gbp',
 	            amount: $scope.cost * 100
 	        });
