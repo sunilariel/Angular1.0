@@ -204,9 +204,42 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AllAppointments.cs" />
+    <Compile Include="Models\AppointmentDetails.cs" />
+    <Compile Include="Models\AssignedServiceStatus.cs" />
+    <Compile Include="Models\AssignStaff.cs" />
+    <Compile Include="Models\AssignStaffRequest.cs" />
+    <Compile Include="Models\BookAppointment.cs" />
+    <Compile Include="Models\BreakTime.cs" />
+    <Compile Include="Models\BreakTimeHoursofEmployee.cs" />
+    <Compile Include="Models\BusinessHourInfo.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CompanyPurchase.cs" />
+    <Compile Include="Models\CreateAccount.cs" />
     <Compile Include="Models\CustomerVM.cs" />
+    <Compile Include="Models\CustomTimeOff.cs" />
+    <Compile Include="Models\DeAllocateServiceEmployees.cs" />
+    <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\EmployeeServicedata.cs" />
+    <Compile Include="Models\EmployeeWorkingHours.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginInfo.cs" />
+    <Compile Include="Models\Notes.cs" />
+    <Compile Include="Models\ProductPurchaseData.cs" />
+    <Compile Include="Models\RequestAddService.cs" />
     <Compile Include="Models\RequestData.cs" />
+    <Compile Include="Models\RequestStaffData.cs" />
+    <Compile Include="Models\ReqWorkingHours.cs" />
+    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\Services.cs" />
+    <Compile Include="Models\SetBreak.cs" />
+    <Compile Include="Models\StaffData.cs" />
+    <Compile Include="Models\TimeOff.cs" />
+    <Compile Include="Models\TimeSchedule.cs" />
+    <Compile Include="Models\UpdateBookAppointment.cs" />
+    <Compile Include="Models\UpdateTimeOff.cs" />
+    <Compile Include="Models\WorkingHours.cs" />
+    <Compile Include="Models\WorkingHoursofEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
