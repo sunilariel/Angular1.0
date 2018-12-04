@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 
 namespace AngularMvcProject.Controllers
 {
     public class ReportController : Controller
     {
-        // GET: Report
         [HttpPost]
         public string GetBusinessReport(string CompanyId, string StartDate, string EndDate)
         {
@@ -39,6 +34,7 @@ namespace AngularMvcProject.Controllers
                 return e.ToString();
             }
         }
+
         [HttpPost]
         public string GetResourceReportsBetweenDates(string CompanyId, string EmployeeIdArray, string StartDate, string EndDate)
         {

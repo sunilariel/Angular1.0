@@ -2,16 +2,13 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using System.Configuration;
-using System.Globalization;
-using System.Text.RegularExpressions;
-using AngularMvcProject.Extensions;
 
 namespace AngularMvcProject.Controllers
 {
@@ -201,8 +198,6 @@ namespace AngularMvcProject.Controllers
         [HttpPost]
         public string GetAllocatedServicetoEmployee(string CompanyId, string EmployeeId)
         {
-
-            // int Id = Convert.ToInt32(CompanyId);
             string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/staff/GetAllocateServiceForEmployee?empid=" + EmployeeId + "&compid=" + CompanyId;
             string result = "";
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
@@ -314,8 +309,6 @@ namespace AngularMvcProject.Controllers
         [HttpPost]
         public string GetSelectedService(string ServiceId)
         {
-
-            // int Id = Convert.ToInt32(CompanyId);
             string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/services/GetServiceById?id=" + ServiceId;
             string result = "";
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
@@ -334,8 +327,6 @@ namespace AngularMvcProject.Controllers
         [HttpPost]
         public string GetCompanyDetails(string companyId)
         {
-
-            // int Id = Convert.ToInt32(CompanyId);
             string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/companyregistration/GetCompanyDetails?companyId=" + companyId;
             string result = "";
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
@@ -354,8 +345,6 @@ namespace AngularMvcProject.Controllers
         [HttpPost]
         public string GetOpeningHours(string companyId)
         {
-
-            // int Id = Convert.ToInt32(CompanyId);
             string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/company/GetOpeningHours?companyId=" + companyId;
             string result = "";
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
@@ -441,7 +430,6 @@ namespace AngularMvcProject.Controllers
         [HttpPost]
         public string GetAppointmentDetails(string CustomerId)
         {
-            // int Id = Convert.ToInt32(CompanyId);
             try
             {
                 var startDate = DateTime.Now.Date.AddYears(-1).ToShortDateString().Replace("/", "-");
@@ -460,10 +448,6 @@ namespace AngularMvcProject.Controllers
                 {
                     result = streamReader.ReadToEnd();
                 }
-
-
-
-
 
                 List<AllAppointments> appointments = JsonConvert.DeserializeObject<List<AllAppointments>>(result);
                 List<AppointmentDetails> ListofAppointment = new List<AppointmentDetails>();
@@ -615,17 +599,6 @@ namespace AngularMvcProject.Controllers
         {
             try
             {
-                //string mystring = notesdetail.Description;
-
-                //System.Text.RegularExpressions.Regex rx = new System.Text.RegularExpressions.Regex("<.+?>|&nbsp;");
-                //mystring = rx.Replace(mystring, "");
-
-                //notesdetail.Description = mystring;
-
-
-
-
-
                 string apiUrl = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/customer/AddNote";
                 string result = "";
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUrl);
@@ -704,7 +677,5 @@ namespace AngularMvcProject.Controllers
                 return e.ToString();
             }
         }
-
-
     }
 }

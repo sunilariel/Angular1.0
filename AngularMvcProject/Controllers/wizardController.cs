@@ -11,26 +11,16 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Globalization;
 using System.Configuration;
-//namespace AngularMvcProject.Controllers
-//{
-//    public class wizardController : Controller
-//    {
-//        // GET: wizard
-//        public ActionResult wizard()
-//        {
-//            return View();
-//        }
-//    }
-//}
+
 namespace AngularMvcProject.Controllers
 {
     public class wizardController : Controller
     {
-        // GET: SignUp
         public ActionResult wizard()
         {
             return View();
         }
+
         [HttpPost]
         public string postdata(CreateAccount dataObj)
         {
@@ -59,6 +49,7 @@ namespace AngularMvcProject.Controllers
 
             return result;
         }
+
         [HttpPost]
         public string poststaffdata(StaffData dataObj)
         {
@@ -95,12 +86,11 @@ namespace AngularMvcProject.Controllers
             {
                 return exception.ToString();
             }
-
         }
+
         [HttpPost]
         public string EditStaffData(StaffData dataObj)
         {
-
             try
             {
                 string apiUrl = ConfigurationManager.AppSettings["DomainUrl"].ToString() + dataObj.Url;
@@ -155,8 +145,6 @@ namespace AngularMvcProject.Controllers
                     obj.CreationDate = item.CreationDate;
 
                     listofworkinghours.Add(obj);
-
-
                 }
                 string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + dataobj.Url;
                 string result = "";
@@ -168,8 +156,6 @@ namespace AngularMvcProject.Controllers
 
                 using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
-                    //string jsonString = "{\"user\":\"test\"," +
-                    //              "\"password\":\"bla\"}";
                     var jsonString = new JavaScriptSerializer().Serialize(listofworkinghours);
                     streamWriter.Write(jsonString);
                     streamWriter.Flush();
@@ -189,12 +175,12 @@ namespace AngularMvcProject.Controllers
                 return e.ToString();
             }
         }
+
         [HttpPost]
         public string GetStaffData(int CompanyId)
         {
             try
             {
-                // int Id = Convert.ToInt32(CompanyId);
                 string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/companyregistration/GetCompanyEmployees?companyId=" + CompanyId;
                 string result = "";
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
@@ -216,44 +202,35 @@ namespace AngularMvcProject.Controllers
             {
                 return e.ToString();
             }
-
         }
+
         public string GetServiceData(int Id)
         {
-            
-                // int Id = Convert.ToInt32(CompanyId);
-                string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/services/GetServicesForCompany?companyId=" + Id;
-                string result = "";
-                var data = "";
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
-                httpWebRequest.ContentType = "application/json";
-                httpWebRequest.Method = "GET";
-                httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
+            string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/services/GetServicesForCompany?companyId=" + Id;
+            string result = "";
+            var data = "";
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiURL);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "GET";
+            httpWebRequest.Headers.Add("Token", Request.Headers["Token"]);
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    data = streamReader.ReadToEnd();
-                }
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                data = streamReader.ReadToEnd();
+            }
 
-                List<RequestAddService> listofServices = new List<RequestAddService>();
-                listofServices = JsonConvert.DeserializeObject<List<RequestAddService>>(data);
-                //return result;
+            List<RequestAddService> listofServices = new List<RequestAddService>();
+            listofServices = JsonConvert.DeserializeObject<List<RequestAddService>>(data);
+            var listofstaffdata = GetStaffData(Id);
 
-                //Get Employees for particular Company
-
-                var listofstaffdata = GetStaffData(Id);
-
-                List<RequestStaffData> staffdata = new List<RequestStaffData>();
-                staffdata = JsonConvert.DeserializeObject<List<RequestStaffData>>(listofstaffdata);
-
-
+            List<RequestStaffData> staffdata = new List<RequestStaffData>();
+            staffdata = JsonConvert.DeserializeObject<List<RequestStaffData>>(listofstaffdata);
+            
             List<EmployeeServicedata> EmpServiceData = new List<EmployeeServicedata>();
 
-            //  return result;
-            
-                foreach ( var item in listofServices)
-                {
+            foreach ( var item in listofServices)
+            {
                 EmployeeServicedata obj = new EmployeeServicedata();
                     obj.Id = item.Id;
                     obj.Name = item.Name;
@@ -367,6 +344,7 @@ namespace AngularMvcProject.Controllers
             return jsonString;
                                                                    
         }
+
         [HttpPost]
         public string AddService(Service dataObj)
         {
@@ -404,6 +382,7 @@ namespace AngularMvcProject.Controllers
             }
 
         }
+
         [HttpPost]
         public string EditService(Service dataObj)
         {
@@ -441,6 +420,7 @@ namespace AngularMvcProject.Controllers
             }
 
         }
+
         [HttpPost]
         public string DeleteService(int Id)
         {
@@ -466,6 +446,7 @@ namespace AngularMvcProject.Controllers
             }
 
         }
+
         [HttpPost]
         public string DeleteStaff(int Id)
         {
@@ -491,6 +472,7 @@ namespace AngularMvcProject.Controllers
             }
 
         }
+
         public string AssignStaff(AssignStaff dataobj)
         {
             string apiURL = ConfigurationManager.AppSettings["DomainUrl"].ToString() + dataobj.Url;
@@ -545,6 +527,5 @@ namespace AngularMvcProject.Controllers
                 return e.ToString();
             }
         }
-
     }
 }

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AngularMvcProject.Models;
+using System;
+using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using System.Configuration;
-using AngularMvcProject.Models;
 
 namespace AngularMvcProject.Controllers
 {

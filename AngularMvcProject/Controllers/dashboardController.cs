@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Script.Serialization;
 using System.Configuration;
-using System.Globalization;
-using AngularMvcProject.Models;
-using Newtonsoft.Json;
+using System.IO;
+using System.Net;
+using System.Web.Mvc;
 
 namespace AngularMvcProject.Controllers
 {
     public class dashboardController : Controller
     {
-        //
-        // GET: /dashboard/
         [HttpPost]
         public string GetWeeksSchedule(string CompanyId)
         {
@@ -105,8 +96,6 @@ namespace AngularMvcProject.Controllers
 
                 using (var StreamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
-                    //var jsonString = new JavaScriptSerializer().Serialize(category);
-                    //StreamWriter.Write(jsonString);
                     StreamWriter.Flush();
                     StreamWriter.Close();
                 }

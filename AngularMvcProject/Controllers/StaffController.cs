@@ -1,21 +1,19 @@
 ﻿using AngularMvcProject.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Net;
-using System.IO;
-using System.Web.Script.Serialization;
-using Newtonsoft.Json;
-using System.Globalization;
 using System.Configuration;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace AngularMvcProject.Controllers
 {
     public class StaffController : Controller
     {
-        // GET: Staff
         [HttpPost]
         public string AddStaff(RequestStaffData dataObj)
         {
@@ -164,7 +162,6 @@ namespace AngularMvcProject.Controllers
         {
             try
             {
-                //Get List of Allocated Service//
                 string apiUrl = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/staff/GetAllocateServiceForEmployee?empid=" + EmployeeId + "&compid=" + CompanyId;
 
                 string result = "";
@@ -183,8 +180,6 @@ namespace AngularMvcProject.Controllers
                 listofAllocatedService = JsonConvert.DeserializeObject<List<AssignedServiceStatus>>(result);
 
                 var AllocatedServiceCount = listofAllocatedService.Count();
-
-                //Get List of All Services//
 
                  apiUrl = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/services/GetServicesForCompany?companyId=" + CompanyId;
                  result = "";
@@ -222,8 +217,6 @@ namespace AngularMvcProject.Controllers
                     }
                 }
                
-               
-
                 var jsonstring = JsonConvert.SerializeObject(listofAllServices);
                 return jsonstring;
               
@@ -234,6 +227,7 @@ namespace AngularMvcProject.Controllers
             }
 
         }
+
         [HttpPost]
         public string SetEmployeeWorkingHours(EmployeeWorkingHours dataObj)
         {
@@ -275,7 +269,6 @@ namespace AngularMvcProject.Controllers
             {
                 return exception.ToString();
             }
-
         }
 
         [HttpPost]
@@ -322,8 +315,7 @@ namespace AngularMvcProject.Controllers
                 return e.ToString();
             }
         }
-
-        
+                
         [HttpPost]
         public string SetTimeOff(CustomTimeOff dataObj)
         {
@@ -338,9 +330,7 @@ namespace AngularMvcProject.Controllers
                 dataObj.StartDate = startdate.ToString("yyyy-MM-dd");
                 DateTime enddate = DateTime.Parse(dataObj.EndDate, CultureInfo.CurrentCulture);
                 dataObj.EndDate = enddate.ToString("yyyy-MM-dd");
-
-
-
+                
                 TimeOff obj = new TimeOff();
                 obj.CompanyId = dataObj.CompanyId;
                 obj.EmployeeId = dataObj.EmployeeId;
@@ -366,8 +356,7 @@ namespace AngularMvcProject.Controllers
                     streamWriter.Flush();
                     streamWriter.Close();
                 }
-
-
+                
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
 
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -398,9 +387,7 @@ namespace AngularMvcProject.Controllers
                 dataObj.StartDate = startdate.ToString("yyyy-MM-dd");
                 DateTime enddate = DateTime.Parse(dataObj.EndDate, CultureInfo.CurrentCulture);
                 dataObj.EndDate = enddate.ToString("yyyy-MM-dd");
-
-
-
+                
                 UpdateTimeOff obj = new UpdateTimeOff();
                 obj.CompanyId = dataObj.CompanyId;
                 obj.EmployeeId = dataObj.EmployeeId;
@@ -471,11 +458,7 @@ namespace AngularMvcProject.Controllers
                 return exception.ToString();
             }
         }
-
-
-
-
-
+        
         [HttpPost]
         public string GetTimeOffDetail(string EmployeeId)
         {
@@ -509,7 +492,6 @@ namespace AngularMvcProject.Controllers
         {
             try
             {
-                
                 DateTime startdate = DateTime.Parse(dataObj.Start, CultureInfo.CurrentCulture);
                 dataObj.Start = startdate.ToString("HH:mm");
                 DateTime endtdate = DateTime.Parse(dataObj.End, CultureInfo.CurrentCulture);
@@ -531,8 +513,7 @@ namespace AngularMvcProject.Controllers
                     streamWriter.Flush();
                     streamWriter.Close();
                 }
-
-
+                
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
 
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -563,9 +544,7 @@ namespace AngularMvcProject.Controllers
                     endtdate = startdate.AddHours(1);
                 }
                 dataObj.End = endtdate.ToString("HH:mm");
-
                 
-
                 string apiUrl = ConfigurationManager.AppSettings["DomainUrl"].ToString() + "/api/staff/UpdateBreak";
 
                 string result = "";
@@ -582,8 +561,7 @@ namespace AngularMvcProject.Controllers
                     streamWriter.Flush();
                     streamWriter.Close();
                 }
-
-
+                
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
 
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -597,9 +575,7 @@ namespace AngularMvcProject.Controllers
             {
                 return exception.ToString();
             }
-
         }
-
 
         public string GetBreakTimeHoursofEmployee( string EmployeeId)
         {
@@ -713,7 +689,5 @@ namespace AngularMvcProject.Controllers
             }
 
         }
-
-
     }
 }

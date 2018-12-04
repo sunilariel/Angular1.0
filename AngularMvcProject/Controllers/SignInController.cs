@@ -1,10 +1,10 @@
-﻿using System.Web.Mvc;
+﻿using AngularMvcProject.Models;
+using Newtonsoft.Json;
+using System;
+using System.Configuration;
 using System.IO;
 using System.Net;
-using System.Configuration;
-using Newtonsoft.Json;
-using AngularMvcProject.Models;
-using System;
+using System.Web.Mvc;
 
 
 namespace AngularMvcProject.Controllers
@@ -54,12 +54,5 @@ namespace AngularMvcProject.Controllers
                 return Json(e.ToString());
             }
         }
-
-        //[HttpPost]
-        //public JsonResult postdataforgotpassword(string json)
-        //{
-        //    return Json(JsonRequestBehavior.AllowGet);
-        //}
-
     }
 }
