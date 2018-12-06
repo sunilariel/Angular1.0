@@ -9,30 +9,30 @@
     $scope.Password = "";
     $scope.IsVisible = false;
     var booluserexist = false;
-    $scope.RedirecttoForgotPassword = function () {        
+    $scope.RedirecttoForgotPassword = function () {
         $scope.ShowForgotScreen = {
             show: true,
             hide: true
         };
     }
-    $scope.BacktoSignInScreen = function () {   
+    $scope.BacktoSignInScreen = function () {
         $location.path('/signin');
         $scope.ShowSignInScreen = {
             show: true,
             hide: true
         };
-        
+
     }
     $scope.signupPage = function () {
         $location.path('/');
     }
-    
+
     $scope.submitTheForm = function (form) {
         ////debugger;
-        if (form.$invalid == true) {            
+        if (form.$invalid == true) {
             if (form.email.$invalid == true) {
                 $scope.IsVisible = true;
-                $scope.MessageText = "Email is reauired";
+                $scope.MessageText = "Email is required";
                 $timeout(function () {
                     $scope.IsVisible = false;
                 }, 1000)
@@ -41,7 +41,7 @@
             }
             else if (form.password.$invalid == true) {
                 $scope.IsVisible = true;
-                $scope.MessageText = "Password is reauired";
+                $scope.MessageText = "Password is required";
                 $timeout(function () {
                     $scope.IsVisible = false;
                 }, 1000)
@@ -100,12 +100,54 @@
 
 
     $scope.resetpassword = function (form) {
-        alert("reset pswd");
-        ////debugger;
-        var dataemail = {
+        if (form.$invalid == true) {
+            if (form.email.$invalid == true) {
+                $scope.IsVisible = true;
+                $scope.MessageText = "Email is required";
+                $timeout(function () {
+                    $scope.IsVisible = false;
+                }, 1000)
+                form.email.$touched = true;
+                form.email.$setTouched();
+            }
+            return false;
+        }
+
+        var dataObject = {
             Email: $scope.Email,
         }
+
+        var data = JSON.stringify(dataObject);
+
+        $http.post("SignIn/RecoverPassword", { json: data }).success(function (data) {
+            ////debugger;
+            if (data.success == true) {
+
+                $scope.msg = "Post Data Submitted Successfully!";
+                //$scope.companyId = data.CompanyId;
+                //$rootScope.IsLoggedInUser = true;
+
+                //  $timeout(function () { $scope.MessageText = "Your Details saved."; $timeout(function () { $scope.IsVisible = false; }, 1000) }, 500);
+                $scope.IsVisible = false;
+                //$location.path("/dashboard/" + $scope.companyId);
+                //$window.sessionStorage.setItem('userInfo-token', data.Token);
+                //$window.sessionStorage.setItem('IsAdmin', data.IsAdmin);
+            }
+            else if (data.includes("System.Net.WebException: The remote server returned an error")) {
+                $scope.MessageText = "Invalid Credentials.";
+                $timeout(function () { $scope.IsVisible = false; }, 1000);
+
+            }
+        })
+            .error(function (e) {
+                alert('Error!');
+                //$timeout(function () { $scope.messagetext = "Invalid Credentials."; }, 500);
+            });
+
+        alert("Please Check Your Inbox");
     }
+
+    
 
 }
 ]);
